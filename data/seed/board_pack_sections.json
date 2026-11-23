@@ -1,0 +1,178 @@
+[
+  {
+    "id": "bps-deso-letter",
+    "pack_id": "pack-desolenator-q4",
+    "key": "letter",
+    "sort": 1,
+    "name": "CEO letter",
+    "state": "needs",
+    "state_label": "Needs you",
+    "kicker": "CEO letter",
+    "title": "Where plant capital stands",
+    "source_note": "Written by you",
+    "paragraphs": [
+      "Outline: where plant capital stands, what changed with DEWA and Silal, the Head of Projects search, and the one decision you want from the board."
+    ],
+    "rows": [],
+    "needs": true,
+    "need_text": "The letter is yours to write. Bridge can draft it from your plan and the ledger.",
+    "need_cta": "Start writing",
+    "provenance": "scenario"
+  },
+  {
+    "id": "bps-deso-fin",
+    "pack_id": "pack-desolenator-q4",
+    "key": "fin",
+    "sort": 2,
+    "name": "Financials and KPIs",
+    "state": "ready",
+    "state_label": "Ready · from your finance system",
+    "kicker": "Financials and KPIs",
+    "title": "Cash, revenue and plant capex",
+    "source_note": "From your finance system (demo connection)",
+    "paragraphs": [
+      "Figures are masked in this preview. In Bridge they come straight from the source, with the date they were pulled."
+    ],
+    "rows": [
+      {
+        "label": "Cash and runway",
+        "value": "••••",
+        "note": null
+      },
+      {
+        "label": "Revenue and contracted water volume",
+        "value": "••••",
+        "note": null
+      },
+      {
+        "label": "Plant capex committed",
+        "value": "••••",
+        "note": null
+      },
+      {
+        "label": "Headcount",
+        "value": "••••",
+        "note": null
+      }
+    ],
+    "needs": false,
+    "need_text": null,
+    "need_cta": null,
+    "provenance": "scenario"
+  },
+  {
+    "id": "bps-deso-pilots",
+    "pack_id": "pack-desolenator-q4",
+    "key": "pilots",
+    "sort": 3,
+    "name": "Pilots and plant pipeline",
+    "state": "needs",
+    "state_label": "Needs you · confirm status",
+    "kicker": "Pilots and plant pipeline",
+    "title": "Where each buyer stands",
+    "source_note": "Desolenator project pages; stages are yours to confirm",
+    "paragraphs": [],
+    "rows": [
+      {
+        "label": "DEWA",
+        "value": "Pilot · confirm",
+        "note": null
+      },
+      {
+        "label": "Silal",
+        "value": "Pilot · confirm",
+        "note": null
+      },
+      {
+        "label": "Data centres and industry",
+        "value": "Pipeline",
+        "note": null
+      },
+      {
+        "label": "XPRIZE Water Scarcity",
+        "value": "Semi-finalist",
+        "note": null
+      }
+    ],
+    "needs": true,
+    "need_text": "Stage labels are drafted from public pages. Confirm each one.",
+    "need_cta": "Confirm stages",
+    "provenance": "scenario"
+  },
+  {
+    "id": "bps-deso-plan",
+    "pack_id": "pack-desolenator-q4",
+    "key": "plan",
+    "sort": 4,
+    "name": "Plan progress",
+    "state": "ready",
+    "state_label": "Ready · from your Bridge plan",
+    "kicker": "Plan progress",
+    "title": "Three priorities, one quarter",
+    "source_note": "From your Bridge plan",
+    "paragraphs": [],
+    "rows": [
+      {
+        "label": "P1 Repeatable plant-finance template",
+        "value": "Unit economics in progress; fund introductions due 15 Dec",
+        "note": null
+      },
+      {
+        "label": "P2 Multi-plant offtake",
+        "value": "Contract template starts this month",
+        "note": null
+      },
+      {
+        "label": "P3 Head of Projects, MENA",
+        "value": "Scorecard agreed, search under way",
+        "note": null
+      }
+    ],
+    "needs": false,
+    "need_text": null,
+    "need_cta": null,
+    "provenance": "scenario"
+  },
+  {
+    "id": "bps-deso-asks",
+    "pack_id": "pack-desolenator-q4",
+    "key": "asks",
+    "sort": 5,
+    "name": "Asks of the board",
+    "state": "drafted",
+    "state_label": "Drafted · review",
+    "kicker": "Asks of the board",
+    "title": "What we need from the board",
+    "source_note": "Drafted from your plan and ledger",
+    "paragraphs": [
+      "1. Decision on a first-loss position in plant SPV #1.",
+      "2. Introductions to infrastructure investors with water mandates, beyond the three in progress.",
+      "3. Feedback on the offtake template."
+    ],
+    "rows": [],
+    "needs": false,
+    "need_text": null,
+    "need_cta": "Redraft",
+    "provenance": "scenario"
+  },
+  {
+    "id": "bps-deso-ops",
+    "pack_id": "pack-desolenator-q4",
+    "key": "ops",
+    "sort": 6,
+    "name": "Operations and uptime",
+    "state": "needs",
+    "state_label": "Needs you · data missing",
+    "kicker": "Operations and uptime",
+    "title": "Plant performance",
+    "source_note": "Founder-entered",
+    "paragraphs": [
+      "No plant data connected yet."
+    ],
+    "rows": [],
+    "needs": true,
+    "need_text": "No plant data connected yet. Add site, uptime and output by hand, or connect telemetry when available.",
+    "need_cta": "Add data",
+    "provenance": "scenario"
+  }
+]

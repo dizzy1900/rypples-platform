@@ -1,0 +1,47 @@
+[
+  {
+    "id": "inst-inf",
+    "company_id": "desolenator",
+    "key": "inf",
+    "name": "Infrastructure funds with water mandates",
+    "why": "Asset equity for SPV #1. Board partner introductions due 15 December.",
+    "shortlisted": true,
+    "provenance": "illustrative"
+  },
+  {
+    "id": "inst-ryp",
+    "company_id": "desolenator",
+    "key": "ryp",
+    "name": "Rypples first-loss position",
+    "why": "Permanent capital taking the junior slice that brings cheaper money in behind it.",
+    "shortlisted": false,
+    "provenance": "illustrative"
+  },
+  {
+    "id": "inst-blu",
+    "company_id": "desolenator",
+    "key": "blu",
+    "name": "EU BlueInvest network",
+    "why": "You won the BlueInvest Award 2026 for Ocean Resilience. Check follow-on access.",
+    "shortlisted": false,
+    "provenance": "illustrative"
+  },
+  {
+    "id": "inst-dfcd",
+    "company_id": "desolenator",
+    "key": "dfcd",
+    "name": "Dutch Fund for Climate and Development",
+    "why": "Approved grant support for your Cambodia seawater facility in December 2022. A precedent.",
+    "shortlisted": false,
+    "provenance": "public"
+  },
+  {
+    "id": "inst-eca",
+    "company_id": "desolenator",
+    "key": "eca",
+    "name": "Export credit for MENA plants",
+    "why": "Dutch-built equipment going to the Gulf may qualify. To verify.",
+    "shortlisted": false,
+    "provenance": "illustrative"
+  }
+]

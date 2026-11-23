@@ -1,0 +1,20 @@
+[
+  {
+    "id": "bm-deso-day0",
+    "company_id": "desolenator",
+    "at": "2026-10-15",
+    "at_offset": null,
+    "label": "Day 0 board",
+    "note": "Diligence diagnostic confirmed; plan adopted",
+    "kind": "past"
+  },
+  {
+    "id": "bm-deso-q4",
+    "company_id": "desolenator",
+    "at": null,
+    "at_offset": 3,
+    "label": "Thu 26 Nov",
+    "note": "Pre-read and diagnostic ready",
+    "kind": "next"
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "bm-financing",
+    "domain_id": "financing",
+    "days": 120,
+    "source_kind": "outside",
+    "source_note": "Outside: first pilot to first financed plant or fleet, comparable climate hardware",
+    "confidence": "low",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "bm-commercial",
+    "domain_id": "commercial",
+    "days": 90,
+    "source_kind": "outside",
+    "source_note": "Outside: pilot to first commercial contract",
+    "confidence": "low",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "bm-operations",
+    "domain_id": "operations",
+    "days": 110,
+    "source_kind": "outside",
+    "source_note": "Outside: first unit to repeatable delivery",
+    "confidence": "low",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "bm-technology",
+    "domain_id": "technology",
+    "days": 120,
+    "source_kind": "outside",
+    "source_note": "Outside: pilot to independent performance evidence",
+    "confidence": "low",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "bm-regulatory",
+    "domain_id": "regulatory",
+    "days": 75,
+    "source_kind": "outside",
+    "source_note": "Outside: certification lead times by market",
+    "confidence": "low",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "bm-people",
+    "domain_id": "people",
+    "days": 70,
+    "source_kind": "blended",
+    "source_note": "Blended: Rypples key hires plus outside time-to-hire",
+    "confidence": "medium",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "bm-ai",
+    "domain_id": "ai",
+    "days": 45,
+    "source_kind": "outside",
+    "source_note": "Outside: first automated workflow in operations",
+    "confidence": "low",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "bm-impact",
+    "domain_id": "impact",
+    "days": 60,
+    "source_kind": "outside",
+    "source_note": "Outside: first verified Ocean Impact Navigator report",
+    "confidence": "low",
+    "provenance": "illustrative"
+  }
+]

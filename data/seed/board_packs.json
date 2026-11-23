@@ -1,0 +1,15 @@
+[
+  {
+    "id": "pack-desolenator-q4",
+    "company_id": "desolenator",
+    "quarter": "Q4 2026",
+    "meeting_offset": 3,
+    "status": "drafting",
+    "share_statements": [
+      "Your board sees exactly what you share.",
+      "Rypples reads the pack to update the diagnostic and sends it back to you.",
+      "Nothing goes to co-investors unless you choose."
+    ],
+    "provenance": "scenario"
+  }
+]

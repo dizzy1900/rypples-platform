@@ -1,0 +1,37 @@
+[
+  {
+    "id": "cap-n1",
+    "what": "Drafted the pre-read for Desolenator's board",
+    "state": "Ready",
+    "route": "/os/companies/desolenator",
+    "action": "review"
+  },
+  {
+    "id": "cap-n2",
+    "what": "Turned 3 meeting notes into 2 proposed lessons",
+    "state": "Review",
+    "route": "/os/playbook",
+    "action": "review"
+  },
+  {
+    "id": "cap-n3",
+    "what": "Flagged 14 companies entering the scale gap",
+    "state": "In Pipeline",
+    "route": "/os/pipeline",
+    "action": "none"
+  },
+  {
+    "id": "cap-n4",
+    "what": "Drafted the Q4 shareholder update",
+    "state": "Review",
+    "route": "/os/reporting",
+    "action": "review"
+  },
+  {
+    "id": "cap-n5",
+    "what": "Drafted Q3 KPI requests to 2 founders",
+    "state": "Needs approval",
+    "route": "/os/reporting",
+    "action": "approve"
+  }
+]

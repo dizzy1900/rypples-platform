@@ -1,0 +1,38 @@
+[
+  {
+    "id": "replay-1",
+    "lesson_id": "wsense-strategic",
+    "at": "Dec 2023",
+    "label": "Memorandum of understanding",
+    "event": "Fincantieri and WSense sign a memorandum of understanding on strategic collaboration.",
+    "source_id": "src_fincantieri_2025",
+    "platform_read": "Strategic Partner Map: Fincantieri flagged as likely largest customer and likely acquirer. Lesson candidate opened."
+  },
+  {
+    "id": "replay-2",
+    "lesson_id": "wsense-strategic",
+    "at": "Apr 2025",
+    "label": "Strategic investor",
+    "event": "Fincantieri formalises an investment in WSense through a convertible loan.",
+    "source_id": "src_fincantieri_2025",
+    "platform_read": "Cap table: strategic now a shareholder. Commercial traction risk falls. Constraint moves to Operations and delivery."
+  },
+  {
+    "id": "replay-3",
+    "lesson_id": "wsense-strategic",
+    "at": "Feb 2026",
+    "label": "Co-development",
+    "event": "Technology and commercial co-development agreement (illustrative, source not found).",
+    "source_id": null,
+    "platform_read": "Strategic path: co-development signed before exclusivity. Exit-readiness pack started."
+  },
+  {
+    "id": "replay-4",
+    "lesson_id": "wsense-strategic",
+    "at": "Jul 2026",
+    "label": "Majority stake",
+    "event": "Fincantieri agrees to take a majority stake in WSense, part of about €600m across four underwater deals.",
+    "source_id": "src_wsense_acq",
+    "platform_read": "Exit. Lesson drafted from four sources and proposed for approval."
+  }
+]

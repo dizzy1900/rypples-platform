@@ -1,0 +1,98 @@
+[
+  {
+    "id": "sig-01",
+    "codename": "Project Atlas",
+    "vertical": "Blue Foods",
+    "region": "Americas",
+    "signal": "Series A announced, hiring a plant manager",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "sig-02",
+    "codename": "Project Beacon",
+    "vertical": "Ocean Health",
+    "region": "Europe",
+    "signal": "Pilot with a water utility, hiring sales",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "sig-03",
+    "codename": "Project Cove",
+    "vertical": "Ecosystems",
+    "region": "APAC",
+    "signal": "New site approvals, scaling team",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "sig-04",
+    "codename": "Project Dune",
+    "vertical": "Maritime",
+    "region": "Europe",
+    "signal": "Second vessel launched",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "sig-05",
+    "codename": "Project Eddy",
+    "vertical": "Ocean Intelligence",
+    "region": "Americas",
+    "signal": "Defence contract announced",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "sig-06",
+    "codename": "Project Fathom",
+    "vertical": "Blue Foods",
+    "region": "Europe",
+    "signal": "Production line commissioned",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "sig-07",
+    "codename": "Project Gale",
+    "vertical": "Maritime",
+    "region": "APAC",
+    "signal": "First fleet order",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "sig-08",
+    "codename": "Project Harbor",
+    "vertical": "Ocean Health",
+    "region": "Americas",
+    "signal": "Grant win for first plant",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "sig-09",
+    "codename": "Project Isle",
+    "vertical": "Ecosystems",
+    "region": "Europe",
+    "signal": "Seed extension, expanding to a second site",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "sig-10",
+    "codename": "Project Jetty",
+    "vertical": "Maritime",
+    "region": "Americas",
+    "signal": "Pilot converted to a contract",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "sig-11",
+    "codename": "Project Keel",
+    "vertical": "Ocean Intelligence",
+    "region": "APAC",
+    "signal": "Series A closed, building the team",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "sig-12",
+    "codename": "Project Lagoon",
+    "vertical": "Blue Foods",
+    "region": "APAC",
+    "signal": "Offtake agreement signed",
+    "provenance": "illustrative"
+  }
+]

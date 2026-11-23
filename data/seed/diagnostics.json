@@ -1,0 +1,31 @@
+[
+  {
+    "id": "diag-desolenator-day0",
+    "company_id": "desolenator",
+    "run_id": null,
+    "kind": "public",
+    "status": "confirmed",
+    "binding_domain_id": "financing",
+    "binding_statement": "Asset capital for water-as-a-service plants",
+    "binding_detail": "Each plant sits in an SPV that Desolenator co-owns and operates, and sells water on a monthly bill. Nothing earns until the plant is financed and built. The pilots aren't the limit. Plant capital is.",
+    "questions": [
+      "What does the capital stack for one 250 m³/day plant look like, and who has said yes?",
+      "Which pilot buyer, DEWA or Silal, is closest to a multi-plant commitment?",
+      "What field data would convince an infrastructure fund the plants perform?"
+    ],
+    "program_ids": [
+      "finance-sprint",
+      "key-hire"
+    ],
+    "lesson_ids": [
+      "price-total-cost"
+    ],
+    "confirmed_by": "bp-water",
+    "confirmed_at": "2026-10-15",
+    "confirmed_label": "Confirmed 15 Oct at Day 0 by the board partner",
+    "prompt_version": null,
+    "model": null,
+    "provenance": "scenario",
+    "firm_id": "rypples"
+  }
+]

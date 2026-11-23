@@ -1,0 +1,23 @@
+[
+  {
+    "id": "rec-finance-2",
+    "role": "Finance expert, second hire",
+    "state": "Final conversation",
+    "note": "3 candidates from the bench. Needed before a fourth finance sprint starts.",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "rec-bp-intelligence",
+    "role": "Board partner, Ocean Intelligence",
+    "state": "Sourcing",
+    "note": "To cover Marble and Project Kelvin if Rypples leads.",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "rec-regulatory",
+    "role": "Regulatory expert",
+    "state": "Onboarding",
+    "note": "Playbook briefing done. First mission: Certification Path for Kelp Blue.",
+    "provenance": "illustrative"
+  }
+]

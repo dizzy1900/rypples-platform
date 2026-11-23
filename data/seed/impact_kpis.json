@@ -1,0 +1,79 @@
+[
+  {
+    "id": "kpi-desolenator",
+    "company_id": "desolenator",
+    "kpi": "Freshwater produced without chemicals or membranes",
+    "status": "in_progress",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "kpi-flocean",
+    "company_id": "flocean",
+    "kpi": "Freshwater produced without coastal brine",
+    "status": "reported",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "kpi-coral-vita",
+    "company_id": "coral-vita",
+    "kpi": "Reef area restored",
+    "status": "reported",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "kpi-vlinder",
+    "company_id": "vlinder",
+    "kpi": "Mangrove area restored",
+    "status": "reported",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "kpi-kelp-blue",
+    "company_id": "kelp-blue",
+    "kpi": "Giant kelp farmed offshore",
+    "status": "reported",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "kpi-full-circle-biotechnology",
+    "company_id": "full-circle-biotechnology",
+    "kpi": "Wild fish replaced in feed",
+    "status": "reported",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "kpi-sway",
+    "company_id": "sway",
+    "kpi": "Fossil plastic displaced",
+    "status": "reported",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "kpi-hullbot",
+    "company_id": "hullbot",
+    "kpi": "Fuel and emissions avoided by clean hulls",
+    "status": "reported",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "kpi-vessev",
+    "company_id": "vessev",
+    "kpi": "Emissions avoided against diesel ferries",
+    "status": "in_progress",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "kpi-matter",
+    "company_id": "matter",
+    "kpi": "Microplastics captured",
+    "status": "not_yet",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "kpi-marble",
+    "company_id": "marble",
+    "kpi": "Ocean area under persistent monitoring",
+    "status": "not_yet",
+    "provenance": "illustrative"
+  }
+]

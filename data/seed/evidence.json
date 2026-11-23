@@ -1,0 +1,254 @@
+[
+  {
+    "id": "ev-deso-01",
+    "company_id": "desolenator",
+    "run_id": null,
+    "source_id": "src_republic",
+    "document_id": "doc-deso-republic",
+    "url": "https://diogo.republic.com/desolenator",
+    "title": "Republic deal note: Desolenator",
+    "cited_text": "fully financed through a Special Purpose Vehicle (SPV) whereby Desolenator owns a share of the SPV and is the operator for each asset",
+    "claim": "Each plant is financed through an SPV that Desolenator co-owns and operates.",
+    "location": {
+      "source_id": "src_republic",
+      "start": 6943,
+      "end": 7076
+    },
+    "provenance": "public",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "ev-deso-02",
+    "company_id": "desolenator",
+    "run_id": null,
+    "source_id": "src_deso_product",
+    "document_id": "doc-deso-product",
+    "url": "https://www.desolenator.com/product",
+    "title": "Desolenator product page",
+    "cited_text": "Delivered through a simple monthly bill.",
+    "claim": "Water is sold on a monthly bill, so revenue follows a financed and built plant.",
+    "location": {
+      "source_id": "src_deso_product",
+      "start": 390,
+      "end": 430
+    },
+    "provenance": "public",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "ev-deso-03",
+    "company_id": "desolenator",
+    "run_id": null,
+    "source_id": "src_deso_dubai",
+    "document_id": "doc-deso-dubai",
+    "url": "https://www.desolenator.com/projects/dubai",
+    "title": "Desolenator DEWA project",
+    "cited_text": "as part of our Public-Private Partnerships under the Dubai Future Accelerator Program",
+    "claim": "DEWA is a public-private pilot partner.",
+    "location": {
+      "source_id": "src_deso_dubai",
+      "start": 639,
+      "end": 724
+    },
+    "provenance": "public",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "ev-deso-04",
+    "company_id": "desolenator",
+    "run_id": null,
+    "source_id": "src_deso_abudhabi",
+    "document_id": "doc-deso-abudhabi",
+    "url": "https://www.desolenator.com/projects/abu-dhabi",
+    "title": "Desolenator Silal project",
+    "cited_text": "partner with Silal (ADQ) to deploy the world's first solar desalination plant for food production in the UAE",
+    "claim": "Silal (ADQ) is a pilot partner for solar desalination in food production.",
+    "location": {
+      "source_id": "src_deso_abudhabi",
+      "start": 100,
+      "end": 208
+    },
+    "provenance": "public",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "ev-deso-05",
+    "company_id": "desolenator",
+    "run_id": null,
+    "source_id": "src_deso_product",
+    "document_id": "doc-deso-product",
+    "url": "https://www.desolenator.com/product",
+    "title": "Desolenator product page",
+    "cited_text": "Scalable, modular systems for remote deployment, at a low levelised cost of water.",
+    "claim": "Modular systems are designed for remote deployment.",
+    "location": {
+      "source_id": "src_deso_product",
+      "start": 786,
+      "end": 868
+    },
+    "provenance": "public",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "ev-deso-06",
+    "company_id": "desolenator",
+    "run_id": null,
+    "source_id": "src_deso_product",
+    "document_id": "doc-deso-product",
+    "url": "https://www.desolenator.com/product",
+    "title": "Desolenator product page",
+    "cited_text": "No consumables (no filters, no membranes).",
+    "claim": "No consumables or membranes in the system.",
+    "location": {
+      "source_id": "src_deso_product",
+      "start": 1744,
+      "end": 1786
+    },
+    "provenance": "public",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "ev-deso-07",
+    "company_id": "desolenator",
+    "run_id": null,
+    "source_id": "src_deso_product",
+    "document_id": "doc-deso-product",
+    "url": "https://www.desolenator.com/product",
+    "title": "Desolenator product page",
+    "cited_text": "harvesting 4x more energy than standard PV and able to operate 24/7 off-grid",
+    "claim": "Company claim: 4x PV energy harvest and 24/7 off-grid operation. No independent field data is public.",
+    "location": {
+      "source_id": "src_deso_product",
+      "start": 530,
+      "end": 606
+    },
+    "provenance": "public",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "ev-deso-08",
+    "company_id": "desolenator",
+    "run_id": null,
+    "source_id": "src_deso_product",
+    "document_id": "doc-deso-product",
+    "url": "https://www.desolenator.com/product",
+    "title": "Desolenator product page",
+    "cited_text": "ISO 14001: 2015 — Environmental Management System",
+    "claim": "ISO 14001 certified.",
+    "location": {
+      "source_id": "src_deso_product",
+      "start": 3876,
+      "end": 3925
+    },
+    "provenance": "public",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "ev-deso-09",
+    "company_id": "desolenator",
+    "run_id": null,
+    "source_id": "src_deso_product",
+    "document_id": "doc-deso-product",
+    "url": "https://www.desolenator.com/product",
+    "title": "Desolenator product page",
+    "cited_text": "ISO 9001: 2015 — Quality Management System",
+    "claim": "ISO 9001 certified (ISO 45001 listed alongside).",
+    "location": {
+      "source_id": "src_deso_product",
+      "start": 3973,
+      "end": 4015
+    },
+    "provenance": "public",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "ev-deso-10",
+    "company_id": "desolenator",
+    "run_id": null,
+    "source_id": "src_deso_news",
+    "document_id": "doc-deso-news",
+    "url": "https://www.desolenator.com/latest-news",
+    "title": "Desolenator company news",
+    "cited_text": "Desolenator Announces Adri Pols as New CEO to Lead Scale-up and Address",
+    "claim": "New CEO announced to lead the scale-up (13 Jun 2024).",
+    "location": {
+      "source_id": "src_deso_news",
+      "start": 561,
+      "end": 632
+    },
+    "provenance": "public",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "ev-deso-11",
+    "company_id": "desolenator",
+    "run_id": null,
+    "source_id": "src_deso_about",
+    "document_id": "doc-deso-about",
+    "url": "https://www.desolenator.com/about-us",
+    "title": "Desolenator team page",
+    "cited_text": "our team of 20 speaks 13 languages",
+    "claim": "Team of about 20 people.",
+    "location": {
+      "source_id": "src_deso_about",
+      "start": 212,
+      "end": 246
+    },
+    "provenance": "public",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "ev-deso-12",
+    "company_id": "desolenator",
+    "run_id": null,
+    "source_id": "src_deso_product",
+    "document_id": "doc-deso-product",
+    "url": "https://www.desolenator.com/product",
+    "title": "Desolenator product page",
+    "cited_text": "No toxic chemicals. No chemical pre-treatment. No membranes.",
+    "claim": "No chemicals or membranes in the process.",
+    "location": {
+      "source_id": "src_deso_product",
+      "start": 895,
+      "end": 955
+    },
+    "provenance": "public",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "ev-deso-13",
+    "company_id": "desolenator",
+    "run_id": null,
+    "source_id": "src_deso_product",
+    "document_id": "doc-deso-product",
+    "url": "https://www.desolenator.com/product",
+    "title": "Desolenator product page",
+    "cited_text": "produces a low-concentration and non-toxic brine",
+    "claim": "Company claim: low-concentration, non-toxic brine.",
+    "location": {
+      "source_id": "src_deso_product",
+      "start": 985,
+      "end": 1033
+    },
+    "provenance": "public",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "ev-deso-14",
+    "company_id": "desolenator",
+    "run_id": null,
+    "source_id": "src_deso_news",
+    "document_id": "doc-deso-news",
+    "url": "https://www.desolenator.com/latest-news",
+    "title": "Desolenator company news",
+    "cited_text": "Desolenator wins the BlueInvest Award 2026 (Ocean Resilience) in Brussels, presented by the European Commission.",
+    "claim": "BlueInvest Award 2026 for Ocean Resilience.",
+    "location": {
+      "source_id": "src_deso_news",
+      "start": 423,
+      "end": 535
+    },
+    "provenance": "public",
+    "firm_id": "rypples"
+  }
+]

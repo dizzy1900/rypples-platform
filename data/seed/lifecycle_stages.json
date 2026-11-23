@@ -1,0 +1,46 @@
+[
+  {
+    "id": "ls-deso-day0",
+    "company_id": "desolenator",
+    "key": "day0",
+    "status": "done",
+    "label": "Day 0",
+    "when": "15 Oct · done",
+    "note": "The diligence diagnostic became the plan. Growth Engine allocation agreed in the term sheet.",
+    "founder_note": "Your plan started from the diagnostic Rypples built before the round, and the allocation is written into your term sheet.",
+    "provenance": "scenario"
+  },
+  {
+    "id": "ls-deso-first100",
+    "company_id": "desolenator",
+    "key": "first100",
+    "status": "in_progress",
+    "label": "First 100 days",
+    "when": "Until 23 Jan · in progress",
+    "note": "Constraint confirmed. Plant Finance Sprint and Key Hire running. Board rhythm set.",
+    "founder_note": "We agree the one constraint with you, start the programs you choose, and set a board rhythm you can plan around.",
+    "provenance": "scenario"
+  },
+  {
+    "id": "ls-deso-quarterly",
+    "company_id": "desolenator",
+    "key": "quarterly",
+    "status": "upcoming",
+    "label": "Quarterly loop",
+    "when": "From Feb 2027",
+    "note": "Board pack, diagnostic, programs, Playbook. Every quarter, same rhythm.",
+    "founder_note": "Every quarter: Bridge drafts your board pack, we update the diagnostic and send it back to you, and the programs follow.",
+    "provenance": "scenario"
+  },
+  {
+    "id": "ls-deso-strategic",
+    "company_id": "desolenator",
+    "key": "strategic",
+    "status": "always_on",
+    "label": "Exit readiness",
+    "when": "Always on",
+    "note": "Strategic buyer and acquirer map kept current from day 0, the WSense play.",
+    "founder_note": "A map of strategic buyers, investors and acquirers is kept current from day 0, so you are never negotiating cold.",
+    "provenance": "scenario"
+  }
+]

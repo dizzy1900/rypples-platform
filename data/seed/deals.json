@@ -1,0 +1,479 @@
+[
+  {
+    "id": "tern",
+    "codename": "Project Tern",
+    "vertical": "Maritime",
+    "region": "Europe",
+    "stage": "ic",
+    "note": "IC Fri 27 Nov",
+    "what": "Electric workboats for offshore wind service. Two paying fleet customers, Series A open.",
+    "proposed_constraint": "a second production line",
+    "constraint_domain_id": "operations",
+    "why": "Order book is ahead of build capacity. Lead time is the reason the third customer hasn't signed.",
+    "evidence_count": 41,
+    "plan_drafts": [
+      "Fund and staff the second line before the third fleet order.",
+      "Write conversion terms into both pilot extensions.",
+      "Hire a COO with series-production experience."
+    ],
+    "partner_note": "Board partner match: Maritime (also covers Hullbot and Vessev).",
+    "lesson_note": "Related Playbook entry: hire operations leadership in-market before the second site.",
+    "cta_label": "Mark as led",
+    "diligence": {
+      "evidence": [
+        {
+          "id": "tern-ev-01",
+          "claim": "Two fleet customers paying",
+          "cited_text": "Two paying fleet customers, both on multi-year service terms.",
+          "title": "Customer contracts"
+        },
+        {
+          "id": "tern-ev-02",
+          "claim": "Order book ahead of capacity",
+          "cited_text": "Signed and verbal orders exceed twelve months of build capacity on one production line.",
+          "title": "Order book summary"
+        },
+        {
+          "id": "tern-ev-03",
+          "claim": "Lead time of 11 months",
+          "cited_text": "Quoted lead time is 11 months from order to delivery.",
+          "title": "Production schedule"
+        },
+        {
+          "id": "tern-ev-04",
+          "claim": "Third customer waiting on delivery slot",
+          "cited_text": "Third fleet operator has asked for a delivery slot before signing.",
+          "title": "CRM export"
+        },
+        {
+          "id": "tern-ev-05",
+          "claim": "Series A open",
+          "cited_text": "Series A is open with a lead investor sought.",
+          "title": "Cap table and round terms"
+        },
+        {
+          "id": "tern-ev-06",
+          "claim": "Class approval in hand",
+          "cited_text": "Class society approval covers the current hull and powertrain.",
+          "title": "Class certificate"
+        },
+        {
+          "id": "tern-ev-07",
+          "claim": "Field uptime data from customer one",
+          "cited_text": "Fleet customer one reports high availability across a full season of offshore wind service.",
+          "title": "Operating logs"
+        },
+        {
+          "id": "tern-ev-08",
+          "claim": "Founder team is technical",
+          "cited_text": "Founders come from naval architecture and battery engineering. No operations lead yet.",
+          "title": "Team deck"
+        },
+        {
+          "id": "tern-ev-09",
+          "claim": "No production-scale manufacturing hire",
+          "cited_text": "No one on the team has run series production.",
+          "title": "Org chart"
+        },
+        {
+          "id": "tern-ev-10",
+          "claim": "Battery supplier single-sourced",
+          "cited_text": "Battery packs come from one supplier with no second source.",
+          "title": "Supplier list"
+        },
+        {
+          "id": "tern-ev-11",
+          "claim": "Diesel displacement measured",
+          "cited_text": "Each vessel avoids a measured quantity of diesel use against the incumbent workboat.",
+          "title": "Impact note"
+        },
+        {
+          "id": "tern-ev-12",
+          "claim": "Maintenance tooling is manual",
+          "cited_text": "Telemetry exists but alerts are reviewed by hand.",
+          "title": "Operations review"
+        }
+      ],
+      "scores": [
+        {
+          "domain_id": "commercial",
+          "score": 3,
+          "confidence": "medium",
+          "finding": "Two paying fleet customers and a third waiting. Conversion terms are not written into the pilot extensions.",
+          "evidence_ids": [
+            "tern-ev-01",
+            "tern-ev-04"
+          ]
+        },
+        {
+          "domain_id": "financing",
+          "score": 3,
+          "confidence": "medium",
+          "finding": "Series A is open. Build capacity, not capital, is the nearer limit.",
+          "evidence_ids": [
+            "tern-ev-05"
+          ]
+        },
+        {
+          "domain_id": "operations",
+          "score": 2,
+          "confidence": "high",
+          "finding": "Order book is ahead of build capacity. A single production line sets lead time, and lead time is why the third customer has not signed.",
+          "evidence_ids": [
+            "tern-ev-02",
+            "tern-ev-03",
+            "tern-ev-09"
+          ]
+        },
+        {
+          "domain_id": "technology",
+          "score": 4,
+          "confidence": "medium",
+          "finding": "A full season of field data from customer one. Battery supply is single-sourced.",
+          "evidence_ids": [
+            "tern-ev-07",
+            "tern-ev-10"
+          ]
+        },
+        {
+          "domain_id": "regulatory",
+          "score": 4,
+          "confidence": "medium",
+          "finding": "Class approval covers the current design.",
+          "evidence_ids": [
+            "tern-ev-06"
+          ]
+        },
+        {
+          "domain_id": "people",
+          "score": 3,
+          "confidence": "medium",
+          "finding": "Strong technical founders. No series-production or operations leader.",
+          "evidence_ids": [
+            "tern-ev-08",
+            "tern-ev-09"
+          ]
+        },
+        {
+          "domain_id": "ai",
+          "score": 3,
+          "confidence": "low",
+          "finding": "Telemetry exists. Alerts are reviewed by hand.",
+          "evidence_ids": [
+            "tern-ev-12"
+          ]
+        },
+        {
+          "domain_id": "impact",
+          "score": 4,
+          "confidence": "medium",
+          "finding": "Diesel displacement is measured per vessel.",
+          "evidence_ids": [
+            "tern-ev-11"
+          ]
+        }
+      ]
+    },
+    "data_room": [
+      {
+        "name": "Tern_Board_Deck_Nov2026.pdf",
+        "type": "PDF",
+        "modified": "12 Nov 2026"
+      },
+      {
+        "name": "Fleet_Customer_Contracts.zip",
+        "type": "ZIP",
+        "modified": "9 Nov 2026"
+      },
+      {
+        "name": "Production_Schedule_2026-27.xlsx",
+        "type": "Spreadsheet",
+        "modified": "10 Nov 2026"
+      },
+      {
+        "name": "Cap_Table_and_Round_Terms.xlsx",
+        "type": "Spreadsheet",
+        "modified": "5 Nov 2026"
+      },
+      {
+        "name": "Class_Certificate.pdf",
+        "type": "PDF",
+        "modified": "28 Oct 2026"
+      },
+      {
+        "name": "Operating_Logs_Customer1.csv",
+        "type": "CSV",
+        "modified": "3 Nov 2026"
+      }
+    ],
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "kelvin",
+    "codename": "Project Kelvin",
+    "vertical": "Ocean Intelligence",
+    "region": "Europe",
+    "stage": "diligence",
+    "note": "Diagnostic running",
+    "what": "Underwater sensing network for ports and naval users. Sea trials complete, no purchase order yet.",
+    "proposed_constraint": "a first purchase order from a navy or port",
+    "constraint_domain_id": "commercial",
+    "why": "Three buyers have asked for pricing, but none has a budget line. A funded pilot would turn interest into a contract.",
+    "evidence_count": 18,
+    "plan_drafts": [
+      "Name the first buyer with budget and write conversion terms into the pilot.",
+      "Hire a commercial lead with defence procurement experience.",
+      "Open a strategic conversation with one prime."
+    ],
+    "partner_note": "Board partner match: a second Ocean Intelligence partner is in recruiting.",
+    "lesson_note": "Related Playbook entry: bring the strategic onto the cap table early.",
+    "cta_label": "View diagnostic",
+    "diligence": {
+      "evidence": [
+        {
+          "id": "kel-ev-01",
+          "claim": "Customer interest across two navies",
+          "cited_text": "Two navies and one port authority have asked for pricing.",
+          "title": "CRM notes"
+        },
+        {
+          "id": "kel-ev-02",
+          "claim": "Hardware field-tested",
+          "cited_text": "Prototype units have run in sea trials for six months.",
+          "title": "Test report"
+        },
+        {
+          "id": "kel-ev-03",
+          "claim": "Founders from defence",
+          "cited_text": "Founding team has defence and signal-processing backgrounds.",
+          "title": "Team deck"
+        }
+      ],
+      "scores": [
+        {
+          "domain_id": "commercial",
+          "score": 3,
+          "confidence": "low",
+          "finding": "Interest is high. No purchase order yet.",
+          "evidence_ids": [
+            "kel-ev-01"
+          ]
+        },
+        {
+          "domain_id": "financing",
+          "score": null,
+          "confidence": "low",
+          "finding": "Diagnostic still running. Evidence gap.",
+          "evidence_ids": []
+        },
+        {
+          "domain_id": "operations",
+          "score": null,
+          "confidence": "low",
+          "finding": "Diagnostic still running. Evidence gap.",
+          "evidence_ids": []
+        },
+        {
+          "domain_id": "technology",
+          "score": 4,
+          "confidence": "medium",
+          "finding": "Six months of sea trials.",
+          "evidence_ids": [
+            "kel-ev-02"
+          ]
+        },
+        {
+          "domain_id": "regulatory",
+          "score": null,
+          "confidence": "low",
+          "finding": "Diagnostic still running. Evidence gap.",
+          "evidence_ids": []
+        },
+        {
+          "domain_id": "people",
+          "score": 3,
+          "confidence": "low",
+          "finding": "Strong technical team. Commercial lead not yet hired.",
+          "evidence_ids": [
+            "kel-ev-03"
+          ]
+        },
+        {
+          "domain_id": "ai",
+          "score": null,
+          "confidence": "low",
+          "finding": "Diagnostic still running. Evidence gap.",
+          "evidence_ids": []
+        },
+        {
+          "domain_id": "impact",
+          "score": null,
+          "confidence": "low",
+          "finding": "Diagnostic still running. Evidence gap.",
+          "evidence_ids": []
+        }
+      ]
+    },
+    "data_room": [
+      {
+        "name": "Kelvin_Pitch.pdf",
+        "type": "PDF",
+        "modified": "14 Nov 2026"
+      },
+      {
+        "name": "Sea_Trial_Report.pdf",
+        "type": "PDF",
+        "modified": "2 Nov 2026"
+      },
+      {
+        "name": "Pricing_Requests.xlsx",
+        "type": "Spreadsheet",
+        "modified": "16 Nov 2026"
+      },
+      {
+        "name": "Team_and_Advisers.pdf",
+        "type": "PDF",
+        "modified": "14 Nov 2026"
+      }
+    ],
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "halyard",
+    "codename": "Project Halyard",
+    "vertical": "Blue Foods",
+    "region": "APAC",
+    "stage": "first_meeting",
+    "note": "Meeting Wed 2 Dec",
+    "what": "Seaweed-based packaging for food exporters. First commercial runs with two brands.",
+    "proposed_constraint": "a repeatable manufacturing process",
+    "constraint_domain_id": "operations",
+    "why": "Pilot batches work, but yield drops when volume rises. Plant ramp is the limit.",
+    "evidence_count": 9,
+    "plan_drafts": [
+      "Lock a manufacturing partner before the next brand order.",
+      "Write conversion terms into both brand pilots.",
+      "Hire a plant manager."
+    ],
+    "partner_note": "Board partner match: not yet assigned.",
+    "lesson_note": "Related Playbook entry: write conversion terms into every pilot.",
+    "cta_label": "Request data room",
+    "diligence": null,
+    "data_room": [],
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "bowline",
+    "codename": "Project Bowline",
+    "vertical": "Maritime",
+    "region": "Europe",
+    "stage": "first_meeting",
+    "note": "Meeting Thu 3 Dec",
+    "what": "Retrofit kits that cut fuel use on short-sea cargo vessels. Three installs complete.",
+    "proposed_constraint": "service capacity across ports",
+    "constraint_domain_id": "operations",
+    "why": "Installs are booked out for months and yard partners are thin.",
+    "evidence_count": 7,
+    "plan_drafts": [
+      "Qualify two more yard partners.",
+      "Hire a service operations lead.",
+      "Set a standard install price."
+    ],
+    "partner_note": "Board partner match: Maritime (also covers Hullbot and Vessev).",
+    "lesson_note": "Related Playbook entry: hire operations leadership in-market before the second site.",
+    "cta_label": "Request data room",
+    "diligence": null,
+    "data_room": [],
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "ebb",
+    "codename": "Project Ebb",
+    "vertical": "Ocean Health",
+    "region": "Europe",
+    "stage": "sourced",
+    "note": "Flagged: Series A closed, first plant",
+    "what": "Tidal-powered water treatment for coastal towns. First plant under construction.",
+    "proposed_constraint": "asset capital for the first plants",
+    "constraint_domain_id": "financing",
+    "why": "A first plant is funded, but the next ones need project finance.",
+    "evidence_count": 3,
+    "plan_drafts": [
+      "Build a repeatable plant-finance template.",
+      "Open introductions to infrastructure funds.",
+      "Hire a head of projects."
+    ],
+    "partner_note": "Board partner match: Water and infrastructure.",
+    "lesson_note": "Related Playbook entry: price the first plant on total cost of ownership, not capex.",
+    "cta_label": "Book first meeting",
+    "diligence": null,
+    "data_room": [],
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "spinnaker",
+    "codename": "Project Spinnaker",
+    "vertical": "Ecosystems",
+    "region": "Americas",
+    "stage": "sourced",
+    "note": "Flagged: grant win, scaling team",
+    "what": "Seagrass restoration with measured carbon outcomes. Grant secured for two sites.",
+    "proposed_constraint": "finance for restoration sites",
+    "constraint_domain_id": "financing",
+    "why": "Grant money covers two sites. Scaling to ten needs blended capital.",
+    "evidence_count": 3,
+    "plan_drafts": [
+      "Design a blended-finance structure for sites three to ten.",
+      "Verify impact with Ocean Impact Navigator KPIs.",
+      "Hire a site operations lead."
+    ],
+    "partner_note": "Board partner match: not yet assigned.",
+    "lesson_note": "Related Playbook entry: price on total cost, not capex.",
+    "cta_label": "Book first meeting",
+    "diligence": null,
+    "data_room": [],
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "mooring",
+    "codename": "Project Mooring",
+    "vertical": "Ecosystems",
+    "region": "APAC",
+    "stage": "diligence",
+    "note": "Data room received",
+    "what": "Mangrove and shoreline protection for coastal developers. Four paying projects.",
+    "proposed_constraint": "developer contracts that repeat",
+    "constraint_domain_id": "commercial",
+    "why": "Four one-off projects. No framework agreement with a developer yet.",
+    "evidence_count": 22,
+    "plan_drafts": [
+      "Turn the largest developer into a framework agreement.",
+      "Hire a sales lead for developers.",
+      "Verify impact reporting."
+    ],
+    "partner_note": "Board partner match: not yet assigned.",
+    "lesson_note": "Related Playbook entry: write conversion terms into every pilot.",
+    "cta_label": "Send to IC",
+    "diligence": null,
+    "data_room": [
+      {
+        "name": "Mooring_Data_Room_Index.xlsx",
+        "type": "Spreadsheet",
+        "modified": "18 Nov 2026"
+      },
+      {
+        "name": "Project_Portfolio.pdf",
+        "type": "PDF",
+        "modified": "17 Nov 2026"
+      }
+    ],
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  }
+]

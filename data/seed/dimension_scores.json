@@ -1,0 +1,137 @@
+[
+  {
+    "id": "ds-deso-commercial",
+    "diagnostic_id": "diag-desolenator-day0",
+    "domain_id": "commercial",
+    "score": 3,
+    "confidence": "medium",
+    "finding": "Two flagship pilots: DEWA and Silal (ADQ). No multi-plant contracts public yet.",
+    "evidence_ids": [
+      "ev-deso-03",
+      "ev-deso-04"
+    ],
+    "source_ids": [
+      "src_deso_dubai",
+      "src_deso_abudhabi"
+    ],
+    "is_binding": false,
+    "note": null
+  },
+  {
+    "id": "ds-deso-financing",
+    "diagnostic_id": "diag-desolenator-day0",
+    "domain_id": "financing",
+    "score": 2,
+    "confidence": "medium",
+    "finding": "Plants are financed through SPVs that Desolenator co-owns and operates. Revenue starts only once a plant is financed and built.",
+    "evidence_ids": [
+      "ev-deso-01",
+      "ev-deso-02"
+    ],
+    "source_ids": [
+      "src_republic",
+      "src_deso_product"
+    ],
+    "is_binding": true,
+    "note": null
+  },
+  {
+    "id": "ds-deso-operations",
+    "diagnostic_id": "diag-desolenator-day0",
+    "domain_id": "operations",
+    "score": 3,
+    "confidence": "medium",
+    "finding": "40 m³/hour modular system with no membranes or consumables. Running several sites in MENA is still to be proven.",
+    "evidence_ids": [
+      "ev-deso-05",
+      "ev-deso-06"
+    ],
+    "source_ids": [
+      "src_deso_product"
+    ],
+    "is_binding": false,
+    "note": null
+  },
+  {
+    "id": "ds-deso-technology",
+    "diagnostic_id": "diag-desolenator-day0",
+    "domain_id": "technology",
+    "score": 3,
+    "confidence": "low",
+    "finding": "Company claims 24/7 solar-only operation and PV-T panels harvesting about 4× standard PV. No independent field data is public.",
+    "evidence_ids": [
+      "ev-deso-07"
+    ],
+    "source_ids": [
+      "src_deso_product"
+    ],
+    "is_binding": false,
+    "note": null
+  },
+  {
+    "id": "ds-deso-regulatory",
+    "diagnostic_id": "diag-desolenator-day0",
+    "domain_id": "regulatory",
+    "score": 4,
+    "confidence": "medium",
+    "finding": "ISO 9001, 14001 and 45001 certified. Potable-water approvals are needed market by market.",
+    "evidence_ids": [
+      "ev-deso-08",
+      "ev-deso-09"
+    ],
+    "source_ids": [
+      "src_deso_product"
+    ],
+    "is_binding": false,
+    "note": null
+  },
+  {
+    "id": "ds-deso-people",
+    "diagnostic_id": "diag-desolenator-day0",
+    "domain_id": "people",
+    "score": 3,
+    "confidence": "medium",
+    "finding": "New CEO since June 2024 to lead the scale-up. About 20 people. Missing project-finance and MENA field-operations leadership.",
+    "evidence_ids": [
+      "ev-deso-10",
+      "ev-deso-11"
+    ],
+    "source_ids": [
+      "src_deso_news",
+      "src_deso_about"
+    ],
+    "is_binding": false,
+    "note": null
+  },
+  {
+    "id": "ds-deso-ai",
+    "diagnostic_id": "diag-desolenator-day0",
+    "domain_id": "ai",
+    "score": null,
+    "confidence": "low",
+    "finding": "Nothing public on remote monitoring or predictive maintenance.",
+    "evidence_ids": [],
+    "source_ids": [],
+    "is_binding": false,
+    "note": "Requested for the next board pack"
+  },
+  {
+    "id": "ds-deso-impact",
+    "diagnostic_id": "diag-desolenator-day0",
+    "domain_id": "impact",
+    "score": 4,
+    "confidence": "medium",
+    "finding": "No chemicals or membranes; low-concentration, non-toxic brine. BlueInvest Award 2026 for Ocean Resilience.",
+    "evidence_ids": [
+      "ev-deso-12",
+      "ev-deso-13",
+      "ev-deso-14"
+    ],
+    "source_ids": [
+      "src_deso_product",
+      "src_deso_news"
+    ],
+    "is_binding": false,
+    "note": null
+  }
+]

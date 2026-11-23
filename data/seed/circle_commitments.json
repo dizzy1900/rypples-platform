@@ -1,0 +1,42 @@
+[
+  {
+    "id": "cc2-desolenator",
+    "circle_id": "circle-02",
+    "company_id": "desolenator",
+    "text": "Share a one-page plant capital stack with the circle",
+    "status": "done",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "cc2-coral-vita",
+    "circle_id": "circle-02",
+    "company_id": "coral-vita",
+    "text": "Bring one public-buyer contract for review",
+    "status": "open",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "cc2-vessev",
+    "circle_id": "circle-02",
+    "company_id": "vessev",
+    "text": "Close the first operations hire outside New Zealand",
+    "status": "at_risk",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "cc2-sway",
+    "circle_id": "circle-02",
+    "company_id": "sway",
+    "text": "Test pricing with two manufacturers",
+    "status": "done",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "cc2-matter",
+    "circle_id": "circle-02",
+    "company_id": "matter",
+    "text": "Name the three buyers who decide fastest",
+    "status": "open",
+    "provenance": "illustrative"
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "id": "mis-deso-unit-economics",
+    "company_id": "desolenator",
+    "priority_id": "pri-deso-1",
+    "title": "Plant unit economics at US$1/m³",
+    "operator_id": "fe",
+    "due_offset": 4,
+    "status": "open",
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "mis-deso-scorecard",
+    "company_id": "desolenator",
+    "priority_id": "pri-deso-3",
+    "title": "Head of Projects, MENA: scorecard",
+    "operator_id": "pe",
+    "due_offset": 4,
+    "status": "open",
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "mis-hullbot-pricing",
+    "company_id": "hullbot",
+    "priority_id": null,
+    "title": "Fleet service pricing review",
+    "operator_id": "bp-maritime",
+    "due_offset": 3,
+    "status": "open",
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "mis-vessev-us-hire",
+    "company_id": "vessev",
+    "priority_id": null,
+    "title": "US operations hire shortlist",
+    "operator_id": "pe",
+    "due_offset": 4,
+    "status": "open",
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  }
+]

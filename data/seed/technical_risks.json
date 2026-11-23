@@ -1,0 +1,38 @@
+[
+  {
+    "id": "tr-deso-heat",
+    "company_id": "desolenator",
+    "risk": "Output holds through Gulf summer heat and dust",
+    "test": "90 days of output and uptime at a live site",
+    "state": "No data",
+    "amber": true,
+    "provenance": "illustrative"
+  },
+  {
+    "id": "tr-deso-storage",
+    "company_id": "desolenator",
+    "risk": "Thermal storage carries 24/7 operation",
+    "test": "Overnight output logs from the pilot",
+    "state": "Company claim",
+    "amber": false,
+    "provenance": "illustrative"
+  },
+  {
+    "id": "tr-deso-brine",
+    "company_id": "desolenator",
+    "risk": "Brine discharge stays within permit at scale",
+    "test": "Discharge monitoring against permit limits",
+    "state": "Partly shown",
+    "amber": false,
+    "provenance": "illustrative"
+  },
+  {
+    "id": "tr-deso-sites",
+    "company_id": "desolenator",
+    "risk": "One team can run several remote sites",
+    "test": "O&M hours per site across two sites",
+    "state": "No data",
+    "amber": true,
+    "provenance": "illustrative"
+  }
+]

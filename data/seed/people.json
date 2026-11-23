@@ -1,0 +1,110 @@
+[
+  {
+    "id": "jerome",
+    "kind": "rypples",
+    "name": "Jerome Ternynck",
+    "title": "Co-founder & CEO",
+    "initials": "JT",
+    "company_id": null,
+    "photo_path": null,
+    "source_id": "src_rypples_home",
+    "provenance": "public",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "adri",
+    "kind": "founder",
+    "name": "Adri Pols",
+    "title": "CEO, Desolenator",
+    "initials": "AP",
+    "company_id": "desolenator",
+    "photo_path": null,
+    "source_id": "src_deso_news",
+    "provenance": "public",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "person-bp-water",
+    "kind": "operator",
+    "name": null,
+    "title": "Board partner",
+    "initials": "BP",
+    "company_id": null,
+    "photo_path": null,
+    "source_id": null,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "person-bp-maritime",
+    "kind": "operator",
+    "name": null,
+    "title": "Board partner",
+    "initials": "BP",
+    "company_id": null,
+    "photo_path": null,
+    "source_id": null,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "person-fe",
+    "kind": "operator",
+    "name": null,
+    "title": "Finance expert",
+    "initials": "FE",
+    "company_id": null,
+    "photo_path": null,
+    "source_id": null,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "person-ge",
+    "kind": "operator",
+    "name": null,
+    "title": "Go-To-Market expert",
+    "initials": "GE",
+    "company_id": null,
+    "photo_path": null,
+    "source_id": null,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "person-pe",
+    "kind": "operator",
+    "name": null,
+    "title": "People expert",
+    "initials": "PE",
+    "company_id": null,
+    "photo_path": null,
+    "source_id": null,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "person-ie",
+    "kind": "operator",
+    "name": null,
+    "title": "Impact expert",
+    "initials": "IE",
+    "company_id": null,
+    "photo_path": null,
+    "source_id": null,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "person-te",
+    "kind": "operator",
+    "name": null,
+    "title": "Independent technical expert",
+    "initials": "TE",
+    "company_id": null,
+    "photo_path": null,
+    "source_id": null,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  }
+]

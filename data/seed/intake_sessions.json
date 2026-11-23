@@ -1,0 +1,59 @@
+[
+  {
+    "id": "intake-deso-prep",
+    "kind": "board",
+    "title": "Desolenator board prep call",
+    "who_label": "Board partner · Thu 19 Nov",
+    "held_offset": -4,
+    "outcome": "1 lesson proposed: price the first plant on total cost of water. 2 actions added to missions.",
+    "confidential": false,
+    "cta": "Review",
+    "proposed_lesson": {
+      "id": "lesson-total-cost-water",
+      "title": "Price the first plant on total cost of water",
+      "domain_id": "financing"
+    },
+    "actions": [
+      "Share the plant unit economics with the board partner",
+      "Draft the fund shortlist for introductions"
+    ],
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "intake-vlinder-fe",
+    "kind": "expert",
+    "title": "Finance expert session with Vlinder",
+    "who_label": "Finance expert · Wed 18 Nov",
+    "held_offset": -5,
+    "outcome": "No new lesson. 3 actions added to missions.",
+    "confidential": false,
+    "cta": "Open",
+    "proposed_lesson": null,
+    "actions": [
+      "Update the restoration site cash flow",
+      "Check carbon credit pre-sale terms",
+      "Send the model to the board partner"
+    ],
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "intake-circle02-s2",
+    "kind": "circle",
+    "title": "Ocean Scalers, Circle 02, session 2",
+    "who_label": "Facilitator · Tue 17 Nov",
+    "held_offset": -6,
+    "outcome": "1 lesson proposed from themes only. Circle notes stay confidential.",
+    "confidential": true,
+    "cta": "Review",
+    "proposed_lesson": {
+      "id": "lesson-circle-themes",
+      "title": "Show infrastructure funds one plant's capital stack before asking for terms",
+      "domain_id": "financing"
+    },
+    "actions": [],
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  }
+]

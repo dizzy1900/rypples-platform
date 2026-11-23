@@ -1,0 +1,34 @@
+[
+  {
+    "id": "talent-deso-head-projects",
+    "company_id": "desolenator",
+    "role": "Head of Projects, MENA",
+    "why": "Binding constraint: plant delivery after financing",
+    "state": "4 on shortlist",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "talent-vessev-us-ops",
+    "company_id": "vessev",
+    "role": "US operations lead",
+    "why": "First US customer named",
+    "state": "Sourcing",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "talent-fcb-plant-manager",
+    "company_id": "full-circle-biotechnology",
+    "role": "Plant manager",
+    "why": "New production plant",
+    "state": "Sourcing",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "talent-hullbot-vp-sales",
+    "company_id": "hullbot",
+    "role": "VP Sales, fleets",
+    "why": "Repeatable sales stage",
+    "state": "Brief agreed",
+    "provenance": "illustrative"
+  }
+]

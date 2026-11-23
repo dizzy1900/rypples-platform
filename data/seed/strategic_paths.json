@@ -1,0 +1,62 @@
+[
+  {
+    "id": "sp-wsense",
+    "company_id": "wsense",
+    "now": "Fincantieri: strategic investor, then partner, then majority owner (July 2026)",
+    "now_provenance": "public",
+    "now_source_id": "src_wsense_acq",
+    "likely": "Done",
+    "program_status": "Exited",
+    "verify_note": "Feb 2026 co-development step is illustrative; see the lesson timeline."
+  },
+  {
+    "id": "sp-desolenator",
+    "company_id": "desolenator",
+    "now": "DEWA and Silal (ADQ) as pilot partners. Neither is a shareholder.",
+    "now_provenance": "public",
+    "now_source_id": "src_deso_dubai",
+    "likely": "Water utilities, desalination contractors, industrial water users",
+    "program_status": "Proposed",
+    "verify_note": "Shareholder status cannot be proven from public sources."
+  },
+  {
+    "id": "sp-flocean",
+    "company_id": "flocean",
+    "now": "Xylem joined the Series A as a strategic investor (late 2025)",
+    "now_provenance": "public",
+    "now_source_id": "src_flocean_xylem",
+    "likely": "Water technology groups, offshore energy contractors",
+    "program_status": "Running",
+    "verify_note": "Date not in the snapshot; the Business Wire release is dated 18 Nov 2025 per search."
+  },
+  {
+    "id": "sp-hullbot",
+    "company_id": "hullbot",
+    "now": "Not mapped yet",
+    "now_provenance": "illustrative",
+    "now_source_id": null,
+    "likely": "Shipping lines, hull coating and marine services groups",
+    "program_status": "Not started",
+    "verify_note": null
+  },
+  {
+    "id": "sp-vessev",
+    "company_id": "vessev",
+    "now": "A US customer, FlyTahoe, selected Vessev boats (Aug 2026)",
+    "now_provenance": "public",
+    "now_source_id": "src_vessev_us",
+    "likely": "Ferry operators, shipbuilders",
+    "program_status": "Not started",
+    "verify_note": "Baird Maritime, 21 Aug 2026, confirms the US customer; the word first is not in the snapshot."
+  },
+  {
+    "id": "sp-marble",
+    "company_id": "marble",
+    "now": "Not mapped yet",
+    "now_provenance": "illustrative",
+    "now_source_id": null,
+    "likely": "Defence and security primes, port operators",
+    "program_status": "Not started",
+    "verify_note": null
+  }
+]

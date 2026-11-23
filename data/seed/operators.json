@@ -1,0 +1,160 @@
+[
+  {
+    "id": "bp-water",
+    "initials": "BP",
+    "role": "Board partner",
+    "role_key": "board_partner",
+    "focus": "Water and infrastructure",
+    "covers": [
+      "desolenator",
+      "flocean"
+    ],
+    "covers_note": null,
+    "seats_total": 3,
+    "seats_used": 2,
+    "hours_quarter": 240,
+    "hours_committed": 180,
+    "rating": 4.6,
+    "open_missions": 2,
+    "delivered": 3,
+    "vertical_focus": "Ocean Health",
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "bp-maritime",
+    "initials": "BP",
+    "role": "Board partner",
+    "role_key": "board_partner",
+    "focus": "Maritime",
+    "covers": [
+      "hullbot",
+      "vessev"
+    ],
+    "covers_note": null,
+    "seats_total": 3,
+    "seats_used": 2,
+    "hours_quarter": 240,
+    "hours_committed": 180,
+    "rating": 4.5,
+    "open_missions": 3,
+    "delivered": 2,
+    "vertical_focus": "Maritime",
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "fe",
+    "initials": "FE",
+    "role": "Finance expert",
+    "role_key": "finance",
+    "focus": "Project finance, SPVs",
+    "covers": [
+      "desolenator",
+      "vlinder",
+      "kelp-blue"
+    ],
+    "covers_note": "3 sprints running. Add one before taking a fourth.",
+    "seats_total": null,
+    "seats_used": null,
+    "hours_quarter": 300,
+    "hours_committed": 270,
+    "rating": 4.8,
+    "open_missions": 3,
+    "delivered": 4,
+    "vertical_focus": null,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "ge",
+    "initials": "GE",
+    "role": "Go-To-Market expert",
+    "role_key": "gtm",
+    "focus": "Utilities and public buyers",
+    "covers": [
+      "desolenator",
+      "coral-vita",
+      "matter"
+    ],
+    "covers_note": null,
+    "seats_total": null,
+    "seats_used": null,
+    "hours_quarter": 240,
+    "hours_committed": 168,
+    "rating": 4.2,
+    "open_missions": 2,
+    "delivered": 2,
+    "vertical_focus": null,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "pe",
+    "initials": "PE",
+    "role": "People expert",
+    "role_key": "people",
+    "focus": "Executive search",
+    "covers": [
+      "desolenator",
+      "vessev",
+      "full-circle-biotechnology"
+    ],
+    "covers_note": null,
+    "seats_total": null,
+    "seats_used": null,
+    "hours_quarter": 240,
+    "hours_committed": 156,
+    "rating": 4.4,
+    "open_missions": 2,
+    "delivered": 3,
+    "vertical_focus": null,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "ie",
+    "initials": "IE",
+    "role": "Impact expert",
+    "role_key": "impact",
+    "focus": "Ocean Impact Navigator",
+    "covers": [
+      "coral-vita",
+      "vlinder",
+      "sway"
+    ],
+    "covers_note": null,
+    "seats_total": null,
+    "seats_used": null,
+    "hours_quarter": 180,
+    "hours_committed": 150,
+    "rating": 4.2,
+    "open_missions": 1,
+    "delivered": 3,
+    "vertical_focus": null,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "te",
+    "initials": "TE",
+    "role": "Independent technical expert",
+    "role_key": "technical",
+    "focus": "Field performance",
+    "covers": [
+      "desolenator",
+      "kelp-blue"
+    ],
+    "covers_note": "Desolenator is proposed, not yet running.",
+    "seats_total": null,
+    "seats_used": null,
+    "hours_quarter": 160,
+    "hours_committed": 76,
+    "rating": 4.6,
+    "open_missions": 1,
+    "delivered": 1,
+    "vertical_focus": null,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  }
+]

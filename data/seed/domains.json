@@ -1,0 +1,58 @@
+[
+  {
+    "id": "commercial",
+    "slug": "commercial",
+    "label": "Commercial traction",
+    "note": "Sales and conversion",
+    "sort": 1
+  },
+  {
+    "id": "financing",
+    "slug": "financing",
+    "label": "Financing",
+    "note": "Capital stack",
+    "sort": 2
+  },
+  {
+    "id": "operations",
+    "slug": "operations",
+    "label": "Operations and delivery",
+    "note": "Deploy, build, operate",
+    "sort": 3
+  },
+  {
+    "id": "technology",
+    "slug": "technology",
+    "label": "Technology and reliability",
+    "note": "Performance in the field",
+    "sort": 4
+  },
+  {
+    "id": "regulatory",
+    "slug": "regulatory",
+    "label": "Regulatory",
+    "note": "Certification, permits",
+    "sort": 5
+  },
+  {
+    "id": "people",
+    "slug": "people",
+    "label": "People",
+    "note": "CEO and key hires",
+    "sort": 6
+  },
+  {
+    "id": "ai",
+    "slug": "ai",
+    "label": "AI adoption",
+    "note": "AI in operations",
+    "sort": 7
+  },
+  {
+    "id": "impact",
+    "slug": "impact",
+    "label": "Impact integrity",
+    "note": "Measured outcomes",
+    "sort": 8
+  }
+]

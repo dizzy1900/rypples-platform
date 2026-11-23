@@ -1,0 +1,26 @@
+[
+  {
+    "id": "pri-deso-1",
+    "plan_id": "plan-desolenator",
+    "rank": 1,
+    "title": "Repeatable plant-finance template",
+    "domain_id": "financing",
+    "progress_note": "Unit economics in progress, fund introductions due 15 Dec"
+  },
+  {
+    "id": "pri-deso-2",
+    "plan_id": "plan-desolenator",
+    "rank": 2,
+    "title": "Multi-plant offtake",
+    "domain_id": "commercial",
+    "progress_note": "Contract template starts this month"
+  },
+  {
+    "id": "pri-deso-3",
+    "plan_id": "plan-desolenator",
+    "rank": 3,
+    "title": "Head of Projects, MENA",
+    "domain_id": "people",
+    "progress_note": "Scorecard agreed, search under way"
+  }
+]

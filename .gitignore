@@ -39,3 +39,17 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# geo pipeline
+data/geo/raw/
+scripts/geo/.venv/
+
+# local
+.insforge/
+.env*.local
+.env
+scripts/geo/.venv/
+data/geo/raw/
+.claude/settings.local.json
+/test-results/
+/playwright-report/

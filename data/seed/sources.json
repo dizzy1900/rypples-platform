@@ -1,0 +1,142 @@
+[
+  {
+    "id": "src_rypples_portfolio",
+    "firm_id": "rypples",
+    "url": "https://www.rypples.earth/our-companies",
+    "title": "Rypples portfolio (our companies)",
+    "publisher": "Rypples",
+    "kind": "company",
+    "accessed_at": "2026-11-23",
+    "snapshot_path": "data/sources/src_rypples_portfolio.md"
+  },
+  {
+    "id": "src_rypples_home",
+    "firm_id": "rypples",
+    "url": "https://www.rypples.earth/",
+    "title": "Rypples home",
+    "publisher": "Rypples",
+    "kind": "company",
+    "accessed_at": "2026-11-23",
+    "snapshot_path": "data/sources/src_rypples_home.md"
+  },
+  {
+    "id": "src_deso_product",
+    "firm_id": "rypples",
+    "url": "https://www.desolenator.com/product",
+    "title": "Desolenator product page",
+    "publisher": "Desolenator",
+    "kind": "company",
+    "accessed_at": "2026-11-23",
+    "snapshot_path": "data/sources/src_deso_product.md"
+  },
+  {
+    "id": "src_deso_about",
+    "firm_id": "rypples",
+    "url": "https://www.desolenator.com/about-us",
+    "title": "Desolenator team page",
+    "publisher": "Desolenator",
+    "kind": "company",
+    "accessed_at": "2026-11-23",
+    "snapshot_path": "data/sources/src_deso_about.md"
+  },
+  {
+    "id": "src_deso_news",
+    "firm_id": "rypples",
+    "url": "https://www.desolenator.com/latest-news",
+    "title": "Desolenator company news",
+    "publisher": "Desolenator",
+    "kind": "company",
+    "accessed_at": "2026-11-23",
+    "snapshot_path": "data/sources/src_deso_news.md"
+  },
+  {
+    "id": "src_deso_dubai",
+    "firm_id": "rypples",
+    "url": "https://www.desolenator.com/projects/dubai",
+    "title": "Desolenator DEWA project",
+    "publisher": "Desolenator",
+    "kind": "company",
+    "accessed_at": "2026-11-23",
+    "snapshot_path": "data/sources/src_deso_dubai.md"
+  },
+  {
+    "id": "src_deso_abudhabi",
+    "firm_id": "rypples",
+    "url": "https://www.desolenator.com/projects/abu-dhabi",
+    "title": "Desolenator Silal project",
+    "publisher": "Desolenator",
+    "kind": "company",
+    "accessed_at": "2026-11-23",
+    "snapshot_path": "data/sources/src_deso_abudhabi.md"
+  },
+  {
+    "id": "src_republic",
+    "firm_id": "rypples",
+    "url": "https://diogo.republic.com/desolenator",
+    "title": "Republic deal note: Desolenator",
+    "publisher": "Republic",
+    "kind": "deal",
+    "accessed_at": "2026-11-23",
+    "snapshot_path": "data/sources/src_republic.md"
+  },
+  {
+    "id": "src_wsense_round",
+    "firm_id": "rypples",
+    "url": "https://seedtable.com/companies/wsense/funding-rounds/series-b-2025-04",
+    "title": "WSense funding round, April 2025",
+    "publisher": "Seedtable",
+    "kind": "deal",
+    "accessed_at": "2026-11-23",
+    "snapshot_path": "data/sources/src_wsense_round.md"
+  },
+  {
+    "id": "src_fincantieri_2025",
+    "firm_id": "rypples",
+    "url": "https://www.fincantieri.com/en/media/press-releases/2025/fincantieri-invests-in-wsense-to-develop-innovative-solutions-for-the-naval-and-submarine-sector",
+    "title": "Fincantieri invests in WSense",
+    "publisher": "Fincantieri",
+    "kind": "press",
+    "accessed_at": "2026-11-23",
+    "snapshot_path": "data/sources/src_fincantieri_2025.md"
+  },
+  {
+    "id": "src_wsense_acq",
+    "firm_id": "rypples",
+    "url": "https://en.portnews.ru/news/393775/",
+    "title": "Fincantieri to take majority stake in WSense",
+    "publisher": "PortNews",
+    "kind": "press",
+    "accessed_at": "2026-11-23",
+    "snapshot_path": "data/sources/src_wsense_acq.md"
+  },
+  {
+    "id": "src_oin",
+    "firm_id": "rypples",
+    "url": "https://katapult.vc/ocean/un-ocean-conference-lisbon-an-ocean-emergency-and-the-rising-wave-of-measurable-impact",
+    "title": "Ocean Impact Navigator: an ocean emergency and the rising wave of measurable impact",
+    "publisher": "Katapult",
+    "kind": "press",
+    "accessed_at": "2026-11-23",
+    "snapshot_path": "data/sources/src_oin.md"
+  },
+  {
+    "id": "src_flocean_xylem",
+    "firm_id": "rypples",
+    "url": "https://pulse2.com/flocean-series-a-funding-extended-to-22-5-million-as-xylem-joins-as-strategic-investor/",
+    "title": "Flocean: Series A funding extended to $22.5 million as Xylem joins as strategic investor",
+    "publisher": "Pulse 2",
+    "kind": "press",
+    "accessed_at": "2026-11-23",
+    "snapshot_path": "data/sources/src_flocean_xylem.md"
+  },
+  {
+    "id": "src_vessev_us",
+    "firm_id": "rypples",
+    "url": "https://www.bairdmaritime.com/passenger/ferry/new-zealand-firm-secures-electric-hydrofoil-ferry-order-from-us-customer",
+    "title": "New Zealand firm secures electric hydrofoil ferry order from US customer",
+    "publisher": "Baird Maritime",
+    "kind": "press",
+    "accessed_at": "2026-11-23",
+    "snapshot_path": "data/sources/src_vessev_us.md"
+  }
+]

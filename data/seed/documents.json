@@ -1,0 +1,56 @@
+[
+  {
+    "id": "doc-deso-product",
+    "company_id": "desolenator",
+    "source_id": "src_deso_product",
+    "title": "Product page",
+    "kind": "web page",
+    "provenance": "public",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "doc-deso-about",
+    "company_id": "desolenator",
+    "source_id": "src_deso_about",
+    "title": "Team page",
+    "kind": "web page",
+    "provenance": "public",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "doc-deso-news",
+    "company_id": "desolenator",
+    "source_id": "src_deso_news",
+    "title": "Company news",
+    "kind": "web page",
+    "provenance": "public",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "doc-deso-dubai",
+    "company_id": "desolenator",
+    "source_id": "src_deso_dubai",
+    "title": "DEWA project",
+    "kind": "web page",
+    "provenance": "public",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "doc-deso-abudhabi",
+    "company_id": "desolenator",
+    "source_id": "src_deso_abudhabi",
+    "title": "Silal project",
+    "kind": "web page",
+    "provenance": "public",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "doc-deso-republic",
+    "company_id": "desolenator",
+    "source_id": "src_republic",
+    "title": "Republic deal note",
+    "kind": "deal note",
+    "provenance": "public",
+    "firm_id": "rypples"
+  }
+]

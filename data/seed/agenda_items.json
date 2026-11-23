@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ag-circle-prep",
+    "at_offset": 1,
+    "title": "Ocean Scalers, Circle 02 prep",
+    "note": "Facilitator brief ready",
+    "route": "/os/growth-engine?tab=scalers",
+    "provenance": "scenario",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "ag-deso-board",
+    "at_offset": 3,
+    "title": "Desolenator board",
+    "note": "Pre-read and diagnostic ready",
+    "route": "/os/companies/desolenator",
+    "provenance": "scenario",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "ag-tern-ic",
+    "at_offset": 4,
+    "title": "Investment committee: Project Tern",
+    "note": "Diligence diagnostic attached",
+    "route": "/os/pipeline?deal=tern",
+    "provenance": "scenario",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "ag-missions-due",
+    "at_offset": 4,
+    "title": "4 operating partner missions due",
+    "note": "2 for Desolenator",
+    "route": "/os/growth-engine",
+    "provenance": "scenario",
+    "firm_id": "rypples"
+  }
+]

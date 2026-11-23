@@ -1,0 +1,10 @@
+[
+  {
+    "id": "plan-desolenator",
+    "company_id": "desolenator",
+    "from_diagnostic_id": "diag-desolenator-day0",
+    "status": "active",
+    "provenance": "scenario",
+    "firm_id": "rypples"
+  }
+]

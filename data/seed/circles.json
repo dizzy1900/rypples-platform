@@ -1,0 +1,34 @@
+[
+  {
+    "id": "circle-02",
+    "name": "Ocean Scalers, Circle 02",
+    "theme": "First commercial deployments",
+    "session_n": 3,
+    "of_n": 4,
+    "next_label": "Thu 15 Jan, 16:00 CET",
+    "composition_rule": "Same scale stage. No direct competitors. Four of five verticals. Time zones within nine hours.",
+    "members": [
+      "desolenator",
+      "coral-vita",
+      "vessev",
+      "full-circle-biotechnology",
+      "sway",
+      "matter"
+    ],
+    "exclusions": [
+      {
+        "company_id": "flocean",
+        "reason": "Same market as Desolenator: freshwater"
+      },
+      {
+        "company_id": "kelp-blue",
+        "reason": "Earlier stage, overlaps SWAY on seaweed"
+      },
+      {
+        "company_id": "wsense",
+        "reason": "Exited"
+      }
+    ],
+    "provenance": "scenario"
+  }
+]

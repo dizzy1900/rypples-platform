@@ -1,0 +1,128 @@
+[
+  {
+    "id": "case-01",
+    "domain_id": "people",
+    "case_label": "Case 1",
+    "cleared_seq": 1,
+    "days": 88,
+    "cleared_on": "2025-06-12",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "case-02",
+    "domain_id": "operations",
+    "case_label": "Case 2",
+    "cleared_seq": 2,
+    "days": 140,
+    "cleared_on": "2025-07-24",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "case-03",
+    "domain_id": "impact",
+    "case_label": "Case 3",
+    "cleared_seq": 3,
+    "days": 74,
+    "cleared_on": "2025-09-03",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "case-04",
+    "domain_id": "commercial",
+    "case_label": "Case 4",
+    "cleared_seq": 4,
+    "days": 112,
+    "cleared_on": "2025-10-16",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "case-05",
+    "domain_id": "people",
+    "case_label": "Case 5",
+    "cleared_seq": 5,
+    "days": 79,
+    "cleared_on": "2025-11-27",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "case-06",
+    "domain_id": "regulatory",
+    "case_label": "Case 6",
+    "cleared_seq": 6,
+    "days": 81,
+    "cleared_on": "2026-01-08",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "case-07",
+    "domain_id": "operations",
+    "case_label": "Case 7",
+    "cleared_seq": 7,
+    "days": 121,
+    "cleared_on": "2026-02-05",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "case-08",
+    "domain_id": "impact",
+    "case_label": "Case 8",
+    "cleared_seq": 8,
+    "days": 63,
+    "cleared_on": "2026-03-12",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "case-09",
+    "domain_id": "people",
+    "case_label": "Case 9",
+    "cleared_seq": 9,
+    "days": 66,
+    "cleared_on": "2026-04-16",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "case-10",
+    "domain_id": "commercial",
+    "case_label": "Case 10",
+    "cleared_seq": 10,
+    "days": 84,
+    "cleared_on": "2026-05-21",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "case-11",
+    "domain_id": "operations",
+    "case_label": "Case 11",
+    "cleared_seq": 11,
+    "days": 98,
+    "cleared_on": "2026-07-02",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "case-12",
+    "domain_id": "people",
+    "case_label": "Case 12",
+    "cleared_seq": 12,
+    "days": 58,
+    "cleared_on": "2026-08-13",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "case-13",
+    "domain_id": "impact",
+    "case_label": "Case 13",
+    "cleared_seq": 13,
+    "days": 49,
+    "cleared_on": "2026-10-01",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "case-14",
+    "domain_id": "people",
+    "case_label": "Case 14",
+    "cleared_seq": 14,
+    "days": 55,
+    "cleared_on": "2026-11-12",
+    "provenance": "illustrative"
+  }
+]

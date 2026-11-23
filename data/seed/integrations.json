@@ -1,0 +1,44 @@
+[
+  {
+    "id": "int-os",
+    "name": "Rypples OS",
+    "system": "rypples_os",
+    "demo": false,
+    "status": "connected"
+  },
+  {
+    "id": "int-bridge",
+    "name": "Bridge",
+    "system": "rypples_bridge",
+    "demo": false,
+    "status": "connected"
+  },
+  {
+    "id": "int-drive",
+    "name": "Drive",
+    "system": "drive",
+    "demo": true,
+    "status": "connected"
+  },
+  {
+    "id": "int-crm",
+    "name": "CRM",
+    "system": "crm",
+    "demo": true,
+    "status": "connected"
+  },
+  {
+    "id": "int-notes",
+    "name": "Meeting notes",
+    "system": "meeting_notes",
+    "demo": true,
+    "status": "connected"
+  },
+  {
+    "id": "int-finance",
+    "name": "Finance systems",
+    "system": "finance",
+    "demo": true,
+    "status": "connected"
+  }
+]

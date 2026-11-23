@@ -1,0 +1,26 @@
+[
+  {
+    "id": "bench-finance",
+    "label": "Project and infrastructure finance",
+    "n": 9,
+    "provenance": "illustrative"
+  },
+  {
+    "id": "bench-ops",
+    "label": "Operations in MENA and APAC",
+    "n": 11,
+    "provenance": "illustrative"
+  },
+  {
+    "id": "bench-manufacturing",
+    "label": "Series production and manufacturing",
+    "n": 14,
+    "provenance": "illustrative"
+  },
+  {
+    "id": "bench-sales",
+    "label": "Utility and public-sector sales",
+    "n": 12,
+    "provenance": "illustrative"
+  }
+]

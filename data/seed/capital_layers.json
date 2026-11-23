@@ -1,0 +1,52 @@
+[
+  {
+    "id": "cap-1",
+    "company_id": "desolenator",
+    "sort": 1,
+    "name": "Sponsor equity",
+    "who": "Desolenator, as operator",
+    "status": "Committed",
+    "ledger_commitment_id": null,
+    "provenance": "illustrative"
+  },
+  {
+    "id": "cap-2",
+    "company_id": "desolenator",
+    "sort": 2,
+    "name": "First-loss equity",
+    "who": "Rypples balance sheet, proposed",
+    "status": "Decision 31 Jan",
+    "ledger_commitment_id": "l6",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "cap-3",
+    "company_id": "desolenator",
+    "sort": 3,
+    "name": "Asset equity",
+    "who": "Infrastructure co-investor",
+    "status": "Sourcing",
+    "ledger_commitment_id": null,
+    "provenance": "illustrative"
+  },
+  {
+    "id": "cap-4",
+    "company_id": "desolenator",
+    "sort": 4,
+    "name": "Senior debt",
+    "who": "Against the offtake contract",
+    "status": "Needs offtake",
+    "ledger_commitment_id": null,
+    "provenance": "illustrative"
+  },
+  {
+    "id": "cap-5",
+    "company_id": "desolenator",
+    "sort": 5,
+    "name": "Grants and concessional",
+    "who": "Public and development funds",
+    "status": "Optional",
+    "ledger_commitment_id": null,
+    "provenance": "illustrative"
+  }
+]

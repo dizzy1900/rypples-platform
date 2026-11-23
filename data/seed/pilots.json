@@ -1,0 +1,42 @@
+[
+  {
+    "id": "pilot-dewa",
+    "company_id": "desolenator",
+    "name": "DEWA",
+    "note": null,
+    "stage": 1,
+    "source_id": "src_deso_dubai",
+    "board_label": "Pilot · confirm",
+    "provenance": "public"
+  },
+  {
+    "id": "pilot-silal",
+    "company_id": "desolenator",
+    "name": "Silal (ADQ)",
+    "note": null,
+    "stage": 1,
+    "source_id": "src_deso_abudhabi",
+    "board_label": "Pilot · confirm",
+    "provenance": "public"
+  },
+  {
+    "id": "pilot-data-centres",
+    "company_id": "desolenator",
+    "name": "Data centres and industry",
+    "note": "Target segment on desolenator.com · pipeline to build",
+    "stage": 0,
+    "source_id": null,
+    "board_label": "Pipeline",
+    "provenance": "illustrative"
+  },
+  {
+    "id": "pilot-xprize",
+    "company_id": "desolenator",
+    "name": "XPRIZE Water Scarcity",
+    "note": "A milestone, not a buyer",
+    "stage": 1,
+    "source_id": "src_deso_news",
+    "board_label": "Semi-finalist",
+    "provenance": "public"
+  }
+]

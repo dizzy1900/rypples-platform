@@ -1,0 +1,119 @@
+[
+  {
+    "id": "wsense-strategic",
+    "title": "Bring the strategic onto the cap table before you need them as a buyer, or as an acquirer.",
+    "domain_id": "commercial",
+    "learned_in": "WSense",
+    "play": [
+      "Name the three strategics most likely to be both your largest customer and your eventual acquirer.",
+      "Offer one a small allocation in the next round, tied to a commercial agreement.",
+      "Move the pilot into co-development before anyone negotiates exclusivity."
+    ],
+    "timeline": [
+      {
+        "date": "Dec 2023",
+        "label": "Memorandum of understanding",
+        "event": "Fincantieri and WSense sign a memorandum of understanding on strategic collaboration (21 Dec 2023).",
+        "source_id": "src_fincantieri_2025",
+        "provenance": "public",
+        "verify_note": "The spec cited src_wsense_round, which returned HTTP 403. The date is confirmed in the Fincantieri press release instead."
+      },
+      {
+        "date": "Apr 2025",
+        "label": "Strategic investor",
+        "event": "Fincantieri formalises an investment in WSense through a convertible loan of €2.5M, with an option for a further €2.5M (15 Apr 2025).",
+        "source_id": "src_fincantieri_2025",
+        "provenance": "public",
+        "verify_note": "The spec framing (part of the €7.2M pre-Series B, alongside Rypples) could not be checked: the Seedtable page returned HTTP 403. Only what the Fincantieri release states is kept."
+      },
+      {
+        "date": "Feb 2026",
+        "label": "Co-development",
+        "event": "Technology and commercial co-development agreement.",
+        "source_id": null,
+        "provenance": "illustrative",
+        "verify_note": "Not found in the src_wsense_acq snapshot (PortNews, 6 Jul 2026). Kept as illustrative until a source is found."
+      },
+      {
+        "date": "Jul 2026",
+        "label": "Majority stake",
+        "event": "Fincantieri agrees to take a majority stake in WSense, initially 61.95% of the acquiring vehicle and up to 75% within 24 months, part of an initial spend of about €600m across four underwater deals (6 Jul 2026).",
+        "source_id": "src_wsense_acq",
+        "provenance": "public",
+        "verify_note": null
+      }
+    ],
+    "source_ids": [
+      "src_fincantieri_2025",
+      "src_wsense_acq",
+      "src_wsense_round"
+    ],
+    "status": "proposed",
+    "approved_by": null,
+    "in_library": false,
+    "sent": null,
+    "helped": null,
+    "provenance": "public",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "conversion-terms",
+    "title": "Write conversion terms into every pilot",
+    "domain_id": "commercial",
+    "learned_in": "Growth Readiness, module 03",
+    "play": [
+      "Agree the metric that proves the pilot worked before it starts.",
+      "Write the price and volume of the first commercial contract into the pilot agreement.",
+      "Set a decision date with the buyer's budget holder."
+    ],
+    "timeline": [],
+    "source_ids": [],
+    "status": "approved",
+    "approved_by": "jerome",
+    "in_library": true,
+    "sent": 4,
+    "helped": 3,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "price-total-cost",
+    "title": "Price the first plant on total cost of ownership, not capex",
+    "domain_id": "financing",
+    "learned_in": "Finance expert session",
+    "play": [
+      "Model cost per unit of output over the asset life, including operations and replacement.",
+      "Show lenders the downside case next to the base case.",
+      "Let the buyer compare you with the incumbent on the same basis."
+    ],
+    "timeline": [],
+    "source_ids": [],
+    "status": "approved",
+    "approved_by": "jerome",
+    "in_library": true,
+    "sent": 2,
+    "helped": 2,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "hire-ops-in-market",
+    "title": "Hire operations leadership in-market before the second site",
+    "domain_id": "people",
+    "learned_in": "Ocean Scalers, Circle 01",
+    "play": [
+      "Name the market for site two before the search starts.",
+      "Hire the operations lead there, not at headquarters.",
+      "Give them a first-90-days scorecard tied to site two."
+    ],
+    "timeline": [],
+    "source_ids": [],
+    "status": "approved",
+    "approved_by": "jerome",
+    "in_library": true,
+    "sent": 3,
+    "helped": 1,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "lm-wsense-desolenator",
+    "lesson_id": "wsense-strategic",
+    "company_id": "desolenator",
+    "reason": "Strategic partners in both flagship pilots, DEWA and Silal (ADQ). Neither appears on the cap table in public sources.",
+    "fit": "strong",
+    "status": "matched",
+    "reason_provenance": "public",
+    "verify_note": "Absence from the cap table cannot be proven from public sources. Confirm with the company before sending."
+  },
+  {
+    "id": "lm-wsense-flocean",
+    "lesson_id": "wsense-strategic",
+    "company_id": "flocean",
+    "reason": "Xylem joined the Series A as a strategic investor in late 2025. The next step is co-development terms.",
+    "fit": "strong",
+    "status": "matched",
+    "reason_provenance": "public",
+    "verify_note": "Confirmed in the Pulse 2.0 snapshot. The spec said December 2025; the snapshot has no date, and the Business Wire release found by search is dated 18 Nov 2025, so the date is left as late 2025."
+  },
+  {
+    "id": "lm-wsense-marble",
+    "lesson_id": "wsense-strategic",
+    "company_id": "marble",
+    "reason": "Security and defence buyers. Check the cap table before sending.",
+    "fit": "possible",
+    "status": "matched",
+    "reason_provenance": "illustrative",
+    "verify_note": null
+  }
+]
