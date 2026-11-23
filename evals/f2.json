@@ -1,0 +1,265 @@
+{
+  "flow": "f2",
+  "prompt": "any-company@v1",
+  "notes": "Live only (each case costs web searches). Offline mode checks reviewed precomputed files for these cases, plus the five fixtures, which exercise the assertions themselves.",
+  "cases": [
+    {
+      "id": "desolenator",
+      "group": "portfolio",
+      "input": {
+        "query": "https://www.desolenator.com/"
+      },
+      "expect": {
+        "status": "ok"
+      }
+    },
+    {
+      "id": "vessev",
+      "group": "portfolio",
+      "input": {
+        "query": "https://www.vessev.com/"
+      },
+      "expect": {
+        "status": "ok"
+      }
+    },
+    {
+      "id": "full-circle-biotechnology",
+      "group": "portfolio",
+      "input": {
+        "query": "https://www.fullcirclebio.tech/"
+      },
+      "expect": {
+        "status": "ok"
+      }
+    },
+    {
+      "id": "hullbot",
+      "group": "portfolio",
+      "input": {
+        "query": "https://www.hullbot.com/"
+      },
+      "expect": {
+        "status": "ok"
+      }
+    },
+    {
+      "id": "kelp-blue",
+      "group": "portfolio",
+      "input": {
+        "query": "https://www.kelp.blue/global"
+      },
+      "expect": {
+        "status": "ok"
+      }
+    },
+    {
+      "id": "matter",
+      "group": "portfolio",
+      "input": {
+        "query": "https://matter.industries/"
+      },
+      "expect": {
+        "status": "ok"
+      }
+    },
+    {
+      "id": "coral-vita",
+      "group": "portfolio",
+      "input": {
+        "query": "https://coralvita.co/"
+      },
+      "expect": {
+        "status": "ok"
+      }
+    },
+    {
+      "id": "sway",
+      "group": "portfolio",
+      "input": {
+        "query": "https://swaythefuture.com/"
+      },
+      "expect": {
+        "status": "ok"
+      }
+    },
+    {
+      "id": "flocean",
+      "group": "portfolio",
+      "input": {
+        "query": "https://www.flocean.green/"
+      },
+      "expect": {
+        "status": "ok"
+      }
+    },
+    {
+      "id": "marble",
+      "group": "portfolio",
+      "input": {
+        "query": "https://www.marble.aero/"
+      },
+      "expect": {
+        "status": "ok"
+      }
+    },
+    {
+      "id": "vlinder",
+      "group": "portfolio",
+      "input": {
+        "query": "https://vlinderclimate.com/"
+      },
+      "expect": {
+        "status": "ok"
+      }
+    },
+    {
+      "id": "wsense",
+      "group": "portfolio",
+      "input": {
+        "query": "https://wsense.it/"
+      },
+      "expect": {
+        "status": "ok"
+      }
+    },
+    {
+      "id": "saildrone",
+      "group": "ocean",
+      "input": {
+        "query": "Saildrone"
+      },
+      "expect": {
+        "status": "ok"
+      }
+    },
+    {
+      "id": "ocean-infinity",
+      "group": "ocean",
+      "input": {
+        "query": "Ocean Infinity"
+      },
+      "expect": {
+        "status": "ok"
+      }
+    },
+    {
+      "id": "sofar-ocean",
+      "group": "ocean",
+      "input": {
+        "query": "Sofar Ocean"
+      },
+      "expect": {
+        "status": "ok"
+      }
+    },
+    {
+      "id": "minesto",
+      "group": "ocean",
+      "input": {
+        "query": "Minesto"
+      },
+      "expect": {
+        "status": "ok"
+      }
+    },
+    {
+      "id": "notpla",
+      "group": "ocean",
+      "input": {
+        "query": "Notpla"
+      },
+      "expect": {
+        "status": "ok"
+      }
+    },
+    {
+      "id": "the-ocean-cleanup",
+      "group": "ocean",
+      "input": {
+        "query": "The Ocean Cleanup"
+      },
+      "expect": {
+        "status": "ok"
+      }
+    },
+    {
+      "id": "salesforce",
+      "group": "decline",
+      "note": "a SaaS firm",
+      "input": {
+        "query": "Salesforce"
+      },
+      "expect": {
+        "status": "declined"
+      }
+    },
+    {
+      "id": "greggs",
+      "group": "decline",
+      "note": "a bakery",
+      "input": {
+        "query": "Greggs"
+      },
+      "expect": {
+        "status": "declined"
+      }
+    },
+    {
+      "id": "barclays",
+      "group": "decline",
+      "note": "a bank",
+      "input": {
+        "query": "Barclays"
+      },
+      "expect": {
+        "status": "declined"
+      }
+    },
+    {
+      "id": "ambiguous-mako",
+      "group": "ambiguous",
+      "input": {
+        "query": "Mako"
+      },
+      "expect": {
+        "status": "ambiguous"
+      }
+    },
+    {
+      "id": "obscure",
+      "group": "insufficient",
+      "input": null,
+      "todo": "Pick a real, ocean-related company with very little public material (a pre-seed startup with a one-page site) and set input.query. The case is skipped until then.",
+      "expect": {
+        "status": "insufficient"
+      }
+    }
+  ],
+  "fixtures": [
+    {
+      "fixture": "ok",
+      "expect": {
+        "status": "ok"
+      }
+    },
+    {
+      "fixture": "declined",
+      "expect": {
+        "status": "declined"
+      }
+    },
+    {
+      "fixture": "ambiguous",
+      "expect": {
+        "status": "ambiguous"
+      }
+    },
+    {
+      "fixture": "insufficient",
+      "expect": {
+        "status": "insufficient"
+      }
+    }
+  ]
+}

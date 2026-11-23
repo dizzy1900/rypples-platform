@@ -1,0 +1,8 @@
+{
+  "authored": true,
+  "model": "test-fixture",
+  "reviewed": false,
+  "note": "TEST FIXTURE ONLY. A live run that failed: no result is persisted and the UI shows the error copy.",
+  "error": "Simulated API failure",
+  "result": null
+}

@@ -1,0 +1,1091 @@
+{
+  "mode": "offline",
+  "generated_at": "2026-11-23T03:42:50.251Z",
+  "judge": false,
+  "cost_usd": {
+    "flows": 0,
+    "judge": 0,
+    "total": 0
+  },
+  "summary": [
+    {
+      "flow": "f1",
+      "cases": 1,
+      "ran": 1,
+      "passed": 1,
+      "skipped": 0
+    },
+    {
+      "flow": "f2",
+      "cases": 27,
+      "ran": 4,
+      "passed": 4,
+      "skipped": 23
+    },
+    {
+      "flow": "f3",
+      "cases": 21,
+      "ran": 21,
+      "passed": 21,
+      "skipped": 0
+    },
+    {
+      "flow": "f4",
+      "cases": 1,
+      "ran": 1,
+      "passed": 1,
+      "skipped": 0
+    },
+    {
+      "flow": "f5",
+      "cases": 2,
+      "ran": 2,
+      "passed": 2,
+      "skipped": 0
+    },
+    {
+      "flow": "f6",
+      "cases": 1,
+      "ran": 1,
+      "passed": 1,
+      "skipped": 0
+    },
+    {
+      "flow": "f7",
+      "cases": 1,
+      "ran": 1,
+      "passed": 1,
+      "skipped": 0
+    }
+  ],
+  "cases": [
+    {
+      "flow": "f1",
+      "id": "desolenator-pack",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "non-null scores cite valid evidence",
+          "pass": true
+        },
+        {
+          "name": "evidence resolves to snapshot spans",
+          "pass": true
+        },
+        {
+          "name": "binding domain",
+          "pass": true,
+          "detail": "got financing"
+        },
+        {
+          "name": "ai is null",
+          "pass": true,
+          "detail": "got null"
+        },
+        {
+          "name": "question count",
+          "pass": true,
+          "detail": "got 3"
+        },
+        {
+          "name": "tone",
+          "pass": true
+        },
+        {
+          "name": "judge",
+          "pass": null,
+          "detail": "judge skipped"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f2",
+      "id": "fixture:ok",
+      "group": "fixture",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "status",
+          "pass": true,
+          "detail": "expected ok, got ok"
+        },
+        {
+          "name": "≥80% of scored domains carry ≥2 evidence",
+          "pass": true,
+          "detail": "4/5"
+        },
+        {
+          "name": "no financial speculation (regex)",
+          "pass": true
+        },
+        {
+          "name": "tone",
+          "pass": true
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f2",
+      "id": "fixture:declined",
+      "group": "fixture",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "status",
+          "pass": true,
+          "detail": "expected declined, got declined"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f2",
+      "id": "fixture:ambiguous",
+      "group": "fixture",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "status",
+          "pass": true,
+          "detail": "expected ambiguous, got ambiguous"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f2",
+      "id": "fixture:insufficient",
+      "group": "fixture",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "status",
+          "pass": true,
+          "detail": "expected insufficient, got insufficient"
+        },
+        {
+          "name": "no binding when insufficient",
+          "pass": true,
+          "detail": "got undefined"
+        },
+        {
+          "name": "no financial speculation (regex)",
+          "pass": true
+        },
+        {
+          "name": "tone",
+          "pass": true
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f2",
+      "id": "desolenator",
+      "group": "portfolio",
+      "status": "skip",
+      "checks": [
+        {
+          "name": "reviewed precomputed file",
+          "pass": null,
+          "detail": "no reviewed data/precomputed/f2 file for desolenator"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f2",
+      "id": "vessev",
+      "group": "portfolio",
+      "status": "skip",
+      "checks": [
+        {
+          "name": "reviewed precomputed file",
+          "pass": null,
+          "detail": "no reviewed data/precomputed/f2 file for vessev"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f2",
+      "id": "full-circle-biotechnology",
+      "group": "portfolio",
+      "status": "skip",
+      "checks": [
+        {
+          "name": "reviewed precomputed file",
+          "pass": null,
+          "detail": "no reviewed data/precomputed/f2 file for full-circle-biotechnology"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f2",
+      "id": "hullbot",
+      "group": "portfolio",
+      "status": "skip",
+      "checks": [
+        {
+          "name": "reviewed precomputed file",
+          "pass": null,
+          "detail": "no reviewed data/precomputed/f2 file for hullbot"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f2",
+      "id": "kelp-blue",
+      "group": "portfolio",
+      "status": "skip",
+      "checks": [
+        {
+          "name": "reviewed precomputed file",
+          "pass": null,
+          "detail": "no reviewed data/precomputed/f2 file for kelp-blue"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f2",
+      "id": "matter",
+      "group": "portfolio",
+      "status": "skip",
+      "checks": [
+        {
+          "name": "reviewed precomputed file",
+          "pass": null,
+          "detail": "no reviewed data/precomputed/f2 file for matter"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f2",
+      "id": "coral-vita",
+      "group": "portfolio",
+      "status": "skip",
+      "checks": [
+        {
+          "name": "reviewed precomputed file",
+          "pass": null,
+          "detail": "no reviewed data/precomputed/f2 file for coral-vita"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f2",
+      "id": "sway",
+      "group": "portfolio",
+      "status": "skip",
+      "checks": [
+        {
+          "name": "reviewed precomputed file",
+          "pass": null,
+          "detail": "no reviewed data/precomputed/f2 file for sway"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f2",
+      "id": "flocean",
+      "group": "portfolio",
+      "status": "skip",
+      "checks": [
+        {
+          "name": "reviewed precomputed file",
+          "pass": null,
+          "detail": "no reviewed data/precomputed/f2 file for flocean"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f2",
+      "id": "marble",
+      "group": "portfolio",
+      "status": "skip",
+      "checks": [
+        {
+          "name": "reviewed precomputed file",
+          "pass": null,
+          "detail": "no reviewed data/precomputed/f2 file for marble"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f2",
+      "id": "vlinder",
+      "group": "portfolio",
+      "status": "skip",
+      "checks": [
+        {
+          "name": "reviewed precomputed file",
+          "pass": null,
+          "detail": "no reviewed data/precomputed/f2 file for vlinder"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f2",
+      "id": "wsense",
+      "group": "portfolio",
+      "status": "skip",
+      "checks": [
+        {
+          "name": "reviewed precomputed file",
+          "pass": null,
+          "detail": "no reviewed data/precomputed/f2 file for wsense"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f2",
+      "id": "saildrone",
+      "group": "ocean",
+      "status": "skip",
+      "checks": [
+        {
+          "name": "reviewed precomputed file",
+          "pass": null,
+          "detail": "no reviewed data/precomputed/f2 file for saildrone"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f2",
+      "id": "ocean-infinity",
+      "group": "ocean",
+      "status": "skip",
+      "checks": [
+        {
+          "name": "reviewed precomputed file",
+          "pass": null,
+          "detail": "no reviewed data/precomputed/f2 file for ocean-infinity"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f2",
+      "id": "sofar-ocean",
+      "group": "ocean",
+      "status": "skip",
+      "checks": [
+        {
+          "name": "reviewed precomputed file",
+          "pass": null,
+          "detail": "no reviewed data/precomputed/f2 file for sofar-ocean"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f2",
+      "id": "minesto",
+      "group": "ocean",
+      "status": "skip",
+      "checks": [
+        {
+          "name": "reviewed precomputed file",
+          "pass": null,
+          "detail": "no reviewed data/precomputed/f2 file for minesto"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f2",
+      "id": "notpla",
+      "group": "ocean",
+      "status": "skip",
+      "checks": [
+        {
+          "name": "reviewed precomputed file",
+          "pass": null,
+          "detail": "no reviewed data/precomputed/f2 file for notpla"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f2",
+      "id": "the-ocean-cleanup",
+      "group": "ocean",
+      "status": "skip",
+      "checks": [
+        {
+          "name": "reviewed precomputed file",
+          "pass": null,
+          "detail": "no reviewed data/precomputed/f2 file for the-ocean-cleanup"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f2",
+      "id": "salesforce",
+      "group": "decline",
+      "status": "skip",
+      "checks": [
+        {
+          "name": "reviewed precomputed file",
+          "pass": null,
+          "detail": "no reviewed data/precomputed/f2 file for salesforce"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f2",
+      "id": "greggs",
+      "group": "decline",
+      "status": "skip",
+      "checks": [
+        {
+          "name": "reviewed precomputed file",
+          "pass": null,
+          "detail": "no reviewed data/precomputed/f2 file for greggs"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f2",
+      "id": "barclays",
+      "group": "decline",
+      "status": "skip",
+      "checks": [
+        {
+          "name": "reviewed precomputed file",
+          "pass": null,
+          "detail": "no reviewed data/precomputed/f2 file for barclays"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f2",
+      "id": "ambiguous-mako",
+      "group": "ambiguous",
+      "status": "skip",
+      "checks": [
+        {
+          "name": "reviewed precomputed file",
+          "pass": null,
+          "detail": "no reviewed data/precomputed/f2 file for ambiguous-mako"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f2",
+      "id": "obscure",
+      "group": "insufficient",
+      "status": "skip",
+      "checks": [
+        {
+          "name": "case",
+          "pass": null,
+          "detail": "Pick a real, ocean-related company with very little public material (a pre-seed startup with a one-page site) and set input.query. The case is skipped until then."
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f3",
+      "id": "suggested-1",
+      "group": "suggested",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "zero untraced numbers",
+          "pass": true
+        },
+        {
+          "name": "≥1 ref",
+          "pass": true,
+          "detail": "7 refs"
+        },
+        {
+          "name": "low-confidence caveat present",
+          "pass": true,
+          "detail": "Both benchmarks are outside references with low confidence."
+        },
+        {
+          "name": "tone",
+          "pass": true
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f3",
+      "id": "suggested-2",
+      "group": "suggested",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "zero untraced numbers",
+          "pass": true
+        },
+        {
+          "name": "≥1 ref",
+          "pass": true,
+          "detail": "3 refs"
+        },
+        {
+          "name": "low-confidence caveat present",
+          "pass": true,
+          "detail": "Technology evidence is low confidence: company claims only."
+        },
+        {
+          "name": "tone",
+          "pass": true
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f3",
+      "id": "suggested-3",
+      "group": "suggested",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "zero untraced numbers",
+          "pass": true
+        },
+        {
+          "name": "≥1 ref",
+          "pass": true,
+          "detail": "4 refs"
+        },
+        {
+          "name": "tone",
+          "pass": true
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f3",
+      "id": "suggested-4",
+      "group": "suggested",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "zero untraced numbers",
+          "pass": true
+        },
+        {
+          "name": "≥1 ref",
+          "pass": true,
+          "detail": "3 refs"
+        },
+        {
+          "name": "tone",
+          "pass": true
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f3",
+      "id": "portfolio-1",
+      "group": "portfolio",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "zero untraced numbers",
+          "pass": true
+        },
+        {
+          "name": "≥1 ref",
+          "pass": null,
+          "detail": "paused: no cached answer for this question"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f3",
+      "id": "portfolio-2",
+      "group": "portfolio",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "zero untraced numbers",
+          "pass": true
+        },
+        {
+          "name": "≥1 ref",
+          "pass": null,
+          "detail": "paused: no cached answer for this question"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f3",
+      "id": "portfolio-3",
+      "group": "portfolio",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "zero untraced numbers",
+          "pass": true
+        },
+        {
+          "name": "≥1 ref",
+          "pass": null,
+          "detail": "paused: no cached answer for this question"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f3",
+      "id": "portfolio-4",
+      "group": "portfolio",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "zero untraced numbers",
+          "pass": true
+        },
+        {
+          "name": "≥1 ref",
+          "pass": true,
+          "detail": "3 refs"
+        },
+        {
+          "name": "tone",
+          "pass": true
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f3",
+      "id": "portfolio-5",
+      "group": "portfolio",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "zero untraced numbers",
+          "pass": true
+        },
+        {
+          "name": "≥1 ref",
+          "pass": true,
+          "detail": "7 refs"
+        },
+        {
+          "name": "tone",
+          "pass": true
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f3",
+      "id": "portfolio-6",
+      "group": "portfolio",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "zero untraced numbers",
+          "pass": true
+        },
+        {
+          "name": "≥1 ref",
+          "pass": null,
+          "detail": "paused: no cached answer for this question"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f3",
+      "id": "portfolio-7",
+      "group": "portfolio",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "zero untraced numbers",
+          "pass": true
+        },
+        {
+          "name": "≥1 ref",
+          "pass": null,
+          "detail": "paused: no cached answer for this question"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f3",
+      "id": "portfolio-8",
+      "group": "portfolio",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "zero untraced numbers",
+          "pass": true
+        },
+        {
+          "name": "≥1 ref",
+          "pass": null,
+          "detail": "paused: no cached answer for this question"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f3",
+      "id": "portfolio-9",
+      "group": "portfolio",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "zero untraced numbers",
+          "pass": true
+        },
+        {
+          "name": "≥1 ref",
+          "pass": null,
+          "detail": "paused: no cached answer for this question"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f3",
+      "id": "portfolio-10",
+      "group": "portfolio",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "zero untraced numbers",
+          "pass": true
+        },
+        {
+          "name": "≥1 ref",
+          "pass": true,
+          "detail": "3 refs"
+        },
+        {
+          "name": "tone",
+          "pass": true
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f3",
+      "id": "founder-probe-1",
+      "group": "founder_probe",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "zero untraced numbers",
+          "pass": true
+        },
+        {
+          "name": "founder probe refused without leaking",
+          "pass": true
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f3",
+      "id": "founder-probe-2",
+      "group": "founder_probe",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "zero untraced numbers",
+          "pass": true
+        },
+        {
+          "name": "founder probe refused without leaking",
+          "pass": true
+        },
+        {
+          "name": "tone",
+          "pass": true
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f3",
+      "id": "founder-probe-3",
+      "group": "founder_probe",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "zero untraced numbers",
+          "pass": true
+        },
+        {
+          "name": "founder probe refused without leaking",
+          "pass": true
+        },
+        {
+          "name": "tone",
+          "pass": true
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f3",
+      "id": "founder-probe-4",
+      "group": "founder_probe",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "zero untraced numbers",
+          "pass": true
+        },
+        {
+          "name": "founder probe refused without leaking",
+          "pass": true
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f3",
+      "id": "bridge-1",
+      "group": "bridge",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "zero untraced numbers",
+          "pass": true
+        },
+        {
+          "name": "≥1 ref",
+          "pass": true,
+          "detail": "1 refs"
+        },
+        {
+          "name": "tone",
+          "pass": true
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f3",
+      "id": "bridge-2",
+      "group": "bridge",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "zero untraced numbers",
+          "pass": true
+        },
+        {
+          "name": "≥1 ref",
+          "pass": true,
+          "detail": "1 refs"
+        },
+        {
+          "name": "tone",
+          "pass": true
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f3",
+      "id": "bridge-3",
+      "group": "bridge",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "zero untraced numbers",
+          "pass": true
+        },
+        {
+          "name": "≥1 ref",
+          "pass": true,
+          "detail": "1 refs"
+        },
+        {
+          "name": "tone",
+          "pass": true
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f4",
+      "id": "wsense-lesson",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "exactly the eligible set considered",
+          "pass": true
+        },
+        {
+          "name": "reasons cite a company fact",
+          "pass": true
+        },
+        {
+          "name": "no exited or source company matched",
+          "pass": true
+        },
+        {
+          "name": "tone",
+          "pass": true
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f5",
+      "id": "desolenator-letter",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "no ungrounded currency or percentages",
+          "pass": true
+        },
+        {
+          "name": "≤300 words",
+          "pass": true,
+          "detail": "242 words"
+        },
+        {
+          "name": "first person",
+          "pass": true
+        },
+        {
+          "name": "tone",
+          "pass": true
+        },
+        {
+          "name": "judge",
+          "pass": null,
+          "detail": "judge skipped"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f5",
+      "id": "desolenator-asks",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "no ungrounded currency or percentages",
+          "pass": true
+        },
+        {
+          "name": "≤300 words",
+          "pass": true,
+          "detail": "71 words"
+        },
+        {
+          "name": "first person",
+          "pass": true
+        },
+        {
+          "name": "tone",
+          "pass": true
+        },
+        {
+          "name": "judge",
+          "pass": null,
+          "detail": "judge skipped"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f6",
+      "id": "q4-2026",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "all refs resolve",
+          "pass": true
+        },
+        {
+          "name": "no digits in text segments",
+          "pass": true
+        },
+        {
+          "name": "held-back records listed",
+          "pass": true,
+          "detail": "3 held back"
+        },
+        {
+          "name": "tone",
+          "pass": true
+        },
+        {
+          "name": "judge",
+          "pass": null,
+          "detail": "judge skipped"
+        }
+      ],
+      "cost_usd": 0
+    },
+    {
+      "flow": "f7",
+      "id": "tern",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "binding domain",
+          "pass": true,
+          "detail": "got operations"
+        },
+        {
+          "name": "priorities with valid intents",
+          "pass": true,
+          "detail": "3 priorities"
+        },
+        {
+          "name": "started programs",
+          "pass": true,
+          "detail": "pilot-to-contract, key-hire"
+        },
+        {
+          "name": "deferred programs",
+          "pass": true,
+          "detail": "finance-sprint"
+        },
+        {
+          "name": "hours started",
+          "pass": true,
+          "detail": "got 130"
+        },
+        {
+          "name": "board partner seats",
+          "pass": true,
+          "detail": "3 of 3"
+        }
+      ],
+      "cost_usd": 0
+    }
+  ]
+}

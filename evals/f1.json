@@ -1,0 +1,11 @@
+{
+  "flow": "f1",
+  "prompt": "diagnostic@v1",
+  "cases": [
+    {
+      "id": "desolenator-pack",
+      "input": { "companyId": "desolenator" },
+      "expect": { "binding_domain": "financing", "null_domains": ["ai"], "questions": 3, "evidence_spans": true, "judge": true }
+    }
+  ]
+}

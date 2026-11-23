@@ -15,7 +15,10 @@
     "db:reseed": "tsx scripts/seed.mts --reseed",
     "sweep:sessions": "tsx scripts/sweep-sessions.mts",
     "snapshot:sources": "tsx scripts/snapshot-sources.ts",
-    "build:geo": "scripts/geo/.venv/bin/python scripts/geo/build_geo.py"
+    "build:geo": "scripts/geo/.venv/bin/python scripts/geo/build_geo.py",
+    "precompute": "tsx --conditions=react-server scripts/precompute.ts",
+    "evals": "tsx --conditions=react-server scripts/evals.ts",
+    "check:models": "tsx --conditions=react-server scripts/check-models.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "1.12.0",

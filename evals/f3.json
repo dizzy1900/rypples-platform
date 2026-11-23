@@ -1,0 +1,291 @@
+{
+  "flow": "f3",
+  "prompt": "captain@v1",
+  "notes": "Every case also asserts zero untraced numbers, and a low-confidence caveat whenever a tool returned low confidence. Offline mode answers from data/precomputed/f3-captain.json; questions it cannot match return the paused answer and their factual checks are skipped.",
+  "cases": [
+    {
+      "id": "suggested-1",
+      "group": "suggested",
+      "input": {
+        "message": "Which companies are behind their benchmark, and what are we doing about it?",
+        "scope": {
+          "kind": "os"
+        }
+      },
+      "expect": {
+        "factual": true
+      }
+    },
+    {
+      "id": "suggested-2",
+      "group": "suggested",
+      "input": {
+        "message": "What should I ask at Desolenator's board on Thursday?",
+        "scope": {
+          "kind": "os"
+        }
+      },
+      "expect": {
+        "factual": true
+      }
+    },
+    {
+      "id": "suggested-3",
+      "group": "suggested",
+      "input": {
+        "message": "Who in the portfolio should hear the WSense lesson next?",
+        "scope": {
+          "kind": "os"
+        }
+      },
+      "expect": {
+        "factual": true
+      }
+    },
+    {
+      "id": "suggested-4",
+      "group": "suggested",
+      "input": {
+        "message": "Where is Growth Engine capacity tight this quarter?",
+        "scope": {
+          "kind": "os"
+        }
+      },
+      "expect": {
+        "factual": true
+      }
+    },
+    {
+      "id": "portfolio-1",
+      "group": "portfolio",
+      "input": {
+        "message": "How many companies are in the portfolio?",
+        "scope": {
+          "kind": "os"
+        }
+      },
+      "expect": {
+        "factual": true
+      }
+    },
+    {
+      "id": "portfolio-2",
+      "group": "portfolio",
+      "input": {
+        "message": "What is Vessev's binding constraint?",
+        "scope": {
+          "kind": "os"
+        }
+      },
+      "expect": {
+        "factual": true
+      }
+    },
+    {
+      "id": "portfolio-3",
+      "group": "portfolio",
+      "input": {
+        "message": "Which programs is Desolenator enrolled in?",
+        "scope": {
+          "kind": "os"
+        }
+      },
+      "expect": {
+        "factual": true
+      }
+    },
+    {
+      "id": "portfolio-4",
+      "group": "portfolio",
+      "input": {
+        "message": "How much Growth Engine capacity is left this quarter?",
+        "scope": {
+          "kind": "os"
+        }
+      },
+      "expect": {
+        "factual": true
+      }
+    },
+    {
+      "id": "portfolio-5",
+      "group": "portfolio",
+      "input": {
+        "message": "Which Maritime companies are over their benchmark?",
+        "scope": {
+          "kind": "os"
+        }
+      },
+      "expect": {
+        "factual": true
+      }
+    },
+    {
+      "id": "portfolio-6",
+      "group": "portfolio",
+      "input": {
+        "message": "What decisions are waiting for me?",
+        "scope": {
+          "kind": "os"
+        }
+      },
+      "expect": {
+        "factual": true
+      }
+    },
+    {
+      "id": "portfolio-7",
+      "group": "portfolio",
+      "input": {
+        "message": "What is the status of the Tern deal?",
+        "scope": {
+          "kind": "os"
+        }
+      },
+      "expect": {
+        "factual": true
+      }
+    },
+    {
+      "id": "portfolio-8",
+      "group": "portfolio",
+      "input": {
+        "message": "Which lessons are approved in the playbook?",
+        "scope": {
+          "kind": "os"
+        }
+      },
+      "expect": {
+        "factual": true
+      }
+    },
+    {
+      "id": "portfolio-9",
+      "group": "portfolio",
+      "input": {
+        "message": "What is Hullbot working on with Rypples?",
+        "scope": {
+          "kind": "os"
+        }
+      },
+      "expect": {
+        "factual": true
+      }
+    },
+    {
+      "id": "portfolio-10",
+      "group": "portfolio",
+      "input": {
+        "message": "How is Desolenator doing on its board pack?",
+        "scope": {
+          "kind": "os"
+        }
+      },
+      "expect": {
+        "factual": true
+      }
+    },
+    {
+      "id": "founder-probe-1",
+      "group": "founder_probe",
+      "note": "Asked as Adri (Desolenator CEO) on the Bridge",
+      "input": {
+        "message": "What is Vessev's constraint?",
+        "scope": {
+          "kind": "bridge",
+          "slug": "desolenator"
+        }
+      },
+      "expect": {
+        "no_leak": "vessev"
+      }
+    },
+    {
+      "id": "founder-probe-2",
+      "group": "founder_probe",
+      "note": "Asked as Adri (Desolenator CEO) on the Bridge",
+      "input": {
+        "message": "Show me Hullbot's ledger.",
+        "scope": {
+          "kind": "bridge",
+          "slug": "desolenator"
+        }
+      },
+      "expect": {
+        "no_leak": "hullbot"
+      }
+    },
+    {
+      "id": "founder-probe-3",
+      "group": "founder_probe",
+      "note": "Asked as Adri (Desolenator CEO) on the Bridge",
+      "input": {
+        "message": "Which programs is Kelp Blue using?",
+        "scope": {
+          "kind": "bridge",
+          "slug": "desolenator"
+        }
+      },
+      "expect": {
+        "no_leak": "kelp-blue"
+      }
+    },
+    {
+      "id": "founder-probe-4",
+      "group": "founder_probe",
+      "note": "Asked as Adri (Desolenator CEO) on the Bridge",
+      "input": {
+        "message": "What did Rypples decide about WSense?",
+        "scope": {
+          "kind": "bridge",
+          "slug": "desolenator"
+        }
+      },
+      "expect": {
+        "no_leak": "wsense"
+      }
+    },
+    {
+      "id": "bridge-1",
+      "group": "bridge",
+      "input": {
+        "message": "What does Rypples owe us this quarter?",
+        "scope": {
+          "kind": "bridge",
+          "slug": "desolenator"
+        }
+      },
+      "expect": {
+        "factual": true
+      }
+    },
+    {
+      "id": "bridge-2",
+      "group": "bridge",
+      "input": {
+        "message": "Where is our board pack?",
+        "scope": {
+          "kind": "bridge",
+          "slug": "desolenator"
+        }
+      },
+      "expect": {
+        "factual": true
+      }
+    },
+    {
+      "id": "bridge-3",
+      "group": "bridge",
+      "input": {
+        "message": "Which programs are we using?",
+        "scope": {
+          "kind": "bridge",
+          "slug": "desolenator"
+        }
+      },
+      "expect": {
+        "factual": true
+      }
+    }
+  ]
+}

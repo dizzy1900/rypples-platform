@@ -1,0 +1,545 @@
+{
+  "authored": true,
+  "model": "authored-fixture",
+  "reviewed": true,
+  "prompt_version": "diagnostic@v1",
+  "note": "Hand-authored to match the seeded Day 0 diagnostic (data/seed/diagnostics.json). Regenerate with pnpm precompute.",
+  "company_id": "desolenator",
+  "events": [
+    {
+      "type": "step",
+      "key": "read",
+      "state": "running"
+    },
+    {
+      "type": "step",
+      "key": "read",
+      "state": "done",
+      "detail": "6 documents"
+    },
+    {
+      "type": "step",
+      "key": "extract",
+      "state": "running"
+    },
+    {
+      "type": "evidence",
+      "id": "ev-deso-01",
+      "claim": "Each plant is financed through an SPV that Desolenator co-owns and operates.",
+      "url": "https://diogo.republic.com/desolenator",
+      "title": "Republic deal note: Desolenator",
+      "cited_text": "fully financed through a Special Purpose Vehicle (SPV) whereby Desolenator owns a share of the SPV and is the operator for each asset"
+    },
+    {
+      "type": "evidence",
+      "id": "ev-deso-02",
+      "claim": "Water is sold on a monthly bill, so revenue follows a financed and built plant.",
+      "url": "https://www.desolenator.com/product",
+      "title": "Desolenator product page",
+      "cited_text": "Delivered through a simple monthly bill."
+    },
+    {
+      "type": "evidence",
+      "id": "ev-deso-03",
+      "claim": "DEWA is a public-private pilot partner.",
+      "url": "https://www.desolenator.com/projects/dubai",
+      "title": "Desolenator DEWA project",
+      "cited_text": "as part of our Public-Private Partnerships under the Dubai Future Accelerator Program"
+    },
+    {
+      "type": "evidence",
+      "id": "ev-deso-04",
+      "claim": "Silal (ADQ) is a pilot partner for solar desalination in food production.",
+      "url": "https://www.desolenator.com/projects/abu-dhabi",
+      "title": "Desolenator Silal project",
+      "cited_text": "partner with Silal (ADQ) to deploy the world's first solar desalination plant for food production in the UAE"
+    },
+    {
+      "type": "evidence",
+      "id": "ev-deso-05",
+      "claim": "Modular systems are designed for remote deployment.",
+      "url": "https://www.desolenator.com/product",
+      "title": "Desolenator product page",
+      "cited_text": "Scalable, modular systems for remote deployment, at a low levelised cost of water."
+    },
+    {
+      "type": "evidence",
+      "id": "ev-deso-06",
+      "claim": "No consumables or membranes in the system.",
+      "url": "https://www.desolenator.com/product",
+      "title": "Desolenator product page",
+      "cited_text": "No consumables (no filters, no membranes)."
+    },
+    {
+      "type": "evidence",
+      "id": "ev-deso-07",
+      "claim": "Company claim: 4x PV energy harvest and 24/7 off-grid operation. No independent field data is public.",
+      "url": "https://www.desolenator.com/product",
+      "title": "Desolenator product page",
+      "cited_text": "harvesting 4x more energy than standard PV and able to operate 24/7 off-grid"
+    },
+    {
+      "type": "evidence",
+      "id": "ev-deso-08",
+      "claim": "ISO 14001 certified.",
+      "url": "https://www.desolenator.com/product",
+      "title": "Desolenator product page",
+      "cited_text": "ISO 14001: 2015 — Environmental Management System"
+    },
+    {
+      "type": "evidence",
+      "id": "ev-deso-09",
+      "claim": "ISO 9001 certified (ISO 45001 listed alongside).",
+      "url": "https://www.desolenator.com/product",
+      "title": "Desolenator product page",
+      "cited_text": "ISO 9001: 2015 — Quality Management System"
+    },
+    {
+      "type": "evidence",
+      "id": "ev-deso-10",
+      "claim": "New CEO announced to lead the scale-up (13 Jun 2024).",
+      "url": "https://www.desolenator.com/latest-news",
+      "title": "Desolenator company news",
+      "cited_text": "Desolenator Announces Adri Pols as New CEO to Lead Scale-up and Address"
+    },
+    {
+      "type": "evidence",
+      "id": "ev-deso-11",
+      "claim": "Team of about 20 people.",
+      "url": "https://www.desolenator.com/about-us",
+      "title": "Desolenator team page",
+      "cited_text": "our team of 20 speaks 13 languages"
+    },
+    {
+      "type": "evidence",
+      "id": "ev-deso-12",
+      "claim": "No chemicals or membranes in the process.",
+      "url": "https://www.desolenator.com/product",
+      "title": "Desolenator product page",
+      "cited_text": "No toxic chemicals. No chemical pre-treatment. No membranes."
+    },
+    {
+      "type": "evidence",
+      "id": "ev-deso-13",
+      "claim": "Company claim: low-concentration, non-toxic brine.",
+      "url": "https://www.desolenator.com/product",
+      "title": "Desolenator product page",
+      "cited_text": "produces a low-concentration and non-toxic brine"
+    },
+    {
+      "type": "evidence",
+      "id": "ev-deso-14",
+      "claim": "BlueInvest Award 2026 for Ocean Resilience.",
+      "url": "https://www.desolenator.com/latest-news",
+      "title": "Desolenator company news",
+      "cited_text": "Desolenator wins the BlueInvest Award 2026 (Ocean Resilience) in Brussels, presented by the European Commission."
+    },
+    {
+      "type": "step",
+      "key": "extract",
+      "state": "done",
+      "detail": "14 items"
+    },
+    {
+      "type": "step",
+      "key": "map",
+      "state": "running"
+    },
+    {
+      "type": "step",
+      "key": "map",
+      "state": "done",
+      "detail": "8 domains"
+    },
+    {
+      "type": "step",
+      "key": "score",
+      "state": "running"
+    },
+    {
+      "type": "score",
+      "domain": "commercial",
+      "score": 3,
+      "confidence": "medium",
+      "finding": "Two flagship pilots: DEWA and Silal (ADQ). No multi-plant contracts public yet.",
+      "evidence_ids": [
+        "ev-deso-03",
+        "ev-deso-04"
+      ]
+    },
+    {
+      "type": "score",
+      "domain": "financing",
+      "score": 2,
+      "confidence": "medium",
+      "finding": "Plants are financed through SPVs that Desolenator co-owns and operates. Revenue starts only once a plant is financed and built.",
+      "evidence_ids": [
+        "ev-deso-01",
+        "ev-deso-02"
+      ]
+    },
+    {
+      "type": "score",
+      "domain": "operations",
+      "score": 3,
+      "confidence": "medium",
+      "finding": "40 m³/hour modular system with no membranes or consumables. Running several sites in MENA is still to be proven.",
+      "evidence_ids": [
+        "ev-deso-05",
+        "ev-deso-06"
+      ]
+    },
+    {
+      "type": "score",
+      "domain": "technology",
+      "score": 3,
+      "confidence": "low",
+      "finding": "Company claims 24/7 solar-only operation and PV-T panels harvesting about 4× standard PV. No independent field data is public.",
+      "evidence_ids": [
+        "ev-deso-07"
+      ]
+    },
+    {
+      "type": "score",
+      "domain": "regulatory",
+      "score": 4,
+      "confidence": "medium",
+      "finding": "ISO 9001, 14001 and 45001 certified. Potable-water approvals are needed market by market.",
+      "evidence_ids": [
+        "ev-deso-08",
+        "ev-deso-09"
+      ]
+    },
+    {
+      "type": "score",
+      "domain": "people",
+      "score": 3,
+      "confidence": "medium",
+      "finding": "New CEO since June 2024 to lead the scale-up. About 20 people. Missing project-finance and MENA field-operations leadership.",
+      "evidence_ids": [
+        "ev-deso-10",
+        "ev-deso-11"
+      ]
+    },
+    {
+      "type": "score",
+      "domain": "ai",
+      "score": null,
+      "confidence": "low",
+      "finding": "Nothing public on remote monitoring or predictive maintenance.",
+      "evidence_ids": []
+    },
+    {
+      "type": "score",
+      "domain": "impact",
+      "score": 4,
+      "confidence": "medium",
+      "finding": "No chemicals or membranes; low-concentration, non-toxic brine. BlueInvest Award 2026 for Ocean Resilience.",
+      "evidence_ids": [
+        "ev-deso-12",
+        "ev-deso-13",
+        "ev-deso-14"
+      ]
+    },
+    {
+      "type": "step",
+      "key": "score",
+      "state": "done"
+    },
+    {
+      "type": "step",
+      "key": "playbook",
+      "state": "running"
+    },
+    {
+      "type": "step",
+      "key": "playbook",
+      "state": "done",
+      "detail": "1 lesson"
+    },
+    {
+      "type": "step",
+      "key": "binding",
+      "state": "running"
+    },
+    {
+      "type": "step",
+      "key": "binding",
+      "state": "done",
+      "detail": "Financing"
+    }
+  ],
+  "result": {
+    "company_id": "desolenator",
+    "scores": [
+      {
+        "domain": "commercial",
+        "score": 3,
+        "confidence": "medium",
+        "finding": "Two flagship pilots: DEWA and Silal (ADQ). No multi-plant contracts public yet.",
+        "evidence_ids": [
+          "ev-deso-03",
+          "ev-deso-04"
+        ]
+      },
+      {
+        "domain": "financing",
+        "score": 2,
+        "confidence": "medium",
+        "finding": "Plants are financed through SPVs that Desolenator co-owns and operates. Revenue starts only once a plant is financed and built.",
+        "evidence_ids": [
+          "ev-deso-01",
+          "ev-deso-02"
+        ]
+      },
+      {
+        "domain": "operations",
+        "score": 3,
+        "confidence": "medium",
+        "finding": "40 m³/hour modular system with no membranes or consumables. Running several sites in MENA is still to be proven.",
+        "evidence_ids": [
+          "ev-deso-05",
+          "ev-deso-06"
+        ]
+      },
+      {
+        "domain": "technology",
+        "score": 3,
+        "confidence": "low",
+        "finding": "Company claims 24/7 solar-only operation and PV-T panels harvesting about 4× standard PV. No independent field data is public.",
+        "evidence_ids": [
+          "ev-deso-07"
+        ]
+      },
+      {
+        "domain": "regulatory",
+        "score": 4,
+        "confidence": "medium",
+        "finding": "ISO 9001, 14001 and 45001 certified. Potable-water approvals are needed market by market.",
+        "evidence_ids": [
+          "ev-deso-08",
+          "ev-deso-09"
+        ]
+      },
+      {
+        "domain": "people",
+        "score": 3,
+        "confidence": "medium",
+        "finding": "New CEO since June 2024 to lead the scale-up. About 20 people. Missing project-finance and MENA field-operations leadership.",
+        "evidence_ids": [
+          "ev-deso-10",
+          "ev-deso-11"
+        ]
+      },
+      {
+        "domain": "ai",
+        "score": null,
+        "confidence": "low",
+        "finding": "Nothing public on remote monitoring or predictive maintenance.",
+        "evidence_ids": []
+      },
+      {
+        "domain": "impact",
+        "score": 4,
+        "confidence": "medium",
+        "finding": "No chemicals or membranes; low-concentration, non-toxic brine. BlueInvest Award 2026 for Ocean Resilience.",
+        "evidence_ids": [
+          "ev-deso-12",
+          "ev-deso-13",
+          "ev-deso-14"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "id": "ev-deso-01",
+        "claim": "Each plant is financed through an SPV that Desolenator co-owns and operates.",
+        "cited_text": "fully financed through a Special Purpose Vehicle (SPV) whereby Desolenator owns a share of the SPV and is the operator for each asset",
+        "url": "https://diogo.republic.com/desolenator",
+        "title": "Republic deal note: Desolenator",
+        "location": {
+          "source_id": "src_republic",
+          "start": 6943,
+          "end": 7076
+        }
+      },
+      {
+        "id": "ev-deso-02",
+        "claim": "Water is sold on a monthly bill, so revenue follows a financed and built plant.",
+        "cited_text": "Delivered through a simple monthly bill.",
+        "url": "https://www.desolenator.com/product",
+        "title": "Desolenator product page",
+        "location": {
+          "source_id": "src_deso_product",
+          "start": 390,
+          "end": 430
+        }
+      },
+      {
+        "id": "ev-deso-03",
+        "claim": "DEWA is a public-private pilot partner.",
+        "cited_text": "as part of our Public-Private Partnerships under the Dubai Future Accelerator Program",
+        "url": "https://www.desolenator.com/projects/dubai",
+        "title": "Desolenator DEWA project",
+        "location": {
+          "source_id": "src_deso_dubai",
+          "start": 639,
+          "end": 724
+        }
+      },
+      {
+        "id": "ev-deso-04",
+        "claim": "Silal (ADQ) is a pilot partner for solar desalination in food production.",
+        "cited_text": "partner with Silal (ADQ) to deploy the world's first solar desalination plant for food production in the UAE",
+        "url": "https://www.desolenator.com/projects/abu-dhabi",
+        "title": "Desolenator Silal project",
+        "location": {
+          "source_id": "src_deso_abudhabi",
+          "start": 100,
+          "end": 208
+        }
+      },
+      {
+        "id": "ev-deso-05",
+        "claim": "Modular systems are designed for remote deployment.",
+        "cited_text": "Scalable, modular systems for remote deployment, at a low levelised cost of water.",
+        "url": "https://www.desolenator.com/product",
+        "title": "Desolenator product page",
+        "location": {
+          "source_id": "src_deso_product",
+          "start": 786,
+          "end": 868
+        }
+      },
+      {
+        "id": "ev-deso-06",
+        "claim": "No consumables or membranes in the system.",
+        "cited_text": "No consumables (no filters, no membranes).",
+        "url": "https://www.desolenator.com/product",
+        "title": "Desolenator product page",
+        "location": {
+          "source_id": "src_deso_product",
+          "start": 1744,
+          "end": 1786
+        }
+      },
+      {
+        "id": "ev-deso-07",
+        "claim": "Company claim: 4x PV energy harvest and 24/7 off-grid operation. No independent field data is public.",
+        "cited_text": "harvesting 4x more energy than standard PV and able to operate 24/7 off-grid",
+        "url": "https://www.desolenator.com/product",
+        "title": "Desolenator product page",
+        "location": {
+          "source_id": "src_deso_product",
+          "start": 530,
+          "end": 606
+        }
+      },
+      {
+        "id": "ev-deso-08",
+        "claim": "ISO 14001 certified.",
+        "cited_text": "ISO 14001: 2015 — Environmental Management System",
+        "url": "https://www.desolenator.com/product",
+        "title": "Desolenator product page",
+        "location": {
+          "source_id": "src_deso_product",
+          "start": 3876,
+          "end": 3925
+        }
+      },
+      {
+        "id": "ev-deso-09",
+        "claim": "ISO 9001 certified (ISO 45001 listed alongside).",
+        "cited_text": "ISO 9001: 2015 — Quality Management System",
+        "url": "https://www.desolenator.com/product",
+        "title": "Desolenator product page",
+        "location": {
+          "source_id": "src_deso_product",
+          "start": 3973,
+          "end": 4015
+        }
+      },
+      {
+        "id": "ev-deso-10",
+        "claim": "New CEO announced to lead the scale-up (13 Jun 2024).",
+        "cited_text": "Desolenator Announces Adri Pols as New CEO to Lead Scale-up and Address",
+        "url": "https://www.desolenator.com/latest-news",
+        "title": "Desolenator company news",
+        "location": {
+          "source_id": "src_deso_news",
+          "start": 561,
+          "end": 632
+        }
+      },
+      {
+        "id": "ev-deso-11",
+        "claim": "Team of about 20 people.",
+        "cited_text": "our team of 20 speaks 13 languages",
+        "url": "https://www.desolenator.com/about-us",
+        "title": "Desolenator team page",
+        "location": {
+          "source_id": "src_deso_about",
+          "start": 212,
+          "end": 246
+        }
+      },
+      {
+        "id": "ev-deso-12",
+        "claim": "No chemicals or membranes in the process.",
+        "cited_text": "No toxic chemicals. No chemical pre-treatment. No membranes.",
+        "url": "https://www.desolenator.com/product",
+        "title": "Desolenator product page",
+        "location": {
+          "source_id": "src_deso_product",
+          "start": 895,
+          "end": 955
+        }
+      },
+      {
+        "id": "ev-deso-13",
+        "claim": "Company claim: low-concentration, non-toxic brine.",
+        "cited_text": "produces a low-concentration and non-toxic brine",
+        "url": "https://www.desolenator.com/product",
+        "title": "Desolenator product page",
+        "location": {
+          "source_id": "src_deso_product",
+          "start": 985,
+          "end": 1033
+        }
+      },
+      {
+        "id": "ev-deso-14",
+        "claim": "BlueInvest Award 2026 for Ocean Resilience.",
+        "cited_text": "Desolenator wins the BlueInvest Award 2026 (Ocean Resilience) in Brussels, presented by the European Commission.",
+        "url": "https://www.desolenator.com/latest-news",
+        "title": "Desolenator company news",
+        "location": {
+          "source_id": "src_deso_news",
+          "start": 423,
+          "end": 535
+        }
+      }
+    ],
+    "synthesis": {
+      "binding_domain": "financing",
+      "binding_statement": "Asset capital for water-as-a-service plants",
+      "rationale": "Each plant sits in an SPV that Desolenator co-owns and operates, and sells water on a monthly bill. Nothing earns until the plant is financed and built. The pilots aren't the limit. Plant capital is. Proposed for the board partner and founder to confirm.",
+      "evidence_ids": [
+        "ev-deso-01",
+        "ev-deso-02"
+      ],
+      "questions": [
+        "What does the capital stack for one 250 m³/day plant look like, and who has said yes?",
+        "Which pilot buyer, DEWA or Silal, is closest to a multi-plant commitment?",
+        "What field data would convince an infrastructure fund the plants perform?"
+      ],
+      "program_ids": [
+        "finance-sprint",
+        "key-hire"
+      ],
+      "lesson_ids": [
+        "price-total-cost"
+      ]
+    }
+  }
+}

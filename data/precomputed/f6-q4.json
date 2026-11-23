@@ -1,0 +1,35 @@
+{
+  "authored": true,
+  "model": "authored-fixture",
+  "reviewed": true,
+  "prompt_version": "shareholder-update@v1",
+  "quarter": "Q4 2026",
+  "title": "Rypples shareholder update, Q4 2026",
+  "draft_n": 1,
+  "segments": [
+    { "kind": "text", "text": "This quarter Rypples backed its " },
+    { "kind": "ref", "ref": { "type": "portfolio", "id": "stats", "field": "backed" } },
+    { "kind": "text", "text": "th company and saw its first exit return to the Playbook.\n\nWSense: " },
+    { "kind": "ref", "ref": { "type": "exit", "id": "wsense", "field": "note" } },
+    { "kind": "text", "text": ". The package was " },
+    { "kind": "ref", "ref": { "type": "exit", "id": "wsense", "field": "package" } },
+    { "kind": "text", "text": " across four underwater deals, and the lesson behind it is now being matched to the companies it can help next.\n\nDesolenator joined as our anchor investment on " },
+    { "kind": "ref", "ref": { "type": "company", "id": "desolenator", "field": "round_closed_at" } },
+    { "kind": "text", "text": ". It is on day " },
+    { "kind": "ref", "ref": { "type": "company", "id": "desolenator", "field": "day" } },
+    { "kind": "text", "text": " of its first hundred days, with plant capital confirmed as the binding constraint and the Finance Sprint and Key Hire under way.\n\nAcross the portfolio, " },
+    { "kind": "ref", "ref": { "type": "portfolio", "id": "stats", "field": "programs_running" } },
+    { "kind": "text", "text": " Growth Engine programs are running. Founders rate Rypples " },
+    { "kind": "ref", "ref": { "type": "portfolio", "id": "stats", "field": "firm_rating" } },
+    { "kind": "text", "text": " out of five on the commitments we have delivered, and " },
+    { "kind": "ref", "ref": { "type": "portfolio", "id": "stats", "field": "lessons_sent" } },
+    { "kind": "text", "text": " Playbook lessons have reached founders so far.\n\nOn impact, " },
+    { "kind": "ref", "ref": { "type": "portfolio", "id": "stats", "field": "impact_reporting" } },
+    { "kind": "text", "text": " companies now report against the Ocean Impact Navigator." }
+  ],
+  "held_back": [
+    { "type": "lesson", "id": "wsense-strategic", "reason": "Proposed, not yet approved." },
+    { "type": "decision", "id": "dec-deso-firstloss", "reason": "Open decision: first-loss position in plant SPV #1." },
+    { "type": "deal", "id": "tern", "reason": "Pipeline deals are never disclosed in shareholder updates." }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "flow": "f7",
+  "prompt": "day-one@v1",
+  "cases": [
+    {
+      "id": "tern",
+      "input": { "dealId": "tern" },
+      "expect": {
+        "binding_domain": "operations",
+        "priorities": 3,
+        "started": ["pilot-to-contract", "key-hire"],
+        "deferred": ["finance-sprint"],
+        "hours_started": 130,
+        "partner_seats": [3, 3]
+      }
+    }
+  ]
+}

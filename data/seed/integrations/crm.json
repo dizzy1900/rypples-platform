@@ -1,0 +1,8 @@
+{
+  "note": "Demo CRM adapter: pipeline deals under codenames, contacts by role only.",
+  "contacts": {
+    "tern": [{ "role": "CEO", "last_touch": "2026-11-19" }, { "role": "CTO", "last_touch": "2026-11-12" }],
+    "kelvin": [{ "role": "CEO", "last_touch": "2026-11-16" }],
+    "mooring": [{ "role": "Founder", "last_touch": "2026-11-18" }]
+  }
+}

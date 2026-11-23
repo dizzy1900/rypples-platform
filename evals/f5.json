@@ -1,0 +1,8 @@
+{
+  "flow": "f5",
+  "prompt": "board-pack@v1",
+  "cases": [
+    { "id": "desolenator-letter", "input": { "companyId": "desolenator", "sectionKey": "letter" }, "expect": { "max_words": 300, "first_person": true, "grounded_financials": true, "judge": true } },
+    { "id": "desolenator-asks", "input": { "companyId": "desolenator", "sectionKey": "asks" }, "expect": { "max_words": 300, "first_person": true, "grounded_financials": true, "judge": true } }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "note": "Demo Drive adapter: file names only. No document contents are stored in the repo.",
+  "folders": {
+    "desolenator": [
+      { "id": "drv-deso-1", "name": "Desolenator_Board_Pack_Q3_2026.pdf", "type": "PDF", "modified": "2026-08-27", "url": "https://drive.example.invalid/desolenator/board-pack-q3" },
+      { "id": "drv-deso-2", "name": "Board_Minutes_Q3_2026.docx", "type": "Document", "modified": "2026-08-28", "url": "https://drive.example.invalid/desolenator/minutes-q3" },
+      { "id": "drv-deso-3", "name": "Plant_Model_SPV1.xlsx", "type": "Spreadsheet", "modified": "2026-11-18", "url": "https://drive.example.invalid/desolenator/plant-model" },
+      { "id": "drv-deso-4", "name": "Board_Pack_Q4_2026_draft.pdf", "type": "PDF", "modified": "2026-11-20", "url": "https://drive.example.invalid/desolenator/board-pack-q4" }
+    ],
+    "tern": [
+      { "id": "drv-tern-1", "name": "Tern_Board_Deck_Nov2026.pdf", "type": "PDF", "modified": "2026-11-12", "url": "https://drive.example.invalid/tern/board-deck" },
+      { "id": "drv-tern-2", "name": "Fleet_Customer_Contracts.zip", "type": "ZIP", "modified": "2026-11-09", "url": "https://drive.example.invalid/tern/contracts" },
+      { "id": "drv-tern-3", "name": "Production_Schedule_2026-27.xlsx", "type": "Spreadsheet", "modified": "2026-11-10", "url": "https://drive.example.invalid/tern/production" },
+      { "id": "drv-tern-4", "name": "Cap_Table_and_Round_Terms.xlsx", "type": "Spreadsheet", "modified": "2026-11-05", "url": "https://drive.example.invalid/tern/cap-table" },
+      { "id": "drv-tern-5", "name": "Class_Certificate.pdf", "type": "PDF", "modified": "2026-10-28", "url": "https://drive.example.invalid/tern/class" },
+      { "id": "drv-tern-6", "name": "Operating_Logs_Customer1.csv", "type": "CSV", "modified": "2026-11-03", "url": "https://drive.example.invalid/tern/logs" }
+    ]
+  },
+  "texts": {
+    "drv-deso-2": "Demo connection. Minutes are not stored in this prototype; the board pack draws only on records in Bridge."
+  }
+}

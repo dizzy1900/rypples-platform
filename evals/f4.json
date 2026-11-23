@@ -1,0 +1,11 @@
+{
+  "flow": "f4",
+  "prompt": "lesson-match@v1",
+  "cases": [
+    {
+      "id": "wsense-lesson",
+      "input": { "lessonId": "wsense-strategic" },
+      "expect": { "covers_eligible_set": true, "reasons_cite_fact": true, "never": ["wsense"] }
+    }
+  ]
+}

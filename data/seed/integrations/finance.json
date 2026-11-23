@@ -1,0 +1,11 @@
+{
+  "note": "Demo finance-system adapter. Values are masked; no Desolenator financials exist anywhere in the repo.",
+  "kpis": {
+    "desolenator": [
+      { "key": "cash_runway", "label": "Cash and runway", "value": "••••", "asOf": "2026-10-31" },
+      { "key": "revenue_volume", "label": "Revenue and contracted water volume", "value": "••••", "asOf": "2026-10-31" },
+      { "key": "plant_capex", "label": "Plant capex committed", "value": "••••", "asOf": "2026-10-31" },
+      { "key": "headcount", "label": "Headcount", "value": "••••", "asOf": "2026-11-01" }
+    ]
+  }
+}

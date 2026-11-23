@@ -1,0 +1,7 @@
+{
+  "flow": "f6",
+  "prompt": "shareholder-update@v1",
+  "cases": [
+    { "id": "q4-2026", "input": { "quarter": "Q4 2026" }, "expect": { "refs_resolve": true, "no_digits_in_text": true, "held_back_listed": true, "judge": true } }
+  ]
+}

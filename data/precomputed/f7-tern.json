@@ -1,0 +1,16 @@
+{
+  "authored": true,
+  "model": "authored-fixture",
+  "reviewed": true,
+  "prompt_version": "day-one@v1",
+  "note": "The F7 AI step (plan). Steps 2 to 6 are deterministic and always run.",
+  "deal_id": "tern",
+  "plan": {
+    "binding": { "domain": "operations", "statement": "A second production line" },
+    "priorities": [
+      { "rank": 1, "title": "Fund and staff the second line before the third fleet order", "domain": "operations", "intent": "fund_assets", "mission": { "title": "Second-line financing plan", "operator_role": "Finance expert", "due_weeks": 6 } },
+      { "rank": 2, "title": "Write conversion terms into both pilot extensions", "domain": "commercial", "intent": "convert_pilots", "mission": { "title": "Conversion terms for both pilot extensions", "operator_role": "Go-To-Market expert", "due_weeks": 8 } },
+      { "rank": 3, "title": "Hire a COO with series-production experience", "domain": "people", "intent": "key_hire", "mission": { "title": "COO search: scorecard and shortlist", "operator_role": "People expert", "due_weeks": 10 } }
+    ]
+  }
+}

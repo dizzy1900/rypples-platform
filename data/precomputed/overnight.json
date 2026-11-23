@@ -1,0 +1,13 @@
+{
+  "authored": true,
+  "model": "authored-fixture",
+  "reviewed": true,
+  "note": "S10 overnight items: times relative to the scenario date (minutes after midnight). Items come from data/seed/captain_overnight.json.",
+  "items": [
+    { "id": "cap-n1", "minutes": 312 },
+    { "id": "cap-n2", "minutes": 298 },
+    { "id": "cap-n3", "minutes": 241 },
+    { "id": "cap-n4", "minutes": 205 },
+    { "id": "cap-n5", "minutes": 187 }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "authored": true,
+  "model": "authored-fixture",
+  "reviewed": true,
+  "prompt_version": "lesson-match@v1",
+  "note": "Matches mirror the seeded lesson_matches. Eligible set: active public companies, excluding the source company and exits.",
+  "result": {
+    "lesson_id": "wsense-strategic",
+    "matches": [
+      { "company_id": "desolenator", "reason": "Strategic partners in both flagship pilots, DEWA and Silal (ADQ). Neither appears on the cap table in public sources.", "fit": "strong" },
+      { "company_id": "flocean", "reason": "Xylem joined the Series A as a strategic investor in late 2025. The next step is co-development terms.", "fit": "strong" },
+      { "company_id": "marble", "reason": "Sells ocean monitoring to security and defence buyers. Check the cap table before sending.", "fit": "possible" }
+    ],
+    "excluded": [
+      { "company_id": "vessev", "reason": "First US ferry customer named; no strategic investor or acquirer relationship to build on yet." },
+      { "company_id": "full-circle-biotechnology", "reason": "The binding constraint is operations, not a strategic relationship." },
+      { "company_id": "hullbot", "reason": "Strategic Partner Map is already running; revisit when it reports." },
+      { "company_id": "kelp-blue", "reason": "The binding constraint is operations at sea; no named strategic partner in public sources." },
+      { "company_id": "matter", "reason": "Pilot to Contract is running; the commercial terms come first." },
+      { "company_id": "coral-vita", "reason": "Pilot to Contract is running; the commercial terms come first." },
+      { "company_id": "sway", "reason": "The binding constraint is operations; no strategic in a pilot today." },
+      { "company_id": "vlinder", "reason": "The provisional constraint is financing; no named strategic partner in public sources." }
+    ]
+  }
+}

@@ -19,6 +19,10 @@ const csp = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // Read with fs at runtime (prompts, source snapshots, precomputed replays), so Vercel must ship them.
+  outputFileTracingIncludes: {
+    "/**": ["./lib/ai/prompts/**/*", "./data/sources/**/*", "./data/precomputed/**/*"],
+  },
   async headers() {
     return [
       {
