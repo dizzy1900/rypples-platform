@@ -114,7 +114,10 @@ class IoRedisKv implements Kv {
     await this.r.del(key);
   }
   async incrFloat(key: string, by: number, ttlSec: number) {
-    const res = await this.r.multi().incrbyfloat(key, by).expire(key, ttlSec, "NX").exec() as unknown as [Error | null, unknown][];
+    const m = this.r.multi();
+    m.incrbyfloat(key, by);
+    m.expire(key, ttlSec, "NX");
+    const res = (await m.exec()) as [Error | null, unknown][] | null;
     return Number(res?.[0]?.[1] ?? 0);
   }
   async windowHit(key: string, nowMs: number, windowMs: number, member: string) {
