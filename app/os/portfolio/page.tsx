@@ -110,7 +110,7 @@ export default async function PortfolioPage({ searchParams }: { searchParams: Pr
           The {p.publicCount} companies on the public portfolio. {fewer} not yet announced. White tick marks the benchmark for that
           constraint. Every benchmark is an outside reference for now. Each switches to Rypples&rsquo; own data after eight cleared
           cases (see{" "}
-          <Link href="/os/reporting?tab=acceleration" className="text-link">
+          <Link href="/os/reporting?tab=acceleration" className="text-link underline underline-offset-2">
             Reporting, Acceleration
           </Link>
           ). Dotted figures are illustrative.

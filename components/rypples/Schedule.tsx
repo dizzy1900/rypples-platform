@@ -27,7 +27,7 @@ const MEASURED = [
 function H({ n, children }: { n: number; children: React.ReactNode }) {
   return (
     <h2 className="mt-8 break-after-avoid text-[17px] font-semibold tracking-[-0.01em]">
-      <span className="mr-2 text-[13px] opacity-60">{n}.</span>
+      <span className="mr-2 text-[13px] opacity-75">{n}.</span>
       {children}
     </h2>
   );
@@ -57,7 +57,7 @@ export function Schedule({ s, backHref, backLabel = "Back to company" }: { s: Sc
       </div>
 
       <Paper>
-        <p className="text-[12px] font-medium uppercase tracking-[0.2em] opacity-60">Annex to the term sheet</p>
+        <p className="text-[12px] font-medium uppercase tracking-[0.2em] opacity-75">Annex to the term sheet</p>
         <h1 className="mt-2 text-[34px] font-medium leading-[1.05] tracking-[-0.03em]">Growth Engine schedule</h1>
         <p className="mt-1 text-[15px] opacity-70">{s.company.name}</p>
 
@@ -80,7 +80,7 @@ export function Schedule({ s, backHref, backLabel = "Back to company" }: { s: Sc
         )}
         {s.enrolments.length > 0 && (
           <>
-            <p className="mt-3 text-[13px] font-medium uppercase tracking-[0.12em] opacity-60">Chosen so far</p>
+            <p className="mt-3 text-[13px] font-medium uppercase tracking-[0.12em] opacity-75">Chosen so far</p>
             <ul className="mt-1 space-y-1 text-[14px]">
               {s.enrolments.map((e) => (
                 <li key={e.id}>

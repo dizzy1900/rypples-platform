@@ -51,7 +51,7 @@ export type ShellProps = {
 
 function Wordmark({ product, href }: { product: string; href: string }) {
   return (
-    <Link href={href} className="flex items-center gap-2.5" aria-label={`Rypples ${product} home`}>
+    <Link href={href} className="flex items-center gap-2.5">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src="/brand/mark.svg" alt="" width={28} height={28} />
       <span className="font-display text-[21px] font-semibold tracking-[-0.02em] text-ink">Rypples</span>
@@ -124,7 +124,7 @@ function RailContents({ props, onNavigate }: { props: ShellProps; onNavigate?: (
       <NavList nav={props.nav} onNavigate={onNavigate} />
       {props.boardSeats && props.boardSeats.length > 0 && (
         <div className="mt-8">
-          <p className="px-3 pb-2 text-[11px] font-medium uppercase tracking-[0.2em] text-ink-4">Board seats</p>
+          <p className="px-3 pb-2 text-[11px] font-medium uppercase tracking-[0.2em] text-ink-3">Board seats</p>
           <ul className="flex flex-col gap-0.5">
             {props.boardSeats.map((b) => (
               <li key={b.slug}>

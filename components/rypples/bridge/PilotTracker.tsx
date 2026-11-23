@@ -54,11 +54,11 @@ export function PilotTracker({ companyId, pilots, stages }: { companyId: string;
                     <span
                       className={clsx(
                         "flex min-h-[44px] flex-col items-start justify-center gap-0.5 rounded-item border px-3 py-1.5 text-[12px] font-medium",
-                        current ? "border-lime bg-lime-15 text-lime" : reached ? "border-lime-30 bg-lime-10 text-ink" : "border-line-2 bg-surface text-ink-3",
+                        current ? "border-lime bg-lime-15 text-lime" : reached ? "border-lime-30 bg-lime-10 text-ink" : "border-line-2 bg-surface text-ink-2",
                       )}
                     >
-                      <span>{st}</span>
-                      <span className="text-[11px] font-normal opacity-80">{current ? "Current" : reached ? "Reached" : "Not yet"}</span>
+                      <span>{st}</span>{" "}
+                      <span className="text-[11px] font-normal">{current ? "Current" : reached ? "Reached" : "Not yet"}</span>
                     </span>
                   );
                   return (
@@ -66,7 +66,7 @@ export function PilotTracker({ companyId, pilots, stages }: { companyId: string;
                       {current ? (
                         <div aria-current="step">{cell}</div>
                       ) : (
-                        <Popover label={`Change ${p.name} to ${st}`} trigger={cell}>
+                        <Popover label={`${st} ${reached ? "Reached" : "Not yet"}. Change ${p.name} to ${st}`} trigger={cell}>
                           <span className="flex flex-col gap-3">
                             <span className="text-[13px] text-ink">
                               Set {p.name} to <strong>{st}</strong>?

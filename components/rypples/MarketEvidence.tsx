@@ -132,11 +132,11 @@ export function MarketEvidence({ markets, pins, compact = false, datasets, onAsk
   const attribution = (
     <p className="meta">
       Water stress:{" "}
-      <a className="text-link" href="https://www.wri.org/aqueduct" target="_blank" rel="noreferrer">
+      <a className="text-link underline underline-offset-2" href="https://www.wri.org/aqueduct" target="_blank" rel="noreferrer">
         WRI Aqueduct 4.0
       </a>{" "}
       (CC BY 4.0), accessed {accessed}. Solar:{" "}
-      <a className="text-link" href="https://power.larc.nasa.gov/" target="_blank" rel="noreferrer">
+      <a className="text-link underline underline-offset-2" href="https://power.larc.nasa.gov/" target="_blank" rel="noreferrer">
         NASA POWER
       </a>{" "}
       climatology. Boundaries: Natural Earth.

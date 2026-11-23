@@ -108,7 +108,7 @@ export function ShareholderUpdate({ view }: { view: View }) {
       <div className="flex min-w-0 flex-col gap-4">
         {d ? (
           <Paper>
-            <p className="text-[12px] font-medium leading-[1.5] text-paper-ink/60" data-testid="draft-meta">
+            <p className="text-[12px] font-medium leading-[1.5] text-paper-ink/75" data-testid="draft-meta">
               Draft {d.n} · investor relations agent · {view.quarter} shareholder update · Built from {d.k} approved records.
             </p>
             <h2 className="mt-4 text-[28px] font-medium leading-[1.15] tracking-[-0.02em]">{d.title}</h2>

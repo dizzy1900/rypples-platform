@@ -33,11 +33,11 @@ export function TopBar({ crumbs, placeholder = "Ask Captain" }: { crumbs: Crumb[
         type="button"
         onClick={() => open()}
         className="well flex w-[340px] max-w-full items-center gap-3 px-3.5 py-2 text-left text-[13px] text-ink-3 hover:text-ink-2 max-sm:hidden"
-        aria-label={`${placeholder} (Command K)`}
+        aria-label={`${placeholder} ⌘K`}
       >
         <IconWheel className="text-lime" />
         <span className="flex-1 truncate">{placeholder}</span>
-        <kbd className="rounded-[5px] border border-line-2 px-1.5 py-[1px] font-sans text-[11px] text-ink-3">⌘K</kbd>
+        <kbd aria-hidden className="rounded-[5px] border border-line-2 px-1.5 py-[1px] font-sans text-[11px] text-ink-3">⌘K</kbd>
       </button>
     </div>
   );
