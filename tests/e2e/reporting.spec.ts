@@ -1,11 +1,9 @@
 import { expect, test } from "@playwright/test";
 
 test.describe("Reporting", () => {
-  // The shareholder update only has references once Captain has drafted it, and drafting is the AI layer
-  // (replay fixtures in data/precomputed are not generated yet, so Redraft errors today).
-  test.fixme("a reference popover resolves", async ({ page }) => {
+  // References come from the precomputed Q4 draft (data/precomputed/f6-q4.json).
+  test("a reference popover resolves", async ({ page }) => {
     await page.goto("/os/reporting?tab=update");
-    await page.getByRole("button", { name: "Redraft" }).click();
     const ref = page.locator("[data-ref-type]").first();
     await expect(ref).toBeVisible({ timeout: 20_000 });
     await ref.click();
