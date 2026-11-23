@@ -14,7 +14,8 @@
     "db:seed": "tsx scripts/seed.mts",
     "db:reseed": "tsx scripts/seed.mts --reseed",
     "sweep:sessions": "tsx scripts/sweep-sessions.mts",
-    "snapshot:sources": "tsx scripts/snapshot-sources.ts"
+    "snapshot:sources": "tsx scripts/snapshot-sources.ts",
+    "build:geo": "scripts/geo/.venv/bin/python scripts/geo/build_geo.py"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "1.12.0",
