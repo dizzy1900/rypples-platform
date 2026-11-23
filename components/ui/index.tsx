@@ -406,3 +406,12 @@ export function Kv({ k, v }: { k: ReactNode; v: ReactNode }) {
     </div>
   );
 }
+
+/** The official Rypples logo (public/brand/rypples-logo.svg, white and light blue, for dark grounds). 197 × 51 intrinsic. */
+export function RypplesLogo({ height = 28, className }: { height?: number; className?: string }) {
+  const width = Math.round((height * 197) / 51);
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img src="/brand/rypples-logo.svg" alt="Rypples" width={width} height={height} className={clsx("block shrink-0", className)} />
+  );
+}

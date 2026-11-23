@@ -8,7 +8,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import clsx from "clsx";
 import { Suspense, useCallback, useEffect, useState, type ReactNode } from "react";
 import { CaptainContext, Drawer } from "@/components/ui/client";
-import { Monogram } from "@/components/ui";
+import { Monogram, RypplesLogo } from "@/components/ui";
 import {
   IconBook,
   IconCapital,
@@ -51,11 +51,10 @@ export type ShellProps = {
 
 function Wordmark({ product, href }: { product: string; href: string }) {
   return (
-    <Link href={href} className="flex items-center gap-2.5">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/brand/mark.svg" alt="" width={28} height={28} />
-      <span className="font-display text-[21px] font-semibold tracking-[-0.02em] text-ink">Rypples</span>
-      <span className="mt-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-lime">{product}</span>
+    <Link href={href} className="flex items-center gap-3">
+      <RypplesLogo height={32} />
+      <span aria-hidden className="h-4 w-px bg-line-2" />
+      <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-lime">{product}</span>
     </Link>
   );
 }
