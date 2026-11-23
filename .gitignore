@@ -69,3 +69,4 @@ data/geo/raw/
 .trae
 .windsurf
 tests/.tmp/
+!.env.example
