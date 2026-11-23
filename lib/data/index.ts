@@ -13,7 +13,6 @@ import { insforgeConfigured } from "@/lib/env";
 
 let store: Store | null = null;
 export function getStore(): Store {
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   if (store) return store;
   if (insforgeConfigured()) {
     // eslint-disable-next-line @typescript-eslint/no-require-imports

@@ -79,7 +79,7 @@ export function AccelerationTab({ view }: { view: View }) {
             </li>
             <li className="flex gap-3">
               <span aria-hidden className="mt-[9px] h-[5px] w-[5px] shrink-0 rounded-full bg-lime" />
-              Each case is compared with its domain's benchmark: an outside reference until Rypples has {view.threshold} cases there, then the median of Rypples' own.
+              Each case is compared with its domain’s benchmark: an outside reference until Rypples has {view.threshold} cases there, then the median of Rypples’ own.
             </li>
             <li className="flex gap-3">
               <span aria-hidden className="mt-[9px] h-[5px] w-[5px] shrink-0 rounded-full bg-lime" />
@@ -89,10 +89,10 @@ export function AccelerationTab({ view }: { view: View }) {
         </section>
         <section className="flex flex-col gap-4" aria-labelledby="cant-h">
           <h2 id="cant-h" className="h2">
-            What can't be measured
+            What can’t be measured
           </h2>
           <p className="text-[14px] text-ink-2">
-            What a company would have done without Rypples. There's no true counterfactual, so these are signals, not proof.
+            What a company would have done without Rypples. There’s no true counterfactual, so these are signals, not proof.
           </p>
         </section>
       </div>
