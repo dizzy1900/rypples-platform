@@ -594,7 +594,8 @@ export const Pilot = z.object({
   company_id: z.string(),
   name: z.string(),
   note: z.string().nullable(),
-  stage: z.number().int().min(0).max(3),
+  /** 0 = not yet piloting; 1 Pilot, 2 Terms, 3 Contract, 4 Multi-site */
+  stage: z.number().int().min(0).max(4),
   source_id: z.string().nullable(),
   board_label: z.string(),
   ...prov,
