@@ -12,7 +12,6 @@ from __future__ import annotations
 
 import datetime as dt
 import glob
-import io
 import json
 import sys
 import zipfile
@@ -22,7 +21,13 @@ import geopandas as gpd
 import pandas as pd
 import pyogrio
 import requests
+import socket
+import urllib3.util.connection as _urllib3_conn
 from shapely.geometry import Point
+
+# Some networks advertise IPv6 for NASA/WRI hosts but do not route it, and requests then hangs until timeout.
+# Prefer IPv4.
+_urllib3_conn.allowed_gai_family = lambda: socket.AF_INET
 
 ROOT = Path(__file__).resolve().parents[2]
 GEO = ROOT / "data" / "geo"

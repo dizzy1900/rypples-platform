@@ -6,7 +6,15 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "vitest run",
+    "e2e": "playwright test",
+    "typecheck": "tsc --noEmit -p .",
+    "db:gen": "tsx scripts/gen-migration.ts",
+    "db:seed": "tsx scripts/seed.mts",
+    "db:reseed": "tsx scripts/seed.mts --reseed",
+    "sweep:sessions": "tsx scripts/sweep-sessions.mts",
+    "snapshot:sources": "tsx scripts/snapshot-sources.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "1.12.0",
@@ -49,5 +57,9 @@
     "typescript": "^5",
     "vitest": "^5.1.1",
     "world-atlas": "^2.0.2"
+  },
+  "packageManager": "pnpm@11.2.2",
+  "engines": {
+    "node": ">=20"
   }
 }

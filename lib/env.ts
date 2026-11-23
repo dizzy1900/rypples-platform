@@ -11,7 +11,8 @@ const ServerEnv = z.object({
   ANTHROPIC_API_KEY: z.string().optional(),
   MODEL_FAST: z.string().default("claude-haiku-5-5"),
   MODEL_MAIN: z.string().default("claude-sonnet-5-5"),
-  MODEL_DEEP: z.string().optional(),
+  /** F2 synthesis. Set to an empty string to fall back to MODEL_MAIN. */
+  MODEL_DEEP: z.string().default("claude-opus-5-5"),
   INSFORGE_BASE_URL: z.string().url().optional(),
   INSFORGE_SERVICE_KEY: z.string().optional(),
   REDIS_URL: z.string().optional(),

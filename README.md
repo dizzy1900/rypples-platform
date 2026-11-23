@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Rypples Platform
 
-## Getting Started
+A working prototype of the platform behind Rypples' Growth Engine. One data model serves two products: **Rypples OS** for the Rypples team (decisions, portfolio, Playbook, Growth Engine, pipeline, reporting) and **Rypples Bridge** for the founders of Anchor companies (board pack, plan, capital, programs, and a ledger of what Rypples owes them). **Captain** is the AI layer across both: every agent's output is a proposal with sources, and nothing counts until a person approves it. The same tools Captain uses are published as a read-only MCP server.
 
-First, run the development server:
+**Live:** _URL added after the first Vercel deploy_
+
+**Real vs illustrative.** The scenario (Rypples leading Desolenator's round on 15 Oct 2026, with a board seat) is fictional. Portfolio facts about Desolenator, WSense and the other companies come from public sources, linked wherever they appear. Every illustrative figure renders with a dotted underline.
+
+**Stack.** Next.js 15 · TypeScript · Tailwind CSS v4 · InsForge (Postgres) · Redis · Anthropic Claude (Haiku, Sonnet and Opus 5.5) · Model Context Protocol · d3-geo · Vitest and Playwright · Vercel.
+
+## Run it locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm i
+cp .env.example .env.local   # works with no keys: AI flows replay recorded runs
+pnpm db:seed                 # only when InsForge is configured
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Use Rypples from your own Claude: `claude mcp add --transport http rypples <site>/api/mcp`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Data attributions
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Water stress: WRI Aqueduct 4.0, CC BY 4.0 (aqueduct.wri.org)
+- Solar resource: NASA POWER (power.larc.nasa.gov)
+- Country boundaries: Natural Earth, via world-atlas
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The build specification is in [`docs/`](docs/SPEC.md).
