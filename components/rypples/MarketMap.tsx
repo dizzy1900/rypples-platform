@@ -130,8 +130,8 @@ export function MarketMap({ ranked, pins, compact = false, highlightIso3, onSele
         preserveAspectRatio="xMidYMid meet"
       >
         <g aria-hidden="true">
-          {features.map((f) => {
-            const id = String(f.id).padStart(3, "0");
+          {features.map((f, fi) => {
+            const id = f.id == null ? `x${fi}` : String(f.id).padStart(3, "0");
             const d = path(f);
             if (!d) return null;
             const hit = byNumeric.get(id);

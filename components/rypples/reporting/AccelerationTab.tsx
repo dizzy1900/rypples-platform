@@ -51,14 +51,14 @@ export function AccelerationTab({ view }: { view: View }) {
               {view.table.map((r) => (
                 <tr key={r.slug}>
                   <Td className="font-medium text-ink">{r.constraint}</Td>
-                  <Td>
+                  <Td label="Days">
                     <Illustrative note={r.sourceNote}>{r.days}</Illustrative>
                   </Td>
-                  <Td>{r.source}</Td>
-                  <Td>
+                  <Td label="Source">{r.source}</Td>
+                  <Td label="Rypples cases">
                     {r.cases} of {view.threshold}
                   </Td>
-                  <Td className="capitalize">{r.confidence}</Td>
+                  <Td label="Confidence" className="capitalize">{r.confidence}</Td>
                 </tr>
               ))}
             </tbody>

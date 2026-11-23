@@ -34,14 +34,14 @@ export function ProgramsTab({ view }: { view: View }) {
                     <span className="text-[13px] text-ink-3">Outcome: {p.outcome}</span>
                   </button>
                 </Td>
-                <Td>{p.domain}</Td>
-                <Td>
+                <Td label="Domain">{p.domain}</Td>
+                <Td label="Length">
                   {p.weeks} weeks · {p.hours} h
                 </Td>
-                <Td>{p.deliveredBy}</Td>
-                <Td>{p.running}</Td>
-                <Td>{p.done}</Td>
-                <Td>{p.rating == null ? <span className="text-ink-3">Not yet rated</span> : <Illustrative>{p.rating.toFixed(1)}</Illustrative>}</Td>
+                <Td label="Delivered by">{p.deliveredBy}</Td>
+                <Td label="Running">{p.running}</Td>
+                <Td label="Done">{p.done}</Td>
+                <Td label="Rating">{p.rating == null ? <span className="text-ink-3">Not yet rated</span> : <Illustrative>{p.rating.toFixed(1)}</Illustrative>}</Td>
               </tr>
             ))}
           </tbody>

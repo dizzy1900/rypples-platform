@@ -25,13 +25,13 @@ export function TalentTab({ view }: { view: View }) {
               {view.roles.map((r) => (
                 <tr key={r.id}>
                   <Td className="font-medium text-ink">{r.role}</Td>
-                  <Td>
+                  <Td label="Company">
                     <Link href={`/os/companies/${r.slug}`} className="text-link">
                       {r.company}
                     </Link>
                   </Td>
-                  <Td>{r.why}</Td>
-                  <Td>
+                  <Td label="Why">{r.why}</Td>
+                  <Td label="State">
                     <Illustrative>{r.state}</Illustrative>
                   </Td>
                 </tr>

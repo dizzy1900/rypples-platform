@@ -23,7 +23,7 @@ export function PathsTab({ view }: { view: ReturnType<typeof getPaths> }) {
                     {r.company}
                   </Link>
                 </Td>
-                <Td>
+                <Td label="Relationships today">
                   <div className="flex flex-col gap-1.5">
                     <span>{r.nowProvenance === "illustrative" ? <Illustrative>{r.now}</Illustrative> : r.now}</span>
                     {r.source && (
@@ -34,8 +34,8 @@ export function PathsTab({ view }: { view: ReturnType<typeof getPaths> }) {
                     {r.note && <Meta>{r.note}</Meta>}
                   </div>
                 </Td>
-                <Td>{r.exited ? r.likely : <Illustrative note="A hypothesis, not a prediction">{r.likely}</Illustrative>}</Td>
-                <Td>{r.program}</Td>
+                <Td label="Likely buyers and acquirers">{r.exited ? r.likely : <Illustrative note="A hypothesis, not a prediction">{r.likely}</Illustrative>}</Td>
+                <Td label="Program status">{r.program}</Td>
               </tr>
             ))}
           </tbody>

@@ -1,5 +1,6 @@
 "use client";
-import { useId, useState, useTransition } from "react";
+import { useState, useTransition } from "react";
+import { stableId } from "@/components/ui/client";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui";
 import { act } from "@/lib/actions";
@@ -22,7 +23,7 @@ export function DisputeForm({
   domains: { id: string; label: string }[];
   disputedLabel: string | null;
 }) {
-  const id = useId();
+  const id = stableId("dispute", companyId);
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [sent, setSent] = useState(disputedLabel != null);

@@ -4,7 +4,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import clsx from "clsx";
-import { createContext, useCallback, useContext, useEffect, useId, useRef, useState, type ReactNode } from "react";
+import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import { IconCheck, IconClose, IconCopy } from "./icons";
 
 // ── Tabs (rypples.earth filter-tab style, ?tab= synced) ─────────────────
@@ -21,7 +21,7 @@ export function UrlTabs({
 }) {
   const pathname = usePathname();
   const sp = useSearchParams();
-  const id = useId();
+  const id = stableId("tabs", param, label);
   const reduce = useReducedMotion();
   const href = (k: string) => {
     const q = new URLSearchParams(sp.toString());
@@ -291,7 +291,7 @@ export function Popover({
 }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
-  const id = useId();
+  const id = stableId("pop", label);
   useEffect(() => {
     if (!open) return;
     const onDoc = (e: MouseEvent) => {
@@ -416,4 +416,19 @@ export function Reveal({ children, delay = 0, className }: { children: ReactNode
 export function useRefreshAfter() {
   const router = useRouter();
   return useCallback(() => router.refresh(), [router]);
+}
+
+/**
+ * Deterministic DOM id from props. Used instead of React useId, whose values diverged
+ * between server and client under the Next dev segment wrappers (hydration mismatch).
+ */
+export function stableId(...parts: (string | number)[]) {
+  return (
+    "r-" +
+    parts
+      .join("-")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "")
+  );
 }

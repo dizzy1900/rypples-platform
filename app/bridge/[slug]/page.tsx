@@ -140,14 +140,14 @@ export default async function BridgeHomePage({ params }: { params: Promise<{ slu
                   {h.ledger.map((r) => (
                     <tr key={r.id} id={`ledger-${r.id}`}>
                       <Td className="text-ink">{r.title}</Td>
-                      <Td>{r.from}</Td>
-                      <Td>
+                      <Td label="From">{r.from}</Td>
+                      <Td label="Due">
                         <Prov p={r.provenance}>{r.due}</Prov>
                       </Td>
-                      <Td>
+                      <Td label="Status">
                         <StatusDot tone={r.status === "delivered" ? "lime" : r.status === "in_progress" ? "amber" : "neutral"} label={r.statusLabel} />
                       </Td>
-                      <Td>
+                      <Td label="Your rating">
                         {r.status === "delivered" ? (
                           <RatingControl commitmentId={r.id} companyId={h.companyId} title={r.title} initial={r.rating} />
                         ) : (

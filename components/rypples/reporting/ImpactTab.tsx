@@ -33,10 +33,10 @@ export function ImpactTab({ view }: { view: ReturnType<typeof getImpact> }) {
                     {r.company}
                   </Link>
                 </Td>
-                <Td>
+                <Td label="Headline measure">
                   <Illustrative>{r.kpi}</Illustrative>
                 </Td>
-                <Td>
+                <Td label="Status">
                   <StatusDot tone={r.status === "reported" ? "lime" : "neutral"} label={LABEL[r.status]} />
                 </Td>
               </tr>

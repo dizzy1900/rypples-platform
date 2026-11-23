@@ -1,12 +1,13 @@
 "use client";
-import { useId, useState, useTransition } from "react";
+import { useState, useTransition } from "react";
+import { stableId } from "@/components/ui/client";
 import { useRouter } from "next/navigation";
 import clsx from "clsx";
 import { act } from "@/lib/actions";
 
 /** Five-step rating as an accessible radio group, optimistic, recorded as commitment.rated. */
 export function RatingControl({ commitmentId, companyId, title, initial }: { commitmentId: string; companyId: string; title: string; initial: number | null }) {
-  const name = useId();
+  const name = stableId("rate", commitmentId);
   const router = useRouter();
   const [value, setValue] = useState<number | null>(initial);
   const [error, setError] = useState<string | null>(null);

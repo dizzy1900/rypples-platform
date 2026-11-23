@@ -34,14 +34,14 @@ export function PartnersTab({ view }: { view: View }) {
                     <span className="text-[14px] font-medium text-ink">{o.role}</span>
                   </span>
                 </Td>
-                <Td>{o.focus}</Td>
-                <Td>{o.covers.join(", ")}</Td>
-                <Td>{o.open}</Td>
-                <Td>{o.delivered}</Td>
-                <Td>
+                <Td label="Focus">{o.focus}</Td>
+                <Td label="Covers">{o.covers.join(", ")}</Td>
+                <Td label="Open">{o.open}</Td>
+                <Td label="Delivered">{o.delivered}</Td>
+                <Td label="Rating">
                   <Illustrative>{o.rating.toFixed(1)}</Illustrative>
                 </Td>
-                <Td>
+                <Td label="Capacity">
                   <div className="flex min-w-[150px] flex-col gap-1.5">
                     <div className="h-[6px] w-full rounded-full bg-off" aria-hidden>
                       <div className={`h-full rounded-full ${o.loadPct >= 90 ? "bg-amber" : "bg-[rgb(255_255_255/0.5)]"}`} style={{ width: `${Math.min(100, o.loadPct)}%` }} />

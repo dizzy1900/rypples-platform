@@ -78,8 +78,8 @@ export function RisksTab({ v }: { v: Full }) {
           {r.rows.map((x) => (
             <tr key={x.id}>
               <Td className="text-ink">{x.risk}</Td>
-              <Td>{x.test}</Td>
-              <Td>
+              <Td label="Test">{x.test}</Td>
+              <Td label="State">
                 <StatusDot tone={x.amber ? "amber" : "neutral"} label={<Prov p={x.provenance}>{x.state}</Prov>} />
               </Td>
             </tr>
@@ -185,12 +185,12 @@ export function LedgerTab({ v }: { v: Full }) {
               return (
                 <tr key={r.id}>
                   <Td className="text-ink">{r.title}</Td>
-                  <Td>{r.from}</Td>
-                  <Td>{r.due}</Td>
-                  <Td>
+                  <Td label="From">{r.from}</Td>
+                  <Td label="Due">{r.due}</Td>
+                  <Td label="Status">
                     <StatusDot tone={st.tone} label={st.label} />
                   </Td>
-                  <Td>{r.rating != null ? <Illustrative>{r.rating} / 5</Illustrative> : r.status === "delivered" ? "Not yet rated" : ""}</Td>
+                  <Td label="Rating">{r.rating != null ? <Illustrative>{r.rating} / 5</Illustrative> : r.status === "delivered" ? "Not yet rated" : ""}</Td>
                 </tr>
               );
             })}

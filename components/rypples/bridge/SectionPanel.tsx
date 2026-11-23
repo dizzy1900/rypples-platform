@@ -1,5 +1,6 @@
 "use client";
-import { useEffect, useId, useState, useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
+import { stableId } from "@/components/ui/client";
 import { useRouter } from "next/navigation";
 import { Button, Paper, StatusDot } from "@/components/ui";
 import { ProgressSteps } from "@/components/ui/client";
@@ -128,7 +129,7 @@ export function SectionPanel({
     });
   };
 
-  const formId = useId();
+  const formId = stableId("pack", packId, section.key);
   const running = flow.status === "running";
   const previewText = mode === "edit" && editable ? draft : null;
   const showDraftLabel = (mode === "edit" && aiDraft && draft.length > 0) || (mode !== "edit" && section.state === "drafted" && !!section.content);

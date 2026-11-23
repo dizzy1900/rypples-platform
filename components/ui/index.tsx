@@ -358,8 +358,20 @@ export function Th({ children, className }: { children?: ReactNode; className?: 
     </th>
   );
 }
-export function Td({ children, className }: { children?: ReactNode; className?: string }) {
-  return <td className={clsx("border-b border-line-2 py-[18px] pr-4 align-top text-ink-2", className)}>{children}</td>;
+/** `label` repeats the column header above the value at phone width, where the thead is hidden. */
+export function Td({ children, className, label }: { children?: ReactNode; className?: string; label?: string }) {
+  return (
+    <td
+      data-label={label}
+      className={clsx(
+        "border-b border-line-2 py-[18px] pr-4 align-top text-ink-2",
+        label && "max-sm:before:block max-sm:before:pt-1.5 max-sm:before:text-[11px] max-sm:before:font-medium max-sm:before:uppercase max-sm:before:tracking-[0.12em] max-sm:before:text-ink-4 max-sm:before:content-[attr(data-label)]",
+        className,
+      )}
+    >
+      {children}
+    </td>
+  );
 }
 
 /** grid 120px / 1fr / auto */

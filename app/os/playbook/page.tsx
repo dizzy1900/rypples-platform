@@ -60,10 +60,10 @@ export default async function PlaybookPage() {
                 {p.library.map((l) => (
                   <tr key={l.id}>
                     <Td className="text-ink">{l.title}</Td>
-                    <Td>{l.domain}</Td>
-                    <Td>{l.learnedIn}</Td>
-                    <Td>{l.sent}</Td>
-                    <Td>
+                    <Td label="Domain">{l.domain}</Td>
+                    <Td label="Learned in">{l.learnedIn}</Td>
+                    <Td label="Sent">{l.sent}</Td>
+                    <Td label="Helped">
                       <Illustrative>
                         {l.helped} of {l.sent}
                       </Illustrative>
