@@ -53,7 +53,7 @@ export const EventPayloads = {
   "intake.reviewed": P({ intake_id: z.string(), outcome: z.enum(["approved", "rejected"]) }),
   "instrument.shortlisted": P({ instrument_id: z.string() }),
   "instrument.unshortlisted": P({ instrument_id: z.string() }),
-  "pilot.stage_confirmed": P({ pilot_id: z.string(), stage: z.number().int().min(0).max(3) }),
+  "pilot.stage_confirmed": P({ pilot_id: z.string(), stage: z.number().int().min(0).max(4) }),
   "board_pack.section_saved": P({
     pack_id: z.string(),
     section_key: z.string(),
