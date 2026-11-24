@@ -6,7 +6,7 @@ import { ShareholderJson, ShareholderOut, shareholderIssues } from "@/lib/ai/sch
 import { DayOnePlan, DayOnePlanJson, normalizePlan, planIssues } from "@/lib/ai/schemas/day-one";
 import { JudgeJson, JudgeVerdict } from "@/lib/ai/schemas/judge";
 import { CaptainInput } from "@/lib/ai/schemas/captain";
-import { LessonMatchOut, reasonCitesFact } from "@/lib/ai/schemas/lesson-match";
+import { LessonMatchJson, LessonMatchOut, reasonCitesFact } from "@/lib/ai/schemas/lesson-match";
 import { cleanStrings, lowerEnums, nullsToUndefined, toStrictJsonSchema } from "@/lib/ai/schemas/common";
 import { precomputed } from "@/lib/ai/precomputed";
 
@@ -106,5 +106,14 @@ describe("validators", () => {
     expect(CaptainInput.safeParse({ message: "x".repeat(1001), scope: { kind: "os" } }).success).toBe(false);
     expect(CaptainInput.safeParse({ message: "Hi", scope: { kind: "bridge" } }).success).toBe(false);
     expect(JudgeVerdict.parse({ pass: true, issues: [], notes: "" })).toEqual({ pass: true, issues: [], notes: "" });
+  });
+});
+
+describe("structured output schemas use only keywords the API accepts", () => {
+  it("contain no oneOf (the API rejects it; discriminated unions become anyOf)", () => {
+    for (const s of [DomainScoreJson, SynthesisJson, JudgeJson, LessonMatchJson, ShareholderJson, DayOnePlanJson, RelevanceCheckJson]) {
+      expect(JSON.stringify(s)).not.toContain('"oneOf"');
+    }
+    expect(JSON.stringify(ShareholderJson)).toContain('"anyOf"');
   });
 });

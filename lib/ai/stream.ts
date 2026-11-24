@@ -18,14 +18,26 @@ export const SSE_HEADERS = {
  */
 export function sseResponse(gen: AsyncGenerator<FlowEvent>, opts: { onDone?: () => void | Promise<void> } = {}): Response {
   let closed = false;
+  let finished = false;
+  // Record the run before the body closes: on serverless hosts the function can be frozen as soon as
+  // the response ends, and the run's cost must reach the data store for the spending cap to hold.
+  const finish = async () => {
+    if (finished) return;
+    finished = true;
+    try {
+      await opts.onDone?.();
+    } catch (err) {
+      console.error(JSON.stringify({ level: "error", msg: "flow onDone failed", error: (err as Error).message }));
+    }
+  };
   const body = new ReadableStream<Uint8Array>({
     async pull(controller) {
       try {
         const { value, done } = await gen.next();
         if (done) {
+          await finish();
           closed = true;
           controller.close();
-          await opts.onDone?.();
           return;
         }
         const parsed = FlowEventSchema.safeParse(value);
@@ -38,15 +50,17 @@ export function sseResponse(gen: AsyncGenerator<FlowEvent>, opts: { onDone?: () 
         console.error(JSON.stringify({ level: "error", msg: "flow stream failed", error: (err as Error).message }));
         if (!closed) {
           controller.enqueue(encodeEvent({ type: "error", message: "Captain couldn't finish this run. Nothing was saved." }));
+          await finish();
           closed = true;
           controller.close();
-          await opts.onDone?.();
         }
       }
     },
     async cancel() {
+      // the visitor left mid-run: stop the flow, but still record what it cost so far
       closed = true;
       await gen.return?.(undefined);
+      await finish();
     },
   });
   return new Response(body, { headers: SSE_HEADERS });

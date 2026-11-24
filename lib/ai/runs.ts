@@ -22,9 +22,13 @@ export async function getRun(runId: string): Promise<AnyCompanyResult | null> {
 export async function recentRuns(limit = 6): Promise<RecentRun[]> {
   const rows = await getStore().listAnyCompanyRuns(50);
   const out: RecentRun[] = [];
+  const seen = new Set<string>();
   for (const r of rows) {
     const res = r.result as AnyCompanyResult | null;
     if (!res || r.status === "ambiguous" || r.status === "not_found") continue;
+    // one run is stored under each of its lookup keys; list it once
+    if (seen.has(res.run_id)) continue;
+    seen.add(res.run_id);
     out.push({ run_id: res.run_id, name: res.identity.name || r.display_name, website: res.identity.website, status: res.status, created_at: r.created_at });
     if (out.length >= limit) break;
   }
