@@ -4,6 +4,8 @@ A working prototype of the platform behind Rypples' Growth Engine. One data mode
 
 **Live:** https://rypples-platform.vercel.app
 
+**Live AI is on in production.** Captain and the AI flows call Claude for real, within a $25 lifetime spending cap ($15 for public visitors, the last $10 kept for the priority link). If the cap is reached or the API errors, the same screens replay recent runs instead.
+
 **Real vs illustrative.** The scenario (Rypples leading Desolenator's round on 15 Oct 2026, with a board seat) is fictional. Portfolio facts about Desolenator, WSense and the other companies come from public sources, linked wherever they appear. Every illustrative figure renders with a dotted underline.
 
 **Stack.** Next.js 15 · TypeScript · Tailwind CSS v4 · InsForge (Postgres) · Redis · Anthropic Claude (Haiku, Sonnet and Opus 5.5) · Model Context Protocol · d3-geo · Vitest and Playwright · Vercel.
