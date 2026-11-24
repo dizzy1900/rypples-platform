@@ -155,7 +155,7 @@ async function* live(run: FlowRun<Input>): AsyncGenerator<FlowEvent> {
           }
         },
       }), [{ role: "user", content: `Research ${identity.name}${website ? ` (${website})` : ""}. ${identity.description}` }]);
-      console.info(`[f2-research] ${run.runId} stops=${turn.stops.join(",")} blocks ${blockSummary(turn.content)}`);
+      console.info(`[f2-research] ${run.runId} stops=${turn.stops.join(",")}${turn.strays.length ? ` strays=${turn.strays.join(",")}` : ""} blocks ${blockSummary(turn.content)}`);
       return { content: turn.content, cut: false, readStarted };
     } catch (err) {
       if (run.signal.aborted || !cutoff.signal.aborted) throw err;
