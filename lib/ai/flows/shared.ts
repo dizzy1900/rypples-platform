@@ -118,12 +118,18 @@ export async function synthesize(
 }
 
 /** Web tools by model generation (docs: Haiku uses the basic search tool). */
-export function webSearchTool(model: string, maxUses: number): BetaToolUnion {
-  const type = /haiku/.test(model) ? "web_search_20250305" : "web_search_20260209";
-  return { type, name: "web_search", max_uses: maxUses } as unknown as BetaToolUnion;
+/**
+ * The basic web tool versions, on purpose. The `_20260209` versions filter results through code
+ * execution before the model sees them: in a live F2 run that spent the whole 75 s cutoff in code
+ * execution, fetched nothing and wrote no cited text, so no evidence could be extracted. The basic
+ * versions put results straight into context, where `web_search_result_location` / `char_location`
+ * citations point at them.
+ */
+export function webSearchTool(_model: string, maxUses: number): BetaToolUnion {
+  return { type: "web_search_20250305", name: "web_search", max_uses: maxUses } as unknown as BetaToolUnion;
 }
 export function webFetchTool(maxUses: number): BetaToolUnion {
-  return { type: "web_fetch_20260209", name: "web_fetch", max_uses: maxUses, citations: { enabled: true }, max_content_tokens: 20000 } as unknown as BetaToolUnion;
+  return { type: "web_fetch_20250910", name: "web_fetch", max_uses: maxUses, citations: { enabled: true }, max_content_tokens: 20000 } as unknown as BetaToolUnion;
 }
 
 /** Synthesise the visible event sequence for a stored F1/F2 result (replay of a cached run). */
