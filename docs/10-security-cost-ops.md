@@ -87,6 +87,7 @@ Use this link in the shared summary for Jerome, and on the call.
 - Set the region close to the InsForge project region.
 - Preview deployments use `LIVE_AI=off` by default, so previews never spend.
 - Production: set every env var, then run `pnpm db:seed` against the production InsForge project once.
+- **Production state (24 Nov 2026): live AI is on.** Set on Vercel Production: `ANTHROPIC_API_KEY`, `LIVE_AI=on`, `AI_TOTAL_BUDGET_USD=25`, `AI_PRIORITY_RESERVE_USD=10`, `INSFORGE_BASE_URL`, `INSFORGE_SERVICE_KEY`, `DEMO_PRIORITY_TOKEN`, `IP_HASH_SALT`, `NEXT_PUBLIC_SITE_URL`. Secrets are stored as Vercel secrets. The data store is InsForge, so spend and sessions are shared across instances. No Redis is configured, so rate limits and the immediate spend counter are per instance; the InsForge sum of `agent_runs` still enforces the cap across instances. Verified with a live Captain run (Sonnet 5.5, about $0.02, every number traced). Preview deployments have no env vars, so they stay in cached mode.
 
 ## 8. Observability
 
