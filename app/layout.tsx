@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description:
     "One platform for Rypples and the companies it anchors: find the one constraint that matters, deliver the help that clears it, and learn from every company.",
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
-  icons: { icon: "/brand/mark.svg" },
+  icons: { icon: "/brand/favicon.png", apple: "/brand/favicon.png" },
 };
 
 export const viewport: Viewport = { themeColor: "#001A24", width: "device-width", initialScale: 1 };

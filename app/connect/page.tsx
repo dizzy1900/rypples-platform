@@ -5,7 +5,7 @@
 import Link from "next/link";
 import { env } from "@/lib/env";
 import { toolMeta } from "@/lib/tools/registry";
-import { Eyebrow, H1, H2, Lede, TextLink } from "@/components/ui";
+import { Eyebrow, H1, H2, Lede, RypplesLogo, TextLink } from "@/components/ui";
 import { CopyButton } from "@/components/ui/client";
 
 export const metadata = { title: "Rypples in your Claude" };
@@ -37,10 +37,8 @@ export default function ConnectPage() {
     <div className="min-h-screen bg-abyss">
       <div className="mx-auto flex max-w-[860px] flex-col gap-12 px-4 pb-24 pt-8 sm:px-10">
         <header className="flex items-center justify-between gap-4">
-          <Link href="/" className="flex items-center gap-2.5">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/brand/mark.svg" alt="" width={24} height={24} />
-            <span className="font-display text-[19px] font-semibold tracking-[-0.02em] text-ink">Rypples</span>
+          <Link href="/" className="flex items-center">
+            <RypplesLogo height={30} />
           </Link>
           <TextLink href="/">Back to the platform</TextLink>
         </header>

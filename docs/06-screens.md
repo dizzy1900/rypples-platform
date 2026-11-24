@@ -24,7 +24,7 @@
 
 **Layout** (rypples.earth style, stacked 80px panels, faint arcs):
 
-1. **Hero.** Eyebrow "Prototype · November 2026". H1 "The system behind the Growth Engine". Lede: "One platform for Rypples and the companies it anchors. Find the one constraint that matters, deliver the help that clears it, and learn from every company so the next one scales faster."
+1. **Hero.** No eyebrow; the Rypples logo sits in the header above. H1 "The system behind the Growth Engine". Lede: "One platform for Rypples and the companies it anchors. Find the one constraint that matters, deliver the help that clears it, and learn from every company so the next one scales faster."
 2. **Two door tiles** (outline tiles, lime icons):
    - **Rypples OS:** "For the Rypples team. Decisions, portfolio, the Playbook, the Growth Engine, pipeline and reporting." Link: "Enter as Jerome Ternynck →" (`/os`).
    - **Rypples Bridge:** "For founders. A board pack drafted for you, your plan and programs, and a ledger of what Rypples owes you." Link: "Enter as Adri Pols, Desolenator →" (`/bridge/desolenator`).

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { AboutModal } from "@/components/rypples/AboutModal";
 import { IconHandshake, IconPortfolio } from "@/components/ui/icons";
+import { RypplesLogo } from "@/components/ui";
 
 export const metadata = { title: { absolute: "The Rypples Platform" } };
 
@@ -45,10 +46,8 @@ export default function Welcome() {
     <div className="relative min-h-screen overflow-hidden bg-abyss">
       <Arcs />
       <div className="relative mx-auto flex max-w-[1180px] flex-col px-5 sm:px-10">
-        <header className="flex items-center gap-2.5 py-7">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/brand/mark.svg" alt="" width={28} height={28} />
-          <span className="font-display text-[21px] font-semibold tracking-[-0.02em] text-ink">Rypples</span>
+        <header className="flex items-center py-7">
+          <RypplesLogo height={36} />
         </header>
       </div>
 
@@ -60,7 +59,6 @@ export default function Welcome() {
         >
           <div className="mx-auto flex max-w-[1080px] flex-col gap-12">
             <div className="flex flex-col gap-5">
-              <p className="eyebrow">Prototype · November 2026</p>
               <h1 id="hero-h" className="h1 md:text-[60px]">
                 The system behind the Growth Engine
               </h1>
