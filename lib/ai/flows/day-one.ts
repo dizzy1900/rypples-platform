@@ -188,7 +188,7 @@ export function buildDayOne(s: State, deal: Deal, plan: DayOnePlanT, sessionId: 
     board_meetings,
     founder: { id: founderId, firm_id: "rypples", kind: "founder", name: null, title: `CEO, ${deal.codename}`, initials: deal.codename.split(/\s+/).map((w) => w[0]).join("").slice(0, 2).toUpperCase(), company_id: companyId, photo_path: null, source_id: null, provenance: "illustrative" },
     operator_updates: [
-      ...(partner ? [{ operator_id: partner.operator_id, stage: partner.stage, onboarding_done: ["context_pack" as const] }] : []),
+      ...(partner ? [{ operator_id: partner.operator_id, stage: partner.stage, stage_note: `Onboarding for ${deal.codename}'s board. Context pack sent.`, onboarding_done: ["context_pack" as const] }] : []),
       ...startedDecisions.map((d) => ({ operator_id: d.operator_id, hours_committed: (op(d.operator_id)?.hours_committed ?? 0) + d.hours })),
     ],
     lesson_ids: lessonsFor(s, plan).map((l) => l.id),
