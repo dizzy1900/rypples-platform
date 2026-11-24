@@ -11,7 +11,7 @@ export function ReadinessGrid({ view }: { view: View }) {
   return (
     <div className="flex flex-col gap-10">
       <div className="flex flex-col gap-6">
-        <p className="max-w-[760px] text-[15px] text-ink-2">
+        <p className="text-[15px] text-ink-2">
           Five modules that get a company ready to scale. There are no cohorts: each company takes only the modules its diagnostic recommends, when
           it needs them, delivered by the named expert from its 400-hour Growth Engine allocation.
         </p>
