@@ -48,6 +48,14 @@ export class InsforgeStore implements Store {
       "list agent runs",
     ) ?? [];
   }
+  async totalAgentSpend() {
+    // Only rows that cost something. A $25 cap is a few thousand rows at most, so summing here is fine.
+    const rows = check<{ est_cost_usd: number | string }[]>(
+      await db().from("agent_runs").select("est_cost_usd").gt("est_cost_usd", 0).limit(50_000),
+      "sum agent spend",
+    ) ?? [];
+    return rows.reduce((sum, r) => sum + (Number(r.est_cost_usd) || 0), 0);
+  }
   async getAnyCompanyRun(key: { id?: string; domain?: string }) {
     let q = db().from("any_company_runs").select("*");
     if (key.id) q = q.eq("id", key.id);

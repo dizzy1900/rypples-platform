@@ -7,7 +7,7 @@ The URL is open to anyone with the link, by decision. Every paid call is therefo
 | Mode | When | Behaviour |
 |---|---|---|
 | `live` | Default | Flows call the API. Results are persisted and cached |
-| `cached` | The daily budget is reached, `LIVE_AI=off`, or the API is erroring (circuit open) | Flows replay precomputed or cached results through the same UI. F2 accepts only already-cached companies. Captain answers the suggested prompts from precomputed answers and, for other questions, shows "Live answers are paused for today. Try one of these." with the prompt chips |
+| `cached` | The total budget is reached, `LIVE_AI=off`, or the API is erroring (circuit open) | Flows replay precomputed or cached results through the same UI. F2 accepts only already-cached companies. Captain answers the suggested prompts from precomputed answers and, for other questions, shows "Live answers are paused for today. Try one of these." with the prompt chips |
 
 `lib/ai/budget.ts` exports `getMode(flow, ctx)`. It is called before every flow, and the result is sent as the first SSE event.
 
@@ -15,14 +15,17 @@ The URL is open to anyone with the link, by decision. Every paid call is therefo
 
 - **Estimate the cost** of each call from `usage` (input, output, cache-read and cache-write tokens), plus `server_tool_use.web_search_requests` × $0.01. Web search is $10 per 1,000 searches on the Claude API, and web fetch has no extra charge beyond tokens.
 - **Token prices** live in `config/pricing.ts`, per model. Set them from Anthropic's current pricing page at build time; there are no defaults in code. A unit test fails if any configured model lacks a price.
-- **Redis counters:**
-  - `spend:{YYYY-MM-DD}` (UTC), incremented atomically after each call.
-  - `spend:flow:{flow}:{date}` for reporting.
+- **Total spend** is the larger of two figures:
+  - `spend:total` in Redis (or the in-process fallback), incremented atomically after each call;
+  - the sum of `agent_runs.est_cost_usd` in the data store. This is durable and shared across Vercel instances, and `pnpm precompute` and `pnpm evals` write their runs there too.
+- **Daily counters** `spend:{YYYY-MM-DD}` and `spend:flow:{flow}:{date}` are kept for `/os/_status` only.
 - **Caps** (env):
-  - `AI_DAILY_BUDGET_USD` (suggested 25).
+  - `AI_TOTAL_BUDGET_USD` (suggested 25): a lifetime cap for the key, not a daily one.
+  - `AI_PRIORITY_RESERVE_USD` (suggested 10): public visitors stop at the total minus this reserve; only the priority link can use the rest.
   - `AI_F2_DAILY_RUNS` (suggested 60).
-  - **Soft limit at 80%:** F2 "Run again" is disabled, but new companies are still allowed.
-  - **Hard limit at 100%:** cached mode until 00:00 UTC.
+  - **Soft limit at 80% of the public share:** F2 "Run again" is disabled, but new companies are still allowed.
+  - **Hard limit at the total:** cached mode for everyone until the cap is raised.
+  - The cap is an estimate from `usage`. The hard backstop is on the Anthropic side: a prepaid credit balance with auto-reload off, or a spend limit on a dedicated workspace.
 - **Circuit breaker:** 5 consecutive API errors in 2 minutes switches to cached mode for 10 minutes.
 
 ## 3. Rate limits (per hashed IP, Redis sliding window)
@@ -42,7 +45,7 @@ When a limit is hit, the UI shows "You've run a lot of these. Here's a recent ru
 `DEMO_PRIORITY_TOKEN` (env): visiting any URL with `?k=<token>` sets an httpOnly cookie, `rp_priority` (7 days). Priority sessions:
 
 - bypass per-IP limits;
-- can use live mode up to `AI_PRIORITY_BUDGET_USD` (suggested 15, separate counter), even after the public daily cap;
+- can use the `AI_PRIORITY_RESERVE_USD` part of the total after public visitors have used their share;
 - see no visual difference.
 
 Use this link in the shared summary for Jerome, and on the call.
@@ -70,7 +73,7 @@ Use this link in the shared summary for Jerome, and on the call.
 | `INSFORGE_SERVICE_KEY` | server | Server-side key for repository access (name per InsForge docs) |
 | `REDIS_URL` (or Upstash REST URL and token) | server | Budget, limits, cache |
 | `LIVE_AI` | server | `on` or `off` |
-| `AI_DAILY_BUDGET_USD`, `AI_F2_DAILY_RUNS`, `AI_PRIORITY_BUDGET_USD` | server | Caps |
+| `AI_TOTAL_BUDGET_USD`, `AI_PRIORITY_RESERVE_USD`, `AI_F2_DAILY_RUNS` | server | Caps |
 | `DEMO_PRIORITY_TOKEN` | server | Interview priority link |
 | `IP_HASH_SALT` | server | Hashing |
 | `SCENARIO_DATE` | server | Scenario clock (a Monday) |
@@ -88,7 +91,7 @@ Use this link in the shared summary for Jerome, and on the call.
 ## 8. Observability
 
 - `agent_runs` records every flow: mode, model, prompt version, usage, estimated cost, duration and status.
-- A `/os/_status` page (not in navigation) is unlocked only with the priority cookie. It shows today's spend versus the cap, the runs per flow, the current mode, the circuit state and the last 20 errors. It is read-only.
+- A `/os/_status` page (not in navigation) is unlocked only with the priority cookie. It shows total spend versus the cap, the runs per flow, the current mode, the circuit state and the last 20 errors. It is read-only.
 - Structured server logs (JSON) with `run_id` for each flow. No prompt or response bodies are logged.
 - Vercel Web Analytics may be enabled for page-level traffic. Nothing else.
 

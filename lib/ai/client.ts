@@ -3,7 +3,7 @@
  * - `modelFor(task)` reads env overrides (MODEL_FAST / MODEL_MAIN / MODEL_DEEP).
  * - The client is created lazily, so nothing touches the API (or needs a key) in cached mode.
  * - Every call streams (`.stream()` + `finalMessage()`), is costed from `usage`, recorded against
- *   the daily budget, and feeds the circuit breaker.
+ *   the total budget, and feeds the circuit breaker.
  * - Sonnet/Opus calls opt into server-side refusal fallbacks (`fallbacks: "default"`).
  */
 import "server-only";

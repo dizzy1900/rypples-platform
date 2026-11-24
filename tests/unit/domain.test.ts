@@ -29,13 +29,18 @@ describe("portfolio stats (docs/05 §3 derived checks)", () => {
     expect(stuck.commercial).toBe(4);
     expect(stuck.financing).toBe(2);
   });
-  it("finds 2 over benchmark: Vessev and Full Circle Biotechnology", () => {
-    const over = portfolioRows(seed).filter((r) => r.overBenchmark).map((r) => r.company.id).sort();
-    expect(over).toEqual(["full-circle-biotechnology", "vessev"]);
+  it("has every active company inside its benchmark (illustrative figures are kept positive)", () => {
+    const rows = portfolioRows(seed);
+    expect(rows.filter((r) => r.overBenchmark)).toEqual([]);
+    expect(rows.filter((r) => r.daysOpen != null && r.benchmark != null)).toHaveLength(11);
+  });
+  it("keeps every illustrative founder rating at 4.2 or above", () => {
+    const ratings = portfolioRows(seed).map((r) => r.rating).filter((r): r is number => r != null);
+    expect(Math.min(...ratings)).toBeGreaterThanOrEqual(4.2);
   });
   it("backed 13, active public 11, exit 1, unannounced 1, firm rating 4.4", () => {
     const c = portfolioCounts(seed);
-    expect(c).toMatchObject({ backed: 13, activePublic: 11, exits: 1, unannounced: 1, firmRating: 4.4, overBenchmark: 2 });
+    expect(c).toMatchObject({ backed: 13, activePublic: 11, exits: 1, unannounced: 1, firmRating: 4.4, overBenchmark: 0 });
   });
   it("derives Desolenator days open from the round close (39)", () => {
     expect(portfolioRows(seed).find((r) => r.company.id === "desolenator")?.daysOpen).toBe(39);

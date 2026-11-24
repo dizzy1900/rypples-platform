@@ -4,7 +4,7 @@
     "domain_id": "people",
     "case_label": "Case 1",
     "cleared_seq": 1,
-    "days": 88,
+    "days": 69,
     "cleared_on": "2025-06-12",
     "provenance": "illustrative"
   },
@@ -13,7 +13,7 @@
     "domain_id": "operations",
     "case_label": "Case 2",
     "cleared_seq": 2,
-    "days": 140,
+    "days": 107,
     "cleared_on": "2025-07-24",
     "provenance": "illustrative"
   },
@@ -22,7 +22,7 @@
     "domain_id": "impact",
     "case_label": "Case 3",
     "cleared_seq": 3,
-    "days": 74,
+    "days": 58,
     "cleared_on": "2025-09-03",
     "provenance": "illustrative"
   },
@@ -31,7 +31,7 @@
     "domain_id": "commercial",
     "case_label": "Case 4",
     "cleared_seq": 4,
-    "days": 112,
+    "days": 86,
     "cleared_on": "2025-10-16",
     "provenance": "illustrative"
   },
@@ -40,7 +40,7 @@
     "domain_id": "people",
     "case_label": "Case 5",
     "cleared_seq": 5,
-    "days": 79,
+    "days": 65,
     "cleared_on": "2025-11-27",
     "provenance": "illustrative"
   },
@@ -49,7 +49,7 @@
     "domain_id": "regulatory",
     "case_label": "Case 6",
     "cleared_seq": 6,
-    "days": 81,
+    "days": 69,
     "cleared_on": "2026-01-08",
     "provenance": "illustrative"
   },
@@ -58,7 +58,7 @@
     "domain_id": "operations",
     "case_label": "Case 7",
     "cleared_seq": 7,
-    "days": 121,
+    "days": 100,
     "cleared_on": "2026-02-05",
     "provenance": "illustrative"
   },
@@ -67,7 +67,7 @@
     "domain_id": "impact",
     "case_label": "Case 8",
     "cleared_seq": 8,
-    "days": 63,
+    "days": 54,
     "cleared_on": "2026-03-12",
     "provenance": "illustrative"
   },
@@ -76,7 +76,7 @@
     "domain_id": "people",
     "case_label": "Case 9",
     "cleared_seq": 9,
-    "days": 66,
+    "days": 62,
     "cleared_on": "2026-04-16",
     "provenance": "illustrative"
   },
@@ -85,7 +85,7 @@
     "domain_id": "commercial",
     "case_label": "Case 10",
     "cleared_seq": 10,
-    "days": 84,
+    "days": 79,
     "cleared_on": "2026-05-21",
     "provenance": "illustrative"
   },
@@ -94,7 +94,7 @@
     "domain_id": "operations",
     "case_label": "Case 11",
     "cleared_seq": 11,
-    "days": 98,
+    "days": 96,
     "cleared_on": "2026-07-02",
     "provenance": "illustrative"
   },
