@@ -67,7 +67,7 @@ Load fonts with `next/font/google`: Syne at weights 500/600/700 and Montserrat a
 | Heading rule | 60×3px lime bar, radius 2px, 14px below every H1 |
 | Section H2 | Montserrat 600, 15px/1.3, ink |
 | Eyebrow | Montserrat 500, 12px, uppercase, tracking 0.2em, lime-bright |
-| Lede | Montserrat 300, 18px/1.6, ink-2, max 760px |
+| Lede | Montserrat 300, 18px/1.6, ink-2, spans the full width of the page content |
 | Body | Montserrat 400, 14px/1.6, ink-2 |
 | Meta | Montserrat 500, 12px/1.4, ink-3 |
 | Big number | Syne 500, 40px/1, −0.03em |
