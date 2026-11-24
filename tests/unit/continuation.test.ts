@@ -39,3 +39,27 @@ describe("continuePausedTurn", () => {
     expect(turn.stops.at(-1)).toBe("pause_turn");
   });
 });
+
+describe("continuePausedTurn with a stray client tool call", () => {
+  it("answers the call with an error tool_result and continues the turn", async () => {
+    const replies = [
+      msg("tool_use", [{ type: "web_search_tool_result", tool_use_id: "s1" }, { type: "tool_use", id: "t1", name: "fetch_page", input: {} }]),
+      msg("end_turn", [{ type: "text", text: "Founded 2012.", citations: [{ type: "web_search_result_location" }] }]),
+    ];
+    const seen: BetaMessageParam[][] = [];
+    const turn = await continuePausedTurn(async (m) => (seen.push(m), replies.shift()!), user);
+    expect(turn.stops).toEqual(["tool_use", "end_turn"]);
+    expect(turn.strays).toEqual(["fetch_page"]);
+    expect(seen[1]).toHaveLength(3);
+    expect(seen[1][1].role).toBe("assistant");
+    const results = seen[1][2].content as { type: string; tool_use_id: string; is_error: boolean }[];
+    expect(seen[1][2].role).toBe("user");
+    expect(results).toEqual([expect.objectContaining({ type: "tool_result", tool_use_id: "t1", is_error: true })]);
+    expect(blockSummary(turn.content)).toContain("text+cite:1");
+  });
+
+  it("stops on tool_use when there is no tool_use block to answer", async () => {
+    const turn = await continuePausedTurn(async () => msg("tool_use", []), user);
+    expect(turn.stops).toEqual(["tool_use"]);
+  });
+});
