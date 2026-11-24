@@ -18,6 +18,7 @@ import { UrlTabs } from "@/components/ui/client";
 import { PreRead } from "./PreRead";
 import { BoardTab, DiagnosticTab, LedgerTab, MarketTab, ProgramsTab, RisksTab } from "./Tabs";
 import type { CompanyTab, F2Rows, getCompanyView } from "@/lib/data/projections/company";
+import { READINESS_LABEL } from "@/lib/data/projections/founder-programs";
 
 type View = NonNullable<ReturnType<typeof getCompanyView>>;
 type Full = Extract<View, { kind: "full" }>;
@@ -66,7 +67,7 @@ export function FullView({ v, tab, markets }: { v: Full; tab: CompanyTab; market
             {h.tagline && <p className="text-[18px] font-medium text-lime">{h.tagline}</p>}
           </div>
           <div className="flex flex-wrap items-center gap-3">
-            <ButtonLink href={`/bridge/${h.slug}`}>See {v.ceoFirst}&rsquo;s view in Bridge</ButtonLink>
+            <ButtonLink href={`/engine/${h.slug}`}>See {v.ceoFirst}&rsquo;s view in Rypples Engine</ButtonLink>
             <ButtonLink variant="primary" href={`/os/companies/${h.slug}/diagnostic`}>
               Run diagnostic
             </ButtonLink>
@@ -82,6 +83,13 @@ export function FullView({ v, tab, markets }: { v: Full; tab: CompanyTab; market
             ))}
           </p>
         )}
+        {v.support.boardPartner && (
+          <p className="text-[13px] text-ink-2">
+            <Link href={v.support.boardPartner.href} className="text-link">
+              {v.support.boardPartner.line}
+            </Link>
+          </p>
+        )}
       </header>
 
       {lc.stages.length > 0 && (
@@ -92,7 +100,7 @@ export function FullView({ v, tab, markets }: { v: Full; tab: CompanyTab; market
                 {lc.day != null && <h2 className="font-display text-[26px] font-medium tracking-[-0.02em] text-ink">Day {lc.day} of the first 100</h2>}
                 {lc.scenarioLine && <p className="text-[13px] text-ink-3">{lc.scenarioLine}</p>}
               </div>
-              <a href={`/bridge/${h.slug}/how-rypples-works`} target="_blank" rel="noopener noreferrer" className="text-link text-[13px]">
+              <a href={`/engine/${h.slug}/how-rypples-works`} target="_blank" rel="noopener noreferrer" className="text-link text-[13px]">
                 How Rypples works with founders →
               </a>
             </div>
@@ -178,7 +186,7 @@ export function StandardView({ v, f2 }: { v: Standard; f2: F2Rows | null }) {
                     label={
                       <>
                         <Prov p={k.provenance}>{k.days}</Prov> of {k.benchmark} days ·{" "}
-                        <Link href="/os/reporting?tab=acceleration" className="underline underline-offset-2 hover:text-ink">
+                        <Link href="/os/investor-relations?tab=acceleration" className="underline underline-offset-2 hover:text-ink">
                           {k.benchmarkLabel}
                         </Link>
                       </>
@@ -255,6 +263,30 @@ export function StandardView({ v, f2 }: { v: Standard; f2: F2Rows | null }) {
                 <span className="text-ink-3">Not mapped yet</span>
               )}
             </Row>
+            {v.support.keyHires.length > 0 && (
+              <Row k="Key hire">
+                {v.support.keyHires.map((r) => (
+                  <span key={r.id} className="block">
+                    {r.role} · <Illustrative>{r.state}</Illustrative> <span className="text-ink-3">· {r.why}</span>
+                  </span>
+                ))}
+              </Row>
+            )}
+            {v.support.readiness.length > 0 && (
+              <Row k="Growth Readiness">
+                {v.support.readiness.map((r) => (
+                  <span key={r.id} className="block">
+                    {String(r.n).padStart(2, "0")} {r.name} · {READINESS_LABEL[r.status]}
+                    {r.output && (
+                      <>
+                        {" "}
+                        · <Illustrative>{r.output}</Illustrative>
+                      </>
+                    )}
+                  </span>
+                ))}
+              </Row>
+            )}
             <Row k="Impact KPI">
               {v.kpi ? (
                 <>

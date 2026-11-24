@@ -92,7 +92,8 @@ export function portfolioCounts(s: S) {
   return {
     backed: backed.length,
     activePublic: s.companies.filter(isActivePublic).length,
-    active: s.companies.filter((c) => c.status === "active").length,
+    /** Every company Rypples is still invested in, the unannounced one included. */
+    active: s.companies.filter((c) => c.status === "active" || c.status === "unannounced").length,
     unannounced: s.companies.filter((c) => c.status === "unannounced").length,
     exits: s.companies.filter((c) => c.status === "exited").length,
     overBenchmark: rows.filter((r) => r.overBenchmark).length,
@@ -106,8 +107,10 @@ export function filteredCounts(s: S, vertical: string | null) {
   const rows = portfolioRows(s).filter((r) => !vertical || r.company.vertical === vertical);
   const numeric = rows.map((r) => r.rating).filter((r): r is number => r != null);
   const exits = s.companies.filter((c) => c.status === "exited" && (!vertical || c.vertical === vertical)).length;
+  // The unannounced company has no public vertical, so it counts only when no vertical filter is on.
+  const unannounced = vertical ? 0 : s.companies.filter((c) => c.status === "unannounced").length;
   return {
-    active: rows.length,
+    active: rows.length + unannounced,
     exits,
     overBenchmark: rows.filter((r) => r.overBenchmark).length,
     /** Companies with an open constraint that is inside its benchmark. */

@@ -110,8 +110,8 @@ export default async function PortfolioPage({ searchParams }: { searchParams: Pr
           The {p.publicCount} companies on the public portfolio. {fewer} not yet announced. White tick marks the benchmark for that
           constraint. Every benchmark is an outside reference for now. Each switches to Rypples&rsquo; own data after eight cleared
           cases (see{" "}
-          <Link href="/os/reporting?tab=acceleration" className="text-link underline underline-offset-2">
-            Reporting, Acceleration
+          <Link href="/os/investor-relations?tab=acceleration" className="text-link underline underline-offset-2">
+            Investor relations, Acceleration
           </Link>
           ). Dotted figures are illustrative.
         </p>
@@ -146,7 +146,7 @@ function Row({ i }: { i: PortfolioItem }) {
             label={
               <>
                 <Prov p={i.constraintProvenance}>{i.daysOpen}</Prov> of {i.benchmarkDays} days ·{" "}
-                <Link href="/os/reporting?tab=acceleration" className="underline underline-offset-2 hover:text-ink">
+                <Link href="/os/investor-relations?tab=acceleration" className="underline underline-offset-2 hover:text-ink">
                   {i.benchmarkLabel}
                 </Link>
               </>

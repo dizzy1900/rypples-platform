@@ -9,7 +9,7 @@ export const DAY_ONE_STEPS = [
   { key: "allocation", label: "Drafting the Growth Engine allocation" },
   { key: "partner", label: "Matching an operating partner (capacity check)" },
   { key: "schedule", label: "Writing the schedule" },
-  { key: "bridge", label: "Opening Bridge for Tern's founder" },
+  { key: "bridge", label: "Opening Rypples Engine for Tern's founder" },
   { key: "lessons", label: "Matching Playbook lessons" },
 ];
 
@@ -81,11 +81,11 @@ export function DayOneResultPanel({ r }: { r: DayOneSummary }) {
 
       {r.partner && (
         <div className="flex flex-col gap-1">
-          <span className="eyebrow">Partner</span>
+          <span className="eyebrow">Board-level partner</span>
           <p className="text-[14px] text-ink">
-            {r.partner.label}: now {r.partner.seatsUsed} of {r.partner.seatsTotal} seats
+            {r.partner.label}: moves to onboarding for {r.codename}&rsquo;s board
           </p>
-          {r.partner.note && <p className="text-[13px] text-amber">{r.partner.note}</p>}
+          {r.partner.note && <p className="text-[13px] text-ink-2">{r.partner.note}</p>}
         </div>
       )}
 
@@ -101,7 +101,7 @@ export function DayOneResultPanel({ r }: { r: DayOneSummary }) {
       )}
 
       <div className="flex flex-wrap gap-x-6 gap-y-2">
-        <TextLink href={`/bridge/${r.companySlug}`}>Open {r.codename} in Bridge →</TextLink>
+        <TextLink href={`/engine/${r.companySlug}`}>Open {r.codename} in Rypples Engine →</TextLink>
         <TextLink href={`/os/companies/${r.companySlug}`}>Open the company record →</TextLink>
         <TextLink href={`/os/companies/${r.companySlug}/schedule`}>View the schedule →</TextLink>
       </div>

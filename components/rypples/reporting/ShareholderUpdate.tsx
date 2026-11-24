@@ -212,7 +212,7 @@ export function ShareholderUpdate({ view }: { view: View }) {
         </Tile>
         <div className="flex flex-col gap-1.5 px-1">
           <h3 className="h2">Co-investors</h3>
-          <p className="text-[13px] text-ink-2">Rypples OS records are not shared with co-investors. Founders choose what co-investors see from Bridge.</p>
+          <p className="text-[13px] text-ink-2">Rypples OS records are not shared with co-investors. Founders choose what co-investors see from Rypples Engine.</p>
         </div>
       </aside>
     </div>

@@ -53,6 +53,12 @@
 }
 
 @layer base {
+  /* Tailwind v4 dropped the pointer cursor on buttons; every clickable control should show it. */
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  summary {
+    cursor: pointer;
+  }
   html {
     background: var(--color-abyss);
     color: var(--color-ink);

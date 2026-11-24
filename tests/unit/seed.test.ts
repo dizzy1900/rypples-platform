@@ -61,9 +61,9 @@ describe("seed", () => {
     expect(by).toEqual({ people: 5, operations: 3, impact: 3, commercial: 2, regulatory: 1 });
   });
 
-  it("operator hours sum to 1180 of 1600", () => {
-    expect(seed.operators.reduce((a, o) => a + o.hours_committed, 0)).toBe(1180);
-    expect(seed.operators.reduce((a, o) => a + o.hours_quarter, 0)).toBe(1600);
+  it("expert and specialist hours sum to 844 of 1120 (board-level partners sit outside the pool)", () => {
+    expect(seed.operators.reduce((a, o) => a + o.hours_committed, 0)).toBe(844);
+    expect(seed.operators.reduce((a, o) => a + o.hours_quarter, 0)).toBe(1120);
   });
 
   it("stuck-by-constraint counts match the spec", () => {

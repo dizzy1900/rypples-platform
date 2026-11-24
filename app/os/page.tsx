@@ -16,7 +16,7 @@ export default async function OsHome() {
   const maxStuck = Math.max(1, ...h.stuck.map((g) => g.count));
   return (
     <>
-      <TopBar crumbs={[{ label: "Home" }]} placeholder="Ask Captain about the portfolio" />
+      <TopBar crumbs={[]} placeholder="Ask Captain about the portfolio" />
       <Page>
         <PageHeader eyebrow="Your brief" title={`Good ${greeting()}, Jerome.`} lede={h.lede}>
           <p className="text-[13px] text-ink-3">
@@ -49,64 +49,6 @@ export default async function OsHome() {
           </Tile>
         </Section>
 
-        <div className="grid gap-8 xl:grid-cols-2">
-          <Section id="plan" title="The plan so far">
-            <Tile className="flex flex-wrap items-start gap-8">
-              <DotGrid dots={h.dots} />
-              <div className="flex min-w-[200px] flex-1 flex-col gap-5">
-                <div className="flex flex-col gap-1.5">
-                  <span className="big-number">{h.counts.backed}</span>
-                  <span className="meta">of 100 ocean-positive companies</span>
-                </div>
-                <ul className="flex flex-col gap-2 text-[13px]">
-                  <li className="flex items-center gap-2.5">
-                    <span className="h-[10px] w-[10px] rounded-full bg-lime" aria-hidden />
-                    {h.counts.active - h.counts.unannounced} active
-                    {h.counts.active - h.counts.unannounced > h.counts.activePublic && " (incl. this session)"}
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <span className="h-[10px] w-[10px] rounded-full bg-[rgb(172_207_9/0.45)]" aria-hidden />
-                    {h.counts.unannounced} active, not yet announced
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <span className="h-[10px] w-[10px] rounded-full border-[1.5px] border-lime" aria-hidden />
-                    {h.counts.exits} exit: WSense to Fincantieri, July 2026
-                  </li>
-                </ul>
-                <div className="border-t border-line-2 pt-4">
-                  <p className="text-[13px] text-ink-2">
-                    Founders&rsquo; rating of Rypples{" "}
-                    <span className="font-display text-[22px] text-ink">
-                      <Illustrative note="Mean of company ratings">{h.counts.firmRating?.toFixed(1)}</Illustrative>
-                    </span>{" "}
-                    / 5
-                  </p>
-                </div>
-              </div>
-            </Tile>
-          </Section>
-
-          <Section id="stuck" title="Where the portfolio is stuck" aside={<TextLink href="/os/portfolio?view=map">Open portfolio →</TextLink>}>
-            <Tile className="flex flex-col gap-5">
-              {h.stuck.map((g) => (
-                <div key={g.domain} className="flex flex-col gap-2">
-                  <div className="flex items-baseline justify-between gap-3">
-                    <span className="text-[14px] font-medium text-ink">{g.label}</span>
-                    <span className="font-display text-[20px] text-ink">{g.count}</span>
-                  </div>
-                  <div className="h-[6px] w-full rounded-full bg-off" aria-hidden>
-                    <div
-                      className={g.hasBoardSeat ? "h-full rounded-full bg-lime" : "h-full rounded-full bg-[rgb(255_255_255/0.5)]"}
-                      style={{ width: `${(g.count / maxStuck) * 100}%` }}
-                    />
-                  </div>
-                  <Meta>{g.companies.map((c) => c.name).join(", ")}</Meta>
-                </div>
-              ))}
-            </Tile>
-          </Section>
-        </div>
-
         <Section id="week" title="This week">
           <Tile className="py-2">
             <ul>
@@ -126,6 +68,59 @@ export default async function OsHome() {
                 </li>
               ))}
             </ul>
+          </Tile>
+        </Section>
+
+        <Section id="stuck" title="Where the portfolio is stuck" aside={<TextLink href="/os/portfolio?view=map">Open portfolio →</TextLink>}>
+          <Tile className="flex flex-col gap-5">
+            {h.stuck.map((g) => (
+              <div key={g.domain} className="flex flex-col gap-2">
+                <div className="flex items-baseline justify-between gap-3">
+                  <span className="text-[14px] font-medium text-ink">{g.label}</span>
+                  <span className="font-display text-[20px] text-ink">{g.count}</span>
+                </div>
+                <div className="h-[6px] w-full rounded-full bg-off" aria-hidden>
+                  <div
+                    className={g.hasBoardSeat ? "h-full rounded-full bg-lime" : "h-full rounded-full bg-[rgb(255_255_255/0.5)]"}
+                    style={{ width: `${(g.count / maxStuck) * 100}%` }}
+                  />
+                </div>
+                <Meta>{g.companies.map((c) => c.name).join(", ")}</Meta>
+              </div>
+            ))}
+          </Tile>
+        </Section>
+
+        <Section id="plan" title="The plan so far">
+          <Tile className="flex flex-wrap items-center gap-x-8 gap-y-4 py-4">
+            <div className="flex items-center gap-4">
+              <DotGrid dots={h.dots} compact />
+              <p className="text-[13px] text-ink-2">
+                <span className="font-display text-[22px] text-ink">{h.counts.backed}</span> of 100 ocean-positive companies
+              </p>
+            </div>
+            <ul className="flex flex-wrap gap-x-5 gap-y-1 text-[13px] text-ink-2">
+              <li className="flex items-center gap-2">
+                <span className="h-[8px] w-[8px] rounded-full bg-lime" aria-hidden />
+                {h.counts.active - h.counts.unannounced} active
+                {h.counts.active - h.counts.unannounced > h.counts.activePublic && " (incl. this session)"}
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-[8px] w-[8px] rounded-full bg-[rgb(172_207_9/0.45)]" aria-hidden />
+                {h.counts.unannounced} not yet announced
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-[8px] w-[8px] rounded-full border border-lime" aria-hidden />
+                {h.counts.exits} exit: WSense to Fincantieri, July 2026
+              </li>
+            </ul>
+            <p className="text-[13px] text-ink-2 xl:ml-auto">
+              Founders&rsquo; rating of Rypples{" "}
+              <span className="font-medium text-ink">
+                <Illustrative note="Mean of company ratings">{h.counts.firmRating?.toFixed(1)}</Illustrative>
+              </span>{" "}
+              / 5
+            </p>
           </Tile>
         </Section>
       </Page>

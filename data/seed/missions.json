@@ -26,8 +26,8 @@
     "company_id": "hullbot",
     "priority_id": null,
     "title": "Fleet service pricing review",
-    "operator_id": "bp-maritime",
-    "due_offset": 3,
+    "operator_id": "ge",
+    "due_offset": 4,
     "status": "open",
     "provenance": "illustrative",
     "firm_id": "rypples"

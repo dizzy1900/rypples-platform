@@ -23,17 +23,17 @@ export default async function BoardPackPage({
   const s = await getState(await getSessionId());
   const v = getBoardPackView(s, slug);
   if (!v) notFound();
-  const base = `/bridge/${slug}`;
+  const base = `/engine/${slug}`;
 
   if (!v.pack) {
     return (
       <>
-        <TopBar crumbs={[{ label: "Home", href: base }, { label: "Board pack" }]} placeholder={`Ask Captain about ${v.companyName}`} />
+        <TopBar crumbs={[{ label: "Board pack" }]} placeholder={`Ask Captain about ${v.companyName}`} />
         <Page>
           <PageHeader eyebrow="Board pack" title="Your first board pack" lede="Your first board pack will be drafted before your first board." />
           <Section>
             <Tile>
-              <EmptyState>Once your first board is set, Bridge drafts the pack from your plan and ledger. You finish and share it from here.</EmptyState>
+              <EmptyState>Once your first board is set, Rypples Engine drafts the pack from your plan and ledger. You finish and share it from here.</EmptyState>
             </Tile>
           </Section>
         </Page>
@@ -47,7 +47,7 @@ export default async function BoardPackPage({
   return (
     <>
       <TopBar
-        crumbs={[{ label: "Home", href: base }, { label: `Board pack, ${pack.quarterShort}` }]}
+        crumbs={[{ label: `Board pack, ${pack.quarterShort}` }]}
         placeholder={`Ask Captain about ${v.companyName}`}
       />
       <Page>

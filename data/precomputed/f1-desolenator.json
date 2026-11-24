@@ -523,7 +523,7 @@
     "synthesis": {
       "binding_domain": "financing",
       "binding_statement": "Asset capital for water-as-a-service plants",
-      "rationale": "Each plant sits in an SPV that Desolenator co-owns and operates, and sells water on a monthly bill. Nothing earns until the plant is financed and built. The pilots aren't the limit. Plant capital is. Proposed for the board partner and founder to confirm.",
+      "rationale": "Each plant sits in an SPV that Desolenator co-owns and operates, and sells water on a monthly bill. Nothing earns until the plant is financed and built. The pilots aren't the limit. Plant capital is. Proposed for the board-level partner and founder to confirm.",
       "evidence_ids": [
         "ev-deso-01",
         "ev-deso-02"

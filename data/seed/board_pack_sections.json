@@ -15,7 +15,7 @@
     ],
     "rows": [],
     "needs": true,
-    "need_text": "The letter is yours to write. Bridge can draft it from your plan and the ledger.",
+    "need_text": "The letter is yours to write. Rypples Engine can draft it from your plan and the ledger.",
     "need_cta": "Start writing",
     "provenance": "scenario"
   },
@@ -31,7 +31,7 @@
     "title": "Cash, revenue and plant capex",
     "source_note": "From your finance system (demo connection)",
     "paragraphs": [
-      "Figures are masked in this preview. In Bridge they come straight from the source, with the date they were pulled."
+      "Figures are masked in this preview. In Rypples Engine they come straight from the source, with the date they were pulled."
     ],
     "rows": [
       {
@@ -106,10 +106,10 @@
     "sort": 4,
     "name": "Plan progress",
     "state": "ready",
-    "state_label": "Ready · from your Bridge plan",
+    "state_label": "Ready · from your Rypples Engine plan",
     "kicker": "Plan progress",
     "title": "Three priorities, one quarter",
-    "source_note": "From your Bridge plan",
+    "source_note": "From your Rypples Engine plan",
     "paragraphs": [],
     "rows": [
       {

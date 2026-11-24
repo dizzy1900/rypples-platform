@@ -11,7 +11,7 @@
         "started": ["pilot-to-contract", "key-hire"],
         "deferred": ["finance-sprint"],
         "hours_started": 130,
-        "partner_seats": [3, 3]
+        "partner_onboarding": "bp-maritime"
       }
     }
   ]

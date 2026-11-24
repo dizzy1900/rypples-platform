@@ -3,35 +3,50 @@
     "id": "rm-01",
     "n": 1,
     "name": "Buyer map",
+    "focus": "Buyers",
     "outcome": "Who signs, who pays, who blocks",
-    "domain_id": "commercial"
+    "domain_id": "commercial",
+    "operator_id": "ge",
+    "program_id": null
   },
   {
     "id": "rm-02",
     "n": 2,
     "name": "Price and unit economics",
+    "focus": "Pricing",
     "outcome": "A price that still works at ten times the volume",
-    "domain_id": "financing"
+    "domain_id": "financing",
+    "operator_id": "fe",
+    "program_id": null
   },
   {
     "id": "rm-03",
     "n": 3,
     "name": "Pilot-to-contract terms",
+    "focus": "Contracts",
     "outcome": "Conversion written into every pilot",
-    "domain_id": "commercial"
+    "domain_id": "commercial",
+    "operator_id": "ge",
+    "program_id": "pilot-to-contract"
   },
   {
     "id": "rm-04",
     "n": 4,
     "name": "First sales hire",
+    "focus": "Hiring",
     "outcome": "Scorecard, search and onboarding plan",
-    "domain_id": "people"
+    "domain_id": "people",
+    "operator_id": "pe",
+    "program_id": null
   },
   {
     "id": "rm-05",
     "n": 5,
     "name": "Board-ready metrics",
+    "focus": "Reporting",
     "outcome": "The KPIs Rypples OS reads each quarter",
-    "domain_id": "ai"
+    "domain_id": "financing",
+    "operator_id": "fe",
+    "program_id": null
   }
 ]

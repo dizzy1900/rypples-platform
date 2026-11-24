@@ -25,9 +25,10 @@ describe("F7 deterministic outcomes for Tern (docs/11 §1 capacity, docs/07 F7)"
     expect(result.deferred[0]!.program_id).toBe("finance-sprint");
     expect(result.deferred[0]!.reason).toContain("The Finance expert has 30 hours left this quarter");
   });
-  it("takes the last Maritime board partner seat (2 → 3 of 3)", () => {
-    expect(result.partner).toMatchObject({ seats_used: 3, seats_total: 3 });
-    expect(result.partner!.note).toBe("Recruit before the next Maritime deal");
+  it("moves the Maritime board-level candidate lined up for Tern into onboarding", () => {
+    expect(result.partner).toMatchObject({ operator_id: "bp-maritime", stage: "onboarding" });
+    expect(steps.find(([k]) => k === "partner")?.[1]).toBe("Maritime board-level partner moves to onboarding for Project Tern's board");
+    expect(created.operator_updates).toContainEqual({ operator_id: "bp-maritime", stage: "onboarding", onboarding_done: ["context_pack"] });
   });
   it("attaches only the matching lesson", () => {
     expect(result.lessons.map((l) => l.id)).toEqual(["hire-ops-in-market"]);

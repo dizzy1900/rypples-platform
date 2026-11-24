@@ -17,13 +17,12 @@ export default async function CapitalPage({ params }: { params: Promise<{ slug: 
   const s = await getState(await getSessionId());
   const v = getCapitalView(s, slug);
   if (!v) notFound();
-  const base = `/bridge/${slug}`;
   const geo = v.hasCapital ? getMarkets() : null;
   const empty = !v.hasCapital && v.pilots.length === 0 && v.instruments.length === 0;
 
   return (
     <>
-      <TopBar crumbs={[{ label: "Home", href: base }, { label: v.hasCapital ? "Plant capital" : "Capital" }]} placeholder={`Ask Captain about ${v.companyName}`} />
+      <TopBar crumbs={[{ label: v.hasCapital ? "Plant capital" : "Capital" }]} placeholder={`Ask Captain about ${v.companyName}`} />
       <Page>
         <PageHeader
           eyebrow={v.hasCapital ? "Plant capital" : "Capital"}
@@ -34,7 +33,7 @@ export default async function CapitalPage({ params }: { params: Promise<{ slug: 
         {empty && (
           <Section>
             <Tile>
-              <EmptyState>Nothing here yet. Your capital stack and buyers appear once they are part of your plan with your board partner.</EmptyState>
+              <EmptyState>Nothing here yet. Your capital stack and buyers appear once they are part of your plan with your board-level partner.</EmptyState>
             </Tile>
           </Section>
         )}

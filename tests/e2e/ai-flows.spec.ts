@@ -34,12 +34,12 @@ test.describe("Captain (journey 1)", () => {
     await expect(drawer).toBeVisible();
 
     const box = drawer.getByRole("textbox", { name: /Ask Captain/ });
-    await box.fill("Where is Growth Engine capacity tight this quarter?");
+    await box.fill("Where is operating partner capacity tight this quarter?");
     await box.press("Enter");
     await expect(drawer).toContainText("Finance is the pinch point", { timeout: 20_000 });
-    await expect(drawer).toContainText("1,180 of 1,600");
+    await expect(drawer).toContainText("844 of 1,120");
 
-    const step = drawer.getByText("Hold new finance sprints until the second finance hire starts").locator("xpath=ancestor::li[1]");
+    const step = drawer.getByText("Hold new Finance Sprints until the second Finance expert starts").locator("xpath=ancestor::li[1]");
     const done = settled(page);
     await step.getByRole("button", { name: "Approve" }).click();
     await done;
@@ -88,7 +88,7 @@ test.describe("Any company S5b (journey 5)", () => {
 });
 
 test.describe("Pipeline → day one (journey 7)", () => {
-  test("Mark as led runs F7 for Tern; Bridge, Home and the rail pick it up; Reset removes it", async ({ page }) => {
+  test("Mark as led runs F7 for Tern; Rypples Engine, Home and the rail pick it up; Reset removes it", async ({ page }) => {
     await page.goto("/os/pipeline?deal=tern");
     await page.getByRole("button", { name: "Mark as led" }).click();
     await page.getByRole("button", { name: "Start day one" }).click();
@@ -98,10 +98,10 @@ test.describe("Pipeline → day one (journey 7)", () => {
     await expect(panel).toContainText("130 of 400 hours");
     await expect(panel).toContainText("Plant and Fleet Finance Sprint deferred");
     await expect(panel).toContainText("30 hours left this quarter");
-    await expect(panel).toContainText("now 3 of 3 seats");
+    await expect(panel).toContainText("moves to onboarding for Project Tern’s board");
 
-    await page.getByRole("link", { name: /Open Project Tern in Bridge/ }).click();
-    await expect(page).toHaveURL(/\/bridge\/tern/);
+    await page.getByRole("link", { name: /Open Project Tern in Rypples Engine/ }).click();
+    await expect(page).toHaveURL(/\/engine\/tern/);
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
 
     await page.goto("/os");
@@ -113,7 +113,7 @@ test.describe("Pipeline → day one (journey 7)", () => {
     await reset;
     await page.goto("/os");
     await expect(page.getByText(/^13$/).first()).toBeVisible();
-    expect((await page.request.get("/bridge/tern")).status()).toBe(404);
+    expect((await page.request.get("/engine/tern")).status()).toBe(404);
   });
 });
 

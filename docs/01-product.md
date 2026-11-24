@@ -16,10 +16,10 @@ The platform makes that service a **product**:
 | Identity | Product | Shown as | Notes |
 |---|---|---|---|
 | Jerome Ternynck, Co-founder & CEO | Rypples OS | Monogram "JT" in the rail, bottom left | Placeholder avatar until a photo is supplied (`public/people/jerome.jpg`) |
-| Adri Pols, CEO, Desolenator | Rypples Bridge | Monogram "AP" | Placeholder until a photo is supplied |
-| CEO, Project Tern (fictional) | Rypples Bridge | Monogram "PT" | Exists only after the Signed → day one moment |
+| Adri Pols, CEO, Desolenator | Rypples Engine | Monogram "AP" | Placeholder until a photo is supplied |
+| CEO, Project Tern (fictional) | Rypples Engine | Monogram "PT" | Exists only after the Signed → day one moment |
 
-There is no real authentication. The Welcome page has two doors, and the profile blocks switch between products (Jerome's profile opens Bridge; Adri's opens OS). Role is carried in the URL space (`/os` vs `/bridge/[slug]`). Permissions are enforced in the tool and data layer by a `Viewer` value (see `docs/03-architecture.md` §6) so that real auth can replace the door later.
+There is no real authentication. The Welcome page has two doors, and the profile blocks switch between products (Jerome's profile opens Engine; Adri's opens OS). Role is carried in the URL space (`/os` vs `/engine/[slug]`; old `/bridge` URLs redirect). Permissions are enforced in the tool and data layer by a `Viewer` value (see `docs/03-architecture.md` §6) so that real auth can replace the door later.
 
 ## 3. Principles (shown on the Welcome page, and enforced in the build)
 
@@ -61,9 +61,9 @@ Every number or statement falls into exactly one class. The class is stored on t
 Use these terms exactly (they follow the job advert):
 
 - **The Rypples Platform**: the whole product.
-- **Rypples OS**: internal only. **Rypples Bridge**: for founders.
+- **Rypples OS**: internal only. **Rypples Engine**: for founders.
 - **Captain**: the AI layer. Never "the agent page" or "AI assistant".
-- **Growth Engine**: operators, programs and know-how. **Operating partners**: board partners and experts (Finance, Go-To-Market, People, Regulatory, Impact, independent technical).
+- **Growth Engine**: operators, programs and know-how. **Operating partners**: board-level partners (external, one per portfolio company where Rypples holds a seat), experts (Finance, Go-To-Market, People, Regulatory, Impact, independent technical) and specialists. Types are open-ended.
 - **Playbook** (inside Rypples OS). **Lesson**. **Ripple**: a lesson travelling to matched companies.
 - **Ocean Scalers**: CEO peer circles. **Growth Readiness**: the five-module curriculum.
 - **Ocean Impact Navigator**: the impact framework referenced for KPIs.

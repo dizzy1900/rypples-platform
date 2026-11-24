@@ -209,7 +209,7 @@ export const ClearedCase = z.object({
 });
 export type ClearedCase = z.infer<typeof ClearedCase>;
 
-// ── Growth Engine ───────────────────────────────────────────────────────
+// ── Programs and operating partners ───────────────────────────────────────────────────────
 export const Program = z.object({
   id: z.string(),
   slug: z.string(),
@@ -254,11 +254,37 @@ export const Enrolment = z.object({
 });
 export type Enrolment = z.infer<typeof Enrolment>;
 
+/** Where a partner sits in the find-and-onboard funnel. */
+export const PartnerStage = z.enum(["sourcing", "in_conversation", "onboarding", "active"]);
+export type PartnerStage = z.infer<typeof PartnerStage>;
+/** The onboarding checklist, in order. */
+export const OnboardingStep = z.enum(["briefing", "context_pack", "first_engagement", "first_rating"]);
+export type OnboardingStep = z.infer<typeof OnboardingStep>;
+
+/**
+ * Kinds of operating partner. The job post names board-level partners and People, Go-To-Market
+ * and Finance experts; the list is open, so new kinds are rows here, not code changes.
+ */
+export const PartnerType = z.object({
+  id: z.string(),
+  label: z.string(),
+  group: z.enum(["board_level", "expert", "specialist"]),
+  what: z.string(),
+  sort: z.number().int(),
+  ...prov,
+});
+export type PartnerType = z.infer<typeof PartnerType>;
+
+/**
+ * An operating partner, at any funnel stage. Board-level partners are external, not Rypples staff,
+ * and each works with one portfolio company's board; experts and specialists work across the portfolio.
+ */
 export const Operator = z.object({
   ...base,
   initials: z.string(),
   role: z.string(),
-  role_key: z.enum(["board_partner", "finance", "gtm", "people", "impact", "technical", "regulatory"]),
+  /** partner_types.id */
+  role_key: z.string(),
   focus: z.string(),
   covers: z.array(z.string()),
   covers_note: z.string().nullable().default(null),
@@ -266,10 +292,18 @@ export const Operator = z.object({
   seats_used: z.number().int().nullable(),
   hours_quarter: z.number().int(),
   hours_committed: z.number().int(),
-  rating: z.number(),
+  rating: z.number().nullable(),
   open_missions: z.number().int(),
   delivered: z.number().int(),
   vertical_focus: Vertical.nullable().default(null),
+  stage: PartnerStage.default("active"),
+  what: z.string().nullable().default(null),
+  tools: z.array(z.string()).default([]),
+  onboarding_done: z.array(OnboardingStep).default([]),
+  engagement: z.string().nullable().default(null),
+  /** A board-level candidate lined up for a pipeline deal. */
+  for_deal_id: z.string().nullable().default(null),
+  stage_note: z.string().nullable().default(null),
   ...prov,
 });
 export type Operator = z.infer<typeof Operator>;
@@ -310,13 +344,6 @@ export const TalentRole = z.object({
   ...prov,
 });
 export const BenchGroup = z.object({ id: z.string(), label: z.string(), n: z.number().int(), ...prov });
-export const PartnerRecruiting = z.object({
-  id: z.string(),
-  role: z.string(),
-  state: z.string(),
-  note: z.string(),
-  ...prov,
-});
 export const CeoDevelopment = z.object({ id: z.string(), company_id: z.string(), note: z.string(), ...prov });
 
 export const Circle = z.object({
@@ -346,9 +373,27 @@ export const ReadinessModule = z.object({
   id: z.string(),
   n: z.number().int(),
   name: z.string(),
+  /** A one-word topic, so modules in the same diagnostic domain read apart. */
+  focus: z.string(),
   outcome: z.string(),
   domain_id: DomainSlug,
+  /** The expert who delivers it. */
+  operator_id: z.string().nullable().default(null),
+  /** Delivered through this program when set (module 03 → Pilot to Contract). */
+  program_id: z.string().nullable().default(null),
 });
+
+/** Growth Readiness per company: one row per module the diagnostic recommends. No row = not needed. */
+export const ReadinessPlan = z.object({
+  id: z.string(),
+  company_id: z.string(),
+  module_id: z.string(),
+  status: z.enum(["recommended", "in_progress", "done"]),
+  output: z.string().nullable(),
+  note: z.string().nullable(),
+  ...prov,
+});
+export type ReadinessPlan = z.infer<typeof ReadinessPlan>;
 
 export const Promise_ = z.object({ id: z.string(), title: z.string(), text: z.string() });
 
@@ -660,11 +705,12 @@ export const SeedFiles = {
   commitments: z.array(Commitment),
   talent_roles: z.array(TalentRole),
   bench_groups: z.array(BenchGroup),
-  partner_recruiting: z.array(PartnerRecruiting),
+  partner_types: z.array(PartnerType),
   ceo_development: z.array(CeoDevelopment),
   circles: z.array(Circle),
   circle_commitments: z.array(CircleCommitment),
   readiness_modules: z.array(ReadinessModule),
+  readiness_plans: z.array(ReadinessPlan),
   promises: z.array(Promise_),
   plans: z.array(Plan),
   priorities: z.array(Priority),

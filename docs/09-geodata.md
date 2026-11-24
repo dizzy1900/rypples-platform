@@ -54,7 +54,7 @@ All site coordinates are approximate. Verify each when building.
                     projected_2030_label: string | null },
     solar_kwh_m2_day: number,
     presence: { kind: "pilot" | "precedent" | null, label: string | null, source_id: string | null },
-    rypples_coverage: boolean          // a board partner's focus covers this region (seed-derived)
+    rypples_coverage: boolean          // a board-level partner's focus covers this region (seed-derived)
   }[]
 }
 ```

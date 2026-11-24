@@ -17,17 +17,17 @@ export default async function BridgeHomePage({ params }: { params: Promise<{ slu
   const s = await getState(await getSessionId());
   const h = getBridgeHome(s, slug);
   if (!h) notFound();
-  const base = `/bridge/${slug}`;
+  const base = `/engine/${slug}`;
   const title = h.founderFirst ? `Good ${greeting()}, ${h.founderFirst}.` : `Good ${greeting()}.`;
   const pct = h.pack && h.pack.total ? Math.round((h.pack.done / h.pack.total) * 100) : 0;
   const capitalLabel = slug === "desolenator" ? "plant capital" : "capital";
 
   return (
     <>
-      <TopBar crumbs={[{ label: "Home" }]} placeholder={`Ask Captain about ${h.companyName}`} />
+      <TopBar crumbs={[]} placeholder={`Ask Captain about ${h.companyName}`} />
       <Page>
         <PageHeader
-          eyebrow="Rypples Bridge"
+          eyebrow="Rypples Engine"
           title={title}
           lede={h.lede}
         >
@@ -108,7 +108,7 @@ export default async function BridgeHomePage({ params }: { params: Promise<{ slu
                 </div>
               </>
             ) : (
-              <EmptyState>Your board partner will confirm the constraint in your first 100 days.</EmptyState>
+              <EmptyState>Your board-level partner will confirm the constraint in your first 100 days.</EmptyState>
             )}
           </Tile>
         </Section>

@@ -7,7 +7,7 @@ import "server-only";
 import { appendEvent, getState, type State } from "@/lib/data";
 import type { LedCreated } from "@/lib/data/state";
 import type { Deal } from "@/lib/domain/schemas";
-import { allocate, ALLOCATION_LIMITS, boardPartnerFor, hasFreeSeat } from "@/lib/domain/capacity";
+import { allocate, ALLOCATION_LIMITS, boardCandidateFor } from "@/lib/domain/capacity";
 import { programForIntent } from "@/lib/domain/program-map";
 import { isoDate, offsetDate, offsetLabel, fullDate, scenarioDate } from "@/lib/scenario";
 import { plain, structuredCall } from "../client";
@@ -62,18 +62,17 @@ export function buildDayOne(s: State, deal: Deal, plan: DayOnePlanT, sessionId: 
   const started = decisions.filter((d) => d.start).map((d) => ({ program_id: d.program_id, name: prog(d.program_id).name, hours: d.hours, operator_initials: op(d.operator_id)?.initials ?? "", operator_role: op(d.operator_id)?.role ?? "" }));
   const deferred = decisions.filter((d): d is Extract<typeof d, { start: false }> => !d.start).map((d) => ({ program_id: d.program_id, name: prog(d.program_id).name, reason: d.reason.charAt(0).toUpperCase() + d.reason.slice(1) }));
 
-  // 3 · partner
-  const bp = boardPartnerFor(s.operators, vertical);
-  const partner =
-    bp && hasFreeSeat(bp)
-      ? {
-          operator_id: bp.id,
-          label: `${bp.focus} board partner`,
-          seats_used: (bp.seats_used ?? 0) + 1,
-          seats_total: bp.seats_total ?? 0,
-          note: (bp.seats_used ?? 0) + 1 >= (bp.seats_total ?? 0) ? `Recruit before the next ${bp.focus} deal` : null,
-        }
-      : null;
+  // 3 · partner: board-level partners are external and look after one company each, so day one moves
+  // the candidate lined up for this deal into onboarding. Captain assembles the context pack now.
+  const bp = boardCandidateFor(s.operators, deal.id, vertical);
+  const partner = bp
+    ? {
+        operator_id: bp.id,
+        label: `${bp.focus} board-level partner`,
+        stage: "onboarding" as const,
+        note: "Context pack assembled by Captain. Playbook briefing before the first board.",
+      }
+    : null;
 
   // 4-5 · schedule and Bridge workspace
   const companyId = slug;
@@ -87,7 +86,7 @@ export function buildDayOne(s: State, deal: Deal, plan: DayOnePlanT, sessionId: 
     company_id: companyId,
     priority_id: `pri-${slug}-${p.rank}`,
     title: p.mission.title,
-    operator_id: p.mission.operator_role === "Board partner" ? (bp?.id ?? "bp-maritime") : (ROLE_TO_OPERATOR[p.mission.operator_role] ?? "pe"),
+    operator_id: p.mission.operator_role === "Board-level partner" ? (partner?.operator_id ?? "bp-maritime") : (ROLE_TO_OPERATOR[p.mission.operator_role] ?? "pe"),
     due_offset: p.mission.due_weeks * 7,
     status: "open",
     provenance: "generated" as const,
@@ -133,7 +132,7 @@ export function buildDayOne(s: State, deal: Deal, plan: DayOnePlanT, sessionId: 
       firm_id: "rypples",
       company_id: companyId,
       title: "Board rhythm agreed for the first 100 days",
-      from_label: "Board partner",
+      from_label: "Board-level partner",
       operator_id: partner?.operator_id ?? null,
       due_label: offsetLabel(FIRST_BOARD_DAYS),
       due_offset: FIRST_BOARD_DAYS,
@@ -189,7 +188,7 @@ export function buildDayOne(s: State, deal: Deal, plan: DayOnePlanT, sessionId: 
     board_meetings,
     founder: { id: founderId, firm_id: "rypples", kind: "founder", name: null, title: `CEO, ${deal.codename}`, initials: deal.codename.split(/\s+/).map((w) => w[0]).join("").slice(0, 2).toUpperCase(), company_id: companyId, photo_path: null, source_id: null, provenance: "illustrative" },
     operator_updates: [
-      ...(partner ? [{ operator_id: partner.operator_id, seats_used: partner.seats_used }] : []),
+      ...(partner ? [{ operator_id: partner.operator_id, stage: partner.stage, onboarding_done: ["context_pack" as const] }] : []),
       ...startedDecisions.map((d) => ({ operator_id: d.operator_id, hours_committed: (op(d.operator_id)?.hours_committed ?? 0) + d.hours })),
     ],
     lesson_ids: lessonsFor(s, plan).map((l) => l.id),
@@ -231,9 +230,9 @@ export function buildDayOne(s: State, deal: Deal, plan: DayOnePlanT, sessionId: 
   };
   const steps: [string, string][] = [
     ["allocation", `${started.map((x) => `${x.name} ${x.hours}h`).join(" + ")} = ${hoursStarted}/${ALLOCATION_LIMITS.hours}`],
-    ["partner", partner ? `${partner.label} · ${partner.seats_used} of ${partner.seats_total} seats` : "No board partner capacity: recruit first"],
+    ["partner", partner ? `${partner.label} moves to onboarding for ${deal.codename}'s board` : "No board-level candidate yet: start sourcing"],
     ["schedule", `First board ${offsetLabel(FIRST_BOARD_DAYS)}`],
-    ["bridge", `Bridge opened for the CEO of ${deal.codename}`],
+    ["bridge", `Rypples Engine opened for the CEO of ${deal.codename}`],
     ["lessons", lessons.length ? lessons.map((l) => l.title).join("; ") : "No matching lessons"],
   ];
   void sessionId;

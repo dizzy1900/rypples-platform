@@ -23,6 +23,18 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     "/**": ["./lib/ai/prompts/**/*", "./data/sources/**/*", "./data/precomputed/**/*"],
   },
+  // Renamed routes keep their old links working (query strings are carried over).
+  async redirects() {
+    const tab = (value: string) => [{ type: "query" as const, key: "tab", value }];
+    return [
+      { source: "/bridge", destination: "/engine/desolenator", permanent: false },
+      { source: "/bridge/:path*", destination: "/engine/:path*", permanent: false },
+      { source: "/os/reporting", destination: "/os/investor-relations", permanent: false },
+      { source: "/os/growth-engine", has: tab("scalers"), destination: "/os/founder-programs?tab=scalers", permanent: false },
+      { source: "/os/growth-engine", has: tab("readiness"), destination: "/os/founder-programs?tab=readiness", permanent: false },
+      { source: "/os/growth-engine", destination: "/os/operating-partners", permanent: false },
+    ];
+  },
   async headers() {
     return [
       {

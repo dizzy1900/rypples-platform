@@ -4,7 +4,7 @@ import path from "node:path";
 import type { State } from "../state";
 import type { Company, DomainSlug, Provenance } from "@/lib/domain/schemas";
 import { effectiveBenchmark, sourceLabel } from "@/lib/domain/benchmarks";
-import { allocationUsed } from "@/lib/domain/capacity";
+import { allocationUsed, boardPartnerFor } from "@/lib/domain/capacity";
 import { companyRating, daysOpen, openConstraint } from "@/lib/domain/portfolio-stats";
 import { dayInFirst100, dayMonth, fullDate, offsetDate, offsetLabel, parseIso, weekday } from "@/lib/scenario";
 import type { AnyCompanyResult } from "@/lib/ai/types";
@@ -39,6 +39,22 @@ const head = (c: Company): Head => ({
   stage: c.stage,
   website: c.website,
 });
+
+/** Who helps this company beyond the capital: its board-level partner, key hires and Growth Readiness modules. */
+function supportOf(s: State, c: Company) {
+  const bp = boardPartnerFor(s.operators, c.id);
+  return {
+    boardPartner: bp ? { line: `Board-level partner · ${bp.focus.toLowerCase()}`, href: `/os/operating-partners?partner=${bp.id}` } : null,
+    keyHires: s.talent_roles.filter((r) => r.company_id === c.id).map((r) => ({ id: r.id, role: r.role, why: r.why, state: r.state })),
+    readiness: s.readiness_plans
+      .filter((r) => r.company_id === c.id)
+      .map((r) => {
+        const m = s.readiness_modules.find((x) => x.id === r.module_id);
+        return { id: r.id, n: m ? m.n : 0, name: m?.name ?? r.module_id, status: r.status, output: r.output };
+      })
+      .sort((a, b) => a.n - b.n),
+  };
+}
 
 export function nextBoardOf(s: State, c: Company) {
   const m = s.board_meetings.find((b) => b.company_id === c.id && b.kind === "next");
@@ -160,7 +176,7 @@ function getFullView(s: State, c: Company) {
         e.status === "running"
           ? `Running${e.week && e.of_weeks ? ` · week ${e.week} of ${e.of_weeks}` : e.state_note ? ` · ${e.state_note.toLowerCase()}` : ""}`
           : e.status === "proposed"
-            ? "Proposed by board partner"
+            ? "Proposed by board-level partner"
             : e.status === "requested"
               ? "Requested"
               : "Done";
@@ -202,6 +218,7 @@ function getFullView(s: State, c: Company) {
   return {
     kind: "full" as const,
     head: head(c),
+    support: supportOf(s, c),
     ceoFirst,
     meta,
     lifecycle: { day, scenarioLine, stages },
@@ -277,6 +294,7 @@ function getStandardView(s: State, c: Company) {
   return {
     kind: "standard" as const,
     head: head(c),
+    support: supportOf(s, c),
     constraint: k
       ? {
           domain: domainLabel(s, k.domain_id),
@@ -344,7 +362,7 @@ export function getSchedule(s: State, slug: string) {
   if (!c || !c.anchor || c.status !== "active") return null;
   const alloc = s.allocations.find((a) => a.company_id === c.id) ?? null;
   const used = allocationUsed(s.enrolments, c.id);
-  const bp = s.operators.find((o) => o.role_key === "board_partner" && o.covers.includes(c.id)) ?? null;
+  const bp = boardPartnerFor(s.operators, c.id);
   const enrolments = s.enrolments
     .filter((e) => e.company_id === c.id)
     .map((e) => ({

@@ -67,15 +67,15 @@ export function ProgramCards({
                 )}
                 {st === "proposed" && (
                   <>
-                    <span className="meta">Proposed by your board partner</span>
+                    <span className="meta">Proposed by your board-level partner</span>
                     <Button onClick={() => request(p)} disabled={capped}>
-                      {capped ? "Allocation used · ask your board partner" : "Accept"}
+                      {capped ? "Allocation used · ask your board-level partner" : "Accept"}
                     </Button>
                   </>
                 )}
                 {st === "none" && (
                   <Button onClick={() => request(p)} disabled={capped}>
-                    {capped ? "Allocation used · ask your board partner" : "Request"}
+                    {capped ? "Allocation used · ask your board-level partner" : "Request"}
                   </Button>
                 )}
               </div>

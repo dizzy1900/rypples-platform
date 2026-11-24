@@ -1,0 +1,102 @@
+[
+  {
+    "id": "rp-desolenator-02",
+    "company_id": "desolenator",
+    "module_id": "rm-02",
+    "status": "in_progress",
+    "output": null,
+    "note": "Inside the running Finance Sprint, so it uses hours already in the allocation.",
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "rp-vessev-01",
+    "company_id": "vessev",
+    "module_id": "rm-01",
+    "status": "done",
+    "output": "Buyer map: 12 ferry and port operators, 3 in active talks",
+    "note": null,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "rp-vessev-03",
+    "company_id": "vessev",
+    "module_id": "rm-03",
+    "status": "recommended",
+    "output": null,
+    "note": null,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "rp-matter-01",
+    "company_id": "matter",
+    "module_id": "rm-01",
+    "status": "done",
+    "output": "Buyer map: 9 water utilities, 2 in pilots",
+    "note": null,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "rp-matter-03",
+    "company_id": "matter",
+    "module_id": "rm-03",
+    "status": "in_progress",
+    "output": null,
+    "note": "Delivered through Pilot to Contract, week 5 of 8.",
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "rp-matter-05",
+    "company_id": "matter",
+    "module_id": "rm-05",
+    "status": "done",
+    "output": "Board KPI set adopted at the Q3 board",
+    "note": null,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "rp-coral-vita-01",
+    "company_id": "coral-vita",
+    "module_id": "rm-01",
+    "status": "in_progress",
+    "output": null,
+    "note": null,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "rp-coral-vita-02",
+    "company_id": "coral-vita",
+    "module_id": "rm-02",
+    "status": "recommended",
+    "output": null,
+    "note": null,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "rp-coral-vita-03",
+    "company_id": "coral-vita",
+    "module_id": "rm-03",
+    "status": "in_progress",
+    "output": null,
+    "note": "Delivered through Pilot to Contract, week 3 of 8.",
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "rp-marble-01",
+    "company_id": "marble",
+    "module_id": "rm-01",
+    "status": "recommended",
+    "output": null,
+    "note": null,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  }
+]

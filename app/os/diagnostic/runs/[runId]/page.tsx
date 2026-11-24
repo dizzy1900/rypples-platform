@@ -42,7 +42,7 @@ export default async function RunPage({ params }: { params: Promise<{ runId: str
   return (
     <>
       <TopBar
-        crumbs={[{ label: "Home", href: "/os" }, { label: "Diagnostic", href: "/os/diagnostic/new" }, { label: run.identity.name }]}
+        crumbs={[{ label: "Diagnostic", href: "/os/diagnostic/new" }, { label: run.identity.name }]}
         placeholder="Ask Captain about the portfolio"
       />
       <Page>
@@ -64,7 +64,7 @@ export default async function RunPage({ params }: { params: Promise<{ runId: str
         </PageHeader>
 
         <div className="grid gap-8 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
-          <Section id="scores" title="Scores" meta="Eight Growth Engine domains, each with its sources">
+          <Section id="scores" title="Scores" meta="Eight diagnostic domains, each with its sources">
             <Tile className="py-2">
               <ScoreList domains={v.domains} scores={run.scores} evidence={run.evidence} bindingDomain={insufficient ? null : syn?.binding_domain} />
             </Tile>

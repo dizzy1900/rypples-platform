@@ -131,7 +131,7 @@ Days as a fraction of the domain benchmark should trend downward. Suggested valu
 
 `pnpm snapshot:sources` fetches each URL, extracts the readable text, and stores it at `data/sources/<id>.md` with a front-matter block containing `url` and `accessed_at`. Commit the snapshots. F1 reads the snapshots, not the live web. These six snapshots are the Desolenator **source pack** (documents). If a page has changed, review the snapshot by hand before committing.
 
-### 5.3 Confirmed diagnostic (kind `public`, confirmed 15 Oct at Day 0 by the board partner, S/I)
+### 5.3 Confirmed diagnostic (kind `public`, confirmed 15 Oct at Day 0 by the board-level partner, S/I)
 
 | Domain | Score | Finding | Sources |
 |---|---|---|---|
@@ -178,14 +178,14 @@ Allocation: 3 programs and 400 operator hours a year, source `term_sheet`. Desol
 |---|---|---|---|
 | Plant and Fleet Finance Sprint | FE | running, week 4 of 6 | 60 |
 | Key Hire: Head of Projects, MENA | PE | running, shortlist | 60 |
-| Field Reliability Review | TE | proposed by board partner | (40, not counted until running) |
+| Field Reliability Review | TE | proposed by board-level partner | (40, not counted until running) |
 
 ### 5.7 Ledger: "What Rypples owes you" (I)
 
 | id | Commitment | From | Due | Status | Rating |
 |---|---|---|---|---|---|
 | l3 | Plant unit economics at US$1/m³ | Finance expert | Fri 27 Nov (+4) | in_progress | — |
-| l1 | Introductions to 3 infrastructure funds with water mandates | Board partner | 15 Dec | in_progress | — |
+| l1 | Introductions to 3 infrastructure funds with water mandates | Board-level partner | 15 Dec | in_progress | — |
 | l4 | Offtake contract template for public buyers | GTM expert | 19 Dec | not_started | — |
 | l6 | Decision on a first-loss position in plant SPV #1 | Rypples investment team | 31 Jan | open | — |
 | l2 | Plant-level model review | Finance expert | 18 Nov | delivered | 5 |
@@ -193,18 +193,18 @@ Allocation: 3 programs and 400 operator hours a year, source `term_sheet`. Desol
 
 Company rating = mean of rated rows (seeded 4.5).
 
-### 5.8 Bridge: board pack Q4 (meeting +3)
+### 5.8 Engine: board pack Q4 (meeting +3)
 
 | key | Name | State | Notes |
 |---|---|---|---|
 | letter | CEO letter | Needs you (amber) | Outline: where plant capital stands, what changed with DEWA and Silal, the Head of Projects search, and the one decision you want from the board. CTA "Start writing" (F5) |
-| fin | Financials and KPIs | Ready · from your finance system | Rows masked `••••`: Cash and runway; Revenue and contracted water volume; Plant capex committed; Headcount. Copy: "Figures are masked in this preview. In Bridge they come straight from the source, with the date they were pulled." Never invent Desolenator financials |
+| fin | Financials and KPIs | Ready · from your finance system | Rows masked `••••`: Cash and runway; Revenue and contracted water volume; Plant capex committed; Headcount. Copy: "Figures are masked in this preview. In Engine they come straight from the source, with the date they were pulled." Never invent Desolenator financials |
 | pilots | Pilots and plant pipeline | Needs you · confirm status | DEWA (Pilot · confirm), Silal (Pilot · confirm), Data centres and industry (Pipeline), XPRIZE Water Scarcity (Semi-finalist). CTA "Confirm stages" |
-| plan | Plan progress | Ready · from your Bridge plan | P1 repeatable plant-finance template: unit economics in progress, fund introductions due 15 Dec. P2 multi-plant offtake: contract template starts this month. P3 Head of Projects, MENA: scorecard agreed, search under way |
+| plan | Plan progress | Ready · from your Engine plan | P1 repeatable plant-finance template: unit economics in progress, fund introductions due 15 Dec. P2 multi-plant offtake: contract template starts this month. P3 Head of Projects, MENA: scorecard agreed, search under way |
 | asks | Asks of the board | Drafted · review | 1. Decision on a first-loss position in plant SPV #1. 2. Introductions to infrastructure investors with water mandates, beyond the three in progress. 3. Feedback on the offtake template. CTA "Redraft" (F5) |
 | ops | Operations and uptime | Needs you · data missing | "No plant data connected yet." CTA "Add data" (manual entry form: site, uptime %, output m³/day; values are session-scoped and labelled founder-entered) |
 
-### 5.9 Bridge: capital (I unless stated)
+### 5.9 Engine: capital (I unless stated)
 
 - **Capital stack** (most junior at the top):
   1. Sponsor equity: Desolenator, as operator (Committed)
@@ -215,7 +215,7 @@ Company rating = mean of rated rows (seeded 4.5).
 
   Source: Republic deal note (the SPV structure is P; the layers' statuses are I).
 - **Instruments** (shortlist toggles; `inf` shortlisted by default):
-  - `inf` Infrastructure funds with water mandates: "Asset equity for SPV #1. Board partner introductions due 15 December."
+  - `inf` Infrastructure funds with water mandates: "Asset equity for SPV #1. Board-level partner introductions due 15 December."
   - `ryp` Rypples first-loss position: "Permanent capital taking the junior slice that brings cheaper money in behind it."
   - `blu` EU BlueInvest network: "You won the BlueInvest Award 2026 for Ocean Resilience. Check follow-on access."
   - `dfcd` Dutch Fund for Climate and Development: "Approved grant support for your Cambodia seawater facility in December 2022. A precedent."
@@ -228,9 +228,9 @@ Company rating = mean of rated rows (seeded 4.5).
 
 ### 5.10 Desolenator decision for Jerome (S/I)
 
-"Take a first-loss position in plant SPV #1?" Line: "Infrastructure funds want a junior tranche before they commit. Raised by the board partner." Actions: "Discuss at the board" (records `decision.resolved` with outcome `board_agenda`, and adds the item to the board pack's Asks if not present) and "Open the model" (opens a modal with the capital stack. The model figures are I, labelled).
+"Take a first-loss position in plant SPV #1?" Line: "Infrastructure funds want a junior tranche before they commit. Raised by the board-level partner." Actions: "Discuss at the board" (records `decision.resolved` with outcome `board_agenda`, and adds the item to the board pack's Asks if not present) and "Open the model" (opens a modal with the capital stack. The model figures are I, labelled).
 
-## 6. Growth Engine (I)
+## 6. Growth Engine and operating partners (I)
 
 ### Programs
 
@@ -241,25 +241,26 @@ Company rating = mean of rated rows (seeded 4.5).
 | field-reliability | Field Reliability Review | technology | 4 | 40 | An evidence pack buyers and lenders accept | Independent technical expert | 1 | 1 | 4.6 |
 | key-hire | Key Hire | people | 10 | 60 | A signed hire against an agreed scorecard | People expert and bench | 3 | 4 | 4.4 |
 | certification | Certification Path | regulatory | 4 | 30 | An approvals plan with dates and owners | Regulatory expert | 1 | 2 | 4.5 |
-| partner-map | Strategic Partner Map | commercial | 3 | 25 | Three strategics engaged as buyer, investor or acquirer | Board partner | 1 | 1 | 4.7 |
+| partner-map | Strategic Partner Map | commercial | 3 | 25 | Three strategics engaged as buyer, investor or acquirer | GTM expert | 1 | 1 | 4.7 |
 | ai-ops | AI in Operations | ai | 4 | 40 | One operating workflow automated | Rypples platform team | 1 | 0 | — |
 | impact-evidence | Impact Evidence | impact | 4 | 30 | Ocean Impact Navigator KPIs reported | Impact expert | 0 | 3 | 4.2 |
 
 Allocation copy: "Each Anchor company gets three programs and 400 operator hours a year, paid for from Rypples' balance sheet. The founder chooses which programs. Delivery shows up in their ledger, and they rate it."
 
-### Operators (role and monogram only)
+### Operators (role and monogram only; types in `partner_types.json`)
 
-| id | Initials | Role | Focus | Covers | Seats | Hours q / committed | Open | Delivered | Rating |
+| id | Initials | Role | Focus | Covers | Stage | Hours q / committed | Open | Delivered | Rating |
 |---|---|---|---|---|---|---|---|---|---|
-| bp-water | BP | Board partner | Water and infrastructure | Desolenator, Flocean | 2 of 3 | 240 / 180 | 2 | 3 | 4.6 |
-| bp-maritime | BP | Board partner | Maritime | Hullbot, Vessev | 2 of 3 | 240 / 180 | 3 | 2 | 4.5 |
-| fe | FE | Finance expert | Project finance, SPVs | Desolenator, Vlinder, Kelp Blue | — | 300 / 270 | 3 | 4 | 4.8 |
-| ge | GE | Go-To-Market expert | Utilities and public buyers | Desolenator, Coral Vita, Matter | — | 240 / 168 | 2 | 2 | 4.2 |
-| pe | PE | People expert | Executive search | Desolenator, Vessev, Full Circle Biotechnology | — | 240 / 156 | 2 | 3 | 4.4 |
-| ie | IE | Impact expert | Ocean Impact Navigator | Coral Vita, Vlinder, SWAY | — | 180 / 150 | 1 | 3 | 4.2 |
-| te | TE | Independent technical expert | Field performance | Desolenator (proposed), Kelp Blue | — | 160 / 76 | 1 | 1 | 4.6 |
+| bp-water | BP | Board-level partner (external) | Water and infrastructure | Desolenator | Active | — | 2 | 3 | 4.6 |
+| bp-maritime | BP | Board-level partner (candidate, `for_deal_id: tern`) | Maritime | — | In conversation | — | — | — | — |
+| bp-intelligence | BP | Board-level partner (candidate, for Project Kelvin) | Ocean Intelligence | — | Sourcing | — | — | — | — |
+| fe | FE | Finance expert | Project finance, SPVs | Desolenator, Vlinder, Kelp Blue | Active | 300 / 270 | 3 | 4 | 4.8 |
+| ge | GE | Go-To-Market expert | Utilities and public buyers | Desolenator, Coral Vita, Matter, Hullbot | Active | 240 / 168 | 3 | 2 | 4.2 |
+| pe | PE | People expert | Executive search | Desolenator, Vessev, Full Circle Biotechnology | Active | 240 / 180 | 2 | 3 | 4.4 |
+| ie | IE | Impact expert | Ocean Impact Navigator | Coral Vita, Vlinder, SWAY | Active | 180 / 150 | 1 | 3 | 4.2 |
+| te | TE | Independent technical expert | Field performance | Desolenator (proposed), Kelp Blue | Active | 160 / 76 | 1 | 1 | 4.6 |
 
-The totals derive to 1,180 of 1,600 hours. The tightest operator is the Finance expert (90%), with the note "3 sprints running. Add one before taking a fourth."
+Board-level partners sit outside the hours pool. Active experts and specialists derive to 844 of 1,120 hours (75%). The tightest operator is the Finance expert (90%), with the note "3 sprints running. Add one before taking a fourth."
 
 ### Due this week (missions)
 
@@ -267,18 +268,23 @@ The totals derive to 1,180 of 1,600 hours. The tightest operator is the Finance 
 |---|---|---|
 | Plant unit economics at US$1/m³ | FE · Desolenator | +4 |
 | Head of Projects, MENA: scorecard | PE · Desolenator | +4 |
-| Fleet service pricing review | BP Maritime · Hullbot | +3 |
+| Fleet service pricing review | GE · Hullbot | +3 |
 | US operations hire shortlist | PE · Vessev | +4 |
 
-### Partner recruiting
+### Partners at earlier stages (operators with `stage` set; `partner_recruiting.json` is removed)
 
-| Role | State | Note |
-|---|---|---|
-| Finance expert, second hire | Final conversation | 3 candidates from the bench. Needed before a fourth finance sprint starts. |
-| Board partner, Ocean Intelligence | Sourcing | To cover Marble and Project Kelvin if Rypples leads. |
-| Regulatory expert | Onboarding | Playbook briefing done. First mission: Certification Path for Kelp Blue. |
+| id | Role | Stage | Note |
+|---|---|---|---|
+| fe-2 | Finance expert, second hire | In conversation | 3 candidates from the bench. Needed before a fourth finance sprint starts. |
+| bp-maritime | Board-level partner, Maritime | In conversation | Lined up for Project Tern. |
+| bp-intelligence | Board-level partner, Ocean Intelligence | Sourcing | For Project Kelvin if Rypples leads. |
+| re | Regulatory expert | Onboarding | Playbook briefing done. First mission: Certification Path for Kelp Blue. |
+| lip | Legal and IP specialist | Sourcing | |
+| sci | Marine science adviser | In conversation | |
 
-### Talent
+Every partner has a 4-step onboarding checklist: Playbook briefing; context pack assembled by Captain; first mission or board agreed with the founder; first founder rating.
+
+### Talent (shown on each company's page and in the People expert's record)
 
 Open roles:
 
@@ -290,13 +296,17 @@ Open roles:
 | VP Sales, fleets | Hullbot | Repeatable sales stage | Brief agreed |
 
 - **Bench (46):** Project and infrastructure finance 9 · Operations in MENA and APAC 11 · Series production and manufacturing 14 · Utility and public-sector sales 12.
-- **CEO development:** "Every Anchor CEO gets a day-100 360, a matched coach and an Ocean Scalers circle." Adri Pols: 360 booked for 20 Jan · coach matched · Circle 02.
+- **CEO development** (now in the Ocean Scalers tab): "Every Anchor CEO gets a day-100 360, a matched coach and an Ocean Scalers circle." Adri Pols: 360 booked for 20 Jan · coach matched · Circle 02.
+
+### Growth Readiness (`readiness_plans.json`, 9 rows)
+
+Five modules: 01 Buyer map, 02 Price and unit economics, 03 Pilot-to-contract terms (delivered through Pilot to Contract), 04 First sales hire, 05 Board-ready metrics (domain financing). Seed: Desolenator 02 in progress inside the Finance Sprint; Vessev, Matter, Coral Vita and Marble have recommended or in-progress modules.
 
 ### Ocean Scalers: Circle 02 · First commercial deployments
 
-- Session 3 of 4 · Thu 15 Jan, 16:00 CET.
+- Session 3 of 4 · Thu 3 Dec, 16:00 CET.
 - Members: Desolenator, Coral Vita, Vessev, Full Circle Biotechnology, SWAY, Matter.
-- Composition rule shown: "Same scale stage. No direct competitors. Four of five verticals. Time zones within nine hours."
+- Composition rule shown: "Same scale stage. No direct competitors. Four of five verticals. Sessions rotate across time zones."
 - Excluded: Flocean (same market as Desolenator: freshwater), Kelp Blue (earlier stage, overlaps SWAY on seaweed), WSense (exited).
 
 Commitments since session 2:
@@ -311,19 +321,21 @@ Commitments since session 2:
 
 ### Growth Readiness (domains normalised)
 
-| Module | Outcome | Domain |
-|---|---|---|
-| 01 Buyer map | Who signs, who pays, who blocks | commercial |
-| 02 Price and unit economics | A price that still works at ten times the volume | financing |
-| 03 Pilot-to-contract terms | Conversion written into every pilot | commercial |
-| 04 First sales hire | Scorecard, search and onboarding plan | people |
-| 05 Board-ready metrics | The KPIs Rypples OS reads each quarter | ai |
+| Module | Focus | Outcome | Domain |
+|---|---|---|---|
+| 01 Buyer map | Buyers | Who signs, who pays, who blocks | commercial |
+| 02 Price and unit economics | Pricing | A price that still works at ten times the volume | financing |
+| 03 Pilot-to-contract terms | Contracts | Conversion written into every pilot | commercial |
+| 04 First sales hire | Hiring | Scorecard, search and onboarding plan | people |
+| 05 Board-ready metrics | Reporting | The KPIs Rypples OS reads each quarter | financing |
 
-### Promises (shown in Bridge)
+The focus is the card's label; the domain is the diagnostic score the module lifts, so two modules can share one.
+
+### Promises (shown in Engine)
 
 | Promise | Text |
 |---|---|
-| Two working days | The longest you wait for a reply from your board partner. |
+| Two working days | The longest you wait for a reply from your board-level partner. |
 | A brief with every intro | Nobody we introduce walks in without context. |
 | You rate everything | Your ratings go to Jerome, unfiltered. |
 
@@ -374,11 +386,11 @@ Each step shows the real event (P) and the platform's reading (I, labelled "How 
 | Feb 2026 | Strategic path: co-development signed before exclusivity. Exit-readiness pack started. |
 | Jul 2026 | Exit. Lesson drafted from four sources and proposed for approval. |
 
-### Intake ("Coming in this week")
+### Intake ("Coming in from the last week")
 
 | Session | Who | Outcome | CTA |
 |---|---|---|---|
-| Desolenator board prep call | Board partner · −4 (Thu 19 Nov) | 1 lesson proposed: price the first plant on total cost of water. 2 actions added to missions. | Review |
+| Desolenator board prep call | Board-level partner · −4 (Thu 19 Nov) | 1 lesson proposed: price the first plant on total cost of ownership, not capex. 2 actions added to missions. | Review |
 | Finance expert session with Vlinder | Finance expert · −5 (Wed 18 Nov) | No new lesson. 3 actions added to missions. | Open |
 | Ocean Scalers, Circle 02, session 2 | Facilitator · −6 (Tue 17 Nov) | 1 lesson proposed from themes only. Circle notes stay confidential. | Review |
 
@@ -413,7 +425,7 @@ Header stats: "13 backed in 18 months" and "10 a year to reach 100".
   1. Fund and staff the second line before the third fleet order.
   2. Write conversion terms into both pilot extensions.
   3. Hire a COO with series-production experience.
-- **Partner:** Board partner match: Maritime (also covers Hullbot and Vessev).
+- **Partner:** Board-level candidate lined up: Maritime (`bp-maritime`, in conversation; moves to onboarding on day one).
 - **Lesson:** Related Playbook entry: hire operations leadership in-market before the second site.
 - **Founder:** "CEO, Project Tern" (PT).
 
@@ -423,7 +435,7 @@ Kelvin, Halyard, Ebb and Spinnaker keep the texts from the mockup (`what`, `cons
 
 Decisions ("Needs your decision"):
 
-1. Desolenator: "Take a first-loss position in plant SPV #1?" Line: "It would bring in asset equity from an infrastructure co-investor. Raised by the board partner." Action: "Before Thursday →" (company page).
+1. Desolenator: "Take a first-loss position in plant SPV #1?" Line: "It would bring in asset equity from an infrastructure co-investor. Raised by the board-level partner." Action: "Before Thursday →" (company page).
 2. Playbook: "Send the WSense lesson to Desolenator, Flocean and Marble?" Line: "Drawn from WSense's path to Fincantieri: strategic investor, then partner, then acquirer." Action: "Review lesson →".
 3. Pipeline: "Take Project Tern to investment committee?" Line: "Diligence diagnostic is ready. Proposed binding constraint: Operations and delivery." Action: "Open diligence →".
 
@@ -436,7 +448,7 @@ Agenda ("This week"):
 | +4 | Investment committee: Project Tern | Diligence diagnostic attached |
 | +4 | 4 operating partner missions due | 2 for Desolenator |
 
-## 10. Reporting
+## 10. Investor relations
 
 - **Impact (Ocean Impact Navigator; KPI wording I, status I):**
 
@@ -474,16 +486,16 @@ Agenda ("This week"):
 |---|---|---|
 | Drafted the pre-read for Desolenator's board | Ready | company |
 | Turned 3 meeting notes into 2 proposed lessons | Review | playbook |
-| Flagged 14 companies entering the scale gap | In Pipeline | pipeline |
+| Flagged 12 companies entering the scale gap | In Pipeline | pipeline |
 | Drafted the Q4 shareholder update | Review | reporting |
-| Drafted Q3 KPI requests to 2 founders | Needs approval | reporting |
+| Drafted Q4 KPI requests to 2 founders | Needs approval | reporting |
 
 Suggested prompts (chips):
 
 - Which companies are behind their benchmark, and what are we doing about it?
 - What should I ask at Desolenator's board on Thursday?
 - Who in the portfolio should hear the WSense lesson next?
-- Where is Growth Engine capacity tight this quarter?
+- Where is operating partner capacity tight this quarter?
 
 ## 12. Integrations (demo adapters, labelled "Demo connection")
 

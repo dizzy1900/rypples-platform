@@ -23,13 +23,13 @@ const STEPS = [
     n: "03",
     title: "Every quarter",
     text: "Board pack, diagnostic, programs, Playbook. The same rhythm, every quarter.",
-    link: { href: "/bridge/desolenator/board-pack", label: "See the Q4 board pack" },
+    link: { href: "/engine/desolenator/board-pack", label: "See the Q4 board pack" },
   },
   {
     n: "04",
     title: "Strategic path",
     text: "A map of strategic buyers, investors and acquirers is kept current from day 0, the WSense play.",
-    link: { href: "/os/reporting?tab=paths", label: "See the strategic paths" },
+    link: { href: "/os/investor-relations?tab=paths", label: "See the strategic paths" },
   },
 ];
 
@@ -97,15 +97,15 @@ export default function Welcome() {
                 <IconPortfolio size={28} className="text-lime" />
                 <h2 className="font-display text-[24px] font-bold tracking-[-0.02em] text-ink">Rypples OS</h2>
                 <p className="text-[14px] text-ink-2">
-                  For the Rypples team. Decisions, portfolio, the Playbook, the Growth Engine, pipeline and reporting.
+                  For the Rypples team. Decisions, portfolio, the Playbook, operating partners, founder programs, pipeline and investor relations.
                 </p>
                 <span className="text-link mt-auto pt-2 text-[14px]">Enter as Jerome Ternynck →</span>
               </Link>
-              <Link href="/bridge/desolenator" className="tile-outline group flex flex-col gap-4 p-7 transition-colors hover:border-lime">
+              <Link href="/engine/desolenator" className="tile-outline group flex flex-col gap-4 p-7 transition-colors hover:border-lime">
                 <IconHandshake size={28} className="text-lime" />
-                <h2 className="font-display text-[24px] font-bold tracking-[-0.02em] text-ink">Rypples Bridge</h2>
+                <h2 className="font-display text-[24px] font-bold tracking-[-0.02em] text-ink">Rypples Engine</h2>
                 <p className="text-[14px] text-ink-2">
-                  For founders. A board pack drafted for you, your plan and programs, and a ledger of what Rypples owes you.
+                  For founders. The Growth Engine in their hands: a board pack drafted for them, their plan and programs, and a ledger of what Rypples owes them.
                 </p>
                 <span className="text-link mt-auto pt-2 text-[14px]">Enter as Adri Pols, Desolenator →</span>
               </Link>
@@ -120,7 +120,7 @@ export default function Welcome() {
                   </h2>
                 </div>
                 <p className="text-[14px] text-ink-2">
-                  The AI across Rypples OS and Bridge. Overnight it drafted the pre-read for Desolenator&rsquo;s board, turned meeting notes
+                  The AI across Rypples OS and Rypples Engine. Overnight it drafted the pre-read for Desolenator&rsquo;s board, turned meeting notes
                   into proposed Playbook lessons and drafted the Q4 shareholder update. Agents draft, people decide: nothing counts until a
                   named person approves it.
                 </p>
@@ -139,7 +139,7 @@ export default function Welcome() {
                   score, and proposes where Rypples would help first.
                 </p>
                 <Link href="/os/diagnostic/new" className="text-link mt-auto pt-2 text-[14px]">
-                  Run a diagnostic →
+                  Run a review →
                 </Link>
               </div>
             </section>

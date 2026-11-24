@@ -3,7 +3,14 @@ import type { Enrolment, Operator, Program } from "./schemas";
 
 export const ALLOCATION_LIMITS = { programs: 3, hours: 400, startsInFirst100: 2 } as const;
 
-export function firmCapacity(operators: Operator[]) {
+/**
+ * Hours belong to experts and specialists who are active. Board-level partners are external and
+ * retained per company, so they sit outside the hours pool; partners still in the funnel have none yet.
+ */
+export const inHoursPool = (o: Operator) => o.stage === "active" && o.role_key !== "board_partner";
+
+export function firmCapacity(all: Operator[]) {
+  const operators = all.filter(inHoursPool);
   const committed = operators.reduce((s, o) => s + o.hours_committed, 0);
   const total = operators.reduce((s, o) => s + o.hours_quarter, 0);
   return { committed, total, pct: total ? committed / total : 0 };
@@ -13,14 +20,19 @@ export const operatorLoad = (o: Operator) => (o.hours_quarter ? o.hours_committe
 export const hoursLeft = (o: Operator) => o.hours_quarter - o.hours_committed;
 
 export function tightestOperator(operators: Operator[]) {
-  return [...operators].sort((a, b) => operatorLoad(b) - operatorLoad(a))[0];
+  return operators.filter(inHoursPool).sort((a, b) => operatorLoad(b) - operatorLoad(a))[0];
 }
 
 export const canTakeProgram = (o: Operator, programHours: number) => o.hours_committed + programHours <= o.hours_quarter;
-export const hasFreeSeat = (o: Operator) => o.seats_total != null && (o.seats_used ?? 0) < o.seats_total;
+/** The active board-level partner on this company's board (one per company), or null. */
+export function boardPartnerFor(operators: Operator[], companyId: string) {
+  return operators.find((o) => o.role_key === "board_partner" && o.stage === "active" && o.covers.includes(companyId)) ?? null;
+}
 
-export function boardPartnerFor(operators: Operator[], vertical: string | null) {
-  return operators.find((o) => o.role_key === "board_partner" && o.vertical_focus === vertical) ?? null;
+/** A board-level candidate lined up for this deal, else one in the funnel with the deal's vertical. */
+export function boardCandidateFor(operators: Operator[], dealId: string, vertical: string | null) {
+  const open = operators.filter((o) => o.role_key === "board_partner" && o.stage !== "active" && o.covers.length === 0);
+  return open.find((o) => o.for_deal_id === dealId) ?? open.find((o) => o.vertical_focus === vertical) ?? null;
 }
 
 /** Allocation used: running, requested and done enrolments count; proposed ones don't. */

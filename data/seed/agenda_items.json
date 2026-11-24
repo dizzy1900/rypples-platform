@@ -4,7 +4,7 @@
     "at_offset": 1,
     "title": "Ocean Scalers, Circle 02 prep",
     "note": "Facilitator brief ready",
-    "route": "/os/growth-engine?tab=scalers",
+    "route": "/os/founder-programs?tab=scalers",
     "provenance": "scenario",
     "firm_id": "rypples"
   },
@@ -31,7 +31,7 @@
     "at_offset": 4,
     "title": "4 operating partner missions due",
     "note": "2 for Desolenator",
-    "route": "/os/growth-engine",
+    "route": "/os/operating-partners",
     "provenance": "scenario",
     "firm_id": "rypples"
   }

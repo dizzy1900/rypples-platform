@@ -33,7 +33,7 @@ type Ref = { type: string; id: string; label: string; href?: string; url?: strin
 | `get_benchmarks` | `{ domain? }` | days, source kind, Rypples cases of 8, confidence | rypples, public |
 | `search_playbook` | `{ query?, domain? }` | approved and proposed lessons (status flagged), library stats | rypples, public. Founder: lessons sent to them |
 | `get_lesson` | `{ id }` | title, play, timeline with sources, matches | rypples, public. Founder: if sent |
-| `get_growth_engine` | `{}` | catalogue, firm capacity, operators by role and load, recruiting | rypples, public. Founder: catalogue only |
+| `get_operating_partners` | `{}` | catalogue, firm capacity, operators by type, stage and load (board-level partners outside the hours pool) | rypples, public. Founder: catalogue only |
 | `get_allocation` | `{ slug }` | allocation, enrolments, hours used | rypples. Founder: own |
 | `get_ledger` | `{ slug }` | commitments, statuses, ratings | rypples. Founder: own |
 | `list_pipeline` | `{}` | codename deals by stage, proposed constraints | rypples, public |

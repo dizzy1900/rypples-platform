@@ -4,7 +4,7 @@
     "company_id": "desolenator",
     "context_label": "Desolenator",
     "question": "Take a first-loss position in plant SPV #1?",
-    "line": "It would bring in asset equity from an infrastructure co-investor. Raised by the board partner.",
+    "line": "It would bring in asset equity from an infrastructure co-investor. Raised by the board-level partner.",
     "action_label": "Before Thursday →",
     "route": "/os/companies/desolenator",
     "status": "open",

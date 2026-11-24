@@ -81,7 +81,7 @@ function Row({ r, active, compact }: { r: RankedMarket; active: boolean; compact
               <span className="rounded-pill border border-lime-30 px-2 py-0.5 text-[11px] font-medium text-lime">Grant precedent</span>
             )}
             {m.rypples_coverage && (
-              <span className="rounded-pill border border-line-2 px-2 py-0.5 text-[11px] font-medium text-ink-2">Rypples board partner coverage</span>
+              <span className="rounded-pill border border-line-2 px-2 py-0.5 text-[11px] font-medium text-ink-2">Rypples board-level partner coverage</span>
             )}
           </div>
         </>

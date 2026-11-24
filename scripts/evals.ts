@@ -294,7 +294,7 @@ async function main() {
     const { result, failure } = await run(dayOneFlow as unknown as AnyDef, c.input);
     if (!result) return [check("result", false, failure ?? "no result")];
     const d = result as F7;
-    const e = c.expect as { binding_domain: string; priorities: number; started: string[]; deferred: string[]; hours_started: number; partner_seats: [number, number] };
+    const e = c.expect as { binding_domain: string; priorities: number; started: string[]; deferred: string[]; hours_started: number; partner_onboarding: string };
     const same = (a: string[], b: string[]) => a.length === b.length && a.every((x) => b.includes(x));
     return [
       check("binding domain", d.binding.domain === e.binding_domain, `got ${d.binding.domain}`),
@@ -302,7 +302,7 @@ async function main() {
       check("started programs", same(d.started.map((x) => x.program_id), e.started), d.started.map((x) => x.program_id).join(", ")),
       check("deferred programs", same(d.deferred.map((x) => x.program_id), e.deferred), d.deferred.map((x) => x.program_id).join(", ")),
       check("hours started", d.hours_started === e.hours_started, `got ${d.hours_started}`),
-      check("board partner seats", !!d.partner && d.partner.seats_used === e.partner_seats[0] && d.partner.seats_total === e.partner_seats[1], d.partner ? `${d.partner.seats_used} of ${d.partner.seats_total}` : "no partner"),
+      check("board-level partner onboarding", !!d.partner && d.partner.operator_id === e.partner_onboarding && d.partner.stage === "onboarding", d.partner ? `${d.partner.operator_id} → ${d.partner.stage}` : "no partner"),
     ];
   }
 

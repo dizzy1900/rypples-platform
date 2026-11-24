@@ -38,7 +38,7 @@ export class CaptainScopeNotFound extends Error {}
 export function resolveViewer(s: State, scope: CaptainScopeInput): ViewerInfo {
   if (scope.kind === "os") return { viewer: JEROME, viewerKind: "rypples", companyId: null, companyName: null, slug: null };
   const c = s.companies.find((x) => x.slug === scope.slug && (x.ceo_person_id || x.session_added));
-  if (!c) throw new CaptainScopeNotFound(`No Bridge workspace for ${scope.slug}`);
+  if (!c) throw new CaptainScopeNotFound(`No Rypples Engine workspace for ${scope.slug}`);
   return { viewer: founderViewer(c.id, c.ceo_person_id ?? `${c.id}-ceo`), viewerKind: "founder", companyId: c.id, companyName: c.name, slug: c.slug };
 }
 
@@ -287,10 +287,10 @@ export async function captainBootstrap(sessionId: string, scope: CaptainScopeInp
   if (!os && vi.companyId) {
     for (const x of s.extras.sentLessons.filter((l) => l.company_id === vi.companyId)) {
       const l = s.lessons.find((y) => y.id === x.lesson_id);
-      if (l) since_last.push({ id: `lesson-${l.id}`, what: `Lesson received: ${l.title}`, route: `/bridge/${vi.slug}`, tone: "lime" });
+      if (l) since_last.push({ id: `lesson-${l.id}`, what: `Lesson received: ${l.title}`, route: `/engine/${vi.slug}`, tone: "lime" });
     }
     for (const c of s.commitments.filter((c) => c.company_id === vi.companyId && c.status === "delivered")) {
-      since_last.push({ id: `commitment-${c.id}`, what: `Delivered: ${c.title}`, route: `/bridge/${vi.slug}`, tone: c.rating == null ? "amber" : "neutral" });
+      since_last.push({ id: `commitment-${c.id}`, what: `Delivered: ${c.title}`, route: `/engine/${vi.slug}`, tone: c.rating == null ? "amber" : "neutral" });
     }
   }
   return {

@@ -6,20 +6,20 @@ import { getBridgeShell } from "@/lib/data/projections/shell";
 import { getSessionId } from "@/lib/session";
 import { photoFor } from "@/lib/data/peoplePhotos";
 
-export const metadata: Metadata = { title: { default: "Rypples Bridge", template: "%s · Rypples Bridge" } };
+export const metadata: Metadata = { title: { default: "Rypples Engine", template: "%s · Rypples Engine" } };
 export const dynamic = "force-dynamic";
 
-export default async function BridgeLayout({ children, params }: { children: React.ReactNode; params: Promise<{ slug: string }> }) {
+export default async function EngineLayout({ children, params }: { children: React.ReactNode; params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const state = await getState(await getSessionId());
   const shell = getBridgeShell(state, slug);
   if (!shell) notFound();
-  const base = `/bridge/${slug}`;
+  const base = `/engine/${slug}`;
   const personId = state.companies.find((c) => c.slug === slug)?.ceo_person_id ?? "";
   return (
     <AppShell
-      product="Bridge"
-      homeHref={base}
+      product="Engine"
+      homeHref="/"
       nav={[
         { href: base, label: "Home", icon: "home", exact: true },
         { href: `${base}/board-pack`, label: "Board pack", icon: "doc" },

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { act } from "@/lib/actions";
 import { Button, Illustrative, Meta, Pill, StatusDot, Tile } from "@/components/ui";
 import { Modal } from "@/components/ui/client";
-import type { getScalers } from "@/lib/data/projections/engine";
+import type { getScalers } from "@/lib/data/projections/founder-programs";
 
 type View = NonNullable<ReturnType<typeof getScalers>>;
 

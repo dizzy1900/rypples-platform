@@ -82,7 +82,7 @@ export function resolveRef(s: State, ref: RefInput): ResolvedRef | null {
     case "portfolio": {
       const r = portfolioStat(s, ref.field) ?? portfolioStat(s, ref.id);
       if (!r) return null;
-      const href = ["programsrunning", "programs"].includes(norm(ref.field)) ? "/os/growth-engine" : ["lessonssent", "lessons"].includes(norm(ref.field)) ? "/os/playbook" : ["impactreporting", "impact"].includes(norm(ref.field)) ? "/os/reporting?tab=impact" : "/os/portfolio";
+      const href = ["programsrunning", "programs"].includes(norm(ref.field)) ? "/os/operating-partners" : ["lessonssent", "lessons"].includes(norm(ref.field)) ? "/os/playbook" : ["impactreporting", "impact"].includes(norm(ref.field)) ? "/os/investor-relations?tab=impact" : "/os/portfolio";
       return { value: r.value, provenance: r.provenance, label: `Portfolio statistic · ${r.name}`, href };
     }
     case "company": {
@@ -131,7 +131,7 @@ export function resolveRef(s: State, ref: RefInput): ResolvedRef | null {
       if (!p) return null;
       const name = s.companies.find((c) => c.id === p.company_id)?.name ?? p.company_id;
       const label = (what: string) => `Strategic path · ${name} · ${what}`;
-      const href = "/os/reporting?tab=paths";
+      const href = "/os/investor-relations?tab=paths";
       if (f === "now" || f === "relationships") return { value: p.now, provenance: p.now_provenance, label: label("relationships today"), href };
       if (f === "likely") return { value: p.likely, provenance: "illustrative", label: label("likely buyers"), href };
       if (f === "programstatus" || f === "program") return { value: p.program_status, provenance: "scenario", label: label("program status"), href };
