@@ -4,10 +4,10 @@
   "reviewed": true,
   "prompt_version": "captain@v1",
   "note": "Cached-mode Captain answers. In replay the listed tool calls run for real against the registry, so refs and the numeric grounding check use live tool results. Every number in `text` must appear in those results.",
-  "seeded": { "label": "From this morning", "answer_id": "behind-benchmark" },
+  "seeded": { "label": "From this morning", "answer_id": "closest-to-benchmark" },
   "prompts": {
     "os": [
-      "Which companies are behind their benchmark, and what are we doing about it?",
+      "Which companies are closest to their benchmark, and what are we doing about it?",
       "What should I ask at Desolenator's board on Thursday?",
       "Who in the portfolio should hear the WSense lesson next?",
       "Where is Growth Engine capacity tight this quarter?"
@@ -16,21 +16,21 @@
   },
   "answers": [
     {
-      "id": "behind-benchmark",
+      "id": "closest-to-benchmark",
       "scope": "os",
-      "prompt": "Which companies are behind their benchmark, and what are we doing about it?",
-      "match": [["behind", "benchmark"], ["over", "benchmark"], ["past", "benchmark"]],
+      "prompt": "Which companies are closest to their benchmark, and what are we doing about it?",
+      "match": [["closest", "benchmark"], ["near", "benchmark"], ["behind", "benchmark"], ["over", "benchmark"], ["past", "benchmark"]],
       "tools": [
         { "name": "list_portfolio", "input": {} },
         { "name": "get_benchmarks", "input": {} },
         { "name": "get_allocation", "input": { "slug": "vessev" } },
         { "name": "get_allocation", "input": { "slug": "full-circle-biotechnology" } }
       ],
-      "text": "Two companies are past their benchmark ⟦ref:portfolio/stats⟧:\n\n- **Vessev** has had a commercial constraint open for 97 days against a 90-day benchmark ⟦ref:company/vessev⟧. Key Hire is running with the People expert ⟦ref:allocation/vessev⟧.\n- **Full Circle Biotechnology** has had an operations constraint open for 118 days against 110 ⟦ref:company/full-circle-biotechnology⟧. Key Hire is running there too ⟦ref:allocation/full-circle-biotechnology⟧.\n\nBoth benchmarks are outside references with low confidence, so treat the gaps as indicative rather than firm ⟦ref:benchmark/commercial⟧ ⟦ref:benchmark/operations⟧.\n\nNeither company has a program aimed at the constraint itself: Key Hire works on people. I've proposed two next steps for your approval.",
+      "text": "Every active company is inside its benchmark ⟦ref:portfolio/stats⟧. Two are closest to it:\n\n- **Vessev** has had a commercial constraint open for 76 days against a 90-day benchmark ⟦ref:company/vessev⟧. Key Hire is running with the People expert ⟦ref:allocation/vessev⟧.\n- **Full Circle Biotechnology** has had an operations constraint open for 94 days against 110 ⟦ref:company/full-circle-biotechnology⟧. Key Hire is running there too ⟦ref:allocation/full-circle-biotechnology⟧.\n\nBoth benchmarks are outside references with low confidence, so treat the margins as indicative rather than firm ⟦ref:benchmark/commercial⟧ ⟦ref:benchmark/operations⟧.\n\nNeither company has a program aimed at the constraint itself yet: Key Hire works on people. I've proposed two next steps to keep both inside their benchmark.",
       "caveats": ["Both benchmarks are outside references with low confidence."],
       "next_steps": [
-        { "title": "Scope Pilot to Contract for Vessev", "detail": "Vessev's commercial constraint is past its outside benchmark. Pilot to Contract is the catalogue program for commercial constraints.", "target": "/os/companies/vessev" },
-        { "title": "Review Full Circle Biotechnology's operations plan with its board", "detail": "The operations constraint is past its outside benchmark and no operations program is running.", "target": "/os/companies/full-circle-biotechnology" }
+        { "title": "Scope Pilot to Contract for Vessev", "detail": "Vessev is the closest to its commercial benchmark. Pilot to Contract is the catalogue program for commercial constraints.", "target": "/os/companies/vessev" },
+        { "title": "Review Full Circle Biotechnology's operations plan with its board", "detail": "Its operations constraint is the closest to benchmark, and no operations program is running yet.", "target": "/os/companies/full-circle-biotechnology" }
       ]
     },
     {

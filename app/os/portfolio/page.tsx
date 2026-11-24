@@ -29,7 +29,7 @@ export default async function PortfolioPage({ searchParams }: { searchParams: Pr
         <div className="grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-10" aria-live="polite">
           <StatBlock value={p.stats.active} label="Active" />
           <StatBlock value={p.stats.exits} label="Exit" />
-          <StatBlock value={p.stats.overBenchmark} label="Over benchmark" />
+          <StatBlock value={p.stats.withinBenchmark} label="Within benchmark" />
           <StatBlock
             value={p.stats.firmRating != null ? <Illustrative>{p.stats.firmRating.toFixed(1)}</Illustrative> : "None"}
             label="Founder rating"

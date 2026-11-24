@@ -19,9 +19,11 @@ const ServerEnv = z.object({
   UPSTASH_REDIS_REST_URL: z.string().optional(),
   UPSTASH_REDIS_REST_TOKEN: z.string().optional(),
   LIVE_AI: z.enum(["on", "off"]).default("off"),
-  AI_DAILY_BUDGET_USD: z.coerce.number().positive().default(25),
+  /** Lifetime spend cap for the API key, in USD (estimated from usage). */
+  AI_TOTAL_BUDGET_USD: z.coerce.number().positive().default(25),
+  /** Part of the total that only the priority link can use. */
+  AI_PRIORITY_RESERVE_USD: z.coerce.number().nonnegative().default(10),
   AI_F2_DAILY_RUNS: z.coerce.number().int().positive().default(60),
-  AI_PRIORITY_BUDGET_USD: z.coerce.number().positive().default(15),
   DEMO_PRIORITY_TOKEN: z.string().optional(),
   IP_HASH_SALT: z.string().default("dev-salt-change-me"),
   SCENARIO_DATE: z
@@ -30,6 +32,9 @@ const ServerEnv = z.object({
     .default("2026-11-23")
     .refine(isMonday, { message: "SCENARIO_DATE must be a Monday (seeded week offsets assume it)" }),
   NEXT_PUBLIC_SITE_URL: z.string().url().default("http://localhost:3000"),
+}).refine((e) => e.AI_PRIORITY_RESERVE_USD < e.AI_TOTAL_BUDGET_USD, {
+  message: "AI_PRIORITY_RESERVE_USD must be less than AI_TOTAL_BUDGET_USD",
+  path: ["AI_PRIORITY_RESERVE_USD"],
 });
 export type ServerEnv = z.infer<typeof ServerEnv>;
 

@@ -110,6 +110,8 @@ export function filteredCounts(s: S, vertical: string | null) {
     active: rows.length,
     exits,
     overBenchmark: rows.filter((r) => r.overBenchmark).length,
+    /** Companies with an open constraint that is inside its benchmark. */
+    withinBenchmark: rows.filter((r) => r.daysOpen != null && r.benchmark != null && !r.overBenchmark).length,
     firmRating: numeric.length ? round1(numeric.reduce((a, b) => a + b, 0) / numeric.length) : null,
   };
 }

@@ -11,7 +11,7 @@
  */
 import fs from "node:fs";
 import path from "node:path";
-import { arg, flag, loadEnv, requireKey } from "./ai-env";
+import { arg, flag, loadEnv, requireKey, spendLedger } from "./ai-env";
 
 const OUT = path.join(process.cwd(), "data", "precomputed");
 
@@ -31,6 +31,8 @@ async function main() {
   loadEnv();
   requireKey("precompute");
   process.env.LIVE_AI = "on";
+  const ledger = await spendLedger("precompute");
+  console.log(`Total AI spend so far: $${(await ledger.guard()).toFixed(2)} of $${ledger.cap}.`);
 
   const { ulid } = await import("ulid");
   const { newTracker, modelFor } = await import("@/lib/ai/client");
@@ -46,6 +48,7 @@ async function main() {
 
   let total = 0;
   async function runLive(def: AnyDef, rawInput: unknown, sessionId = `precompute-${ulid()}`) {
+    await ledger.guard();
     const run = {
       flow: def.flow,
       input: def.input.parse(rawInput),
@@ -66,6 +69,7 @@ async function main() {
       else events.push(e);
     }
     total += run.tracker.cost_usd;
+    await ledger.record(def.flow, run.tracker.cost_usd, run.tracker.models);
     console.log(`  ${def.flow}: ${run.tracker.calls} calls, ${run.tracker.searches} searches, $${run.tracker.cost_usd.toFixed(4)}`);
     if (!result) throw new Error(`${def.flow} returned no result`);
     return { run, events, result };

@@ -20,7 +20,7 @@ test.describe("Captain (journey 1)", () => {
     }
     const drawer = captain(page);
     await expect(drawer).toBeVisible();
-    await expect(drawer).toContainText("Which companies are behind their benchmark");
+    await expect(drawer).toContainText("Which companies are closest to their benchmark");
     await expect(drawer).toContainText("Vessev");
     await expect(drawer).toContainText(/Read \d+ records through the Rypples tool registry/);
 

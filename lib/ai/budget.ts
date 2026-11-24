@@ -1,20 +1,28 @@
 /**
- * Live vs cached mode, the spending cap, the circuit breaker and the priority budget
+ * Live vs cached mode, the total spending cap, the circuit breaker and the priority reserve
  * (docs/10-security-cost-ops.md §1, §2, §4). `getMode()` runs before every flow; its result is
  * the first SSE event.
+ *
+ * The cap is a lifetime total for the API key, not a daily one. Spend is read from two places and
+ * the larger wins: the `spend:total` counter in the key-value store (immediate, but per instance
+ * when there is no Redis) and the sum of `agent_runs.est_cost_usd` in the data store (durable and
+ * shared across instances, including runs from `pnpm precompute` and `pnpm evals`).
  */
 import "server-only";
 import { env } from "@/lib/env";
 import { getKv } from "@/lib/redis";
+import { getStore } from "@/lib/data";
 import { priceFor, WEB_SEARCH_USD_PER_REQUEST } from "@/config/pricing";
 import type { FlowName } from "./sse";
 
 export type BudgetConfig = {
   liveAi: boolean;
   hasKey: boolean;
-  dailyUsd: number;
+  /** Lifetime cap for the key, in USD. Nothing runs live past it, priority included. */
+  totalUsd: number;
+  /** Part of the total kept for the priority link: public visitors stop at totalUsd − priorityReserveUsd. */
+  priorityReserveUsd: number;
   f2DailyRuns: number;
-  priorityUsd: number;
 };
 
 let override: Partial<BudgetConfig> | null = null;
@@ -28,9 +36,9 @@ export function budgetConfig(): BudgetConfig {
   return {
     liveAi: e.LIVE_AI === "on",
     hasKey: !!e.ANTHROPIC_API_KEY,
-    dailyUsd: e.AI_DAILY_BUDGET_USD,
+    totalUsd: e.AI_TOTAL_BUDGET_USD,
+    priorityReserveUsd: e.AI_PRIORITY_RESERVE_USD,
     f2DailyRuns: e.AI_F2_DAILY_RUNS,
-    priorityUsd: e.AI_PRIORITY_BUDGET_USD,
     ...override,
   };
 }
@@ -44,7 +52,10 @@ const secondsToMidnightUtc = (d = new Date()) => {
   return Math.max(60, Math.ceil((end - d.getTime()) / 1000)) + 3600; // keep a little past midnight for reporting
 };
 
+const TEN_YEARS_SEC = 10 * 365 * 86400;
+
 export const keys = {
+  total: "spend:total",
   spend: (d = day()) => `spend:${d}`,
   spendFlow: (flow: string, d = day()) => `spend:flow:${flow}:${d}`,
   priority: (d = day()) => `spend:priority:${d}`,
@@ -59,11 +70,36 @@ export type ModeCtx = { priority: boolean; runAgain?: boolean };
 export type ModeDecision = {
   mode: "live" | "cached";
   reason?: "disabled" | "budget" | "error";
-  /** ≥ 80% of the daily cap: F2 "Run again" is disabled. */
+  /** ≥ 80% of the public share of the total: F2 "Run again" is disabled. */
   soft: boolean;
-  /** live because of the priority cookie after the public cap */
+  /** live because of the priority cookie after the public share is used up */
   viaPriority: boolean;
 };
+
+let storeTotal: { usd: number; at: number } | null = null;
+const STORE_TOTAL_TTL_MS = 15_000;
+/** Tests only. */
+export function __resetSpendCache() {
+  storeTotal = null;
+}
+
+async function storeSpendTotal(): Promise<number> {
+  if (storeTotal && Date.now() - storeTotal.at < STORE_TOTAL_TTL_MS) return storeTotal.usd;
+  try {
+    const usd = await getStore().totalAgentSpend();
+    storeTotal = { usd, at: Date.now() };
+    return usd;
+  } catch {
+    // If the data store can't be read, fall back to the last known figure rather than failing open at zero.
+    return storeTotal?.usd ?? 0;
+  }
+}
+
+/** Lifetime spend on the key so far (estimated from usage), in USD. */
+export async function spendTotal(): Promise<number> {
+  const [kv, store] = await Promise.all([getKv().get(keys.total), storeSpendTotal()]);
+  return Math.max(Number(kv ?? 0), store);
+}
 
 export async function spendToday() {
   const kv = getKv();
@@ -79,13 +115,15 @@ export async function getMode(flow: FlowName, ctx: ModeCtx): Promise<ModeDecisio
   const c = budgetConfig();
   if (!c.liveAi || !c.hasKey) return { mode: "cached", reason: "disabled", soft: false, viaPriority: false };
   if (await circuitOpen()) return { mode: "cached", reason: "error", soft: false, viaPriority: false };
-  const spend = await spendToday();
-  const soft = spend.public >= c.dailyUsd * SOFT_LIMIT;
-  const overPublic = spend.public >= c.dailyUsd;
+  const total = await spendTotal();
+  if (total >= c.totalUsd) return { mode: "cached", reason: "budget", soft: true, viaPriority: false };
+  const publicCap = Math.max(0, c.totalUsd - c.priorityReserveUsd);
+  const soft = total >= publicCap * SOFT_LIMIT;
+  const overPublic = total >= publicCap;
   let f2Over = false;
   if (flow === "any-company") f2Over = Number((await getKv().get(keys.f2Runs())) ?? 0) >= c.f2DailyRuns;
   if (overPublic || f2Over) {
-    if (ctx.priority && spend.priority < c.priorityUsd) return { mode: "live", soft: false, viaPriority: true };
+    if (ctx.priority) return { mode: "live", soft: false, viaPriority: true };
     return { mode: "cached", reason: "budget", soft: true, viaPriority: false };
   }
   return { mode: "live", soft: soft && !ctx.priority, viaPriority: false };
@@ -117,12 +155,13 @@ export function estimateCost(model: string, usage: UsageLike, fallbackModel?: st
   return tokens + (usage.server_tool_use?.web_search_requests ?? 0) * WEB_SEARCH_USD_PER_REQUEST;
 }
 
-/** Record spend after each call (atomic increments). Priority sessions past the public cap draw on their own counter. */
+/** Record spend after each call (atomic increments): the lifetime total, plus daily counters for /os/_status. */
 export async function recordSpend(flow: FlowName, usd: number, opts: { viaPriority: boolean }) {
   if (!(usd > 0)) return;
   const kv = getKv();
   const ttl = secondsToMidnightUtc() + 6 * 86400;
   await Promise.all([
+    kv.incrFloat(keys.total, usd, TEN_YEARS_SEC),
     kv.incrFloat(opts.viaPriority ? keys.priority() : keys.spend(), usd, ttl),
     kv.incrFloat(keys.spendFlow(flow), usd, ttl),
   ]);
@@ -163,7 +202,8 @@ export async function budgetStatus(ctx: ModeCtx = { priority: false }) {
   const c = budgetConfig();
   const kv = getKv();
   const flows: FlowName[] = ["diagnostic", "any-company", "captain", "lesson-match", "board-pack", "shareholder-update", "day-one"];
-  const [spend, open, perFlow] = await Promise.all([
+  const [total, spend, open, perFlow] = await Promise.all([
+    spendTotal(),
     spendToday(),
     circuitOpen(),
     Promise.all(
@@ -178,6 +218,7 @@ export async function budgetStatus(ctx: ModeCtx = { priority: false }) {
   return {
     date: day(),
     config: c,
+    total,
     spend,
     circuitOpen: open,
     perFlow,

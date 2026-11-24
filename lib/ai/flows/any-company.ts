@@ -62,7 +62,7 @@ async function pre(run: FlowRun<Input>) {
 async function* live(run: FlowRun<Input>): AsyncGenerator<FlowEvent> {
   run.meta.promptVersion = "any-company@v1";
   if (run.input.runAgain && run.decision.soft) {
-    // ≥ 80% of the daily cap: "Run again" replays instead of spending
+    // ≥ 80% of the public share of the total cap: "Run again" replays instead of spending
     yield* cachedRun(run, "budget");
     return;
   }
