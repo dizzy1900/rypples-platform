@@ -7,6 +7,7 @@ import "server-only";
 import type { BetaContentBlock } from "@anthropic-ai/sdk/resources/beta/messages/messages";
 import { getSeedState, getStore } from "@/lib/data";
 import { callModel, modelFor, plain, structuredCall, textOf } from "../client";
+import { blockSummary, continuePausedTurn } from "../continuation";
 import { section, tone } from "../prompts";
 import { AnyCompanyInput, insufficientReasons, normalizeRelevance, RelevanceCheck, RelevanceCheckJson } from "../schemas/any-company";
 import { distinctSourceDomains, EvidenceCollector, isSocial, nameKey, normaliseQuery, registrableDomain, slugify, sourcesIn, webCitations } from "../evidence";
@@ -132,10 +133,10 @@ async function* live(run: FlowRun<Input>): AsyncGenerator<FlowEvent> {
   const research = yield* withChannel(async (push) => {
     let readStarted = false;
     try {
-      const msg = await callModel(t, {
+      const turn = await continuePausedTurn((messages) => callModel(t, {
         task: "f2-research",
         system: [plain(`${tone()}\n\n${section("any-company", "research", { name: identity.name, website: website ?? "(no website found)" })}`)],
-        messages: [{ role: "user", content: `Research ${identity.name}${website ? ` (${website})` : ""}. ${identity.description}` }],
+        messages,
         tools: [webSearchTool(modelFor("f2-research"), 5), webFetchTool(5)],
         max_tokens: 12000,
         effort: "medium",
@@ -153,10 +154,12 @@ async function* live(run: FlowRun<Input>): AsyncGenerator<FlowEvent> {
             push({ type: "step", key: "read", state: "running" });
           }
         },
-      });
-      return { content: msg.content as BetaContentBlock[], cut: false, readStarted };
+      }), [{ role: "user", content: `Research ${identity.name}${website ? ` (${website})` : ""}. ${identity.description}` }]);
+      console.info(`[f2-research] ${run.runId} stops=${turn.stops.join(",")} blocks ${blockSummary(turn.content)}`);
+      return { content: turn.content, cut: false, readStarted };
     } catch (err) {
       if (run.signal.aborted || !cutoff.signal.aborted) throw err;
+      console.info(`[f2-research] ${run.runId} cut off; blocks ${blockSummary(collected)}`);
       return { content: collected, cut: true, readStarted }; // score what was collected
     } finally {
       clearTimeout(timer);
