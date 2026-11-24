@@ -40,7 +40,7 @@ export function boardPackContext(s: State, companyId: string): { text: string; p
     "Ledger (what Rypples owes):",
     ...ledger.map((x) => `- ${x.title}, from ${x.from_label}, due ${x.due_label}, ${x.status.replace("_", " ")}`),
     "Pilots:",
-    ...pilots.map((p) => `- ${p.name}: ${PILOT_STAGES[p.stage] ?? p.stage}${s.extras.pilotConfirmed[p.id] != null ? " (confirmed by the founder this quarter)" : " (not yet confirmed this quarter)"}`),
+    ...pilots.map((p) => `- ${p.name}: ${PILOT_STAGES[p.stage] ?? p.stage}${p.note ? ` (${p.note})` : ""}${s.extras.pilotConfirmed[p.id] != null ? " (confirmed by the founder this quarter)" : " (not yet confirmed this quarter)"}`),
     ops.length ? "Founder-entered operations:" : "Founder-entered operations: none yet",
     ...ops.map((o) => `- ${o.site}: uptime ${o.uptime_pct}%, output ${o.output_m3_day} m³/day`),
     "Last board:",

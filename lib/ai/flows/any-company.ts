@@ -41,10 +41,16 @@ const replayEvents = (r: AnyCompanyResult): FlowEvent[] =>
     ? eventsForResult(r, { pre: ["check", "search", "read"], evidence: "extract", score: "score", post: ["match"] })
     : [{ type: "step", key: "check", state: "running" }, { type: "step", key: "check", state: "done", detail: r.status }];
 
+/**
+ * One row per lookup key (the name typed, the company's domain…). The first row's id is the run id,
+ * which the run page reads; the others get their own ids, because `id` is the table's primary key.
+ */
 async function persist(run: FlowRun<Input>, r: AnyCompanyResult, keys: string[]) {
   const store = getStore();
-  for (const k of [...new Set(keys.filter(Boolean))]) {
-    await store.putAnyCompanyRun({ id: r.run_id, domain: k, display_name: r.identity.name, status: r.status, result: r, run_id: run.runId, created_at: r.created_at });
+  const unique = [...new Set(keys.filter(Boolean))];
+  for (const [i, k] of unique.entries()) {
+    const id = i === 0 ? r.run_id : `${r.run_id}~${k}`;
+    await store.putAnyCompanyRun({ id, domain: k, display_name: r.identity.name, status: r.status, result: r, run_id: run.runId, created_at: r.created_at });
   }
 }
 

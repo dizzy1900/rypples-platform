@@ -1,7 +1,8 @@
 /**
  * zod → JSON Schema for structured outputs and strict tools (docs/07-ai.md §2):
  * `additionalProperties: false`, every key required (optional keys become nullable),
- * and constraint keywords the API ignores are stripped (we re-validate with zod instead).
+ * constraint keywords the API ignores are stripped (we re-validate with zod instead), and `oneOf`
+ * (which zod emits for discriminated unions, and the API rejects) becomes `anyOf`.
  */
 import { z } from "zod";
 
@@ -20,6 +21,10 @@ function walk(node: unknown): unknown {
   const out: J = {};
   for (const [k, v] of Object.entries(n)) {
     if (STRIP.has(k)) continue;
+    if (k === "oneOf") {
+      out.anyOf = walk(v);
+      continue;
+    }
     if (k === "properties" && v && typeof v === "object") {
       const props: J = {};
       for (const [pk, pv] of Object.entries(v as J)) props[pk] = walk(pv);
