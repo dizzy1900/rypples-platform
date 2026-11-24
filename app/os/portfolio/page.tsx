@@ -29,7 +29,7 @@ export default async function PortfolioPage({ searchParams }: { searchParams: Pr
         <div className="grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-10" aria-live="polite">
           <StatBlock value={p.stats.active} label="Active" />
           <StatBlock value={p.stats.exits} label="Exit" />
-          <StatBlock value={p.stats.overBenchmark} label="Over benchmark" />
+          <StatBlock value={p.stats.withinBenchmark} label="Within benchmark" />
           <StatBlock
             value={p.stats.firmRating != null ? <Illustrative>{p.stats.firmRating.toFixed(1)}</Illustrative> : "None"}
             label="Founder rating"
@@ -110,8 +110,8 @@ export default async function PortfolioPage({ searchParams }: { searchParams: Pr
           The {p.publicCount} companies on the public portfolio. {fewer} not yet announced. White tick marks the benchmark for that
           constraint. Every benchmark is an outside reference for now. Each switches to Rypples&rsquo; own data after eight cleared
           cases (see{" "}
-          <Link href="/os/reporting?tab=acceleration" className="text-link underline underline-offset-2">
-            Reporting, Acceleration
+          <Link href="/os/investor-relations?tab=acceleration" className="text-link underline underline-offset-2">
+            Investor relations, Acceleration
           </Link>
           ). Dotted figures are illustrative.
         </p>
@@ -146,7 +146,7 @@ function Row({ i }: { i: PortfolioItem }) {
             label={
               <>
                 <Prov p={i.constraintProvenance}>{i.daysOpen}</Prov> of {i.benchmarkDays} days ·{" "}
-                <Link href="/os/reporting?tab=acceleration" className="underline underline-offset-2 hover:text-ink">
+                <Link href="/os/investor-relations?tab=acceleration" className="underline underline-offset-2 hover:text-ink">
                   {i.benchmarkLabel}
                 </Link>
               </>

@@ -56,6 +56,8 @@ export interface Store {
   listEvents(sessionId: string): Promise<DemoEvent[]>;
   putAgentRun(r: AgentRun): Promise<void>;
   listAgentRuns(limit: number): Promise<AgentRun[]>;
+  /** Sum of est_cost_usd across every recorded run: the lifetime spend the total cap is checked against. */
+  totalAgentSpend(): Promise<number>;
   getAnyCompanyRun(key: { id?: string; domain?: string }): Promise<AnyCompanyRun | null>;
   putAnyCompanyRun(r: AnyCompanyRun): Promise<void>;
   listAnyCompanyRuns(limit: number): Promise<AnyCompanyRun[]>;
@@ -93,6 +95,9 @@ export class MemoryStore implements Store {
   }
   async listAgentRuns(limit: number) {
     return [...mem().runs].sort((a, b) => b.started_at.localeCompare(a.started_at)).slice(0, limit);
+  }
+  async totalAgentSpend() {
+    return mem().runs.reduce((sum, r) => sum + (Number(r.est_cost_usd) || 0), 0);
   }
   async getAnyCompanyRun(key: { id?: string; domain?: string }) {
     for (const r of mem().anyCompany.values()) {

@@ -1,16 +1,36 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { AboutModal } from "@/components/rypples/AboutModal";
-import { IconHandshake, IconPortfolio } from "@/components/ui/icons";
+import { IconHandshake, IconPortfolio, IconWheel } from "@/components/ui/icons";
 import { RypplesLogo } from "@/components/ui";
 
 export const metadata = { title: { absolute: "The Rypples Platform" } };
 
 const STEPS = [
-  { n: "01", title: "Day 0", text: "The diligence diagnostic becomes the plan, and the Growth Engine allocation is written into the term sheet." },
-  { n: "02", title: "First 100 days", text: "The one binding constraint is confirmed with the founder. Programs start and a board rhythm is set." },
-  { n: "03", title: "Every quarter", text: "Board pack, diagnostic, programs, Playbook. The same rhythm, every quarter." },
-  { n: "04", title: "Strategic path", text: "A map of strategic buyers, investors and acquirers is kept current from day 0, the WSense play." },
+  {
+    n: "01",
+    title: "Day 0",
+    text: "The diligence diagnostic becomes the plan, and the Growth Engine allocation is written into the term sheet.",
+    link: { href: "/os/pipeline?deal=tern", label: "See Project Tern's diligence" },
+  },
+  {
+    n: "02",
+    title: "First 100 days",
+    text: "The one binding constraint is confirmed with the founder. Programs start and a board rhythm is set.",
+    link: { href: "/os/companies/desolenator", label: "See Desolenator's 100 days" },
+  },
+  {
+    n: "03",
+    title: "Every quarter",
+    text: "Board pack, diagnostic, programs, Playbook. The same rhythm, every quarter.",
+    link: { href: "/engine/desolenator/board-pack", label: "See the Q4 board pack" },
+  },
+  {
+    n: "04",
+    title: "Strategic path",
+    text: "A map of strategic buyers, investors and acquirers is kept current from day 0, the WSense play.",
+    link: { href: "/os/investor-relations?tab=paths", label: "See the strategic paths" },
+  },
 ];
 
 const PRINCIPLES = [
@@ -18,7 +38,10 @@ const PRINCIPLES = [
   { title: "Founder-owned", text: "The plan belongs to the founder, and Rypples sees it. Founders choose their programs and can disagree with the constraint." },
   { title: "Evidence, not opinion", text: "Every score and finding links to its source. A domain without evidence shows an evidence gap, never a guess." },
   { title: "Agents draft, people decide", text: "Every AI output is a proposal with provenance. Nothing counts until a named person approves it." },
-  { title: "Measured both ways", text: "Founders rate everything Rypples delivers, and Jerome sees the ratings unfiltered." },
+  {
+    title: "Measured both ways",
+    text: "Founders rate everything Rypples delivers, and Jerome sees the ratings unfiltered. Shareholders see how fast each constraint clears against its benchmark.",
+  },
   { title: "Integrate, don't rebuild", text: "Data rooms, CRM, documents, meeting notes and finance systems stay in the tools that do them best, and connect through MCP and adapters." },
 ];
 
@@ -74,19 +97,52 @@ export default function Welcome() {
                 <IconPortfolio size={28} className="text-lime" />
                 <h2 className="font-display text-[24px] font-bold tracking-[-0.02em] text-ink">Rypples OS</h2>
                 <p className="text-[14px] text-ink-2">
-                  For the Rypples team. Decisions, portfolio, the Playbook, the Growth Engine, pipeline and reporting.
+                  For the Rypples team. Decisions, portfolio, the Playbook, operating partners, founder programs, pipeline and investor relations.
                 </p>
                 <span className="text-link mt-auto pt-2 text-[14px]">Enter as Jerome Ternynck →</span>
               </Link>
-              <Link href="/bridge/desolenator" className="tile-outline group flex flex-col gap-4 p-7 transition-colors hover:border-lime">
+              <Link href="/engine/desolenator" className="tile-outline group flex flex-col gap-4 p-7 transition-colors hover:border-lime">
                 <IconHandshake size={28} className="text-lime" />
-                <h2 className="font-display text-[24px] font-bold tracking-[-0.02em] text-ink">Rypples Bridge</h2>
+                <h2 className="font-display text-[24px] font-bold tracking-[-0.02em] text-ink">Rypples Engine</h2>
                 <p className="text-[14px] text-ink-2">
-                  For founders. A board pack drafted for you, your plan and programs, and a ledger of what Rypples owes you.
+                  For founders. The Growth Engine in their hands: a board pack drafted for them, their plan and programs, and a ledger of what Rypples owes them.
                 </p>
                 <span className="text-link mt-auto pt-2 text-[14px]">Enter as Adri Pols, Desolenator →</span>
               </Link>
             </div>
+
+            <section aria-labelledby="captain-h" className="tile grid gap-8 p-7 md:grid-cols-2 md:gap-10">
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center gap-3">
+                  <IconWheel size={24} className="text-lime" />
+                  <h2 id="captain-h" className="font-display text-[24px] font-bold tracking-[-0.02em] text-ink">
+                    Captain
+                  </h2>
+                </div>
+                <p className="text-[14px] text-ink-2">
+                  The AI across Rypples OS and Rypples Engine. Overnight it drafted the pre-read for Desolenator&rsquo;s board, turned meeting notes
+                  into proposed Playbook lessons and drafted the Q4 shareholder update. Agents draft, people decide: nothing counts until a
+                  named person approves it.
+                </p>
+                <Link
+                  href="/os?captain=1"
+                  className="well mt-auto flex w-full items-center gap-3 px-3.5 py-2.5 text-left text-[13px] text-ink-3 transition-colors hover:text-ink-2"
+                >
+                  <IconWheel className="text-lime" />
+                  <span className="flex-1 truncate">Ask Captain about the portfolio</span>
+                </Link>
+              </div>
+              <div className="flex flex-col gap-4 border-line-2 max-md:border-t max-md:pt-8 md:border-l md:pl-10">
+                <h3 className="text-[16px] font-semibold text-ink">Try it on any ocean company</h3>
+                <p className="text-[14px] text-ink-2">
+                  Name a company or paste its website. Captain reads what&rsquo;s public, scores the eight domains with a source for every
+                  score, and proposes where Rypples would help first.
+                </p>
+                <Link href="/os/diagnostic/new" className="text-link mt-auto pt-2 text-[14px]">
+                  Run a review →
+                </Link>
+              </div>
+            </section>
           </div>
         </section>
 
@@ -107,6 +163,9 @@ export default function Welcome() {
                   <span className="eyebrow">{s.n}</span>
                   <h3 className="text-[16px] font-semibold text-ink">{s.title}</h3>
                   <p className="text-[14px] text-ink-2">{s.text}</p>
+                  <Link href={s.link.href} className="text-link mt-auto pt-1 text-[13px]">
+                    {s.link.label} →
+                  </Link>
                 </li>
               ))}
             </ol>
@@ -133,9 +192,6 @@ export default function Welcome() {
             </ol>
 
             <nav aria-label="More" className="flex flex-wrap gap-x-8 gap-y-3 border-t border-line-2 pt-8">
-              <Link href="/os/diagnostic/new" className="text-link text-[14px]">
-                Try it on any ocean company
-              </Link>
               <Link href="/connect" className="text-link text-[14px]">
                 Connect Rypples to your Claude
               </Link>

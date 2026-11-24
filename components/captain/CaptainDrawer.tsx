@@ -143,8 +143,8 @@ export function CaptainDrawer({ scope, onClose, prefill }: { scope: CaptainScope
 
   const meta =
     scope.kind === "os"
-      ? "Works across Rypples OS, Bridge and your connected tools"
-      : `Answers from ${scope.companyName}'s records in Bridge`;
+      ? "Works across Rypples OS, Rypples Engine and your connected tools"
+      : `Answers from ${scope.companyName}'s records in Rypples Engine`;
 
   // Exchanges persisted in the thread are not repeated from local state.
   const threadIds = new Set((boot?.thread ?? []).flatMap((m) => [m.id, m.answer?.message_id].filter(Boolean) as string[]));

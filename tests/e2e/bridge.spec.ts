@@ -1,9 +1,9 @@
 import { expect, test } from "@playwright/test";
 import { openDecisions, settled } from "./helpers";
 
-test.describe("Bridge (Desolenator)", () => {
+test.describe("Rypples Engine (Desolenator)", () => {
   test("rating commitment l2 shows on the company ledger", async ({ page }) => {
-    await page.goto("/bridge/desolenator");
+    await page.goto("/engine/desolenator");
     const title = "Plant-level model review";
     const group = page.getByRole("radiogroup", { name: `Rate: ${title}` });
     await expect(group.locator("xpath=following-sibling::*")).toHaveText("Rated 5 of 5");
@@ -25,20 +25,20 @@ test.describe("Bridge (Desolenator)", () => {
     await page.goto("/os");
     await expect(openDecisions(page)).toHaveText("3 open");
 
-    await page.goto("/bridge/desolenator");
+    await page.goto("/engine/desolenator");
     await page.getByRole("button", { name: "I see it differently" }).click();
-    await page.getByRole("button", { name: "Send to my board partner" }).click();
+    await page.getByRole("button", { name: "Send to my board-level partner" }).click();
     await expect(page.getByText("Choose the domain you see as the constraint.")).toBeVisible();
 
     await page.getByLabel("Where do you see the constraint?").selectOption({ index: 1 });
-    await page.getByRole("button", { name: "Send to my board partner" }).click();
-    await expect(page.getByText("Add a short note so your board partner has context.")).toBeVisible();
+    await page.getByRole("button", { name: "Send to my board-level partner" }).click();
+    await expect(page.getByText("Add a short note so your board-level partner has context.")).toBeVisible();
 
-    await page.getByLabel("Your note for your board partner").fill("Pilots are converting slowly; buyers are the limit.");
+    await page.getByLabel("Your note for your board-level partner").fill("Pilots are converting slowly; buyers are the limit.");
     const saved = settled(page);
-    await page.getByRole("button", { name: "Send to my board partner" }).click();
+    await page.getByRole("button", { name: "Send to my board-level partner" }).click();
     await saved;
-    await expect(page.getByRole("status").filter({ hasText: "Sent to your board partner" })).toBeVisible();
+    await expect(page.getByRole("status").filter({ hasText: "Sent to your board-level partner" })).toBeVisible();
 
     await page.goto("/os");
     await expect(openDecisions(page)).toHaveText("4 open");
@@ -47,10 +47,10 @@ test.describe("Bridge (Desolenator)", () => {
   });
 
   test("board pack cannot be shared until its sections are ready", async ({ page }) => {
-    await page.goto("/bridge/desolenator");
+    await page.goto("/engine/desolenator");
     await expect(page.getByText("3 of 6 sections ready")).toBeVisible();
 
-    await page.goto("/bridge/desolenator/board-pack");
+    await page.goto("/engine/desolenator/board-pack");
     const share = page.getByRole("button", { name: "Share with the board" });
     await expect(share).toBeDisabled();
     await expect(page.getByText(/Still needs you: CEO letter, Pilots and plant pipeline, Operations and uptime\./).first()).toBeVisible();
@@ -61,7 +61,7 @@ test.describe("Bridge (Desolenator)", () => {
 
 test.describe("Capital", () => {
   test("shortlist toggles and persists", async ({ page }) => {
-    await page.goto("/bridge/desolenator/capital");
+    await page.goto("/engine/desolenator/capital");
     const eu = page.getByRole("button", { name: /: EU BlueInvest network$/ });
     await expect(eu).toHaveAttribute("aria-pressed", "false");
     const saved = settled(page);
@@ -78,10 +78,10 @@ test.describe("Capital", () => {
   });
 
   test("confirming a pilot stage feeds the board pack pilots section", async ({ page }) => {
-    await page.goto("/bridge/desolenator/board-pack?section=pilots");
+    await page.goto("/engine/desolenator/board-pack?section=pilots");
     await expect(page.getByText("Pilot · confirm", { exact: true })).toHaveCount(2);
 
-    await page.goto("/bridge/desolenator/capital");
+    await page.goto("/engine/desolenator/capital");
     const stages = page.getByRole("list", { name: "DEWA stages" });
     const current = stages.locator("[aria-current=step]");
     await expect(current).toContainText("Pilot");
@@ -91,14 +91,14 @@ test.describe("Capital", () => {
     await saved;
     await expect(stages.locator("[aria-current=step]")).toContainText("Multi-site");
 
-    await page.goto("/bridge/desolenator/board-pack?section=pilots");
+    await page.goto("/engine/desolenator/board-pack?section=pilots");
     await expect(page.getByText("Multi-site · confirmed")).toBeVisible();
     await expect(page.getByText("Pilot · confirm", { exact: true })).toHaveCount(1); // Silal is still unconfirmed
   });
 });
 
 test("How Rypples works: the allocation caps requests", async ({ page }) => {
-  await page.goto("/bridge/desolenator/how-rypples-works");
+  await page.goto("/engine/desolenator/how-rypples-works");
   await expect(page.getByText("2 of 3 used")).toBeVisible();
   const request = page.getByRole("button", { name: "Request", exact: true });
   const before = await request.count();

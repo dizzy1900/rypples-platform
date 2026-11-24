@@ -401,7 +401,7 @@ export function PipelineClient({
             <dd className="text-ink"><Illustrative>3 programs / 400 hours</Illustrative></dd>
           </div>
         </dl>
-        <p className="meta mt-4">Day one turns the diligence diagnostic into a plan, an allocation and a Bridge workspace for the founder.</p>
+        <p className="meta mt-4">Day one turns the diligence diagnostic into a plan, an allocation and a Rypples Engine workspace for the founder.</p>
       </Modal>
     </div>
   );
@@ -494,7 +494,7 @@ function DealPanel({
       </div>
 
       <div className="flex flex-col gap-2 border-t border-line-2 pt-5">
-        <span className="eyebrow">From the Growth Engine</span>
+        <span className="eyebrow">Partners and Playbook</span>
         <p className="text-[14px] text-ink-2">{deal.partner_note}</p>
         <p className="text-[14px] text-ink-2">{deal.lesson_note}</p>
       </div>

@@ -92,10 +92,10 @@ export function Schedule({ s, backHref, backLabel = "Back to company" }: { s: Sc
         )}
         {s.boardPartner ? (
           <p className="mt-3 text-[14px]">
-            Board partner: {s.boardPartner.role}, focus on {s.boardPartner.focus.toLowerCase()}.
+            Board-level partner: {s.boardPartner.role}, focus on {s.boardPartner.focus.toLowerCase()}.
           </p>
         ) : (
-          <p className="mt-3 text-[14px]">Board partner: to be named.</p>
+          <p className="mt-3 text-[14px]">Board-level partner: to be named.</p>
         )}
 
         <H n={3}>Programs available</H>
@@ -149,7 +149,7 @@ export function Schedule({ s, backHref, backLabel = "Back to company" }: { s: Sc
         </p>
 
         <H n={8}>Data</H>
-        <p className="mt-2 text-[14px]">The founder chooses what co-investors see from Bridge.</p>
+        <p className="mt-2 text-[14px]">The founder chooses what co-investors see from Rypples Engine.</p>
 
         <p className="mt-10 border-t border-[rgb(15_39_48/0.2)] pt-4 text-[12px] opacity-70">
           Illustrative schedule for the prototype. Not legal terms.

@@ -35,7 +35,7 @@
     "program_id": "field-reliability",
     "label": null,
     "status": "proposed",
-    "state_note": "proposed by board partner",
+    "state_note": "proposed by board-level partner",
     "week": null,
     "of_weeks": 4,
     "hours": 40,
@@ -174,7 +174,7 @@
     "week": 2,
     "of_weeks": 3,
     "hours": 25,
-    "operator_id": "bp-maritime",
+    "operator_id": "ge",
     "rating": null,
     "provenance": "illustrative",
     "firm_id": "rypples"

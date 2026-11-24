@@ -1,9 +1,10 @@
 import { notFound } from "next/navigation";
 import { TopBar, Page } from "@/components/shell/TopBar";
-import { Meta, PageHeader, Prov, Section, StatBlock, StatusDot, TextLink, Tile } from "@/components/ui";
+import { Illustrative, Meta, PageHeader, Prov, Section, StatBlock, StatusDot, TextLink, Tile } from "@/components/ui";
 import { ProgramCards } from "@/components/rypples/bridge/ProgramCards";
 import { getState } from "@/lib/data";
 import { getHowItWorks } from "@/lib/data/projections/bridge";
+import { getCompanyReadiness, READINESS_LABEL } from "@/lib/data/projections/founder-programs";
 import { getSessionId } from "@/lib/session";
 
 export const metadata = { title: "How Rypples works" };
@@ -14,12 +15,14 @@ export default async function HowItWorksPage({ params }: { params: Promise<{ slu
   const s = await getState(await getSessionId());
   const v = getHowItWorks(s, slug);
   if (!v) notFound();
-  const base = `/bridge/${slug}`;
   const a = v.allocation;
+  const readiness = getCompanyReadiness(s, v.companyId);
+  const yours = readiness.filter((m) => m.status !== "not_needed");
+  const available = readiness.filter((m) => m.status === "not_needed");
 
   return (
     <>
-      <TopBar crumbs={[{ label: "Home", href: base }, { label: "How Rypples works" }]} placeholder={`Ask Captain about ${v.companyName}`} />
+      <TopBar crumbs={[{ label: "How Rypples works" }]} placeholder={`Ask Captain about ${v.companyName}`} />
       <Page>
         <PageHeader
           eyebrow="How Rypples works with you"
@@ -70,7 +73,7 @@ export default async function HowItWorksPage({ params }: { params: Promise<{ slu
             </div>
             <p className="max-w-[640px] text-[14px]">
               Written into your term sheet, paid for by Rypples.
-              {a.partnerFocus && <> Your board partner covers {a.partnerFocus}.</>}
+              {a.partnerFocus && <> Your board-level partner, who works with your board, brings {a.partnerFocus} experience.</>}
             </p>
             <div>
               <TextLink href={v.scheduleHref}>Read your Growth Engine schedule →</TextLink>
@@ -88,6 +91,51 @@ export default async function HowItWorksPage({ params }: { params: Promise<{ slu
                 </li>
               ))}
             </ul>
+          </Tile>
+        </Section>
+
+        <Section id="readiness" title="Growth Readiness" meta="Recommended by your diagnostic">
+          <Tile className="flex flex-col gap-5">
+            {yours.length > 0 ? (
+              <ul className="flex flex-col gap-4">
+                {yours.map((m) => (
+                  <li key={m.id} className="grid gap-1 sm:grid-cols-[1fr_auto] sm:gap-6">
+                    <div className="flex flex-col gap-1">
+                      <span className="text-[15px] font-medium text-ink">
+                        {m.n} · {m.name}
+                      </span>
+                      <span className="text-[13px] text-ink-2">{m.outcome}</span>
+                      <Meta>
+                        {m.expert ?? "Rypples"}
+                        {m.via ? ` · through ${m.via}` : ""}
+                        {m.note ? ` · ${m.note}` : ""}
+                      </Meta>
+                      {m.output && (
+                        <span className="text-[13px] text-ink">
+                          <Illustrative>{m.output}</Illustrative>
+                        </span>
+                      )}
+                    </div>
+                    <StatusDot tone={m.status === "done" ? "lime" : m.status === "in_progress" ? "amber" : "neutral"} label={READINESS_LABEL[m.status]} />
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-[14px] text-ink-2">Your diagnostic does not recommend a module yet.</p>
+            )}
+            {available.length > 0 && (
+              <div className="flex flex-col gap-2 border-t border-line-2 pt-4">
+                <span className="eyebrow">Available to request</span>
+                <ul className="flex flex-wrap gap-2">
+                  {available.map((m) => (
+                    <li key={m.id} className="rounded-pill border border-line-2 px-2.5 py-[3px] text-[12px] text-ink-2">
+                      {m.n} · {m.name}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            <Meta>Modules draw on your 400 operator hours. Ask your board-level partner to add one, and its output becomes evidence in your next diagnostic.</Meta>
           </Tile>
         </Section>
 

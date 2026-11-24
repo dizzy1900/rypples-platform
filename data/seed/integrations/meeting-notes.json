@@ -1,7 +1,7 @@
 {
   "note": "Demo meeting-notes adapter. Circle sessions expose themes only, never raw notes.",
   "sessions": [
-    { "id": "intake-deso-prep", "kind": "board", "title": "Desolenator board prep call", "who": "Board partner", "held_at": "2026-11-19", "confidential": false, "themes": ["Plant capital stack", "Total cost of water"] },
+    { "id": "intake-deso-prep", "kind": "board", "title": "Desolenator board prep call", "who": "Board-level partner", "held_at": "2026-11-19", "confidential": false, "themes": ["Plant capital stack", "Total cost of water"] },
     { "id": "intake-vlinder-fe", "kind": "expert", "title": "Finance expert session with Vlinder", "who": "Finance expert", "held_at": "2026-11-18", "confidential": false, "themes": ["Carbon credit pre-sales", "Project SPV structure"] },
     { "id": "intake-circle02-s2", "kind": "circle", "title": "Ocean Scalers, Circle 02, session 2", "who": "Facilitator", "held_at": "2026-11-17", "confidential": true, "themes": ["Hiring operations leadership for a second site", "Sequencing plant finance"] }
   ]

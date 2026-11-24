@@ -13,7 +13,7 @@ import { getDiagnostic } from "./get-diagnostic";
 import { getBenchmarks } from "./get-benchmarks";
 import { searchPlaybook } from "./search-playbook";
 import { getLesson } from "./get-lesson";
-import { getGrowthEngine } from "./get-growth-engine";
+import { getOperatingPartners } from "./get-operating-partners";
 import { getAllocation } from "./get-allocation";
 import { getLedger } from "./get-ledger";
 import { listPipeline } from "./list-pipeline";
@@ -35,7 +35,7 @@ export const TOOLS: AnyTool[] = [
   getBenchmarks,
   searchPlaybook,
   getLesson,
-  getGrowthEngine,
+  getOperatingPartners,
   getAllocation,
   getLedger,
   listPipeline,

@@ -29,6 +29,8 @@ describe("resolveRef", () => {
     expect(resolveRef(s, { type: "fact", id: s.facts[0].id, field: "value" })?.value).toBe(s.facts[0].value);
     expect(resolveRef(s, { type: "exit", id: "wsense", field: "package" })?.value).toMatch(/€600m/);
     expect(resolveRef(s, { type: "exit", id: "wsense", field: "note" })?.value).toContain("Fincantieri");
+    // spliced into prose, so no closing full stop (the Q4 update read "July 2026..")
+    expect(resolveRef(s, { type: "exit", id: "wsense", field: "note" })?.value).not.toMatch(/\.$/);
   });
 
   it("returns null for unknown records and fields", () => {

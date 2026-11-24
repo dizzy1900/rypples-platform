@@ -91,7 +91,7 @@ export type DayOneResult = {
   deferred: { program_id: string; name: string; reason: string }[];
   hours_started: number;
   hours_total: number;
-  partner: { operator_id: string; label: string; seats_used: number; seats_total: number; note: string | null } | null;
+  partner: { operator_id: string; label: string; stage: "onboarding"; note: string | null } | null;
   lessons: { id: string; title: string }[];
 };
 

@@ -66,7 +66,7 @@ async function* live(run: FlowRun<Input>): AsyncGenerator<FlowEvent> {
   const s = await getState(run.sessionId);
   yield { type: "step", key: "context", state: "running" };
   const ctx = boardPackContext(s, run.input.companyId);
-  yield { type: "step", key: "context", state: "done", detail: "From your Bridge records" };
+  yield { type: "step", key: "context", state: "done", detail: "From your Rypples Engine records" };
   yield { type: "step", key: "draft", state: "running" };
   const content = yield* withChannel(async (push) => {
     let buf = "";
@@ -113,7 +113,7 @@ async function* cachedRun(run: FlowRun<Input>, reason: FallbackReason): AsyncGen
   yield { type: "fallback", reason, replaying: true, message: FALLBACK_MESSAGE[reason] };
   yield { type: "step", key: "context", state: "running" };
   await pace(700);
-  yield { type: "step", key: "context", state: "done", detail: "From your Bridge records" };
+  yield { type: "step", key: "context", state: "done", detail: "From your Rypples Engine records" };
   yield { type: "step", key: "draft", state: "running" };
   const content = f.sections[run.input.sectionKey];
   yield* replay(chunkText(content), `f5:${run.input.sectionKey}`);

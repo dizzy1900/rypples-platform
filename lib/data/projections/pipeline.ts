@@ -55,7 +55,7 @@ export type DayOneSummary = {
   started: { name: string; hours: number }[];
   hoursStarted: number;
   hoursTotal: number;
-  partner: { label: string; seatsUsed: number; seatsTotal: number; note: string | null } | null;
+  partner: { label: string; note: string | null } | null;
   deferred: string[];
   lessons: string[];
 };
@@ -70,11 +70,12 @@ export type PipelineView = {
   domainLabels: Record<string, string>;
 };
 
-function recruitingNote(s: Pick<State, "partner_recruiting">): string | null {
-  const row = s.partner_recruiting.find((r) => /finance/i.test(r.role));
-  if (!row) return null;
-  if (/second hire/i.test(row.role)) return `second finance hire in ${row.state.toLowerCase()}`;
-  return `${row.role.toLowerCase()}: ${row.state.toLowerCase()}`;
+const STAGE_LABEL = { sourcing: "sourcing", in_conversation: "final conversation", onboarding: "onboarding", active: "active" } as const;
+
+/** The finance expert still in the funnel, as a note on deferred finance programs. */
+function recruitingNote(s: Pick<State, "operators">): string | null {
+  const row = s.operators.find((o) => o.role_key === "finance" && o.stage !== "active");
+  return row ? `second finance hire in ${STAGE_LABEL[row.stage]}` : null;
 }
 
 export function deferredLine(name: string, reason: string, note: string | null): string {
@@ -96,7 +97,7 @@ export function summaryFromResult(r: DayOneResult, codename: string, domainLabel
     hoursStarted: r.hours_started,
     hoursTotal: r.hours_total,
     partner: r.partner
-      ? { label: r.partner.label, seatsUsed: r.partner.seats_used, seatsTotal: r.partner.seats_total, note: r.partner.note }
+      ? { label: r.partner.label, note: r.partner.note }
       : null,
     deferred: r.deferred.map((d) => deferredLine(d.name, d.reason, note)),
     lessons: r.lessons.map((l) => l.title),
@@ -111,9 +112,7 @@ function summaryFromState(s: State, dealId: string, note: string | null, domainL
   if (!rec || !c?.company || !deal) return null;
   const progName = (id: string) => s.programs.find((p) => p.id === id)?.name ?? id;
   const missions = [...(c.missions ?? [])];
-  const op = (c.operator_updates ?? []).map((u) => ({ u, op: s.operators.find((o) => o.id === u.operator_id) })).find((x) => x.u.seats_used != null && x.op);
-  const seatsUsed = op?.op?.seats_used ?? 0;
-  const seatsTotal = op?.op?.seats_total ?? 0;
+  const op = (c.operator_updates ?? []).map((u) => ({ u, op: s.operators.find((o) => o.id === u.operator_id) })).find((x) => x.u.stage != null && x.op);
   const started = (c.enrolments ?? []).map((e) => ({ name: progName(e.program_id), hours: e.hours }));
   return {
     dealId,
@@ -127,14 +126,7 @@ function summaryFromState(s: State, dealId: string, note: string | null, domainL
     started,
     hoursStarted: started.reduce((a, x) => a + x.hours, 0),
     hoursTotal: c.allocation?.hours_total ?? 0,
-    partner: op?.op
-      ? {
-          label: `${op.op.focus} board partner`,
-          seatsUsed,
-          seatsTotal,
-          note: seatsTotal > 0 && seatsUsed >= seatsTotal ? `Recruit before the next ${op.op.focus} deal` : null,
-        }
-      : null,
+    partner: op?.op ? { label: `${op.op.focus} board-level partner`, note: "Context pack assembled by Captain. Playbook briefing before the first board." } : null,
     deferred: (c.deferred ?? []).map((d) => deferredLine(progName(d.program_id), d.reason, note)),
     lessons: (c.lesson_ids ?? []).map((id) => s.lessons.find((l) => l.id === id)?.title ?? id),
   };

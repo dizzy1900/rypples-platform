@@ -24,11 +24,12 @@ import missions from "@/data/seed/missions.json";
 import commitments from "@/data/seed/commitments.json";
 import talent_roles from "@/data/seed/talent_roles.json";
 import bench_groups from "@/data/seed/bench_groups.json";
-import partner_recruiting from "@/data/seed/partner_recruiting.json";
+import partner_types from "@/data/seed/partner_types.json";
 import ceo_development from "@/data/seed/ceo_development.json";
 import circles from "@/data/seed/circles.json";
 import circle_commitments from "@/data/seed/circle_commitments.json";
 import readiness_modules from "@/data/seed/readiness_modules.json";
+import readiness_plans from "@/data/seed/readiness_plans.json";
 import promises from "@/data/seed/promises.json";
 import plans from "@/data/seed/plans.json";
 import priorities from "@/data/seed/priorities.json";
@@ -75,11 +76,12 @@ const RAW: Record<SeedFileName, unknown> = {
   commitments,
   talent_roles,
   bench_groups,
-  partner_recruiting,
+  partner_types,
   ceo_development,
   circles,
   circle_commitments,
   readiness_modules,
+  readiness_plans,
   promises,
   plans,
   priorities,

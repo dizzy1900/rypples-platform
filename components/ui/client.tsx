@@ -96,6 +96,53 @@ export function ChipGroup<T extends string>({
   );
 }
 
+/** A labelled single-choice filter: "All" plus each option, with a count per segment. */
+export function SegmentedFilter<T extends string>({
+  label,
+  options,
+  value,
+  onChange,
+  total,
+}: {
+  label: string;
+  options: { key: T; label: ReactNode; count: number }[];
+  value: T | null;
+  onChange: (v: T | null) => void;
+  total: number;
+}) {
+  const all: { key: T | null; label: ReactNode; count: number }[] = [{ key: null, label: "All", count: total }, ...options];
+  return (
+    <div className="flex min-w-0 flex-col gap-1.5">
+      <span className="eyebrow text-ink-3">{label}</span>
+      <div
+        role="group"
+        aria-label={`Filter by ${label.toLowerCase()}`}
+        className="flex max-w-full overflow-x-auto rounded-item border border-line-2 bg-well p-[3px]"
+      >
+        {all.map((o) => {
+          const active = o.key === value;
+          return (
+            <button
+              key={o.key ?? "all"}
+              type="button"
+              aria-pressed={active}
+              onClick={() => onChange(o.key)}
+              disabled={!active && o.count === 0}
+              className={clsx(
+                "flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-btn px-3 py-1.5 text-[12px] font-medium transition-colors",
+                active ? "bg-lime-10 text-lime" : "text-ink-2 hover:text-ink disabled:text-ink-3 disabled:opacity-60",
+              )}
+            >
+              {o.label}
+              <span className={clsx("tabular-nums", active ? "text-lime" : "text-ink-3")}>{o.count}</span>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 // ── Focus trap helper ───────────────────────────────────────────────────
 function useFocusTrap(open: boolean, ref: React.RefObject<HTMLElement | null>, onClose: () => void) {
   useEffect(() => {

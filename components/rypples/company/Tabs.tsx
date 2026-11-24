@@ -17,6 +17,7 @@ import {
 import { ProposeReview } from "./ProposeReview";
 import { MarketClient } from "./MarketClient";
 import type { getCompanyView } from "@/lib/data/projections/company";
+import { READINESS_LABEL } from "@/lib/data/projections/founder-programs";
 
 type Full = Extract<NonNullable<ReturnType<typeof getCompanyView>>, { kind: "full" }>;
 
@@ -143,6 +144,32 @@ export function ProgramsTab({ v }: { v: Full }) {
           ))}
         </ul>
       )}
+      {(v.support.keyHires.length > 0 || v.support.readiness.length > 0) && (
+        <div className="grid gap-6 md:grid-cols-2">
+          {v.support.keyHires.length > 0 && (
+            <div className="flex flex-col gap-2">
+              <span className="eyebrow">Key hires</span>
+              {v.support.keyHires.map((r) => (
+                <p key={r.id} className="text-[14px] text-ink">
+                  {r.role} · <Illustrative>{r.state}</Illustrative>
+                  <span className="block text-[13px] text-ink-3">{r.why}</span>
+                </p>
+              ))}
+            </div>
+          )}
+          {v.support.readiness.length > 0 && (
+            <div className="flex flex-col gap-2">
+              <span className="eyebrow">Growth Readiness</span>
+              {v.support.readiness.map((r) => (
+                <p key={r.id} className="text-[14px] text-ink">
+                  {String(r.n).padStart(2, "0")} {r.name} · {READINESS_LABEL[r.status]}
+                  {r.output && <span className="block text-[13px] text-ink-3">{r.output}</span>}
+                </p>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
       <div>
         <TextLink href={`/os/companies/${v.head.slug}/schedule`}>View the Growth Engine schedule →</TextLink>
       </div>
@@ -198,7 +225,7 @@ export function LedgerTab({ v }: { v: Full }) {
         </Table>
       )}
       <div>
-        <TextLink href={`/bridge/${v.head.slug}`}>See the ledger {v.ceoFirst} sees →</TextLink>
+        <TextLink href={`/engine/${v.head.slug}`}>See the ledger {v.ceoFirst} sees →</TextLink>
       </div>
     </div>
   );
@@ -228,7 +255,7 @@ export function BoardTab({ v }: { v: Full }) {
             {b.packState && <span className="text-[13px] text-ink-3">{b.packState}</span>}
             {b.next.note && <span className="text-[13px] text-ink-3">{b.next.note}</span>}
           </span>
-          <Link href={`/bridge/${v.head.slug}/board-pack`} className="text-link text-[13px]">
+          <Link href={`/engine/${v.head.slug}/board-pack`} className="text-link text-[13px]">
             Open the pack →
           </Link>
         </li>

@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { getSeed } from "@/lib/data/seed";
 import { dayInFirst100, parseScenarioDate, offsetLabel, scenarioDate } from "@/lib/scenario";
 import { portfolioCounts, stuckByConstraint, portfolioRows } from "@/lib/domain/portfolio-stats";
-import { allocate, firmCapacity, tightestOperator, boardPartnerFor, hoursLeft } from "@/lib/domain/capacity";
+import { allocate, firmCapacity, tightestOperator, boardCandidateFor, boardPartnerFor, hoursLeft } from "@/lib/domain/capacity";
 import { INTENTS, PROGRAM_FOR_INTENT } from "@/lib/domain/program-map";
 
 const seed = getSeed();
@@ -29,13 +29,18 @@ describe("portfolio stats (docs/05 §3 derived checks)", () => {
     expect(stuck.commercial).toBe(4);
     expect(stuck.financing).toBe(2);
   });
-  it("finds 2 over benchmark: Vessev and Full Circle Biotechnology", () => {
-    const over = portfolioRows(seed).filter((r) => r.overBenchmark).map((r) => r.company.id).sort();
-    expect(over).toEqual(["full-circle-biotechnology", "vessev"]);
+  it("has every active company inside its benchmark (illustrative figures are kept positive)", () => {
+    const rows = portfolioRows(seed);
+    expect(rows.filter((r) => r.overBenchmark)).toEqual([]);
+    expect(rows.filter((r) => r.daysOpen != null && r.benchmark != null)).toHaveLength(11);
   });
-  it("backed 13, active public 11, exit 1, unannounced 1, firm rating 4.4", () => {
+  it("keeps every illustrative founder rating at 4.2 or above", () => {
+    const ratings = portfolioRows(seed).map((r) => r.rating).filter((r): r is number => r != null);
+    expect(Math.min(...ratings)).toBeGreaterThanOrEqual(4.2);
+  });
+  it("backed 13, active 12 (incl. unannounced), active public 11, exit 1, unannounced 1, firm rating 4.4", () => {
     const c = portfolioCounts(seed);
-    expect(c).toMatchObject({ backed: 13, activePublic: 11, exits: 1, unannounced: 1, firmRating: 4.4, overBenchmark: 2 });
+    expect(c).toMatchObject({ backed: 13, active: 12, activePublic: 11, exits: 1, unannounced: 1, firmRating: 4.4, overBenchmark: 0 });
   });
   it("derives Desolenator days open from the round close (39)", () => {
     expect(portfolioRows(seed).find((r) => r.company.id === "desolenator")?.daysOpen).toBe(39);
@@ -43,8 +48,8 @@ describe("portfolio stats (docs/05 §3 derived checks)", () => {
 });
 
 describe("capacity", () => {
-  it("firm capacity is 1,180 of 1,600 and the finance expert is tightest", () => {
-    expect(firmCapacity(seed.operators)).toMatchObject({ committed: 1180, total: 1600 });
+  it("expert capacity is 844 of 1,120 hours and the finance expert is tightest", () => {
+    expect(firmCapacity(seed.operators)).toMatchObject({ committed: 844, total: 1120 });
     expect(tightestOperator(seed.operators).id).toBe("fe");
     expect(hoursLeft(seed.operators.find((o) => o.id === "fe")!)).toBe(30);
   });
@@ -57,10 +62,11 @@ describe("capacity", () => {
     expect(deferred?.program_id).toBe("finance-sprint");
     expect(deferred && !deferred.start && deferred.reason).toMatch(/30 hours left/);
   });
-  it("the Maritime board partner has a free seat (2 of 3)", () => {
-    const bp = boardPartnerFor(seed.operators, "Maritime");
-    expect(bp?.id).toBe("bp-maritime");
-    expect([bp?.seats_used, bp?.seats_total]).toEqual([2, 3]);
+  it("board-level partners look after one company each: Desolenator's is active, Tern's is a candidate", () => {
+    expect(boardPartnerFor(seed.operators, "desolenator")?.id).toBe("bp-water");
+    expect(boardPartnerFor(seed.operators, "hullbot")).toBeNull();
+    expect(seed.operators.filter((o) => o.role_key === "board_partner").every((o) => o.covers.length <= 1)).toBe(true);
+    expect(boardCandidateFor(seed.operators, "tern", "Maritime")?.id).toBe("bp-maritime");
   });
 });
 

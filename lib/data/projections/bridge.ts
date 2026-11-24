@@ -348,7 +348,7 @@ export function getCapitalView(s: State, slug: string) {
       who: l.who,
       status: l.status,
       provenance: l.provenance,
-      ledgerHref: l.ledger_commitment_id ? `/bridge/${slug}#ledger` : null,
+      ledgerHref: l.ledger_commitment_id ? `/engine/${slug}#ledger` : null,
     }));
   const instruments = s.instruments
     .filter((i) => i.company_id === company.id)
@@ -395,7 +395,7 @@ export function getHowItWorks(s: State, slug: string) {
   const used = allocationUsed(s.enrolments, company.id);
   const programsTotal = alloc?.programs_total ?? 3;
   const hoursTotal = alloc?.hours_total ?? 400;
-  const partner = boardPartnerFor(s.operators, company.vertical);
+  const partner = boardPartnerFor(s.operators, company.id);
   const stages = s.lifecycle_stages.filter((l) => l.company_id === company.id);
   const order = ["day0", "first100", "quarterly", "strategic"];
   const day = company.round_closed_at ? dayInFirst100(company.round_closed_at) : null;
@@ -440,7 +440,7 @@ export function getHowItWorks(s: State, slug: string) {
     },
     promises: s.promises,
     programs,
-    scheduleHref: `/bridge/${slug}/schedule`,
+    scheduleHref: `/engine/${slug}/schedule`,
   };
 }
 export type HowItWorks = NonNullable<ReturnType<typeof getHowItWorks>>;

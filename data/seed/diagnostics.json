@@ -22,7 +22,7 @@
     ],
     "confirmed_by": "bp-water",
     "confirmed_at": "2026-10-15",
-    "confirmed_label": "Confirmed 15 Oct at Day 0 by the board partner",
+    "confirmed_label": "Confirmed 15 Oct at Day 0 by the board-level partner",
     "prompt_version": null,
     "model": null,
     "provenance": "scenario",

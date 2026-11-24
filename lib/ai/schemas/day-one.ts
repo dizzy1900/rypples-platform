@@ -6,7 +6,7 @@ import { Slug, toStrictJsonSchema } from "./common";
 export const DayOneInput = z.object({ dealId: z.string().min(1).max(100) });
 
 export const OPERATOR_ROLES = [
-  "Board partner",
+  "Board-level partner",
   "Finance expert",
   "Go-To-Market expert",
   "People expert",

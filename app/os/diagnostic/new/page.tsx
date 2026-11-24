@@ -15,7 +15,7 @@ export default async function NewDiagnosticPage({ searchParams }: { searchParams
   const [recent, avail] = await Promise.all([recentRuns(6), f2Availability()]);
   return (
     <>
-      <TopBar crumbs={[{ label: "Home", href: "/os" }, { label: "Diagnostic" }]} placeholder="Ask Captain about the portfolio" />
+      <TopBar crumbs={[{ label: "Diagnostic" }]} placeholder="Ask Captain about the portfolio" />
       <Page>
         <PageHeader
           eyebrow="Diagnostic"

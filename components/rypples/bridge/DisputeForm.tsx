@@ -35,7 +35,7 @@ export function DisputeForm({
   if (sent)
     return (
       <p className="text-[14px] text-ink" role="status">
-        Sent to your board partner. They&rsquo;ll reply within two working days.
+        Sent to your board-level partner. They&rsquo;ll reply within two working days.
       </p>
     );
 
@@ -50,7 +50,7 @@ export function DisputeForm({
     e.preventDefault();
     const trimmed = note.trim();
     if (!domain) return setError("Choose the domain you see as the constraint.");
-    if (!trimmed) return setError("Add a short note so your board partner has context.");
+    if (!trimmed) return setError("Add a short note so your board-level partner has context.");
     if (trimmed.length > 2000) return setError("Keep the note under 2,000 characters.");
     setError(null);
     const label = domains.find((d) => d.id === domain)?.label ?? domain;
@@ -97,7 +97,7 @@ export function DisputeForm({
       </div>
       <div className="flex flex-col gap-1.5">
         <label htmlFor={`${id}-note`} className="meta">
-          Your note for your board partner
+          Your note for your board-level partner
         </label>
         <textarea
           id={`${id}-note`}
@@ -117,7 +117,7 @@ export function DisputeForm({
       )}
       <div className="flex gap-3">
         <Button type="submit" disabled={pending}>
-          {pending ? "Sending" : "Send to my board partner"}
+          {pending ? "Sending" : "Send to my board-level partner"}
         </Button>
         <Button variant="text" onClick={() => setOpen(false)} disabled={pending}>
           Cancel

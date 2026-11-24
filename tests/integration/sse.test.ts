@@ -77,7 +77,7 @@ describe("SSE contract per flow route (replay mode)", () => {
   });
 
   it("F3 Captain (os and bridge)", async () => {
-    const os = await events(await captain.POST(post("/api/ai/captain", { message: "Where is Growth Engine capacity tight this quarter?", scope: { kind: "os" } })));
+    const os = await events(await captain.POST(post("/api/ai/captain", { message: "Where is operating partner capacity tight this quarter?", scope: { kind: "os" } })));
     const r = assertSequence(os);
     expect(os.some((e) => e.type === "token")).toBe(true);
     expect((r.data as { untraced: string[] }).untraced).toEqual([]);

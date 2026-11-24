@@ -4,82 +4,236 @@
   "reviewed": true,
   "prompt_version": "captain@v1",
   "note": "Cached-mode Captain answers. In replay the listed tool calls run for real against the registry, so refs and the numeric grounding check use live tool results. Every number in `text` must appear in those results.",
-  "seeded": { "label": "From this morning", "answer_id": "behind-benchmark" },
+  "seeded": {
+    "label": "From this morning",
+    "answer_id": "closest-to-benchmark"
+  },
   "prompts": {
     "os": [
-      "Which companies are behind their benchmark, and what are we doing about it?",
+      "Which companies are closest to their benchmark, and what are we doing about it?",
       "What should I ask at Desolenator's board on Thursday?",
       "Who in the portfolio should hear the WSense lesson next?",
-      "Where is Growth Engine capacity tight this quarter?"
+      "Where is operating partner capacity tight this quarter?"
     ],
-    "bridge": ["What does Rypples owe us this quarter?", "Where is our board pack?", "Which programs are we using?"]
+    "bridge": [
+      "What does Rypples owe us this quarter?",
+      "Where is our board pack?",
+      "Which programs are we using?"
+    ]
   },
   "answers": [
     {
-      "id": "behind-benchmark",
+      "id": "closest-to-benchmark",
       "scope": "os",
-      "prompt": "Which companies are behind their benchmark, and what are we doing about it?",
-      "match": [["behind", "benchmark"], ["over", "benchmark"], ["past", "benchmark"]],
-      "tools": [
-        { "name": "list_portfolio", "input": {} },
-        { "name": "get_benchmarks", "input": {} },
-        { "name": "get_allocation", "input": { "slug": "vessev" } },
-        { "name": "get_allocation", "input": { "slug": "full-circle-biotechnology" } }
+      "prompt": "Which companies are closest to their benchmark, and what are we doing about it?",
+      "match": [
+        [
+          "closest",
+          "benchmark"
+        ],
+        [
+          "near",
+          "benchmark"
+        ],
+        [
+          "behind",
+          "benchmark"
+        ],
+        [
+          "over",
+          "benchmark"
+        ],
+        [
+          "past",
+          "benchmark"
+        ]
       ],
-      "text": "Two companies are past their benchmark ⟦ref:portfolio/stats⟧:\n\n- **Vessev** has had a commercial constraint open for 97 days against a 90-day benchmark ⟦ref:company/vessev⟧. Key Hire is running with the People expert ⟦ref:allocation/vessev⟧.\n- **Full Circle Biotechnology** has had an operations constraint open for 118 days against 110 ⟦ref:company/full-circle-biotechnology⟧. Key Hire is running there too ⟦ref:allocation/full-circle-biotechnology⟧.\n\nBoth benchmarks are outside references with low confidence, so treat the gaps as indicative rather than firm ⟦ref:benchmark/commercial⟧ ⟦ref:benchmark/operations⟧.\n\nNeither company has a program aimed at the constraint itself: Key Hire works on people. I've proposed two next steps for your approval.",
-      "caveats": ["Both benchmarks are outside references with low confidence."],
+      "tools": [
+        {
+          "name": "list_portfolio",
+          "input": {}
+        },
+        {
+          "name": "get_benchmarks",
+          "input": {}
+        },
+        {
+          "name": "get_allocation",
+          "input": {
+            "slug": "vessev"
+          }
+        },
+        {
+          "name": "get_allocation",
+          "input": {
+            "slug": "full-circle-biotechnology"
+          }
+        }
+      ],
+      "text": "Every active company is inside its benchmark ⟦ref:portfolio/stats⟧. Two are closest to it:\n\n- **Vessev** has had a commercial constraint open for 76 days against a 90-day benchmark ⟦ref:company/vessev⟧. Key Hire is running with the People expert ⟦ref:allocation/vessev⟧.\n- **Full Circle Biotechnology** has had an operations constraint open for 94 days against 110 ⟦ref:company/full-circle-biotechnology⟧. Key Hire is running there too ⟦ref:allocation/full-circle-biotechnology⟧.\n\nBoth benchmarks are outside references with low confidence, so treat the margins as indicative rather than firm ⟦ref:benchmark/commercial⟧ ⟦ref:benchmark/operations⟧.\n\nNeither company has a program aimed at the constraint itself yet: Key Hire works on people. I've proposed two next steps to keep both inside their benchmark.",
+      "caveats": [
+        "Both benchmarks are outside references with low confidence."
+      ],
       "next_steps": [
-        { "title": "Scope Pilot to Contract for Vessev", "detail": "Vessev's commercial constraint is past its outside benchmark. Pilot to Contract is the catalogue program for commercial constraints.", "target": "/os/companies/vessev" },
-        { "title": "Review Full Circle Biotechnology's operations plan with its board", "detail": "The operations constraint is past its outside benchmark and no operations program is running.", "target": "/os/companies/full-circle-biotechnology" }
+        {
+          "title": "Scope Pilot to Contract for Vessev",
+          "detail": "Vessev is the closest to its commercial benchmark. Pilot to Contract is the catalogue program for commercial constraints.",
+          "target": "/os/companies/vessev"
+        },
+        {
+          "title": "Review Full Circle Biotechnology's operations plan with its board",
+          "detail": "Its operations constraint is the closest to benchmark, and no operations program is running yet.",
+          "target": "/os/companies/full-circle-biotechnology"
+        }
       ]
     },
     {
       "id": "desolenator-board",
       "scope": "os",
       "prompt": "What should I ask at Desolenator's board on Thursday?",
-      "match": [["desolenator", "board"], ["desolenator", "ask"]],
+      "match": [
+        [
+          "desolenator",
+          "board"
+        ],
+        [
+          "desolenator",
+          "ask"
+        ]
+      ],
       "tools": [
-        { "name": "get_board_pack_status", "input": { "slug": "desolenator" } },
-        { "name": "get_diagnostic", "input": { "slug": "desolenator" } },
-        { "name": "get_ledger", "input": { "slug": "desolenator" } }
+        {
+          "name": "get_board_pack_status",
+          "input": {
+            "slug": "desolenator"
+          }
+        },
+        {
+          "name": "get_diagnostic",
+          "input": {
+            "slug": "desolenator"
+          }
+        },
+        {
+          "name": "get_ledger",
+          "input": {
+            "slug": "desolenator"
+          }
+        }
       ],
       "text": "The board pack for Thursday still needs Adri on three sections: the CEO letter, pilot status and plant uptime ⟦ref:board_pack/pack-desolenator-q4⟧. The confirmed binding constraint is asset capital for water-as-a-service plants ⟦ref:diagnostic/diag-desolenator-day0⟧. The three diagnostic questions still stand:\n\n1. What does the capital stack for one 250 m³/day plant look like, and who has said yes?\n2. Which pilot buyer, DEWA or Silal, is closest to a multi-plant commitment?\n3. What field data would convince an infrastructure fund the plants perform?\n\nOn our side, plant unit economics at US$1/m³ is due from the Finance expert on Fri 27 Nov, and the introductions to 3 infrastructure funds are in progress ⟦ref:ledger/desolenator⟧.\n\nTechnology confidence is low: the 24/7 solar-only claim has no independent field data yet, so the third question matters most ⟦ref:diagnostic/diag-desolenator-day0⟧.",
-      "caveats": ["Technology evidence is low confidence: company claims only."],
+      "caveats": [
+        "Technology evidence is low confidence: company claims only."
+      ],
       "next_steps": [
-        { "title": "Send the three diagnostic questions to Adri before Thursday", "detail": "So the board discussion starts from the plant capital stack and the field data an infrastructure fund would need.", "target": "/os/companies/desolenator" }
+        {
+          "title": "Send the three diagnostic questions to Adri before Thursday",
+          "detail": "So the board discussion starts from the plant capital stack and the field data an infrastructure fund would need.",
+          "target": "/os/companies/desolenator"
+        }
       ]
     },
     {
       "id": "wsense-next",
       "scope": "os",
       "prompt": "Who in the portfolio should hear the WSense lesson next?",
-      "match": [["wsense", "lesson"], ["wsense", "hear"], ["wsense", "who"]],
-      "tools": [{ "name": "get_lesson", "input": { "id": "wsense-strategic" } }],
+      "match": [
+        [
+          "wsense",
+          "lesson"
+        ],
+        [
+          "wsense",
+          "hear"
+        ],
+        [
+          "wsense",
+          "who"
+        ]
+      ],
+      "tools": [
+        {
+          "name": "get_lesson",
+          "input": {
+            "id": "wsense-strategic"
+          }
+        }
+      ],
       "text": "The WSense lesson is still proposed, not approved, so it can't go out until you approve it ⟦ref:lesson/wsense-strategic⟧. Three companies are matched:\n\n- **Desolenator** (strong): DEWA and Silal (ADQ) are strategic partners in both flagship pilots, and neither appears on the cap table in public sources ⟦ref:company/desolenator⟧. Confirm that with the company first: absence from a cap table can't be proven from public sources.\n- **Flocean** (strong): Xylem joined the Series A as a strategic investor in late 2025, so the next step is co-development terms ⟦ref:company/flocean⟧.\n- **Marble** (possible): security and defence buyers. This reason is illustrative, so check the cap table before sending ⟦ref:company/marble⟧.",
-      "caveats": ["The lesson is proposed, not approved. Marble's match reason is illustrative."],
+      "caveats": [
+        "The lesson is proposed, not approved. Marble's match reason is illustrative."
+      ],
       "next_steps": [
-        { "title": "Approve the WSense lesson and send it to Desolenator and Flocean", "detail": "Both are strong matches with a named strategic partner today. Hold Marble until the cap table is checked.", "target": "/os/playbook" }
+        {
+          "title": "Approve the WSense lesson and send it to Desolenator and Flocean",
+          "detail": "Both are strong matches with a named strategic partner today. Hold Marble until the cap table is checked.",
+          "target": "/os/playbook"
+        }
       ]
     },
     {
       "id": "capacity-tight",
       "scope": "os",
-      "prompt": "Where is Growth Engine capacity tight this quarter?",
-      "match": [["capacity"], ["growth", "engine", "tight"], ["operator", "hours"]],
-      "tools": [{ "name": "get_growth_engine", "input": {} }],
-      "text": "Finance is the pinch point. The Finance expert has committed 270 of 300 hours this quarter (90%), leaving 30 hours, and covers Desolenator, Vlinder and Kelp Blue ⟦ref:operator/fe⟧. A second finance hire is in final conversation with 3 candidates from the bench, needed before a fourth finance sprint starts ⟦ref:growth_engine/capacity⟧.\n\nThe Impact expert is next at 83%, with 30 hours left ⟦ref:operator/ie⟧. Both board partners sit at 75% with 2 of 3 seats used, so each can take one more board. Across the firm, 1,180 of 1,600 operator hours are committed (74%) ⟦ref:growth_engine/capacity⟧.\n\nThe Independent technical expert has the most room, at 48%. These capacity figures are illustrative.",
-      "caveats": ["Capacity figures are illustrative."],
+      "prompt": "Where is operating partner capacity tight this quarter?",
+      "match": [
+        [
+          "capacity"
+        ],
+        [
+          "partner",
+          "tight"
+        ],
+        [
+          "operator",
+          "hours"
+        ],
+        [
+          "expert",
+          "hours"
+        ]
+      ],
+      "tools": [
+        {
+          "name": "get_operating_partners",
+          "input": {}
+        }
+      ],
+      "text": "Finance is the pinch point. The Finance expert has committed 270 of 300 hours this quarter (90%), leaving 30 hours, and covers Desolenator, Vlinder and Kelp Blue ⟦ref:operator/fe⟧. A second Finance expert is in final conversation, with 3 candidates from the bench, and is needed before a fourth Finance Sprint starts ⟦ref:growth_engine/capacity⟧.\n\nThe Impact expert is next at 83%, with 30 hours left ⟦ref:operator/ie⟧. Across experts and specialists, 844 of 1,120 hours are committed (75%) ⟦ref:growth_engine/capacity⟧. The Independent technical expert has the most room, at 48%.\n\nBoard-level partners sit outside the hours pool: they are external and each works with one company's board. Desolenator's is active, and a Maritime candidate is in conversation for Project Tern's board. These capacity figures are illustrative.",
+      "caveats": [
+        "Capacity figures are illustrative."
+      ],
       "next_steps": [
-        { "title": "Hold new finance sprints until the second finance hire starts", "detail": "The Finance expert has little room left this quarter; a new sprint would push delivery for current companies.", "target": "/os/growth-engine" }
+        {
+          "title": "Hold new Finance Sprints until the second Finance expert starts",
+          "detail": "The Finance expert has 30 hours left this quarter; a new sprint would push delivery for current companies.",
+          "target": "/os/operating-partners?partner=fe"
+        }
       ]
     },
     {
       "id": "bridge-ledger",
       "scope": "bridge",
       "prompt": "What does Rypples owe us this quarter?",
-      "match": [["owe"], ["commitments"], ["ledger"]],
-      "tools": [{ "name": "get_ledger", "input": { "slug": "desolenator" } }],
-      "text": "Rypples has 6 commitments to Desolenator, and 2 are delivered ⟦ref:ledger/desolenator⟧:\n\n- Plant unit economics at US$1/m³, from the Finance expert, due Fri 27 Nov (in progress).\n- Introductions to 3 infrastructure funds with water mandates, from the board partner, due 15 Dec (in progress).\n- An offtake contract template for public buyers, from the GTM expert, due 19 Dec (not started).\n- A decision on a first-loss position in plant SPV #1, from the Rypples investment team, by 31 Jan (open).\n\nThe plant-level model review and your seat in Ocean Scalers, Circle 02 are delivered. You can rate both from Bridge home ⟦ref:ledger/desolenator⟧.",
+      "match": [
+        [
+          "owe"
+        ],
+        [
+          "commitments"
+        ],
+        [
+          "ledger"
+        ]
+      ],
+      "tools": [
+        {
+          "name": "get_ledger",
+          "input": {
+            "slug": "desolenator"
+          }
+        }
+      ],
+      "text": "Rypples has 6 commitments to Desolenator, and 2 are delivered ⟦ref:ledger/desolenator⟧:\n\n- Plant unit economics at US$1/m³, from the Finance expert, due Fri 27 Nov (in progress).\n- Introductions to 3 infrastructure funds with water mandates, from the board-level partner, due 15 Dec (in progress).\n- An offtake contract template for public buyers, from the GTM expert, due 19 Dec (not started).\n- A decision on a first-loss position in plant SPV #1, from the Rypples investment team, by 31 Jan (open).\n\nThe plant-level model review and your seat in Ocean Scalers, Circle 02 are delivered. You can rate both from your Rypples Engine home ⟦ref:ledger/desolenator⟧.",
       "caveats": [],
       "next_steps": []
     },
@@ -87,9 +241,21 @@
       "id": "bridge-pack",
       "scope": "bridge",
       "prompt": "Where is our board pack?",
-      "match": [["board", "pack"]],
-      "tools": [{ "name": "get_board_pack_status", "input": { "slug": "desolenator" } }],
-      "text": "Your Q4 2026 board pack for Thu 26 Nov is drafting ⟦ref:board_pack/pack-desolenator-q4⟧. Financials and KPIs and plan progress are ready, and the asks of the board are drafted for your review.\n\nThree sections still need you: the CEO letter, pilots and plant pipeline, and operations and uptime. Captain can draft the letter from your Bridge records when you open it.",
+      "match": [
+        [
+          "board",
+          "pack"
+        ]
+      ],
+      "tools": [
+        {
+          "name": "get_board_pack_status",
+          "input": {
+            "slug": "desolenator"
+          }
+        }
+      ],
+      "text": "Your Q4 2026 board pack for Thu 26 Nov is drafting ⟦ref:board_pack/pack-desolenator-q4⟧. Financials and KPIs and plan progress are ready, and the asks of the board are drafted for your review.\n\nThree sections still need you: the CEO letter, pilots and plant pipeline, and operations and uptime. Captain can draft the letter from your Rypples Engine records when you open it.",
       "caveats": [],
       "next_steps": []
     },
@@ -97,8 +263,22 @@
       "id": "bridge-programs",
       "scope": "bridge",
       "prompt": "Which programs are we using?",
-      "match": [["programs"], ["allocation"]],
-      "tools": [{ "name": "get_allocation", "input": { "slug": "desolenator" } }],
+      "match": [
+        [
+          "programs"
+        ],
+        [
+          "allocation"
+        ]
+      ],
+      "tools": [
+        {
+          "name": "get_allocation",
+          "input": {
+            "slug": "desolenator"
+          }
+        }
+      ],
       "text": "Your allocation for 2026 is 3 programs and 400 hours from the term sheet; 2 programs and 120 hours are in use ⟦ref:allocation/desolenator⟧.\n\nThe Plant and Fleet Finance Sprint is in week 4 of 6 with the Finance expert, and Key Hire is running with the People expert. A Field Reliability Review (40 hours) is proposed and would use the third program ⟦ref:allocation/desolenator⟧.",
       "caveats": [],
       "next_steps": []

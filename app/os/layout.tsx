@@ -14,23 +14,24 @@ export default async function OsLayout({ children }: { children: React.ReactNode
   return (
     <AppShell
       product="OS"
-      homeHref="/os"
+      homeHref="/"
       nav={[
         { href: "/os", label: "Home", icon: "home", badge: shell.openDecisions, exact: true },
         { href: "/os/portfolio", label: "Portfolio", icon: "portfolio" },
         { href: "/os/playbook", label: "Playbook", icon: "book" },
-        { href: "/os/growth-engine", label: "Growth Engine", icon: "engine" },
+        { href: "/os/operating-partners", label: "Operating partners", icon: "handshake" },
+        { href: "/os/founder-programs", label: "Founder programs", icon: "engine" },
         { href: "/os/pipeline", label: "Pipeline", icon: "pipeline" },
-        { href: "/os/reporting", label: "Reporting", icon: "report" },
+        { href: "/os/investor-relations", label: "Investor relations", icon: "report" },
       ]}
       boardSeats={shell.boardSeats}
       profile={{
         name: "Jerome Ternynck",
-        title: "Co-founder & CEO",
+        title: "Co-founder",
         initials: "JT",
         photo: photoFor("jerome"),
-        href: "/bridge/desolenator",
-        switchLabel: "Open Rypples Bridge",
+        href: "/engine/desolenator",
+        switchLabel: "Open Rypples Engine",
       }}
       captainScope={{ kind: "os" }}
     >

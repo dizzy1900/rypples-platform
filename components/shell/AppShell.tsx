@@ -39,12 +39,13 @@ const ICONS = {
 };
 
 export type ShellProps = {
-  product: "OS" | "Bridge";
+  product: "OS" | "Engine";
   nav: NavItem[];
   companyBlock?: { name: string; meta: string } | null;
   boardSeats?: { slug: string; name: string; nextBoard: string; added: boolean }[];
   profile: { name: string; title: string; initials: string; photo: string | null; href: string; switchLabel: string };
   captainScope: { kind: "os" } | { kind: "bridge"; slug: string; companyName: string };
+  /** Where the Rypples logo goes: the landing page, for both apps. */
   homeHref: string;
   children: ReactNode;
 };

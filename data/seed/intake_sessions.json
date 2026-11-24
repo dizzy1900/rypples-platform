@@ -3,18 +3,18 @@
     "id": "intake-deso-prep",
     "kind": "board",
     "title": "Desolenator board prep call",
-    "who_label": "Board partner · Thu 19 Nov",
+    "who_label": "Board-level partner · Thu 19 Nov",
     "held_offset": -4,
-    "outcome": "1 lesson proposed: price the first plant on total cost of water. 2 actions added to missions.",
+    "outcome": "1 lesson proposed: price the first plant on total cost of ownership, not capex. 2 actions added to missions.",
     "confidential": false,
     "cta": "Review",
     "proposed_lesson": {
       "id": "lesson-total-cost-water",
-      "title": "Price the first plant on total cost of water",
+      "title": "Price the first plant on total cost of ownership, not capex",
       "domain_id": "financing"
     },
     "actions": [
-      "Share the plant unit economics with the board partner",
+      "Share the plant unit economics with the board-level partner",
       "Draft the fund shortlist for introductions"
     ],
     "provenance": "illustrative",
@@ -33,7 +33,7 @@
     "actions": [
       "Update the restoration site cash flow",
       "Check carbon credit pre-sale terms",
-      "Send the model to the board partner"
+      "Send the model to the board-level partner"
     ],
     "provenance": "illustrative",
     "firm_id": "rypples"

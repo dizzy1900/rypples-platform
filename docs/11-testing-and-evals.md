@@ -9,13 +9,13 @@ All suites run with `pnpm test` (unit and integration), `pnpm e2e` (Playwright) 
 | `lib/scenario` | Day 39 on 2026-11-23; startup rejects a non-Monday `SCENARIO_DATE`; relative offsets resolve to the right weekday |
 | `lib/domain/portfolio-stats` | All derived checks in `docs/05-seed-data.md` §3 (stuck counts 5/4/2, over benchmark 2, backed 13, firm rating 4.4) |
 | `lib/domain/benchmarks` | Outside source below 8 cases and Rypples median at 8 or more (synthetic 8-case fixture); rolling median window 4 on the 14 seeded cases |
-| `lib/domain/capacity` | Firm capacity 1,180 / 1,600; FE tightest; F7 allocation outcome (Key Hire and Pilot to Contract start, Finance Sprint deferred because FE has 30h left; Maritime board partner 2 → 3 of 3) |
+| `lib/domain/capacity` | Firm capacity 844 / 1,120 (active experts and specialists only); FE tightest; F7 allocation outcome (Key Hire and Pilot to Contract start, Finance Sprint deferred because FE has 30h left; the Maritime board-level candidate moves to onboarding for Tern) |
 | `lib/domain/program-map` | Every intent maps to exactly one program |
 | `lib/geo/score` | Weight normalisation; tie-breaks; deterministic ranking for a fixed fixture; the 2030 toggle swaps the indicator |
 | Projections | Seed plus events fold correctly for each event type in `docs/04-data-model.md` §11; another session's events never leak |
 | Seed validation | Every seed file parses with its zod schema; every `public` row has a `source_id` that exists; no `illustrative` value is rendered without the marker (component test) |
 | AI schemas | zod ↔ JSON Schema round trip; validators reject unknown evidence IDs, missing evidence for non-null scores, and figures in F6 text segments |
-| Guardrails | The numeric grounding check flags untraced numbers and accepts formatted equivalents (1,180 vs 1180; 4.4 vs 4.40) |
+| Guardrails | The numeric grounding check flags untraced numbers and accepts formatted equivalents (1,120 vs 1120; 4.4 vs 4.40) |
 | Pricing config | Every configured model has prices |
 
 ## 2. Integration (`tests/integration`)
@@ -36,11 +36,11 @@ The core journeys run in replay mode, so they are deterministic:
 4. **Diagnostic S5a:** run (replay); 8 domains appear; open an evidence popover; confirm the constraint.
 5. **Any company S5b:** mocked streams for each outcome (ok, declined, ambiguous, insufficient, error); "Add to pipeline" creates a sourced codename deal.
 6. **Playbook:** send is blocked before approval; approve; send to Desolenator; the ripple canvas mounts then unmounts (and is skipped under reduced motion); the replay steps through 4 dates.
-7. **Pipeline → day one:** drag Tern to Led with the mouse, and separately use the keyboard path ("Mark as led"); F7 replay; result panel values; `/bridge/tern` renders; Home shows 14; the rail lists Tern; Reset removes everything.
-8. **Bridge:** rate commitment l2 and check the rating shows on S4; dispute the constraint and check the decision appears on S1; the WSense lesson appears after it's sent; the board pack can't be shared until sections are ready; F5 replay drafts the letter; share, then check S4 Board history updates.
+7. **Pipeline → day one:** drag Tern to Led with the mouse, and separately use the keyboard path ("Mark as led"); F7 replay; result panel values; `/engine/tern` renders; Home shows 14; the rail lists Tern; Reset removes everything.
+8. **Engine:** rate commitment l2 and check the rating shows on S4; dispute the constraint and check the decision appears on S1; the WSense lesson appears after it's sent; the board pack can't be shared until sections are ready; F5 replay drafts the letter; share, then check S4 Board history updates.
 9. **Capital:** shortlist toggles; pilot stage confirmation feeds the board pack pilots section.
 10. **How Rypples works:** requesting a program raises "used" to 3, after which the remaining buttons are disabled.
-11. **Reporting:** a reference popover resolves; the Acceleration chart renders; the People domain filter shows 5 of 8.
+11. **Investor relations:** a reference popover resolves; the Acceleration chart renders; the People domain filter shows 5 of 8.
 12. **Connect:** the URL copies; the tool list renders.
 13. **Session isolation:** two browser contexts. Actions in A are not visible in B.
 

@@ -15,7 +15,7 @@ const VALID: Record<string, Record<string, unknown>> = {
   get_benchmarks: {},
   search_playbook: {},
   get_lesson: { id: "wsense-strategic" },
-  get_growth_engine: {},
+  get_operating_partners: {},
   get_allocation: { slug: "desolenator" },
   get_ledger: { slug: "desolenator" },
   list_pipeline: {},

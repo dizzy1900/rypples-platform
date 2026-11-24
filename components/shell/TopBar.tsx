@@ -6,11 +6,12 @@ import { IconWheel } from "@/components/ui/icons";
 
 export type Crumb = { label: string; href?: string };
 
-/** Breadcrumb (real links) + the Ask Captain bar. Rendered at the top of every OS/Bridge page. */
+/** Breadcrumb (real links) + the Ask Captain bar. Rendered at the top of every OS and Rypples Engine page. Home is the rail's first item, so it is not repeated here. */
 export function TopBar({ crumbs, placeholder = "Ask Captain" }: { crumbs: Crumb[]; placeholder?: string }) {
   const { open } = useCaptain();
   return (
     <div className="no-print flex flex-wrap items-center justify-between gap-4 border-b border-line px-10 py-4 max-sm:px-5">
+      {crumbs.length > 0 ? (
       <nav aria-label="Breadcrumb" className="min-w-0">
         <ol className="flex flex-wrap items-center gap-2 text-[13px]">
           {crumbs.map((c, i) => (
@@ -29,6 +30,9 @@ export function TopBar({ crumbs, placeholder = "Ask Captain" }: { crumbs: Crumb[
           ))}
         </ol>
       </nav>
+      ) : (
+        <span aria-hidden />
+      )}
       <button
         type="button"
         onClick={() => open()}

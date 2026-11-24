@@ -72,7 +72,7 @@ Load fonts with `next/font/google`: Syne at weights 500/600/700 and Montserrat a
 | Meta | Montserrat 500, 12px/1.4, ink-3 |
 | Big number | Syne 500, 40px/1, −0.03em |
 | Company name (cards) | Syne 700, 24px |
-| Wordmark | The official Rypples logo (`public/brand/rypples-logo.svg`, white and light blue, 197 × 51, for dark grounds) via `RypplesLogo`, then a 1px line-2 divider and the product label ("OS" / "Bridge") Montserrat 600 11px, tracking 0.2em, uppercase, lime |
+| Wordmark | The official Rypples logo (`public/brand/rypples-logo.svg`, white and light blue, 197 × 51, for dark grounds) via `RypplesLogo`, then a 1px line-2 divider and the product label ("OS" / "Engine") Montserrat 600 11px, tracking 0.2em, uppercase, lime |
 
 Use sentence case everywhere except eyebrows and nav labels.
 
@@ -82,7 +82,7 @@ Use sentence case everywhere except eyebrows and nav labels.
 
 - **Rail:**
   - The Rypples logo and product label (the wordmark row in §2).
-  - Nav items: Home (with a count badge for open decisions), Portfolio, Playbook, Growth Engine, Pipeline, Reporting.
+  - Nav items: Home (with a count badge for open decisions), Portfolio, Playbook, Operating partners, Founder programs, Pipeline, Investor relations.
   - A "Board seats" section listing companies where Rypples holds a seat, each showing the next board day.
   - Profile block at the bottom (avatar, name, title). It links to the other product.
   - Nav item style: 9×12px padding, radius 10px. Active state is lime-10 fill with a lime icon stroke. Icons are 18px line icons, 1.5px stroke, round caps.
@@ -91,13 +91,13 @@ Use sentence case everywhere except eyebrows and nav labels.
   - **Ask Captain** bar on the right: a well background with a ship's-wheel icon in lime. Placeholder text is contextual ("Ask Captain about Desolenator"). Shows a `⌘K` badge. Clicking it, or pressing ⌘K or Ctrl+K, opens the Captain drawer.
 - **Page:** padding 36px 40px 64px, vertical gap 32px.
 
-**Rypples Bridge layout:** the same shell, with these differences:
+**Rypples Engine layout:** the same shell, with these differences:
 
-- The wordmark product label reads "Bridge".
+- The wordmark product label reads "Engine".
 - Below the wordmark is a company block ("Desolenator · Ocean Health · Europe").
 - Nav: Home, Board pack, Plant capital, How Rypples works.
 - Profile shows the founder.
-- In Bridge, Ask Captain is founder-scoped (see `docs/07-ai.md` F3).
+- In Engine, Ask Captain is founder-scoped (see `docs/07-ai.md` F3).
 
 **Welcome:** a full-bleed abyss background with faint large arcs (radial circles at 2.5% white). The content sits on stacked panels with 80px top radius and the sheet shadow, mirroring the rypples.earth home page.
 
@@ -115,6 +115,7 @@ Build these in `components/ui` (shadcn primitives restyled) and `components/rypp
 | `Illustrative` | wraps any illustrative value: 1px dotted bottom border at white 50%, tooltip "Illustrative figure". Required wherever `provenance = illustrative` |
 | `SourceChip` | small outline link (meta size) with a source favicon-free label, e.g. "Republic deal note". Opens in a new tab. Record chips (internal) link to the route |
 | `Tabs` (`ftab`) | rypples.earth filter-tab style: uppercase 12px tracked labels, active state = ink plus a 2px lime underline. URL-synced via a `?tab=` search param |
+| `SegmentedFilter` | labelled single-choice filter: eyebrow label over a `well` track (10px radius, 3px inset) of segments, "All" first, each with a count; active segment = lime-10 fill, lime text; segments with no matches are disabled. Used on Operating partners inside a `surface` filter bar with "Showing X of Y · Clear filters" |
 | `ScoreBar` | five 6px segments. Lime when it's the binding domain, ink-2 otherwise, off = white 10%. Score 0 or null renders "Evidence gap" in ink-3 italic |
 | `DaysBar` | track to 1.5× benchmark. A white tick marks the benchmark. Fill is lime for the focus company, amber over benchmark, white 50% otherwise. Label "39 of 120 days · outside ref" |
 | `StatusDot` | 7px dot: lime = done/ready, amber = at risk or needs you, white 40% = open or not started |
@@ -123,7 +124,7 @@ Build these in `components/ui` (shadcn primitives restyled) and `components/rypp
 | `ProgressSteps` | vertical list of steps (waiting / running / done) for streamed AI flows. Running shows a 1.5px lime arc spinner, not a skeleton shimmer |
 | `Drawer` | right drawer, width min(600px, 100vw), ocean surface, left border line, scrim at abyss 55% |
 | `Paper` | document surface for board pack preview, shareholder update and schedule. Paper background, paper ink, Montserrat 300 body, Syne headings, max 720px, print-ready |
-| `DotGrid` | the 100-company grid on Home: 10×10, 10px dots, 6px gap. Lime = active public, lime at 45% = active not announced, lime ring = exit, white 8% = future |
+| `DotGrid` | the 100-company grid on Home: 10×10, 10px dots, 6px gap. `compact` variant for the Home summary strip: 20×5, 6px dots, 3px gap. Lime = active public, lime at 45% = active not announced, lime ring = exit, white 8% = future |
 | `MarketMap` | SVG choropleth (see `docs/09-geodata.md` §5) |
 | `LearningCurve` | chart (see `docs/06-screens.md` S9). Use the dataviz conventions in §7 |
 | `RippleCanvas` | the WebGL ripple (§9) |

@@ -13,7 +13,7 @@
  */
 import fs from "node:fs";
 import path from "node:path";
-import { arg, flag, loadEnv, requireKey } from "./ai-env";
+import { arg, flag, loadEnv, requireKey, spendLedger } from "./ai-env";
 
 type Ev = { type: string; id?: string; data?: unknown; message?: string };
 type Check = { name: string; pass: boolean | null; detail?: string };
@@ -32,6 +32,8 @@ async function main() {
   const useJudge = !flag("no-judge") && (!offline || flag("judge"));
   if (!offline || useJudge) requireKey(offline ? "evals --judge" : "evals (or pass --offline)");
   process.env.LIVE_AI = offline ? "off" : "on";
+  const ledger = !offline || useJudge ? await spendLedger("evals") : null;
+  if (ledger) console.log(`Total AI spend so far: $${(await ledger.guard()).toFixed(2)} of $${ledger.cap}.`);
 
   const { ulid } = await import("ulid");
   const { newTracker, structuredCall, plain } = await import("@/lib/ai/client");
@@ -71,6 +73,7 @@ async function main() {
   const seed = getSeedState();
 
   async function run(def: AnyDef, rawInput: unknown) {
+    if (!offline) await ledger?.guard();
     const r = {
       flow: def.flow,
       input: def.input.parse(rawInput),
@@ -91,11 +94,13 @@ async function main() {
       if (e.type === "error" || e.type === "fallback") failure = `${e.type}: ${e.message ?? ""}`;
     }
     flowCost += r.tracker.cost_usd;
+    await ledger?.record(def.flow, r.tracker.cost_usd, r.tracker.models);
     return { run: r, result, failure };
   }
 
   async function judge(text: string, evidence: string): Promise<Check> {
     if (!useJudge) return check("judge", null, "judge skipped");
+    await ledger?.guard();
     const t = newTracker("diagnostic", true);
     try {
       const v = await structuredCall(t, {
@@ -111,6 +116,7 @@ async function main() {
       return check("judge", false, `judge call failed: ${(err as Error).message}`);
     } finally {
       judgeCost += t.cost_usd;
+      await ledger?.record("evals-judge", t.cost_usd, t.models);
     }
   }
 
@@ -288,7 +294,7 @@ async function main() {
     const { result, failure } = await run(dayOneFlow as unknown as AnyDef, c.input);
     if (!result) return [check("result", false, failure ?? "no result")];
     const d = result as F7;
-    const e = c.expect as { binding_domain: string; priorities: number; started: string[]; deferred: string[]; hours_started: number; partner_seats: [number, number] };
+    const e = c.expect as { binding_domain: string; priorities: number; started: string[]; deferred: string[]; hours_started: number; partner_onboarding: string };
     const same = (a: string[], b: string[]) => a.length === b.length && a.every((x) => b.includes(x));
     return [
       check("binding domain", d.binding.domain === e.binding_domain, `got ${d.binding.domain}`),
@@ -296,7 +302,7 @@ async function main() {
       check("started programs", same(d.started.map((x) => x.program_id), e.started), d.started.map((x) => x.program_id).join(", ")),
       check("deferred programs", same(d.deferred.map((x) => x.program_id), e.deferred), d.deferred.map((x) => x.program_id).join(", ")),
       check("hours started", d.hours_started === e.hours_started, `got ${d.hours_started}`),
-      check("board partner seats", !!d.partner && d.partner.seats_used === e.partner_seats[0] && d.partner.seats_total === e.partner_seats[1], d.partner ? `${d.partner.seats_used} of ${d.partner.seats_total}` : "no partner"),
+      check("board-level partner onboarding", !!d.partner && d.partner.operator_id === e.partner_onboarding && d.partner.stage === "onboarding", d.partner ? `${d.partner.operator_id} → ${d.partner.stage}` : "no partner"),
     ];
   }
 

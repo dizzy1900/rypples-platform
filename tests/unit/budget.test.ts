@@ -1,11 +1,28 @@
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { __resetKv, getKv } from "@/lib/redis";
-import { __setBudgetConfig, CIRCUIT, getMode, keys, recordApiError, recordApiSuccess, recordRun, recordSpend, spendToday } from "@/lib/ai/budget";
+import { __resetMemoryStore } from "@/lib/data/store";
+import { getStore } from "@/lib/data";
+import {
+  __resetSpendCache,
+  __setBudgetConfig,
+  CIRCUIT,
+  getMode,
+  keys,
+  recordApiError,
+  recordApiSuccess,
+  recordRun,
+  recordSpend,
+  spendToday,
+  spendTotal,
+} from "@/lib/ai/budget";
 
-const CFG = { liveAi: true, hasKey: true, dailyUsd: 10, f2DailyRuns: 3, priorityUsd: 5 };
+// A $15 lifetime cap with $5 kept for the priority link: public visitors stop at $10.
+const CFG = { liveAi: true, hasKey: true, totalUsd: 15, priorityReserveUsd: 5, f2DailyRuns: 3 };
 
 beforeEach(() => {
   __resetKv();
+  __resetMemoryStore();
+  __resetSpendCache();
   __setBudgetConfig(CFG);
 });
 afterEach(() => __setBudgetConfig(null));
@@ -18,7 +35,7 @@ describe("budget and mode (docs/10 §1)", () => {
     expect(await getMode("diagnostic", { priority: true })).toMatchObject({ mode: "cached", reason: "disabled" });
   });
 
-  it("is live under the cap, soft at 80%, cached at 100%", async () => {
+  it("is live under the public share, soft at 80% of it, cached once it is used", async () => {
     expect(await getMode("captain", { priority: false })).toEqual({ mode: "live", soft: false, viaPriority: false });
     await recordSpend("captain", 8.1, { viaPriority: false });
     expect(await getMode("captain", { priority: false })).toMatchObject({ mode: "live", soft: true });
@@ -26,12 +43,47 @@ describe("budget and mode (docs/10 §1)", () => {
     expect(await getMode("captain", { priority: false })).toMatchObject({ mode: "cached", reason: "budget" });
   });
 
-  it("lets the priority cookie bypass the public cap up to its own budget", async () => {
+  it("lets the priority cookie use the reserve, and stops everyone at the total", async () => {
     await recordSpend("captain", 10, { viaPriority: false });
+    expect(await getMode("captain", { priority: false })).toMatchObject({ mode: "cached", reason: "budget" });
     expect(await getMode("captain", { priority: true })).toEqual({ mode: "live", soft: false, viaPriority: true });
     await recordSpend("captain", 5, { viaPriority: true });
     expect(await getMode("captain", { priority: true })).toMatchObject({ mode: "cached", reason: "budget" });
     expect(await spendToday()).toEqual({ public: 10, priority: 5 });
+    expect(await spendTotal()).toBe(15);
+  });
+
+  it("is a lifetime total, not a daily one: spend recorded on earlier days still counts", async () => {
+    await getKv().incrFloat(keys.spend("2026-11-01"), 9, 86400);
+    expect(await getMode("captain", { priority: false })).toMatchObject({ mode: "live" });
+    await getKv().set(keys.total, "15");
+    expect(await getMode("captain", { priority: true })).toMatchObject({ mode: "cached", reason: "budget" });
+  });
+
+  it("reads durable spend from agent_runs, so the cap holds across instances and scripts", async () => {
+    const run = (id: string, usd: number) => ({
+      id,
+      firm_id: "rypples",
+      flow: "diagnostic",
+      input: { source: "precompute" },
+      status: "ok" as const,
+      started_at: "2026-11-23T09:00:00Z",
+      finished_at: "2026-11-23T09:01:00Z",
+      model: "claude-sonnet-5-5",
+      prompt_version: null,
+      usage: {},
+      searches: 0,
+      fetches: 0,
+      est_cost_usd: usd,
+      mode: "live" as const,
+      session_id: null,
+      ip_hash: null,
+      error: null,
+    });
+    await getStore().putAgentRun(run("a", 6));
+    await getStore().putAgentRun(run("b", 9));
+    expect(await spendTotal()).toBe(15);
+    expect(await getMode("captain", { priority: true })).toMatchObject({ mode: "cached", reason: "budget" });
   });
 
   it("caps F2 live runs per day independently of spend", async () => {

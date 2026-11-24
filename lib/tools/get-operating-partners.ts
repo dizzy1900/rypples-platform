@@ -1,13 +1,13 @@
 import { z } from "zod";
-import { firmCapacity, hoursLeft, operatorLoad } from "@/lib/domain/capacity";
+import { firmCapacity, hoursLeft, inHoursPool, operatorLoad } from "@/lib/domain/capacity";
 import { allow, defineTool, isFounder, ref, stateFor } from "./types";
 
 const SCOPES = ["rypples", "public", "founder"] as const;
-export const getGrowthEngine = defineTool({
-  name: "get_growth_engine",
-  title: "Growth Engine",
+export const getOperatingPartners = defineTool({
+  name: "get_operating_partners",
+  title: "Operating partners and programs",
   description:
-    "The Growth Engine: the program catalogue (domain, weeks, hours, outcome, who delivers it), firm operator capacity this quarter, each operator by role with hours committed, hours left and load, board-partner seats, and who is being recruited. Use for capacity questions. Founders see the catalogue only.",
+    "Operating partners and the programs they deliver: the program catalogue (domain, weeks, hours, outcome, who delivers it), expert hours this quarter, each active expert or specialist with hours committed, hours left and load, board-level partners (external, one company each), and partners still being found or onboarded. Use for capacity questions. Founders see the catalogue only.",
   input: z.object({}).strict(),
   scopes: [...SCOPES],
   readOnly: true,
@@ -20,7 +20,8 @@ export const getGrowthEngine = defineTool({
     const data = {
       catalogue,
       capacity: { hours_committed: cap.committed, hours_total: cap.total, pct_committed: Math.round(cap.pct * 100) },
-      operators: [...s.operators]
+      operators: s.operators
+        .filter(inHoursPool)
         .sort((a, b) => operatorLoad(b) - operatorLoad(a))
         .map((o) => ({
           id: o.id,
@@ -30,11 +31,14 @@ export const getGrowthEngine = defineTool({
           hours_committed: o.hours_committed,
           hours_left: hoursLeft(o),
           pct_committed: Math.round(operatorLoad(o) * 100),
-          seats_total: o.seats_total,
-          seats_used: o.seats_used,
           covers: o.covers.map((id) => s.companies.find((c) => c.id === id)?.name ?? id),
         })),
-      recruiting: s.partner_recruiting.map((r) => ({ role: r.role, state: r.state, note: r.note })),
+      board_level_partners: s.operators
+        .filter((o) => o.role_key === "board_partner" && o.stage === "active")
+        .map((o) => ({ id: o.id, focus: o.focus, company: o.covers.map((id) => s.companies.find((c) => c.id === id)?.name ?? id)[0] ?? null })),
+      finding_and_onboarding: s.operators
+        .filter((o) => o.stage !== "active")
+        .map((o) => ({ role: o.role, focus: o.focus, stage: o.stage.replace("_", " "), note: o.stage_note })),
       provenance: "illustrative",
     };
     const tight = data.operators.filter((o) => o.pct_committed >= 80);

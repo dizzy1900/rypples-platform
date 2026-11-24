@@ -45,11 +45,12 @@ The prototype is built so the real platform can grow from it without a rewrite. 
 │  │  ├─ diagnostic/new/page.tsx       # S5b input
 │  │  ├─ diagnostic/runs/[runId]/page.tsx       # S5b result
 │  │  ├─ playbook/page.tsx             # S6
-│  │  ├─ growth-engine/page.tsx        # S7
+│  │  ├─ operating-partners/page.tsx   # S7
+│  │  ├─ founder-programs/page.tsx     # S7b
 │  │  ├─ pipeline/page.tsx             # S8
-│  │  └─ reporting/page.tsx            # S9
-│  ├─ bridge/[slug]/
-│  │  ├─ layout.tsx                    # Bridge shell
+│  │  └─ investor-relations/page.tsx   # S9
+│  ├─ engine/[slug]/
+│  │  ├─ layout.tsx                    # Engine shell
 │  │  ├─ page.tsx                      # S11
 │  │  ├─ board-pack/page.tsx           # S12
 │  │  ├─ capital/page.tsx              # S13
@@ -146,7 +147,7 @@ The URL is public and open, so one visitor must never see another visitor's clic
 - Projections read `seed ∪ events where session_id = current`. Seed records are never mutated.
 - **Reset demo:** a quiet text link in the footer and in the profile menu. It calls `POST /api/demo/reset`, which rotates the session id, so the old events are orphaned and swept after 7 days by a manual script (no scheduled job).
 - AI results that are expensive and not visitor-specific (any-company runs, keyed by normalised domain) are stored without `session_id` and shared, so repeat lookups are cached for everyone.
-- Signed → day one (F7) creates session-scoped records (a new company, plan, allocation, Bridge workspace) only in that visitor's session.
+- Signed → day one (F7) creates session-scoped records (a new company, plan, allocation, Engine workspace) only in that visitor's session.
 
 ## 6. Viewer and permissions
 
@@ -156,7 +157,7 @@ type Viewer =
   | { kind: "founder"; firmId: string; companyId: string; personId: string };
 ```
 
-- `/os/*` resolves to the Rypples viewer. `/bridge/[slug]/*` resolves to that company's founder.
+- `/os/*` resolves to the Rypples viewer. `/engine/[slug]/*` resolves to that company's founder.
 - Every repository method and every tool takes a `Viewer` and enforces scope:
   - A founder sees their own company, lessons sent to them, programs, public portfolio facts and their Ocean Scalers circle (themes only).
   - A founder never sees Rypples OS records: other companies' diagnostics, ratings of others, pipeline, capacity, internal decisions or the shareholder update.

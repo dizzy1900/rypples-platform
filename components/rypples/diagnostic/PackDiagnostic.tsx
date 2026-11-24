@@ -244,7 +244,7 @@ function BindingPanel({
           <p className="meta">{view.confirmed_label ?? "Confirmed by Jerome Ternynck"}</p>
         ) : (
           <>
-            <GeneratedLabel extra="Counts once the board partner or you confirm it." />
+            <GeneratedLabel extra="Counts once the board-level partner or you confirm it." />
             {adjusting ? (
               <form
                 className="flex flex-col gap-3"

@@ -11,6 +11,8 @@ import type {
   Diagnostic,
   DimensionScore,
   Evidence,
+  OnboardingStep,
+  PartnerStage,
   Seed,
 } from "@/lib/domain/schemas";
 import type { DemoEvent } from "./events";
@@ -89,7 +91,7 @@ export type LedCreated = {
   lifecycle: Seed["lifecycle_stages"];
   board_meetings: Seed["board_meetings"];
   founder: Seed["people"][number];
-  operator_updates: { operator_id: string; seats_used?: number; hours_committed?: number }[];
+  operator_updates: { operator_id: string; seats_used?: number; hours_committed?: number; stage?: PartnerStage; stage_note?: string | null; onboarding_done?: OnboardingStep[] }[];
   lesson_ids: string[];
   deferred: { program_id: string; reason: string }[];
   diagnostic: Diagnostic;
@@ -401,6 +403,9 @@ export function fold(seed: Seed, events: DemoEvent[]): State {
             const op = s.operators.find((o) => o.id === u.operator_id);
             if (!op) continue;
             if (u.seats_used != null) op.seats_used = u.seats_used;
+            if (u.stage) op.stage = u.stage;
+            if (u.stage_note !== undefined) op.stage_note = u.stage_note;
+            if (u.onboarding_done) op.onboarding_done = [...new Set([...op.onboarding_done, ...u.onboarding_done])];
             if (u.hours_committed != null) op.hours_committed = u.hours_committed;
             if (!op.covers.includes(c.company.id)) op.covers.push(c.company.id);
           }

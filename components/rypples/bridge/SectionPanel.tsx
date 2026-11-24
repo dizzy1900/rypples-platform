@@ -142,7 +142,7 @@ export function SectionPanel({
             section={section}
             textOverride={previewText}
             draftLabel={showDraftLabel}
-            placeholder={section.key === "letter" ? "Not written yet. The outline below is what Bridge suggests covering." : null}
+            placeholder={section.key === "letter" ? "Not written yet. The outline below is what Rypples Engine suggests covering." : null}
           />
         </Paper>
       </div>
@@ -160,7 +160,7 @@ export function SectionPanel({
             <p className="meta">Demo connection</p>
           </div>
         )}
-        {section.key === "plan" && <p className="text-[14px]">Pulled from your Bridge plan and ledger. Nothing for you to add.</p>}
+        {section.key === "plan" && <p className="text-[14px]">Pulled from your Rypples Engine plan and ledger. Nothing for you to add.</p>}
 
         {mode === "view" && (
           <div className="flex flex-wrap items-center gap-3">

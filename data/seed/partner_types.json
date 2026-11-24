@@ -1,0 +1,83 @@
+[
+  {
+    "id": "board_partner",
+    "label": "Board-level partner",
+    "group": "board_level",
+    "what": "External, not Rypples staff. Works with one portfolio company's board on strategy, senior hires and fundraising.",
+    "sort": 1,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "finance",
+    "label": "Finance expert",
+    "group": "expert",
+    "what": "Project finance, SPVs, unit economics and raise readiness, across the portfolio.",
+    "sort": 2,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "gtm",
+    "label": "Go-To-Market expert",
+    "group": "expert",
+    "what": "Buyer maps, pricing and pilot-to-contract terms, across the portfolio.",
+    "sort": 3,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "people",
+    "label": "People expert",
+    "group": "expert",
+    "what": "Key hires, scorecards and the candidate bench, across the portfolio.",
+    "sort": 4,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "impact",
+    "label": "Impact expert",
+    "group": "specialist",
+    "what": "Impact measurement against the Ocean Impact Navigator.",
+    "sort": 5,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "technical",
+    "label": "Independent technical expert",
+    "group": "specialist",
+    "what": "Field performance and technical risk, independent of the founder.",
+    "sort": 6,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "regulatory",
+    "label": "Regulatory expert",
+    "group": "specialist",
+    "what": "Certification and permitting paths.",
+    "sort": 7,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "legal_ip",
+    "label": "Legal and IP specialist",
+    "group": "specialist",
+    "what": "Patents, licensing and freedom to operate before a raise.",
+    "sort": 8,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  },
+  {
+    "id": "science",
+    "label": "Marine science adviser",
+    "group": "specialist",
+    "what": "Peer review of field and impact data before it reaches investors.",
+    "sort": 9,
+    "provenance": "illustrative",
+    "firm_id": "rypples"
+  }
+]

@@ -36,7 +36,7 @@ export function dealFromRun(run: AnyCompanyResult, codename: string, id: string)
     why: run.synthesis?.rationale ?? "Not enough public evidence yet.",
     evidence_count: run.evidence.length,
     plan_drafts: [],
-    partner_note: "Board partner match: to be decided at first meeting.",
+    partner_note: "Board-level partner match: to be decided at first meeting.",
     lesson_note: run.synthesis?.lesson_ids.length ? "Related Playbook lessons attached to the run." : "No Playbook lesson matched yet.",
     cta_label: "Book first meeting",
     diligence: null,

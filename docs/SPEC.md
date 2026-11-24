@@ -14,8 +14,8 @@ One data model serves two products:
 
 | Product | Who uses it | Demo identity |
 |---|---|---|
-| **Rypples OS** | The Rypples team only. Decisions, portfolio, Playbook, Growth Engine, pipeline, reporting. | Jerome Ternynck, Co-founder & CEO |
-| **Rypples Bridge** | Founders of Anchor companies. Board pack, plan, capital, programs, and a ledger of what Rypples owes them. | Adri Pols, CEO of Desolenator |
+| **Rypples OS** | The Rypples team only. Decisions, portfolio, Playbook, operating partners, founder programs, pipeline, investor relations. | Jerome Ternynck, Co-founder & CEO |
+| **Rypples Engine** | Founders of Anchor companies. Board pack, plan, capital, programs, and a ledger of what Rypples owes them. | Adri Pols, CEO of Desolenator |
 
 **Captain** is the AI layer across both products. Every agent's work surfaces through it. You can query it directly, and it answers with sources. It reaches the platform's records and connected tools through one tool registry, which is also published as a public MCP server.
 
@@ -32,17 +32,17 @@ Each moment must work end to end on the public URL. Moments 1 to 7 are the ones 
 | # | Moment | Where | Detail |
 |---|---|---|---|
 | 1 | **Run it on any ocean company.** Type a name or URL. A live diagnostic comes back with citations: eight domains, binding constraint, programs, lessons, three questions. | OS → Diagnostic → Any company | `docs/06-screens.md` S5b, `docs/07-ai.md` F2 |
-| 2 | **Signed becomes day one.** Drag Project Tern to Led. This generates the 100-day plan, Growth Engine allocation, operating partner match (with a capacity check), schedule, and Tern's founder workspace in Bridge. | OS → Pipeline | S8, F7 |
-| 3 | **Real data behind the constraint.** Desolenator's target markets are ranked by water stress (WRI Aqueduct 4.0) and solar resource (NASA POWER), with the pilots pinned on the map. | OS → Desolenator → Market evidence. Bridge → Plant capital | S4, `docs/09-geodata.md` |
-| 4 | **The Playbook gets faster.** A firm-level learning curve shows days to clear each constraint as cases build up. A replay of WSense from 2023 to 2026 shows how the platform would have read each step. | OS → Reporting → Acceleration. OS → Playbook | S9, S6 |
+| 2 | **Signed becomes day one.** Drag Project Tern to Led. This generates the 100-day plan, Growth Engine allocation, operating partner match (with a capacity check), schedule, and Tern's founder workspace in Engine. | OS → Pipeline | S8, F7 |
+| 3 | **Real data behind the constraint.** Desolenator's target markets are ranked by water stress (WRI Aqueduct 4.0) and solar resource (NASA POWER), with the pilots pinned on the map. | OS → Desolenator → Market evidence. Engine → Plant capital | S4, `docs/09-geodata.md` |
+| 4 | **The Playbook gets faster.** A firm-level learning curve shows days to clear each constraint as cases build up. A replay of WSense from 2023 to 2026 shows how the platform would have read each step. | OS → Investor relations → Acceleration. OS → Playbook | S9, S6 |
 | 5 | **Rypples inside Jerome's own Claude.** A read-only remote MCP server over the public demo data. Add it as a connector and ask questions. | `/api/mcp`, `/connect` | `docs/08-mcp-and-integrations.md` |
-| 6 | **The Growth Engine schedule.** The one-page term-sheet annex, generated per company. | OS → Company → Schedule. Bridge → How Rypples works | S4c, S14 |
+| 6 | **The Growth Engine schedule.** The one-page term-sheet annex, generated per company. | OS → Company → Schedule. Engine → How Rypples works | S4c, S14 |
 | 7 | **One brand ripple.** A single WebGL water ripple, only when a lesson is sent, spreading to the companies receiving it. | OS → Playbook | `docs/02-design-system.md` §9 |
 | 8 | Board pack in, diagnostic out, every score cited | OS → Desolenator → Diagnostic | S5a, F1 |
-| 9 | Founders rate Rypples, and Jerome sees it | Bridge Home, OS Company | S11 |
+| 9 | Founders rate Rypples, and Jerome sees it | Engine Home, OS Company | S11 |
 | 10 | Ask Captain anything, with sources, and see what it did overnight | Captain drawer | S10, F3 |
-| 11 | Bridge drafts the founder's board pack | Bridge → Board pack | S12, F5 |
-| 12 | Traceable shareholder reporting | OS → Reporting | S9, F6 |
+| 11 | Engine drafts the founder's board pack | Engine → Board pack | S12, F5 |
+| 12 | Traceable shareholder reporting | OS → Investor relations | S9, F6 |
 
 ---
 
@@ -68,7 +68,7 @@ Each moment must work end to end on the public URL. Moments 1 to 7 are the ones 
 
 | Route | Screen |
 |---|---|
-| `/` | S0 Welcome (two doors: Rypples OS, Rypples Bridge) |
+| `/` | S0 Welcome (two doors: Rypples OS, Rypples Engine) |
 | `/os` | S1 Jerome's home |
 | `/os/portfolio` | S2 Portfolio |
 | `/os/companies/[slug]` | S4 Company record (full for Desolenator; standard for the others) |
@@ -77,15 +77,16 @@ Each moment must work end to end on the public URL. Moments 1 to 7 are the ones 
 | `/os/diagnostic/new` | S5b Run on any ocean company |
 | `/os/diagnostic/runs/[runId]` | S5b result, shareable |
 | `/os/playbook` | S6 Playbook |
-| `/os/growth-engine` | S7 Growth Engine (tabs: programs, partners, talent, scalers, readiness) |
+| `/os/operating-partners` | S7 Operating partners (CRM table, funnel, record sheet via `?partner=`) |
+| `/os/founder-programs` | S7b Founder programs (tabs: readiness, scalers). `/os/growth-engine` redirects here or to S7 |
 | `/os/pipeline` | S8 Pipeline |
-| `/os/reporting` | S9 Reporting (tabs: update, impact, paths, acceleration) |
+| `/os/investor-relations` | S9 Investor relations (tabs: update, impact, paths, acceleration). `/os/reporting` redirects |
 | any `/os/*` with `?captain=1` | S10 Captain drawer |
-| `/bridge/[slug]` | S11 Bridge home |
-| `/bridge/[slug]/board-pack` | S12 Board pack |
-| `/bridge/[slug]/capital` | S13 Plant capital and customers |
-| `/bridge/[slug]/how-rypples-works` | S14 How Rypples works with you |
-| `/bridge/[slug]/schedule` | S4c schedule, founder view |
+| `/engine/[slug]` | S11 Engine home (`/bridge` URLs redirect) |
+| `/engine/[slug]/board-pack` | S12 Board pack |
+| `/engine/[slug]/capital` | S13 Plant capital and customers |
+| `/engine/[slug]/how-rypples-works` | S14 How Rypples works with you |
+| `/engine/[slug]/schedule` | S4c schedule, founder view |
 | `/connect` | MCP connection page |
 | `/api/mcp` | Public MCP endpoint (Streamable HTTP) |
 

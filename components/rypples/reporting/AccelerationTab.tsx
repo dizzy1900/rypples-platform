@@ -26,7 +26,7 @@ export function AccelerationTab({ view }: { view: View }) {
             options={view.domains.map((d) => ({ key: d.slug, label: d.label }))}
           />
           <p className="meta" aria-live="polite" data-testid="case-count">
-            {sel ? `${sel.n} of ${view.threshold} cases · benchmark switches to Rypples data at ${view.threshold}` : `${view.total} cleared cases across ${view.domains.length} domains`}
+            {sel ? `${sel.n} of ${view.threshold} cases · benchmark switches to Rypples data at ${view.threshold}` : `${view.total} cleared cases across ${view.domains.filter((d) => view.cases.some((c) => c.domain_id === d.slug)).length} of ${view.domains.length} domains`}
           </p>
           <LearningCurve cases={view.cases} benchmarks={view.benchmarks} domain={domain} domainLabels={labels} />
         </Tile>

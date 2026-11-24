@@ -71,7 +71,7 @@ cleared_cases(id, domain_id, case_label,       -- "Case 1"… anonymised, never 
 
 **Benchmark rule** (`lib/domain/benchmarks.ts`): for each domain, if `count(cleared_cases where domain) >= 8`, use the Rypples median of those cases (`source_kind = 'rypples'`). Otherwise use the seeded outside or blended value. "Days open" = `scenarioDate − opened_at`. "Over benchmark" = days open > the benchmark days for that domain.
 
-## 3. Growth Engine
+## 3. Growth Engine and operating partners
 
 ```sql
 programs(id, slug, name, domain_id, length_weeks, outcome, delivered_by_role, provenance)
@@ -85,10 +85,17 @@ enrolments(id, firm_id, company_id, program_id,
            week int null, of_weeks int null, hours int, operator_id null,
            rating numeric null, provenance, session_id null)
 
-operators(id, firm_id, initials, role, focus,
-          seats_total int null, seats_used int null,          -- board partners
-          hours_quarter int, hours_committed int,             -- experts
-          rating numeric, open_missions int, delivered int, provenance)
+partner_types(id, label, grp,           -- 'board_level' | 'expert' | 'specialist'
+              provenance)              -- open-ended: board_partner, finance, gtm, people, impact,
+                                       -- technical, regulatory, legal_ip, science
+
+operators(id, firm_id, initials, role_key,                    -- free string, references partner_types
+          focus, what, tools,
+          stage,                       -- 'sourcing' | 'in_conversation' | 'onboarding' | 'active'
+          stage_note null, for_deal_id null, onboarding_done int,  -- 4-step checklist
+          engagement,
+          hours_quarter int null, hours_committed int null,   -- experts and specialists only
+          rating numeric null, open_missions int, delivered int, provenance)
 
 operator_coverage(operator_id, company_id)
 
@@ -102,7 +109,6 @@ commitments(id, firm_id, company_id, title, from_label, operator_id null,
 
 talent_roles(id, company_id, role, why, state, provenance)
 bench_groups(id, label, n, provenance)
-partner_recruiting(id, role, state, note, provenance)
 ceo_development(id, company_id, note, provenance)
 
 circles(id, name, theme, session_n, of_n, next_at timestamptz, provenance)
@@ -111,9 +117,11 @@ circle_exclusions(circle_id, company_id, reason)
 circle_commitments(id, circle_id, company_id, text, status, provenance)
 
 readiness_modules(id, n, name, outcome, domain_id)
+readiness_plans(id, company_id, module_n, state,   -- 'not_needed' | 'recommended' | 'in_progress' | 'done'
+                output null, program_id null, provenance)
 ```
 
-**Capacity rule** (`lib/domain/capacity.ts`): a board partner can take a new company if `seats_used < seats_total`. An expert can take a program if `hours_committed + program_hours ≤ hours_quarter`. Firm capacity = sum of committed hours over the sum of quarterly hours (seed: 1,180 of 1,600). Program hours are derived from length: Plant and Fleet Finance Sprint is 60h, and the others follow `docs/05-seed-data.md` §6.
+**Capacity rule** (`lib/domain/capacity.ts`): board-level partners are external, one per portfolio company where Rypples holds a board seat, and sit outside the hours pool. An active expert or specialist can take a program if `hours_committed + program_hours ≤ hours_quarter`. Firm capacity = sum of committed hours over the sum of quarterly hours, active experts and specialists only (seed: 844 of 1,120, 75%). Program hours are derived from length: Plant and Fleet Finance Sprint is 60h, and the others follow `docs/05-seed-data.md` §6.
 
 ## 4. Plans
 
@@ -154,7 +162,7 @@ deals(id, firm_id, codename, vertical, region,
 sourcing_signals(id, codename, vertical, region, signal, provenance)
 ```
 
-## 7. Founder side (Bridge)
+## 7. Founder side (Engine)
 
 ```sql
 board_packs(id, company_id, quarter, meeting_offset int, status, provenance, session_id null)
@@ -211,20 +219,20 @@ Append-only. There are no updates or deletes from the app. Event types:
 | Type | Effect in projection |
 |---|---|
 | `decision.resolved` | Decision leaves "Needs your decision". Home count decrements |
-| `constraint.confirmed` / `constraint.disputed` | Diagnostic status. "I see it differently" opens a note to the board partner |
+| `constraint.confirmed` / `constraint.disputed` | Diagnostic status. "I see it differently" opens a note to the board-level partner |
 | `commitment.rated` | Ledger rating. Company and firm rating averages update |
 | `program.requested` | Enrolment `requested`. Allocation "used" count updates (capped at the total) |
 | `lesson.approved` | Lesson `approved`. Send buttons enable |
-| `lesson.sent` | Match `sent`. Recipient's Bridge home shows the lesson |
+| `lesson.sent` | Match `sent`. Recipient's Engine home shows the lesson |
 | `lesson.useful` | Founder marked it useful. Library "helped" updates |
-| `instrument.shortlisted` / `.unshortlisted` | Bridge capital toggles |
+| `instrument.shortlisted` / `.unshortlisted` | Engine capital toggles |
 | `pilot.stage_confirmed` | Board pack pilots section state |
 | `board_pack.section_saved` / `board_pack.shared` | Board pack state. Sharing creates a `board_pack` diagnostic proposal for Rypples |
 | `proposal.approved` / `proposal.rejected` | Captain next steps and overnight items |
 | `shareholder_update.approved` | Draft locked, "Approved" state |
 | `circle.invites_sent` | Ocean Scalers state |
 | `deal.moved` | Deal stage |
-| `deal.led` | F7 output: creates company, constraint, plan, allocation, enrolments, commitments, schedule, lifecycle, Bridge workspace (all session-scoped). Home counts update (14 backed in session) |
+| `deal.led` | F7 output: creates company, constraint, plan, allocation, enrolments, commitments, schedule, lifecycle, Engine workspace (all session-scoped). Home counts update (14 backed in session) |
 
 ## 12. Projections
 

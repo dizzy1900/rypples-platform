@@ -8,7 +8,7 @@
   },
   {
     "id": "int-bridge",
-    "name": "Bridge",
+    "name": "Rypples Engine",
     "system": "rypples_bridge",
     "demo": false,
     "status": "connected"

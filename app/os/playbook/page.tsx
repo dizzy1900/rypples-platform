@@ -15,22 +15,13 @@ export default async function PlaybookPage() {
   const p = getPlaybook(s);
   return (
     <>
-      <TopBar crumbs={[{ label: "Home", href: "/os" }, { label: "Playbook" }]} placeholder="Ask Captain about the Playbook" />
+      <TopBar crumbs={[{ label: "Playbook" }]} placeholder="Ask Captain about the Playbook" />
       <Page>
         <PageHeader
           eyebrow="Playbook"
           title="What WSense taught us"
           lede="Rypples' first exit, written down so the next three companies don't have to learn it the hard way."
         />
-
-        <Section
-          id="intake"
-          title="Coming in this week"
-          meta="Captain reads board meetings, partner sessions and founder circles from your meeting notes, and proposes lessons. A person approves every one."
-          aside={<span className="meta">{p.intakeCount}</span>}
-        >
-          <IntakeList rows={p.intake} />
-        </Section>
 
         <Section id="lesson" title="The lesson">
           <LessonCard lesson={p.lesson} />
@@ -42,6 +33,15 @@ export default async function PlaybookPage() {
 
         <Section id="travels" title="Who it travels to">
           <Travels travels={p.travels} names={p.names} decisionOpen={p.wsenseDecisionOpen} />
+        </Section>
+
+        <Section
+          id="intake"
+          title="Coming in from the last week"
+          meta="Captain reads board meetings, partner sessions and founder circles from your meeting notes, and proposes lessons. A person approves every one."
+          aside={<span className="meta">{p.intakeCount}</span>}
+        >
+          <IntakeList rows={p.intake} />
         </Section>
 
         <Section id="library" title="More from the Playbook">

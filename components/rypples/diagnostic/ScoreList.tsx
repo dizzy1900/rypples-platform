@@ -1,5 +1,5 @@
 "use client";
-/** Eight Growth Engine domain rows with scores, findings and evidence popovers (S5a, S5b). */
+/** Eight diagnostic domain rows with scores, findings and evidence popovers (S5a, S5b). */
 import { ScoreBar } from "@/components/ui";
 import { Popover, Reveal } from "@/components/ui/client";
 import { IconExternal } from "@/components/ui/icons";
