@@ -72,7 +72,7 @@ Load fonts with `next/font/google`: Syne at weights 500/600/700 and Montserrat a
 | Meta | Montserrat 500, 12px/1.4, ink-3 |
 | Big number | Syne 500, 40px/1, −0.03em |
 | Company name (cards) | Syne 700, 24px |
-| Wordmark | "Rypples" Syne 600 21px −0.02em, plus product label ("OS" / "Bridge") Montserrat 600 11px, tracking 0.2em, uppercase, lime |
+| Wordmark | The official Rypples logo (`public/brand/rypples-logo.svg`, white and light blue, 197 × 51, for dark grounds) via `RypplesLogo`, then a 1px line-2 divider and the product label ("OS" / "Bridge") Montserrat 600 11px, tracking 0.2em, uppercase, lime |
 
 Use sentence case everywhere except eyebrows and nav labels.
 
@@ -81,7 +81,7 @@ Use sentence case everywhere except eyebrows and nav labels.
 **Rypples OS layout:** abyss background. Left rail 232–256px. Stage on the right holds the **sheet**: ocean surface, radius 28px on the top corners, `--shadow-sheet`, 12px inset from the top and right.
 
 - **Rail:**
-  - Logo mark (placeholder: a circle with a lime dot, `public/brand/mark.svg`, swappable) and wordmark.
+  - The Rypples logo and product label (the wordmark row in §2).
   - Nav items: Home (with a count badge for open decisions), Portfolio, Playbook, Growth Engine, Pipeline, Reporting.
   - A "Board seats" section listing companies where Rypples holds a seat, each showing the next board day.
   - Profile block at the bottom (avatar, name, title). It links to the other product.
@@ -156,7 +156,7 @@ Charts are hand-built SVG or d3 scales rendered with React. There is no chart li
 ## 8. Imagery
 
 - People are shown as circular, grayscale portraits (as on rypples.earth) or monogram placeholders. Photo slots: `public/people/{jerome,adri}.jpg`. If a file is missing, the monogram renders.
-- The logo mark is a placeholder in `public/brand/`. Swap it for the real mark when supplied.
+- The official logo and favicon live in `public/brand/` (`rypples-logo.svg`, `favicon.png`, both from rypples.earth). The logo is only placed on dark grounds.
 - There are no stock photos, gradients behind text, or glow effects.
 
 ## 9. The ripple (the one brand moment)
