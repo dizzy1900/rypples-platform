@@ -414,7 +414,7 @@ These come from the demo meeting-notes adapter (`docs/08-mcp-and-integrations.md
 | Investment committee | Project Tern (Maritime · Europe · IC Fri 27 Nov) |
 | Led | (empty; "Anchor rounds led this quarter") |
 
-Header stats: "13 backed in 18 months" and "10 a year to reach 100".
+No header stats on the Pipeline page.
 
 **Project Tern:**
 

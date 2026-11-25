@@ -119,7 +119,10 @@ export function PipelineClient({
     }
   };
 
-  // ── drag with pointer events (mouse and touch) ──
+  // ── drag with pointer events ──
+  // Mouse and pen drag the whole card; touch drags from the grip only, so the page still scrolls.
+  // The card captures the pointer on press, so a quick flick still counts. A press that doesn't
+  // move is a click: it selects the deal (the button's own onClick covers the keyboard).
   const stageAt = (x: number, y: number): StageId | null => {
     const el = document.elementFromPoint(x, y)?.closest("[data-stage]");
     const v = el?.getAttribute("data-stage");
@@ -127,6 +130,7 @@ export function PipelineClient({
   };
   const onDown = (e: React.PointerEvent, id: string) => {
     if (e.pointerType === "mouse" && e.button !== 0) return;
+    if (e.pointerType === "touch" && !(e.target as Element).closest("[data-grip]")) return;
     e.currentTarget.setPointerCapture(e.pointerId);
     dragRef.current = { id, sx: e.clientX, sy: e.clientY, active: false };
   };
@@ -140,11 +144,13 @@ export function PipelineClient({
   const onUp = (e: React.PointerEvent) => {
     const d = dragRef.current;
     dragRef.current = null;
-    if (!d?.active) return;
-    const to = stageAt(e.clientX, e.clientY);
+    if (!d) return;
+    const to = d.active || Math.hypot(e.clientX - d.sx, e.clientY - d.sy) >= 5 ? stageAt(e.clientX, e.clientY) : null;
     setDrag(null);
     const deal = byId(d.id);
-    if (deal && to) requestMove(deal, to);
+    if (!deal) return;
+    if (to) requestMove(deal, to);
+    else if (!d.active) select(deal.id);
   };
   const onCancel = () => {
     dragRef.current = null;
@@ -239,20 +245,21 @@ export function PipelineClient({
                 {list.map((d) => (
                   <div
                     key={d.id}
+                    onPointerDown={(e) => onDown(e, d.id)}
+                    onPointerMove={onMove}
+                    onPointerUp={onUp}
+                    onPointerCancel={onCancel}
                     className={clsx(
-                      "flex items-stretch rounded-item border bg-panel",
+                      "flex select-none items-stretch rounded-item border bg-panel",
                       selectedId === d.id ? "border-lime-30" : "border-line-2",
                       drag?.id === d.id && "opacity-40",
                     )}
                   >
                     <span
+                      data-grip
                       title="Drag to move"
                       aria-hidden="true"
-                      onPointerDown={(e) => onDown(e, d.id)}
-                      onPointerMove={onMove}
-                      onPointerUp={onUp}
-                      onPointerCancel={onCancel}
-                      className="flex w-6 shrink-0 cursor-grab touch-none select-none items-center justify-center text-ink-3 max-sm:hidden"
+                      className="flex w-6 shrink-0 cursor-grab touch-none items-center justify-center text-ink-3 max-sm:hidden"
                     >
                       <svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor" aria-hidden="true">
                         <circle cx="2" cy="3" r="1.3" /><circle cx="8" cy="3" r="1.3" />
@@ -264,7 +271,7 @@ export function PipelineClient({
                       type="button"
                       aria-pressed={selectedId === d.id}
                       onClick={() => select(d.id)}
-                      className="flex flex-1 flex-col gap-1 py-3 pr-3 text-left max-sm:pl-3"
+                      className="flex flex-1 flex-col gap-1 py-3 pr-3 text-left max-sm:pl-3 sm:cursor-grab"
                     >
                       <span className="text-[14px] font-semibold text-ink">{d.codename}</span>
                       <span className="meta">

@@ -301,11 +301,12 @@ Talent has no page of its own: key hires show on each company's page (Programs t
 
 ## S8 Pipeline · `/os/pipeline` (signature moment 2)
 
-**Header:** eyebrow "Pipeline". H1 "Anchor-stage deals". Lede: "Each deal is diligenced with the same diagnostic the portfolio runs on, so the plan exists the day Rypples leads the round." Stats: "13 backed in 18 months" (derived; 14 after F7) and "10 a year to reach 100".
+**Header:** eyebrow "Pipeline". H1 "Anchor-stage deals". Lede: "Each deal is diligenced with the same diagnostic the portfolio runs on, so the plan exists the day Rypples leads the round." No header stats.
 
 **Board:** five columns (Sourced, First meeting, Diligence, Investment committee, Led) with derived counts.
 
 - Cards show the codename, vertical and region, and a note. Selecting a card opens it in the detail panel (`?deal=`).
+- With a mouse, drag a whole card to another column; clicking it without moving selects it. On touch screens, drag by the grip. Phones use the stage selector and the detail panel's next-step button. Dropping on Led goes through the same IC and diligence checks and the day-one confirmation.
 - "Flagged this week (12)" expands the sourcing signals inline.
 
 **Detail panel** for the selected deal:

@@ -22,12 +22,7 @@ export default async function PipelinePage({ searchParams }: { searchParams: Pro
           eyebrow="Pipeline"
           title="Anchor-stage deals"
           lede="Each deal is diligenced with the same diagnostic the portfolio runs on, so the plan exists the day Rypples leads the round."
-        >
-          <p className="flex flex-wrap gap-x-8 gap-y-1 text-[14px] text-ink-2">
-            <span>{view.backed} backed in 18 months</span>
-            <span>10 a year to reach 100</span>
-          </p>
-        </PageHeader>
+        />
         <PipelineClient view={view} initialDealId={initial} closeDate={fullDate(scenarioDate())} />
       </Page>
     </>
