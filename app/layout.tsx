@@ -10,10 +10,15 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 
+const DESCRIPTION =
+  "One platform for Rypples and the companies it anchors: find the one constraint that matters, deliver the help that clears it, and learn from every company.";
+
 export const metadata: Metadata = {
   title: { default: "The Rypples Platform", template: "%s · Rypples" },
-  description:
-    "One platform for Rypples and the companies it anchors: find the one constraint that matters, deliver the help that clears it, and learn from every company.",
+  description: DESCRIPTION,
+  // Link previews (email, LinkedIn, Slack, X). The image comes from app/opengraph-image.tsx.
+  openGraph: { type: "website", siteName: "Rypples", title: "The Rypples Platform", description: DESCRIPTION, locale: "en_GB" },
+  twitter: { card: "summary_large_image", title: "The Rypples Platform", description: DESCRIPTION },
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
   icons: { icon: "/brand/favicon.png", apple: "/brand/favicon.png" },
 };
